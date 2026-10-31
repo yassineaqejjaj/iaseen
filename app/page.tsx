@@ -46,6 +46,7 @@ export default async function Home() {
       <section id="top" style={{ position: "relative", overflow: "hidden", borderBottom: "1px solid var(--line)", background: "radial-gradient(900px 500px at 78% 10%, rgba(106,145,255,.16), transparent 60%), radial-gradient(600px 400px at 10% 90%, rgba(152,228,224,.07), transparent 60%), var(--bg)" }}>
         <div className="wrap" style={{ paddingBlock: "88px 72px", display: "flex", flexWrap: "wrap", gap: 56, alignItems: "center" }}>
           <div style={{ flex: "999 1 560px", minWidth: 0 }}>
+            <p className="display" style={{ margin: "0 0 14px", fontSize: "clamp(22px, 2.4vw, 30px)", letterSpacing: "-0.02em", color: "var(--text)" }}>Yassine Aqejjaj</p>
             <p className="eyebrow" style={{ marginBottom: 24 }}>HEAD OF AI · PRODUCT BUILDER · AI STRATEGIST</p>
             <HeroTitle />
             <p style={{ margin: "28px 0 0", maxWidth: 600, fontSize: 19, lineHeight: 1.6, color: "var(--body)" }}>

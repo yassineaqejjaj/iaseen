@@ -13,6 +13,16 @@ export const metadata: Metadata = {
   openGraph: { title: "Yassine Aqejjaj — I don't just lead AI. I build it.", type: "website" },
 };
 
+const person = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Yassine Aqejjaj",
+  jobTitle: "Head of AI",
+  worksFor: { "@type": "Organization", name: "Devoteam" },
+  url: "https://iaseen.com",
+  sameAs: ["https://www.linkedin.com/in/yassine-aqejjaj/", "https://github.com/yassineaqejjaj"],
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${grotesk.variable}`}>
@@ -21,7 +31,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <script defer data-domain={process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN} src="https://plausible.io/js/script.js" />
         )}
       </head>
-      <body>{children}<PointerGlow /></body>
+      <body>
+        {children}
+        <PointerGlow />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(person) }} />
+      </body>
     </html>
   );
 }

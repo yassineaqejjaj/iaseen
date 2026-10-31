@@ -10,6 +10,7 @@ export default function Header() {
         <Link href="/#top" aria-label="iaseen, back to top" style={{ textDecoration: "none", display: "inline-flex" }}>
           <Logo size={34} />
         </Link>
+        <span className="name-tag" style={{ marginRight: "auto", marginLeft: 4, paddingLeft: 14, borderLeft: "1px solid var(--line)", fontSize: 14, fontWeight: 500, color: "var(--text2)", whiteSpace: "nowrap" }}>Yassine Aqejjaj</span>
         <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "4px 20px", fontSize: 15, fontWeight: 500 }}>
           {links.map(([l, h]) => (
             <Link key={h} href={h} style={{ color: "var(--text2)", textDecoration: "none", padding: "10px 0" }}>{l}</Link>

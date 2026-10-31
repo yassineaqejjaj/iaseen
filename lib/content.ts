@@ -19,7 +19,7 @@ export const profile = {
 export const bio = {
   headline: "Leading AI at scale. Building it myself.",
   paragraphs: [
-    "I'm an AI leader with 13 years of experience building AI products, shaping enterprise AI operating models and leading cross-functional delivery across defence, public services, retail and financial services. Since 2023 I head the AI Factory at Devoteam, where internal platform development, client delivery and workforce enablement come together.",
+    "I'm Yassine Aqejjaj, an AI leader with 13 years of experience building AI products, shaping enterprise AI operating models and leading cross-functional delivery across defence, public services, retail and financial services. Since 2023 I head the AI Factory at Devoteam, where internal platform development, client delivery and workforce enablement come together.",
     "I started in digital banking in Casablanca, then moved to Paris to work on AI products at Carrefour, Fujitsu and AXA. Along the way I trained in machine learning at Stanford and in AI product management at Duke. Today I lead the NOVA Suite, our agentic platform used by 3,000+ people, and I've trained 1,500+ professionals in generative AI, agentic AI and RAG.",
     "I also build on my own: TrustRail, MedGuard AI, M3aya Santé and the TRAIL Academy learning platform I founded. I share what I learn in four books and on stage, including Google Cloud Summit and AICamp. I focus on agentic AI, responsible deployment and measurable business adoption.",
   ],

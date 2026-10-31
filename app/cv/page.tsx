@@ -3,7 +3,7 @@ import PrintButton from "@/components/PrintButton";
 export const metadata = { title: "CV — Yassine Aqejjaj" };
 export default function Page() {
   return (
-    <article className="wrap" style={{ maxWidth: 780, paddingBlock: 48 }}>
+    <div className="light-page"><article className="wrap" style={{ maxWidth: 780, paddingBlock: 48 }}>
       <div style={{ display: "flex", justifyContent: "space-between", gap: 16, alignItems: "flex-start", marginBottom: 32 }}>
         <div>
           <h1 className="display" style={{ margin: 0, fontSize: 40 }}>{profile.name}</h1>
@@ -29,6 +29,6 @@ export default function Page() {
       <p style={{ fontSize: 14, lineHeight: 1.6 }}>MSc Strategic Marketing, IAE Nice (2015–2016) · MSc Strategic Marketing, Mundiapolis (2014–2015) · Machine Learning, Stanford (2020–2021) · AI Product Management, Duke University / Pratt School of Engineering (2024–2025)</p>
       <h2 className="eyebrow" style={{ marginTop: 32 }}>LANGUAGES</h2>
       <p style={{ fontSize: 14 }}>French (native) · Arabic (native) · English (professional)</p>
-    </article>
+    </article></div>
   );
 }

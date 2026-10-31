@@ -1,25 +1,27 @@
-import { LOGO_PATHS, LOGO_FILES, LOGO_ORIGINAL } from "@/lib/logos";
+import { LOGO_PATHS, LOGO_FILES, LOGO_COLOUR } from "@/lib/logos";
 
-const NAMES: Record<string, string> = { thales: "THALES", decathlon: "DECATHLON", carrefour: "Carrefour", fujitsu: "FUJITSU", devoteam: "devoteam", axa: "AXA", banquepopulaire: "Banque Populaire", pmoffice: "Services du Premier ministre" };
+const NAMES: Record<string, string> = { thales: "Thales", decathlon: "Decathlon", carrefour: "Carrefour", fujitsu: "Fujitsu", devoteam: "Devoteam", axa: "AXA", banquepopulaire: "Banque Populaire", pmoffice: "Services du Premier ministre" };
 
-/** Monochrome client mark: simple-icons path, else an SVG file in /public/logos, else a text wordmark. */
-export default function ClientLogo({ name, height = 28, color = "#FFFFFF" }: { name: string; height?: number; color?: string }) {
+/**
+ * Client mark on a transparent background, no chip.
+ * Files: white silhouette on the dark theme (original shapes and lettering), except brand-colour marks.
+ * Carrefour: the symbol plus its name set in text, as no free full logo file exists.
+ */
+export default function ClientLogo({ name, height = 28 }: { name: string; height?: number }) {
   const label = NAMES[name] ?? name;
+  const ext = LOGO_FILES[name];
+  const file = name === "devoteam" ? "devoteam-light" : name; // Devoteam: original disc, lettering lightened for dark backgrounds
+  if (ext)
+    return (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img src={`/logos/${file}.${ext}`} alt={label} style={{ height, width: "auto", maxWidth: "100%", display: "block", filter: LOGO_COLOUR.includes(name) ? "none" : "brightness(0) invert(1)" }} />
+    );
   if (LOGO_PATHS[name])
     return (
-      <svg role="img" aria-label={label} viewBox="0 0 24 24" height={height} width={height} fill={color} style={{ flex: "none" }}>
-        <path d={LOGO_PATHS[name]} />
-      </svg>
-    );
-  if (LOGO_FILES.includes(name) && LOGO_ORIGINAL.includes(name))
-    return (
-      <span style={{ display: "inline-flex", background: "#fff", borderRadius: 8, padding: "4px 8px" }}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={`/logos/${name}.svg`} alt={label} style={{ height: height * 0.85, width: "auto" }} />
+      <span role="img" aria-label={label} style={{ display: "inline-flex", alignItems: "center", gap: height * 0.28, color: "#fff" }}>
+        <svg aria-hidden viewBox="0 0 24 24" height={height} width={height} fill="currentColor"><path d={LOGO_PATHS[name]} /></svg>
+        <span aria-hidden style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: height * 0.82, letterSpacing: "-0.02em", lineHeight: 1 }}>{label}</span>
       </span>
     );
-  if (LOGO_FILES.includes(name))
-    // eslint-disable-next-line @next/next/no-img-element
-    return <img src={`/logos/${name}.svg`} alt={label} height={height} style={{ height, width: "auto", filter: color === "#FFFFFF" ? "brightness(0) invert(1)" : "brightness(0)" }} />;
-  return <span style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: height * 0.7, letterSpacing: "0.04em", color }}>{label}</span>;
+  return <span style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: height * 0.7, letterSpacing: "0.02em", color: "#fff" }}>{label}</span>;
 }

@@ -4,6 +4,11 @@ import Journey from "@/components/Journey";
 import LabGrid from "@/components/LabGrid";
 import SkillProof from "@/components/SkillProof";
 import AskSection from "@/components/AskSection";
+import ProofPanel from "@/components/ProofPanel";
+import HeroOrb from "@/components/HeroOrb";
+import HeroTitle from "@/components/HeroTitle";
+import NovaSystem from "@/components/NovaSystem";
+import PathLayout from "@/components/PathLayout";
 import ClientLogo from "@/components/ClientLogo";
 import { profile, clients, books, real } from "@/lib/content";
 
@@ -35,30 +40,22 @@ export default async function Home() {
   return (
     <>
       <Header />
-      <section id="top" style={{ background: "var(--cloud)", borderBottom: "1px solid var(--line)" }}>
+      <PathLayout>
+      <section id="top" style={{ position: "relative", overflow: "hidden", borderBottom: "1px solid var(--line)", background: "radial-gradient(900px 500px at 78% 10%, rgba(106,145,255,.16), transparent 60%), radial-gradient(600px 400px at 10% 90%, rgba(152,228,224,.07), transparent 60%), var(--bg)" }}>
         <div className="wrap" style={{ paddingBlock: "88px 72px", display: "flex", flexWrap: "wrap", gap: 56, alignItems: "center" }}>
           <div style={{ flex: "999 1 560px", minWidth: 0 }}>
             <p className="eyebrow" style={{ marginBottom: 24 }}>HEAD OF AI · PRODUCT BUILDER · AI STRATEGIST</p>
-            <h1 className="display" style={{ margin: 0, fontSize: "clamp(44px, 6.4vw, 84px)", lineHeight: 1.02, letterSpacing: "-0.035em" }}>
-              I don&apos;t just lead AI.<br /><span style={{ color: "var(--accent)" }}>I build it.</span>
-            </h1>
+            <HeroTitle />
             <p style={{ margin: "28px 0 0", maxWidth: 600, fontSize: 19, lineHeight: 1.6, color: "var(--body)" }}>
               From enterprise AI strategy to production-ready agentic systems. Turning ideas into products, teams into builders, and AI into measurable outcomes.
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 36 }}>
-              <Link href="/#ai-lab" className="pill pill-accent" style={{ minHeight: 52, padding: "0 26px", fontSize: 16, color: "#fff" }}>View my work <Arrow /></Link>
-              <Link href="/#experience" className="pill pill-line" style={{ minHeight: 52, padding: "0 26px", fontSize: 16 }}>Interactive CV</Link>
+              <Link href="/#ai-lab" className="pill pill-accent" style={{ minHeight: 52, padding: "0 26px", fontSize: 16, color: "#07101f" }}>Explore my work <Arrow /></Link>
+              <Link href="/#ask" className="pill pill-line" style={{ minHeight: 52, padding: "0 26px", fontSize: 16 }}>Ask my AI</Link>
+              <Link href="/#experience" style={{ display: "inline-flex", alignItems: "center", minHeight: 52, fontWeight: 600, fontSize: 15, textDecoration: "none" }}>Interactive CV →</Link>
             </div>
           </div>
-          <aside aria-label="Three proofs" style={{ flex: "1 1 340px", minWidth: 0, background: "var(--midnight)", color: "#fff", borderRadius: 24, padding: 28, display: "flex", flexDirection: "column", gap: 14, boxShadow: "0 24px 60px -24px rgba(11,16,32,.45)" }}>
-            <p style={{ margin: "0 0 4px", fontSize: 12, fontWeight: 600, letterSpacing: ".14em", color: "#9aabd6" }}>EVERY CLAIM, LINKED TO A PROOF</p>
-            {proofs.map(([n, t, d, h]) => (
-              <Link key={n} href={h} style={{ display: "flex", gap: 16, alignItems: "flex-start", padding: 16, borderRadius: 16, background: "var(--slate)", textDecoration: "none", color: "#fff" }}>
-                <span className="display" style={{ fontSize: 14, color: "#8fa6ff", minWidth: 28, letterSpacing: 0 }}>{n}</span>
-                <span style={{ display: "flex", flexDirection: "column", gap: 4 }}><strong style={{ fontSize: 17, fontWeight: 600 }}>{t}</strong><span style={{ fontSize: 14, lineHeight: 1.5, color: "#c3cce3" }}>{d}</span></span>
-              </Link>
-            ))}
-          </aside>
+          <div style={{ flex: "1 1 340px", minWidth: 0 }}><HeroOrb /></div>
         </div>
         <div className="wrap" style={{ paddingBottom: 72 }}>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 16 }}>
@@ -71,10 +68,18 @@ export default async function Home() {
           </div>
           <div style={{ marginTop: 40, display: "flex", flexWrap: "wrap", alignItems: "center", gap: "16px 40px" }}>
             <span style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".14em", color: "var(--muted)" }}>TRUSTED BY</span>
-            {["thales", "decathlon", "carrefour", "fujitsu", "devoteam", "axa", "banquepopulaire"].map((c) => (
-              <span key={c} style={{ display: "inline-flex", alignItems: "center", background: "var(--midnight)", borderRadius: 12, padding: "10px 16px", minHeight: 24 }}><ClientLogo name={c} height={22} /></span>
+            {["thales", "decathlon", "carrefour", "fujitsu", "devoteam", "axa", "banquepopulaire", "pmoffice"].map((c) => (
+              <span key={c} style={{ display: "inline-flex", alignItems: "center", opacity: .85 }}><ClientLogo name={c} height={c === "pmoffice" ? 56 : c === "devoteam" ? 48 : c === "axa" ? 40 : 28} /></span>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section id="proof" style={{ borderBottom: "1px solid var(--line)" }}>
+        <div className="wrap" style={{ paddingBlock: "96px" }}>
+          <p className="eyebrow">LEAD · DELIVER · BUILD</p>
+          <h2 className="h2" style={{ marginBottom: 32 }}>Every claim, linked to a proof</h2>
+          <ProofPanel />
         </div>
       </section>
 
@@ -99,10 +104,10 @@ export default async function Home() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 20 }}>
             {clients.map((c) => (
               <article key={c.slug} className="card" style={{ overflow: "hidden", display: "flex", flexDirection: "column" }}>
-                <div style={{ height: 168, background: "var(--midnight)", position: "relative", padding: 24, display: "flex", flexDirection: "column", justifyContent: "space-between", boxSizing: "border-box" }}>
-                  <span style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".14em", color: "#9aabd6" }}>{c.sector}</span>
-                  <ClientLogo name={c.logo} height={40} />
-                  <span aria-hidden style={{ position: "absolute", right: 24, top: 24, width: 56, height: 56, borderRadius: 16, border: "1px solid #2e3b5a" }} />
+                <div style={{ height: 168, background: "linear-gradient(135deg, #0d1320, #131c33)", position: "relative", padding: 24, display: "flex", flexDirection: "column", justifyContent: "space-between", boxSizing: "border-box" }}>
+                  <span style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".14em", color: "var(--muted)" }}>{c.sector}</span>
+                  <ClientLogo name={c.logo} height={c.logo === "pmoffice" ? 76 : c.logo === "thales" ? 34 : 44} />
+                  <span aria-hidden style={{ position: "absolute", right: 24, top: 24, width: 56, height: 56, borderRadius: 16, border: "1px solid var(--line)" }} />
                   <span aria-hidden style={{ position: "absolute", right: 44, top: 44, width: 56, height: 56, borderRadius: 16, border: "1px solid var(--accent)" }} />
                 </div>
                 <div style={{ padding: 24, display: "flex", flexDirection: "column", gap: 14, flex: 1 }}>
@@ -110,7 +115,7 @@ export default async function Home() {
                   <p style={{ margin: 0, fontSize: 15, lineHeight: 1.6, color: "var(--muted)" }}>{c.summary}</p>
                   {real(c.impact) && <p style={{ margin: 0, fontSize: 14, lineHeight: 1.5 }}><strong>Impact:</strong> {c.impact}</p>}
                   <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: "auto", paddingTop: 6 }}>
-                    {c.tags.map((t) => <span key={t} style={{ fontSize: 12, fontWeight: 500, padding: "5px 10px", borderRadius: 999, background: "#f0f3fa", color: "var(--body)" }}>{t}</span>)}
+                    {c.tags.map((t) => <span key={t} style={{ fontSize: 12, fontWeight: 500, padding: "5px 10px", borderRadius: 999, background: "rgba(255,255,255,.06)", color: "var(--text2)" }}>{t}</span>)}
                   </div>
                   <Link href={`/work/${c.slug}`} style={{ display: "inline-flex", alignItems: "center", gap: 8, minHeight: 44, fontWeight: 600, fontSize: 15, textDecoration: "none" }}>Read the case study <Arrow s={16} /></Link>
                 </div>
@@ -120,41 +125,17 @@ export default async function Home() {
         </div>
       </section>
 
-      <section id="ai-lab" className="on-dark" style={{ background: "var(--midnight)", color: "#fff" }}>
+      <section id="ai-lab" className="on-dark" style={{ background: "radial-gradient(800px 400px at 15% 0%, rgba(106,145,255,.10), transparent 60%), var(--bg)", color: "#fff" }}>
         <div className="wrap sec">
           <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "flex-end", gap: 24, marginBottom: 40 }}>
             <div>
               <p className="eyebrow">AI LAB · BUILT BY ME</p>
               <h2 className="h2">Products, not just repos</h2>
-              <p style={{ margin: "14px 0 0", maxWidth: 600, fontSize: 17, lineHeight: 1.6, color: "#c3cce3" }}>Agentic platforms, health and learning tools I design, code and ship myself. Featured projects are curated; the full list lives on GitHub.</p>
+              <p style={{ margin: "14px 0 0", maxWidth: 600, fontSize: 17, lineHeight: 1.6, color: "var(--text2)" }}>Agentic platforms, health and learning tools I design, code and ship myself. Featured projects are curated; the full list lives on GitHub.</p>
             </div>
             <a href={profile.github} className="pill pill-dark-line" style={{ color: "#fff" }}>github.com/{profile.githubUser}</a>
           </div>
-          <article style={{ background: "var(--slate)", border: "1px solid #2e3b5a", borderRadius: 28, padding: 40, display: "flex", flexWrap: "wrap", gap: 40, alignItems: "center" }}>
-            <div style={{ flex: "1 1 380px", minWidth: 0 }}>
-              <span style={{ display: "inline-block", fontSize: 12, fontWeight: 600, letterSpacing: ".12em", padding: "6px 12px", borderRadius: 999, background: "var(--accent)" }}>FLAGSHIP</span>
-              <h3 className="display" style={{ margin: "18px 0 0", fontSize: 44, lineHeight: 1.05 }}>ORION</h3>
-              <p style={{ margin: "8px 0 0", fontSize: 18, fontWeight: 500, color: "#8fa6ff" }}>The Intelligence Loop</p>
-              <p style={{ margin: "18px 0 0", fontSize: 16, lineHeight: 1.65, color: "#c3cce3" }}>An agentic AI platform in three parts. NOVA acts: one intelligence, several specialised agents. ORBIT gives NOVA the right context: knowledge, documents and memory. FORGE evaluates every result so the system keeps improving.</p>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 24 }}>
-                <a href={`${profile.github}/NOVA`} className="pill" style={{ minHeight: 44, padding: "0 18px", background: "#fff", color: "var(--midnight)", fontSize: 14 }}>NOVA on GitHub</a>
-                <a href={`${profile.github}/FORGE`} className="pill pill-dark-line" style={{ minHeight: 44, padding: "0 18px", fontSize: 14, color: "#fff" }}>FORGE</a>
-              </div>
-            </div>
-            <div role="img" aria-label="ORION loop: NOVA acts, ORBIT provides context, FORGE evaluates" style={{ flex: "1 1 420px", minWidth: 0, display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: 12, alignItems: "stretch" }}>
-              {[["ACT", "NOVA", "Orchestrates specialised agents", true], ["CONTEXT", "ORBIT", "Governed context and memory", false], ["EVALUATE", "FORGE", "Benchmarks and improves agents", false]].map(([k, n, d, hl]) => (
-                <div key={String(n)} style={{ background: "var(--midnight)", border: `1px solid ${hl ? "var(--accent)" : "#2e3b5a"}`, borderRadius: 20, padding: 20, display: "flex", flexDirection: "column", gap: 8 }}>
-                  <span style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".12em", color: "#8fa6ff" }}>{k}</span>
-                  <span className="display" style={{ fontSize: 22, letterSpacing: 0 }}>{n}</span>
-                  <span style={{ fontSize: 13, lineHeight: 1.5, color: "#c3cce3" }}>{d}</span>
-                </div>
-              ))}
-              <div style={{ gridColumn: "1 / -1", display: "flex", alignItems: "center", gap: 10, fontSize: 13, color: "#9aabd6" }}>
-                <svg aria-hidden width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8FA6FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8M21 3v5h-5" /></svg>
-                Each evaluation feeds back into context and behaviour: a closed improvement loop.
-              </div>
-            </div>
-          </article>
+          <NovaSystem />
           <LabGrid />
         </div>
       </section>
@@ -176,7 +157,7 @@ export default async function Home() {
           <h3 style={{ margin: "0 0 16px", fontSize: 13, fontWeight: 600, letterSpacing: ".12em", color: "var(--muted)" }}>IDEAS · BOOKS</h3>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 16 }}>
             {books.map((b) => (
-              <a key={b.url} href={b.url} target="_blank" rel="noopener noreferrer" className="card" style={{ display: "flex", flexDirection: "column", textDecoration: "none", color: "var(--midnight)", overflow: "hidden" }}>
+              <a key={b.url} href={b.url} target="_blank" rel="noopener noreferrer" className="card" style={{ display: "flex", flexDirection: "column", textDecoration: "none", color: "var(--text)", overflow: "hidden" }}>
                 <span style={{ height: 200, background: b.cover, padding: 22, boxSizing: "border-box", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
                   <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: ".14em", color: b.coverSub }}>YASSINE AQEJJAJ</span>
                   <span className="display" style={{ fontSize: 26, lineHeight: 1.1, letterSpacing: "-0.02em", color: "#fff" }}>{b.short}</span>
@@ -192,8 +173,8 @@ export default async function Home() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 16, marginTop: 40 }}>
             <div>
               <h3 style={{ margin: "0 0 16px", fontSize: 13, fontWeight: 600, letterSpacing: ".12em", color: "var(--muted)" }}>ON STAGE</h3>
-              <a href="https://youtu.be/6Ip6mfupjso" className="card" style={{ display: "flex", gap: 18, alignItems: "center", textDecoration: "none", color: "var(--midnight)", padding: 18 }}>
-                <span style={{ flex: "none", width: 120, height: 80, borderRadius: 12, background: "var(--midnight)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <a href="https://youtu.be/6Ip6mfupjso" className="card" style={{ display: "flex", gap: 18, alignItems: "center", textDecoration: "none", color: "var(--text)", padding: 18 }}>
+                <span style={{ flex: "none", width: 120, height: 80, borderRadius: 12, background: "var(--bg)", border: "1px solid var(--line)", display: "flex", alignItems: "center", justifyContent: "center" }}>
                   <svg aria-hidden width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="M10 8.5l5 3.5-5 3.5z" /></svg>
                 </span>
                 <span style={{ display: "flex", flexDirection: "column", gap: 4 }}>
@@ -210,7 +191,7 @@ export default async function Home() {
                   <span className="display" style={{ fontSize: 40 }}>1,500+</span>
                   <span style={{ fontSize: 15, color: "var(--muted)" }}>people trained in AI</span>
                 </div>
-                <p style={{ margin: 0, fontSize: 15, lineHeight: 1.6, color: "var(--body)" }}><strong style={{ color: "var(--midnight)" }}>TRAIL Academy</strong> — my professional AI learning platform, built to turn teams into builders.</p>
+                <p style={{ margin: 0, fontSize: 15, lineHeight: 1.6, color: "var(--body)" }}><strong style={{ color: "var(--text)" }}>TRAIL Academy</strong> — my professional AI learning platform, built to turn teams into builders.</p>
                 <a href={`${profile.github}/TRAIL-Academy`} style={{ display: "inline-flex", alignItems: "center", minHeight: 44, fontWeight: 600, fontSize: 15, textDecoration: "none" }}>Explore TRAIL Academy →</a>
               </div>
             </div>
@@ -218,15 +199,15 @@ export default async function Home() {
         </div>
       </section>
 
-      <section id="ask" className="on-dark" style={{ background: "var(--slate)", color: "#fff" }}>
+      <section id="ask" className="on-dark" style={{ background: "radial-gradient(700px 400px at 85% 20%, rgba(152,228,224,.08), transparent 60%), var(--cloud)", color: "#fff" }}>
         <div className="wrap sec" style={{ display: "flex", flexWrap: "wrap", gap: 48, alignItems: "flex-start" }}>
           <div style={{ flex: "1 1 340px", minWidth: 0 }}>
             <p className="eyebrow">ASK MY AI</p>
             <h2 className="h2">An interactive guide to my work</h2>
-            <p style={{ margin: "16px 0 0", fontSize: 17, lineHeight: 1.6, color: "#c3cce3" }}>It only answers from validated portfolio content and always links its sources.</p>
-            <ul style={{ margin: "24px 0 0", padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 10, fontSize: 15, color: "#c3cce3" }}>
+            <p style={{ margin: "16px 0 0", fontSize: 17, lineHeight: 1.6, color: "var(--text2)" }}>It only answers from validated portfolio content and always links its sources.</p>
+            <ul style={{ margin: "24px 0 0", padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 10, fontSize: 15, color: "var(--text2)" }}>
               {["Answers recruiter and client questions", "Explains product architecture", "Recommends the most relevant projects for your need"].map((t) => (
-                <li key={t} style={{ display: "flex", gap: 10 }}><span style={{ color: "#8fa6ff" }}>—</span>{t}</li>
+                <li key={t} style={{ display: "flex", gap: 10 }}><span style={{ color: "var(--signal)" }}>—</span>{t}</li>
               ))}
             </ul>
           </div>
@@ -234,7 +215,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <section>
+      <section id="positioning">
         <div className="wrap" style={{ paddingBlock: 112, textAlign: "center" }}>
           <p className="eyebrow" style={{ marginBottom: 20 }}>PERSONAL POSITIONING</p>
           <p className="display" style={{ margin: 0, fontSize: "clamp(40px, 6vw, 76px)", lineHeight: 1.05, letterSpacing: "-0.035em" }}>AI Leader.<br />Product Builder.<br /><span style={{ color: "var(--accent)" }}>Entrepreneur.</span></p>
@@ -242,26 +223,27 @@ export default async function Home() {
         </div>
       </section>
 
-      <footer id="contact" style={{ background: "var(--midnight)", color: "#fff" }}>
+      <footer id="contact" style={{ background: "var(--cloud)", borderTop: "1px solid var(--line)", color: "#fff" }}>
         <div className="wrap" style={{ paddingBlock: "96px 40px" }}>
           <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", gap: 40, alignItems: "flex-end" }}>
             <div style={{ flex: "1 1 420px", minWidth: 0 }}>
               <h2 className="display" style={{ margin: 0, fontSize: "clamp(36px, 5vw, 60px)", lineHeight: 1.05 }}>Let&apos;s build what&apos;s next.</h2>
-              <p style={{ margin: "16px 0 0", maxWidth: 520, fontSize: 17, lineHeight: 1.6, color: "#c3cce3" }}>Leadership roles, AI programmes, product partnerships or a talk: I reply to every serious message.</p>
+              <p style={{ margin: "16px 0 0", maxWidth: 520, fontSize: 17, lineHeight: 1.6, color: "var(--text2)" }}>Leadership roles, AI programmes, product partnerships or a talk: I reply to every serious message.</p>
             </div>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
-              <a href={`mailto:${profile.email}`} className="pill pill-accent" style={{ minHeight: 52, padding: "0 24px", color: "#fff" }}>Contact me</a>
+              <a href={`mailto:${profile.email}`} className="pill pill-accent" style={{ minHeight: 52, padding: "0 24px", color: "#07101f" }}>Contact me</a>
               <Link href={profile.cv} className="pill pill-dark-line" style={{ minHeight: 52, padding: "0 24px", color: "#fff" }}>CV (PDF)</Link>
               <a href={profile.linkedin} className="pill pill-dark-line" style={{ minHeight: 52, padding: "0 24px", color: "#fff" }}>LinkedIn</a>
               <a href={profile.github} className="pill pill-dark-line" style={{ minHeight: 52, padding: "0 24px", color: "#fff" }}>GitHub</a>
             </div>
           </div>
-          <div style={{ marginTop: 72, paddingTop: 24, borderTop: "1px solid #243150", display: "flex", flexWrap: "wrap", justifyContent: "space-between", gap: 12, fontSize: 14, color: "#9aabd6" }}>
+          <div style={{ marginTop: 72, paddingTop: 24, borderTop: "1px solid var(--line)", display: "flex", flexWrap: "wrap", justifyContent: "space-between", gap: 12, fontSize: 14, color: "var(--muted)" }}>
             <span>© {new Date().getFullYear()} Yassine Aqejjaj</span>
             <span>iaseen.com</span>
           </div>
         </div>
       </footer>
+      </PathLayout>
     </>
   );
 }

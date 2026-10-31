@@ -110,7 +110,6 @@ export const clients = [
         "Cross-functional squads: Structure multidisciplinary teams combining Data Scientists, Data Analysts, Data Engineers, RPA Engineers and business experts.",
         "Engineering Knowledge Assistant: Define an advanced RAG solution to connect engineering documents, retrieve technical knowledge, support requirement traceability and facilitate impact analysis.",
         "AI capability building: Establish learning paths covering Python, APIs, LLMs, RAG, agentic workflows, evaluation and production practices.",
-        "[REVIEW] Enterprise ecosystem: Align the technical strategy with the organization's cloud and data ecosystem.",
       ] },
       { label: "Expected impact", body: "The initiative aims to establish a repeatable AI delivery model, strengthen internal autonomy, reduce the effort required to access technical knowledge and create a foundation for future engineering AI applications.", points: [], stats: [{ value: "2", label: "AI use cases supporting the transformation roadmap" }, { value: "6 months", label: "Structured capability-building plan" }] },
       { label: "What I learned", body: "AI transformation starts with people, processes and ownership. Technology delivers value when the organization is equipped to use it.", points: [] },
@@ -129,7 +128,6 @@ export const clients = [
       { label: "The approach", body: "", points: [
         "Sovereign AI architecture: Define a platform approach compatible with strict hosting, security and data-sovereignty requirements, including SecNumCloud considerations.",
         "Advanced RAG: Structure retrieval pipelines to ground AI responses in authoritative institutional documents.",
-        "[REVIEW] LLM strategy: Integrate Mistral-based generative AI capabilities into the target architecture.",
         "Trust & governance: Address access controls, information provenance, traceability and responsible AI practices.",
         "Product delivery: Translate complex regulatory and technical constraints into prioritized capabilities and actionable delivery plans.",
         "Evaluation: Incorporate requirements for factual accuracy, relevance and reliability into the solution design.",

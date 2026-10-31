@@ -69,7 +69,8 @@ public/logos/               client logo files
 
 Everything shown on the site lives in [`lib/content.ts`](lib/content.ts): roles, client case studies, products, skills and proofs, books, and the suggested Ask My AI questions.
 
-- **Placeholders:** any string starting with `[` is treated as not yet validated and is never rendered (see `real()`). Replace it with real text to publish it.
+- **Placeholders:** any string starting with `[` is treated as not yet validated and is not displayed (see `real()`). Replace it with real text to publish it.
+- **Confidential text never goes in this file.** `real()` only hides text on screen: everything in `lib/content.ts` is still shipped in the page source and the JavaScript bundle. Lines awaiting client approval live in [`docs/pending-review.md`](docs/pending-review.md) and are added back only once approved.
 - **Metrics:** only figures from the CV or approved by the client belong here. Case-study steps with no content are hidden.
 - **Sensitive missions:** for defence and public-sector work, publish only public or client-approved information: no internal architecture, documents, data or confidential figures. Case studies flagged `sensitive: true` show a confidentiality notice.
 - **Ask My AI:** it can only answer from `content.ts`, so updating content updates the assistant. Answers are retrieval by keywords, not a language model.

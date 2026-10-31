@@ -8,3 +8,13 @@ Add a line back to the `points` of the matching step in `lib/content.ts` only af
 
 - **Thales, "The approach":** `Enterprise ecosystem: Align the technical strategy with the organization's cloud and data ecosystem.`
 - **DILA, "The approach":** `LLM strategy: Integrate Mistral-based generative AI capabilities into the target architecture.`
+
+## DILA KPIs: published as targets, not results
+
+The DILA case study shows nine platform **targets** (delivery time −60%, reuse 75%, faithfulness 0.94, cost per request −30%,
+and five others), explicitly labelled "Targets: objectives set for the platform, not measured results".
+
+When real measurements exist (evaluation report, client-approved numbers), replace the `targets` block of the DILA "Impact" step with
+a `stats` list of the measured values in `lib/content.ts`, `lib/content.fr.ts` and `lib/content.ar.ts`, and state the method
+(reference question set and its size). Never remove the "targets" label while the figures are not measured.
+Confirm the engagement period before adding it (currently just "2026").

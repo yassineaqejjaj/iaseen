@@ -5,6 +5,7 @@ export default {
     return [
       ...old.map((p) => ({ source: `/${p}`, destination: `/#${anchor[p] ?? p}`, permanent: false })),
       { source: "/work/french-prime-ministers-office", destination: "/work/dila-sovereign-ai", permanent: true },
+      ...["", "/fr", "/ar"].map((l) => ({ source: `${l}/cv`, destination: "/Yassine-Aqejjaj-CV.pdf", permanent: true })),
     ];
   },
 };

@@ -13,7 +13,7 @@ export const profile = {
   githubUser: "yassineaqejjaj",
   linkedin: "https://www.linkedin.com/in/yassine-aqejjaj/",
   email: "yassine.aqejjaj@devoteam.com",
-  cv: "/cv",
+  cv: "/Yassine-Aqejjaj-CV.pdf",
 };
 
 export const bio = {
@@ -91,7 +91,7 @@ export const roles = [
   },
 ] as { period: string; title: string; org: string; place: string; logo: string; summary: string; impact: string; tags: string[]; bullets: { lens: Lens; text: string }[] }[];
 
-export type Step = { label: string; body: string; points: string[]; stats?: { value: string; label: string }[] };
+export type Step = { label: string; body: string; points: string[]; stats?: { value: string; label: string }[]; targets?: { stats: { value: string; label: string }[]; more: string[] } };
 export const STEP_LABELS = ["Context", "Problem", "My role", "Approach", "Solution", "Impact", "Lessons learned"];
 
 export const clients = [
@@ -117,23 +117,25 @@ export const clients = [
   },
   {
     slug: "dila-sovereign-ai", client: "DILA · Services du Premier ministre", logo: "pmoffice", sector: "PUBLIC SECTOR",
-    title: "Designing a Sovereign Generative AI Platform for Public Administration", year: "2026", org: "DILA, Services du Premier ministre",
+    title: "Building a Sovereign AI Platform to Accelerate RAG & Agentic AI Delivery", year: "2026", org: "DILA, Services du Premier ministre",
     role: "AI Product & Delivery Leadership | Sovereign GenAI (9-person team)",
-    summary: "Making institutional knowledge accessible through secure, governed and trustworthy AI.",
-    impact: "70% faster content creation.", tags: ["Sovereign AI", "RAG", "Governance"], sensitive: true,
-    focus: "Sovereign AI",
+    summary: "A sovereign, reusable AI foundation to accelerate the delivery of RAG and agentic applications.",
+    impact: "70% faster content creation.", tags: ["Sovereign AI", "RAG", "Agentic AI", "Platform engineering"], sensitive: true,
+    focus: "Sovereign AI · Agentic AI · RAG · Platform engineering · AI governance",
     steps: [
-      { label: "The challenge", body: "Public institutions manage large volumes of legal, regulatory, administrative and operational knowledge. Making this information accessible through generative AI introduces several critical requirements: confidentiality, data sovereignty, accuracy, traceability and control over AI-generated answers.\n\nConventional AI assistants are not sufficient when organizations need to guarantee where information comes from, who can access it and how answers are produced.", points: [] },
-      { label: "My contribution", body: "I led a 9-person team on the product and delivery strategy of a sovereign AI platform, bridging institutional requirements, technical architecture and implementation priorities.", points: [] },
+      { label: "The challenge", body: "Public institutions need to deploy generative AI while maintaining strict requirements for data sovereignty, security, traceability and regulatory compliance.\n\nHowever, building each AI application independently creates significant duplication: document ingestion, embeddings, retrieval, orchestration, security controls, evaluation and observability often have to be rebuilt for every project.\n\nThe objective was to move beyond isolated AI proofs of concept and establish a sovereign, reusable AI foundation capable of accelerating the development of production-ready RAG and agentic applications.", points: [] },
+      { label: "My contribution", body: "I led a 9-person team on the product and delivery approach of a sovereign GenAI platform, with a strong focus on modular architecture, component reuse and scalable AI delivery.", points: [] },
       { label: "The approach", body: "", points: [
         "Sovereign AI architecture: Define a platform approach compatible with strict hosting, security and data-sovereignty requirements, including SecNumCloud considerations.",
-        "Advanced RAG: Structure retrieval pipelines to ground AI responses in authoritative institutional documents.",
-        "Trust & governance: Address access controls, information provenance, traceability and responsible AI practices.",
-        "Product delivery: Translate complex regulatory and technical constraints into prioritized capabilities and actionable delivery plans.",
-        "Evaluation: Incorporate requirements for factual accuracy, relevance and reliability into the solution design.",
+        "Reusable AI building blocks: Define shared capabilities for document ingestion, chunking, embeddings, hybrid retrieval, reranking, prompt management and LLM integration.",
+        "Agentic orchestration: Structure reusable workflows for tool calling, multi-step reasoning and agent-based task execution.",
+        "RAG factory: Standardize the creation of document-based AI assistants using configurable retrieval pipelines rather than project-specific implementations.",
+        "Evaluation framework: Introduce systematic RAG quality measurements, including faithfulness, answer relevancy, context precision and context recall.",
+        "Governance by design: Embed access management, traceability, auditability and sovereignty requirements into reusable platform components.",
+        "Delivery acceleration: Establish repeatable implementation patterns to reduce development effort and improve consistency across AI projects.",
       ] },
-      { label: "Impact", body: "A foundation for trusted public-sector GenAI. The work supported the design and delivery of an AI platform aligned with public-sector requirements, with particular attention to sovereignty, knowledge retrieval, security and answer traceability.\n\nThe mission illustrates how generative AI can be introduced into highly regulated environments without treating security and governance as secondary concerns.", points: [], stats: [{ value: "70%", label: "Faster content creation" }] },
-      { label: "What I learned", body: "In regulated environments, trust is a product requirement, not an optional technical feature.", points: [] },
+      { label: "Impact", body: "From isolated AI projects to a reusable platform. The approach shifted the development model from building each application independently to assembling standardized, governed AI components.\n\nNew RAG applications could reuse shared document processing, retrieval, evaluation and security capabilities. Agentic applications could build on existing orchestration patterns and tool integrations.\n\nThis reduced duplicated engineering work, accelerated experimentation and established a more consistent approach to AI quality and governance.", points: [], stats: [{ value: "70%", label: "Faster content creation" }], targets: { stats: [{ value: "−60%", label: "RAG application delivery time, from 10 weeks to 4 weeks" }, { value: "75%", label: "of common technical capabilities reused" }, { value: "0.94", label: "RAG faithfulness" }, { value: "−30%", label: "cost per AI request, through pipeline optimization and reuse" }], more: ["Agentic workflow prototyping: −50% implementation time", "Answer relevancy: 0.91", "Context precision: 0.89", "Context recall: 0.92", "Evaluation coverage: 85% of priority RAG scenarios"] } },
+      { label: "What I learned", body: "The real value of an enterprise AI platform is not only the intelligence it provides, but how quickly and reliably it lets an organization build its next AI application. Treating RAG pipelines, agentic workflows, evaluation and governance as reusable platform capabilities turns sovereign AI into a scalable engineering model rather than a collection of disconnected experiments.", points: [] },
     ] as Step[],
   },
   {

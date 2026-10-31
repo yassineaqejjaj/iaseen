@@ -29,7 +29,7 @@ export const dictEn = {
     lensAria: "Read the CV through a lens", rolesAria: "Roles",
     lenses: { all: "All", lead: "Leadership", product: "AI Product", tech: "Technical" } as Record<string, string>,
     tag: { lead: "LEADERSHIP", product: "AI PRODUCT", tech: "TECHNICAL" } as Record<string, string>,
-    highlights: "HIGHLIGHTS", lensSuffix: "LENS", impact: "MEASURED IMPACT", download: "Download CV (PDF)", downloadNote: "Same content as this page, ready to save as PDF.",
+    highlights: "HIGHLIGHTS", lensSuffix: "LENS", impact: "MEASURED IMPACT", download: "Download CV (PDF)", downloadNote: "The full CV as a PDF, in English.",
   },
   work: {
     eyebrow: "CLIENT WORK", title: "AI in complex, real environments",
@@ -87,7 +87,7 @@ export const dictEn = {
     back: "All client work", label: "CASE STUDY", aria: "Case study", path: "THE PATH", pathAria: "Case study steps", prev: "Previous", next: "Next step",
     role: "ROLE", client: "CLIENT", focus: "FOCUS", year: "YEAR", nextCase: "Next case study", readIt: "Read it",
     confidential: "Only public or client-approved information is shared here: no internal architecture, documents, data or confidential figures.",
-    onRequest: "Quantified results and lessons learned are shared on request.", homeAria: "iaseen, home",
+    onRequest: "Quantified results and lessons learned are shared on request.", targets: "TARGETS", targetsNote: "Objectives set for the platform. These are targets, not measured results.", homeAria: "iaseen, home",
   },
   cv: {
     subtitle: "Head of AI · Product Builder · AI Strategist", experience: "EXPERIENCE", expertise: "EXPERTISE", education: "EDUCATION AND TRAINING", languages: "LANGUAGES", save: "Save as PDF",
@@ -134,7 +134,7 @@ export const dictFr: Dict = {
     lensAria: "Lire le CV selon un angle", rolesAria: "Postes",
     lenses: { all: "Tout", lead: "Leadership", product: "Produit IA", tech: "Technique" },
     tag: { lead: "LEADERSHIP", product: "PRODUIT IA", tech: "TECHNIQUE" },
-    highlights: "POINTS FORTS", lensSuffix: "ANGLE", impact: "IMPACT MESURÉ", download: "Télécharger le CV (PDF)", downloadNote: "Même contenu que cette page, prêt à enregistrer en PDF.",
+    highlights: "POINTS FORTS", lensSuffix: "ANGLE", impact: "IMPACT MESURÉ", download: "Télécharger le CV (PDF)", downloadNote: "Le CV complet au format PDF, en anglais.",
   },
   work: {
     eyebrow: "MISSIONS CLIENTS", title: "L’IA dans des environnements complexes et réels",
@@ -189,7 +189,7 @@ export const dictFr: Dict = {
     back: "Toutes les missions", label: "ÉTUDE DE CAS", aria: "Étude de cas", path: "LE PARCOURS", pathAria: "Étapes de l’étude de cas", prev: "Précédent", next: "Étape suivante",
     role: "RÔLE", client: "CLIENT", focus: "FOCUS", year: "ANNÉE", nextCase: "Étude de cas suivante", readIt: "Lire",
     confidential: "Seules des informations publiques ou validées par le client sont partagées ici : ni architecture interne, ni documents, ni données, ni chiffres confidentiels.",
-    onRequest: "Les résultats chiffrés et les enseignements sont partagés sur demande.", homeAria: "iaseen, accueil",
+    onRequest: "Les résultats chiffrés et les enseignements sont partagés sur demande.", targets: "OBJECTIFS VISÉS", targetsNote: "Objectifs fixés pour la plateforme. Ce sont des cibles, pas des résultats mesurés.", homeAria: "iaseen, accueil",
   },
   cv: {
     subtitle: "Head of AI · Product Builder · Stratège IA", experience: "EXPÉRIENCE", expertise: "EXPERTISE", education: "FORMATION", languages: "LANGUES", save: "Enregistrer en PDF",
@@ -234,7 +234,7 @@ export const dictAr: Dict = {
     lensAria: "اقرأ السيرة الذاتية من زاوية معينة", rolesAria: "المناصب",
     lenses: { all: "الكل", lead: "القيادة", product: "منتج الذكاء الاصطناعي", tech: "التقني" },
     tag: { lead: "القيادة", product: "منتج الذكاء الاصطناعي", tech: "التقني" },
-    highlights: "أبرز النقاط", lensSuffix: "زاوية", impact: "الأثر المُقاس", download: "تنزيل السيرة الذاتية (PDF)", downloadNote: "المحتوى نفسه الموجود في هذه الصفحة، جاهز للحفظ بصيغة PDF.",
+    highlights: "أبرز النقاط", lensSuffix: "زاوية", impact: "الأثر المُقاس", download: "تنزيل السيرة الذاتية (PDF)", downloadNote: "السيرة الذاتية الكاملة بصيغة PDF، بالإنجليزية.",
   },
   work: {
     eyebrow: "أعمال العملاء", title: "الذكاء الاصطناعي في بيئات حقيقية ومعقدة",
@@ -289,7 +289,7 @@ export const dictAr: Dict = {
     back: "كل أعمال العملاء", label: "دراسة حالة", aria: "دراسة حالة", path: "المسار", pathAria: "مراحل دراسة الحالة", prev: "السابق", next: "المرحلة التالية",
     role: "الدور", client: "العميل", focus: "التركيز", year: "السنة", nextCase: "دراسة الحالة التالية", readIt: "اقرأ",
     confidential: "لا تُنشر هنا إلا معلومات عامة أو معتمدة من العميل: لا بنية داخلية ولا وثائق ولا بيانات ولا أرقام سرية.",
-    onRequest: "النتائج الرقمية والدروس المستفادة تُشارك عند الطلب.", homeAria: "iaseen، الرئيسية",
+    onRequest: "النتائج الرقمية والدروس المستفادة تُشارك عند الطلب.", targets: "الأهداف المرجوة", targetsNote: "أهداف حُدّدت للمنصة. هي أهداف مرجوّة لا نتائج مقيسة.", homeAria: "iaseen، الرئيسية",
   },
   cv: {
     subtitle: "Head of AI · باني منتجات · استراتيجي ذكاء اصطناعي", experience: "الخبرة", expertise: "الخبرات", education: "التكوين والتدريب", languages: "اللغات", save: "حفظ بصيغة PDF",

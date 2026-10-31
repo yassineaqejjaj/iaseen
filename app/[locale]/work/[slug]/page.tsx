@@ -5,13 +5,14 @@ import ClientLogo from "@/components/ClientLogo";
 import Logo from "@/components/Logo";
 import LangSwitch from "@/components/LangSwitch";
 import { contentEn } from "@/lib/content";
-import { getI18n, type Locale } from "@/lib/i18n";
+import { getI18n, isLocale, type Locale } from "@/lib/i18n";
 
 export function generateStaticParams() { return contentEn.clients.map((c) => ({ slug: c.slug })); }
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string; slug: string }> }) {
   const { locale, slug } = await params;
-  const { c, t } = getI18n(locale as Locale);
+  if (!isLocale(locale)) return {};
+  const { c, t } = getI18n(locale);
   const cl = c.clients.find((x) => x.slug === slug);
   if (!cl) return {};
   const title = `${cl.client}: ${cl.title} — ${t.meta.caseSuffix}`;
@@ -21,7 +22,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 export default async function Page({ params }: { params: Promise<{ locale: string; slug: string }> }) {
   const { locale: l, slug } = await params;
-  const locale = l as Locale;
+  if (!isLocale(l)) notFound();
+  const locale: Locale = l;
   const { t, c, href } = getI18n(locale);
   const k = c.clients.findIndex((x) => x.slug === slug);
   if (k < 0) notFound();

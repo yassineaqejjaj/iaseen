@@ -31,15 +31,32 @@ export default function CaseStepper({ steps: all }: { steps: Step[] }) {
         {real(cur.body) ? (
           <p style={{ margin: "20px 0 0", fontSize: 18, lineHeight: 1.7, color: "var(--text2)", whiteSpace: "pre-line" }}>{cur.body}</p>
         ) : null}
-        {cur.stats && cur.stats.length > 0 && (
+        {cur.stats && cur.stats.filter((x) => real(x.value)).length > 0 && (
           <div style={{ margin: "28px 0 0", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 12 }}>
-            {cur.stats.map((x) => (
+            {cur.stats.filter((x) => real(x.value)).map((x) => (
               <div key={x.label} className="glass" style={{ borderRadius: 20, padding: 24 }}>
                 <p className="display" dir="ltr" style={{ margin: 0, fontSize: 40, lineHeight: 1.05, textAlign: "start", background: "linear-gradient(90deg, var(--accent), var(--signal))", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>{x.value}</p>
                 <p style={{ margin: "8px 0 0", fontSize: 14, lineHeight: 1.5, color: "var(--text2)" }}>{x.label}</p>
               </div>
             ))}
           </div>
+        )}
+        {cur.targets && (
+          <section aria-label={t.case.targets} style={{ marginTop: 32, border: "1px dashed rgba(148,163,184,.4)", borderRadius: 24, padding: 24 }}>
+            <p style={{ margin: 0, fontSize: 12, fontWeight: 700, letterSpacing: ".14em", color: "var(--signal)" }}>{t.case.targets}</p>
+            <p style={{ margin: "6px 0 18px", fontSize: 14, lineHeight: 1.5, color: "var(--muted)" }}>{t.case.targetsNote}</p>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 12 }}>
+              {cur.targets.stats.map((x) => (
+                <div key={x.label} className="card" style={{ borderRadius: 18, padding: 20 }}>
+                  <p className="display" dir="ltr" style={{ margin: 0, fontSize: 34, lineHeight: 1.05, textAlign: "start", color: "var(--text)" }}>{x.value}</p>
+                  <p style={{ margin: "8px 0 0", fontSize: 14, lineHeight: 1.5, color: "var(--text2)" }}>{x.label}</p>
+                </div>
+              ))}
+            </div>
+            <ul style={{ margin: "16px 0 0", padding: 0, listStyle: "none", display: "flex", flexWrap: "wrap", gap: 8 }}>
+              {cur.targets.more.map((m) => <li key={m} className="chip">{m}</li>)}
+            </ul>
+          </section>
         )}
         {cur.points.filter(real).length > 0 && (
           <ul style={{ margin: "28px 0 0", padding: 0, listStyle: "none", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 12 }}>

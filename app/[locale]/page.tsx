@@ -13,7 +13,8 @@ import NovaSystem from "@/components/NovaSystem";
 import PathLayout from "@/components/PathLayout";
 import ClientLogo from "@/components/ClientLogo";
 import { profile, real } from "@/lib/content";
-import { getI18n, type Locale } from "@/lib/i18n";
+import { notFound } from "next/navigation";
+import { getI18n, isLocale, type Locale } from "@/lib/i18n";
 
 export const revalidate = 3600;
 
@@ -30,7 +31,9 @@ const Arrow = ({ s = 18 }: { s?: number }) => (
 );
 
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
-  const locale = (await params).locale as Locale;
+  const l = (await params).locale;
+  if (!isLocale(l)) notFound();
+  const locale: Locale = l;
   const { t, c, href } = getI18n(locale);
   const repos = await repoCount();
   const stats = [
@@ -92,7 +95,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <p className="lead" style={{ marginBottom: 32 }}>{t.journey.lead}</p>
           <Journey />
           <div style={{ marginTop: 28, display: "flex", flexWrap: "wrap", gap: 12, alignItems: "center" }}>
-            <Link href={href("/cv")} className="pill pill-line">{t.journey.download}</Link>
+            <a href={profile.cv} download="Yassine-Aqejjaj-CV.pdf" className="pill pill-line">{t.journey.download}</a>
             <span style={{ fontSize: 14, color: "var(--muted)" }}>{t.journey.downloadNote}</span>
           </div>
         </div>
@@ -239,7 +242,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             </div>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
               <a href={`mailto:${profile.email}`} className="pill pill-accent" style={{ minHeight: 52, padding: "0 24px", color: "#07101f" }}>{t.contact.contactMe}</a>
-              <Link href={href("/cv")} className="pill pill-dark-line" style={{ minHeight: 52, padding: "0 24px", color: "#fff" }}>{t.contact.cv}</Link>
+              <a href={profile.cv} download="Yassine-Aqejjaj-CV.pdf" className="pill pill-dark-line" style={{ minHeight: 52, padding: "0 24px", color: "#fff" }}>{t.contact.cv}</a>
               <a href={profile.linkedin} className="pill pill-dark-line" style={{ minHeight: 52, padding: "0 24px", color: "#fff" }}>{t.contact.linkedin}</a>
               <a href={profile.github} className="pill pill-dark-line" style={{ minHeight: 52, padding: "0 24px", color: "#fff" }}>{t.contact.github}</a>
             </div>

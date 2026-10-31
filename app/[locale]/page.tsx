@@ -39,7 +39,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   const { t, c, href } = getI18n(locale);
   const repos = await repoCount();
   const stats = [
-    ["13", t.stats.years], ["€12M+", t.stats.pipeline], ["3,000+", t.stats.users], ["1,500+", t.stats.trained], [String(c.books.length), t.stats.books],
+    ["13", t.stats.years], ["€12M+", t.stats.pipeline], ["800", t.stats.users], ["1,500+", t.stats.trained], [String(c.books.length), t.stats.books],
     ...(repos ? [[String(repos), t.stats.repos]] : []),
   ];
   const sectionTitle = { margin: "0 0 16px", fontSize: 13, fontWeight: 600, letterSpacing: ".12em", color: "var(--muted)" } as const;
@@ -187,6 +187,23 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   <a key={v.url} href={v.url} target="_blank" rel="noopener noreferrer" className="card" style={{ display: "flex", gap: 18, alignItems: "center", textDecoration: "none", color: "var(--text)", padding: 18 }}>
                     <span style={{ flex: "none", width: 120, height: 80, borderRadius: 12, background: "var(--bg)", border: "1px solid var(--line)", display: "flex", alignItems: "center", justifyContent: "center" }}>
                       <svg aria-hidden width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="M10 8.5l5 3.5-5 3.5z" /></svg>
+                    </span>
+                    <span style={{ display: "flex", flexDirection: "column", gap: 4, minWidth: 0 }}>
+                      <span style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", color: "var(--signal)" }}>{t.insights.kind[v.kind] ?? v.kind}</span>
+                      <span dir="auto" style={{ fontSize: 17, fontWeight: 600, lineHeight: 1.35 }}>{v.title}</span>
+                      <span style={{ fontSize: 14, color: "var(--muted)" }}>{v.source}</span>
+                    </span>
+                  </a>
+                ))}
+              </div>
+            </div>
+            <div>
+              <h3 style={sectionTitle}>{t.insights.inPrint}</h3>
+              <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+                {c.articles.map((v) => (
+                  <a key={v.url} href={v.url} target="_blank" rel="noopener noreferrer" className="card" style={{ display: "flex", gap: 18, alignItems: "center", textDecoration: "none", color: "var(--text)", padding: 18 }}>
+                    <span style={{ flex: "none", width: 120, height: 80, borderRadius: 12, background: "var(--bg)", border: "1px solid var(--line)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      <svg aria-hidden width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M6 3h9l4 4v14H6z" /><path d="M14 3v5h5M9 13h7M9 17h7" /></svg>
                     </span>
                     <span style={{ display: "flex", flexDirection: "column", gap: 4, minWidth: 0 }}>
                       <span style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", color: "var(--signal)" }}>{t.insights.kind[v.kind] ?? v.kind}</span>

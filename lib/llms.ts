@@ -11,7 +11,7 @@ export function llmsTxt() {
 
 Key facts, each backed by a page on this site:
 - Role: Head of AI Factory, Devoteam (Paris), since August 2023.
-- Built NOVA Suite (Nova Agents, Nova Context, Nova Evals / FORGE), an agentic platform used by 3,000+ people, with a 15-person team.
+- Built NOVA Suite (Nova Agents, Nova Context, Nova Evals / FORGE), an agentic platform deployed to 800 employees, with a 15-person team.
 - Trained 1,500+ professionals in generative AI, agentic AI and RAG (LEAP programme).
 - Founded TRAIL Academy, an AI e-learning platform (https://trailacademy.fr).
 - Author of four books on AI, leadership and the future of work.
@@ -30,6 +30,7 @@ ${c.products.map((p) => `- ${p.name}: ${p.desc}`).join("\n")}
 
 ## Publications
 ${c.books.map((b) => `- [${b.title}](${b.url}): ${b.theme}`).join("\n")}
+${c.articles.map((a) => `- [${a.title}](${a.url}): article on Devoteam.com, ${a.date}`).join("\n")}
 
 ## Links
 - LinkedIn: ${profile.linkedin}
@@ -39,15 +40,16 @@ ${c.books.map((b) => `- [${b.title}](${b.url}): ${b.theme}`).join("\n")}
 `;
 }
 
-/** Full text of the published case studies. Unvalidated placeholders and unmeasured targets are left out on purpose. */
+/** Full text of the published case studies. Unvalidated placeholders are left out on purpose. */
 export function llmsFull() {
   const cases = c.clients.map((x) => {
     const steps = x.steps
       .map((s) => {
         const body = real(s.body) ? s.body : "";
         const pts = clean(s.points).map((p) => `- ${p}`).join("\n");
-        const stats = clean((s.stats ?? []).map((k) => k.value)).length ? "\n" + (s.stats ?? []).filter((k) => real(k.value)).map((k) => `- ${k.value}: ${k.label}`).join("\n") : "";
-        return body || pts || stats ? `### ${s.label}\n${[body, pts, stats].filter(Boolean).join("\n\n")}` : "";
+        const stats = (s.stats ?? []).filter((k) => real(k.value)).map((k) => `- ${k.value}: ${k.label}`).join("\n");
+        const more = clean(s.more ?? []).map((m) => `- ${m}`).join("\n");
+        return body || pts || stats ? `### ${s.label}\n${[body, pts, stats, more].filter(Boolean).join("\n\n")}` : "";
       })
       .filter(Boolean)
       .join("\n\n");

@@ -43,7 +43,7 @@ The site should win **entity queries** (people searching for Yassine) and **expe
 2. **Align every profile with the site.** LinkedIn headline and About: same title, same wording, link to iaseen.com.
    GitHub profile README and the NOVA / TrustRail / MedGuard READMEs: one-line bio, link back to iaseen.com.
    Amazon author page, YouTube and podcast descriptions: link to iaseen.com. Inbound links from real profiles are the strongest entity signal.
-3. **Get cited by third parties:** Devoteam team or news page, conference speaker pages (Google Cloud Summit, AICamp), HUB Institute,
+3. **Get cited by third parties** (done: the Devoteam Expert View article of 25 June 2026 on NOVA, co-authored by you, is linked from the Insights section and declared as an `Article` in the structured data; ask Devoteam to link back to iaseen.com from your author page): Devoteam team or news page, conference speaker pages (Google Cloud Summit, AICamp), HUB Institute,
    the podcast pages. Ask each to name you "Yassine Aqejjaj, Head of AI Factory at Devoteam" and link to iaseen.com.
 4. **Publish measured results** where you can source them (see `docs/pending-review.md`): specific, verifiable numbers are what
    AI assistants quote, and what builds trust.

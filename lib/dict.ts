@@ -46,7 +46,7 @@ export const dictEn = {
     live: "Open the live demo", visit: "Visit the platform",
     cta: { GitHub: "GitHub", Live: "Live", Visit: "Visit", Proof: "Proof" } as Record<string, string>,
     nova: {
-      subtitle: "The AI Factory’s agentic platform", desc: "Built by a 15-person cross-functional team. Used by 3,000+ people across a group of 10,000+ consultants in 25 countries.",
+      subtitle: "The AI Factory’s agentic platform", desc: "Built by a 15-person cross-functional team. Deployed to 800 employees within a group of 10,000+ consultants in 25 countries.",
       modulesAria: "NOVA Suite modules", loop: "Each evaluation feeds back into context and behaviour: a closed improvement loop.",
       modules: [
         { tag: "ACT", name: "Nova Agents", fn: "Agentic application orchestration: specialised agents working together inside one platform.", cta: "NOVA on GitHub" },
@@ -65,9 +65,9 @@ export const dictEn = {
   },
   insights: {
     eyebrow: "INSIGHTS", title: "Ideas, on stage, teaching", lead: "Four books, talks and training programmes on AI, leadership and the future of work.",
-    books: "IDEAS · BOOKS", author: "YASSINE AQEJJAJ", onAmazon: "On Amazon", onStage: "ON STAGE", teaching: "TEACHING",
+    books: "IDEAS · BOOKS", author: "YASSINE AQEJJAJ", onAmazon: "On Amazon", onStage: "ON STAGE", inPrint: "IN PRINT", teaching: "TEACHING",
     trainedLine: "people trained in AI", trailText: "my professional AI learning platform, built to turn teams into builders.", trailCta: "Explore TRAIL Academy",
-    kind: { TALK: "TALK", PODCAST: "PODCAST" } as Record<string, string>,
+    kind: { TALK: "TALK", PODCAST: "PODCAST", ARTICLE: "ARTICLE" } as Record<string, string>,
   },
   ask: {
     eyebrow: "ASK MY AI", title: "An interactive guide to my work", text: "It only answers from validated portfolio content and always links its sources.",
@@ -87,7 +87,7 @@ export const dictEn = {
     back: "All client work", label: "CASE STUDY", aria: "Case study", path: "THE PATH", pathAria: "Case study steps", prev: "Previous", next: "Next step",
     role: "ROLE", client: "CLIENT", focus: "FOCUS", year: "YEAR", nextCase: "Next case study", readIt: "Read it",
     confidential: "Only public or client-approved information is shared here: no internal architecture, documents, data or confidential figures.",
-    onRequest: "Quantified results and lessons learned are shared on request.", targets: "TARGETS", targetsNote: "Objectives set for the platform. These are targets, not measured results.", homeAria: "iaseen, home",
+    onRequest: "Quantified results and lessons learned are shared on request.", confirmed: "Figures confirmed with the project team. Evaluation method shared on request.", homeAria: "iaseen, home",
   },
   cv: {
     subtitle: "Head of AI · Product Builder · AI Strategist", experience: "EXPERIENCE", expertise: "EXPERTISE", education: "EDUCATION AND TRAINING", languages: "LANGUAGES", save: "Save as PDF",
@@ -152,7 +152,7 @@ export const dictFr: Dict = {
     live: "Ouvrir la démo", visit: "Visiter la plateforme",
     cta: { GitHub: "GitHub", Live: "Démo", Visit: "Visiter", Proof: "Preuve" },
     nova: {
-      subtitle: "La plateforme agentique de l’AI Factory", desc: "Conçue par une équipe pluridisciplinaire de 15 personnes. Utilisée par plus de 3 000 personnes dans un groupe de plus de 10 000 consultants répartis dans 25 pays.",
+      subtitle: "La plateforme agentique de l’AI Factory", desc: "Conçue par une équipe pluridisciplinaire de 15 personnes. Déployée auprès de 800 collaborateurs au sein d’un groupe de plus de 10 000 consultants répartis dans 25 pays.",
       modulesAria: "Modules de NOVA Suite", loop: "Chaque évaluation alimente le contexte et le comportement : une boucle d’amélioration fermée.",
       modules: [
         { tag: "AGIR", name: "Nova Agents", fn: "Orchestration d’applications agentiques : des agents spécialisés qui travaillent ensemble au sein d’une même plateforme.", cta: "NOVA sur GitHub" },
@@ -168,9 +168,9 @@ export const dictFr: Dict = {
     } },
   insights: {
     eyebrow: "PUBLICATIONS", title: "Idées, prises de parole, enseignement", lead: "Quatre livres, des interventions et des formations sur l’IA, le leadership et l’avenir du travail.",
-    books: "IDÉES · LIVRES", author: "YASSINE AQEJJAJ", onAmazon: "Sur Amazon", onStage: "PRISES DE PAROLE", teaching: "ENSEIGNEMENT",
+    books: "IDÉES · LIVRES", author: "YASSINE AQEJJAJ", onAmazon: "Sur Amazon", onStage: "PRISES DE PAROLE", inPrint: "PUBLICATIONS", teaching: "ENSEIGNEMENT",
     trainedLine: "personnes formées à l’IA", trailText: "ma plateforme professionnelle de formation à l’IA, conçue pour transformer les équipes en bâtisseurs.", trailCta: "Découvrir TRAIL Academy",
-    kind: { TALK: "CONFÉRENCE", PODCAST: "PODCAST" },
+    kind: { TALK: "CONFÉRENCE", PODCAST: "PODCAST", ARTICLE: "ARTICLE" },
   },
   ask: {
     eyebrow: "DEMANDER À MON IA", title: "Un guide interactif de mon travail", text: "Il ne répond qu’à partir du contenu validé du portfolio et cite toujours ses sources.",
@@ -190,7 +190,7 @@ export const dictFr: Dict = {
     back: "Toutes les missions", label: "ÉTUDE DE CAS", aria: "Étude de cas", path: "LE PARCOURS", pathAria: "Étapes de l’étude de cas", prev: "Précédent", next: "Étape suivante",
     role: "RÔLE", client: "CLIENT", focus: "FOCUS", year: "ANNÉE", nextCase: "Étude de cas suivante", readIt: "Lire",
     confidential: "Seules des informations publiques ou validées par le client sont partagées ici : ni architecture interne, ni documents, ni données, ni chiffres confidentiels.",
-    onRequest: "Les résultats chiffrés et les enseignements sont partagés sur demande.", targets: "OBJECTIFS VISÉS", targetsNote: "Objectifs fixés pour la plateforme. Ce sont des cibles, pas des résultats mesurés.", homeAria: "iaseen, accueil",
+    onRequest: "Les résultats chiffrés et les enseignements sont partagés sur demande.", confirmed: "Chiffres confirmés avec l’équipe projet. Méthode d’évaluation communiquée sur demande.", homeAria: "iaseen, accueil",
   },
   cv: {
     subtitle: "Head of AI · Product Builder · Stratège IA", experience: "EXPÉRIENCE", expertise: "EXPERTISE", education: "FORMATION", languages: "LANGUES", save: "Enregistrer en PDF",
@@ -253,7 +253,7 @@ export const dictAr: Dict = {
     live: "افتح العرض التجريبي", visit: "زيارة المنصة",
     cta: { GitHub: "GitHub", Live: "عرض مباشر", Visit: "زيارة", Proof: "الدليل" },
     nova: {
-      subtitle: "المنصة الوكيلة لـ AI Factory", desc: "بناها فريق متعدد التخصصات من 15 شخصًا. يستخدمها أكثر من 3000 شخص ضمن مجموعة تضم أكثر من 10000 مستشار في 25 دولة.",
+      subtitle: "المنصة الوكيلة لـ AI Factory", desc: "بناها فريق متعدد التخصصات من 15 شخصًا. نُشرت لدى 800 موظف ضمن مجموعة تضم أكثر من 10000 مستشار في 25 دولة.",
       modulesAria: "وحدات NOVA Suite", loop: "كل تقييم يغذّي السياق والسلوك: حلقة تحسين مغلقة.",
       modules: [
         { tag: "التنفيذ", name: "Nova Agents", fn: "تنسيق التطبيقات الوكيلة: وكلاء متخصصون يعملون معًا داخل منصة واحدة.", cta: "NOVA على GitHub" },
@@ -269,9 +269,9 @@ export const dictAr: Dict = {
     } },
   insights: {
     eyebrow: "رؤى", title: "أفكار، منصات، وتدريس", lead: "أربعة كتب ومداخلات وبرامج تدريبية حول الذكاء الاصطناعي والقيادة ومستقبل العمل.",
-    books: "أفكار · كتب", author: "YASSINE AQEJJAJ", onAmazon: "على Amazon", onStage: "مداخلات", teaching: "التدريس",
+    books: "أفكار · كتب", author: "YASSINE AQEJJAJ", onAmazon: "على Amazon", onStage: "مداخلات", inPrint: "منشورات", teaching: "التدريس",
     trainedLine: "شخص تم تدريبهم على الذكاء الاصطناعي", trailText: "منصتي المهنية للتعلم في الذكاء الاصطناعي، صُممت لتحويل الفرق إلى بُناة.", trailCta: "اكتشف TRAIL Academy",
-    kind: { TALK: "مداخلة", PODCAST: "بودكاست" },
+    kind: { TALK: "مداخلة", PODCAST: "بودكاست", ARTICLE: "مقال" },
   },
   ask: {
     eyebrow: "اسأل ذكائي الاصطناعي", title: "دليل تفاعلي لأعمالي", text: "لا يجيب إلا انطلاقًا من محتوى الموقع المعتمد، ويذكر مصادره دائمًا.",
@@ -291,7 +291,7 @@ export const dictAr: Dict = {
     back: "كل أعمال العملاء", label: "دراسة حالة", aria: "دراسة حالة", path: "المسار", pathAria: "مراحل دراسة الحالة", prev: "السابق", next: "المرحلة التالية",
     role: "الدور", client: "العميل", focus: "التركيز", year: "السنة", nextCase: "دراسة الحالة التالية", readIt: "اقرأ",
     confidential: "لا تُنشر هنا إلا معلومات عامة أو معتمدة من العميل: لا بنية داخلية ولا وثائق ولا بيانات ولا أرقام سرية.",
-    onRequest: "النتائج الرقمية والدروس المستفادة تُشارك عند الطلب.", targets: "الأهداف المرجوة", targetsNote: "أهداف حُدّدت للمنصة. هي أهداف مرجوّة لا نتائج مقيسة.", homeAria: "iaseen، الرئيسية",
+    onRequest: "النتائج الرقمية والدروس المستفادة تُشارك عند الطلب.", confirmed: "أرقام مؤكدة مع فريق المشروع. تُشارك منهجية التقييم عند الطلب.", homeAria: "iaseen، الرئيسية",
   },
   cv: {
     subtitle: "Head of AI · باني منتجات · استراتيجي ذكاء اصطناعي", experience: "الخبرة", expertise: "الخبرات", education: "التكوين والتدريب", languages: "اللغات", save: "حفظ بصيغة PDF",

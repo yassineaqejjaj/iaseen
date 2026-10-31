@@ -45,6 +45,7 @@ export const homeGraph = (l: Locale) => {
     "@graph": [
       { "@type": "ProfilePage", "@id": `${pageUrl(l)}#profile`, url: pageUrl(l) || SITE, inLanguage: l, mainEntity: { "@id": PERSON_ID }, isPartOf: { "@id": `${SITE}/#website` } },
       ...c.books.map((b) => ({ "@type": "Book", name: b.title, description: b.theme, url: b.url, author: { "@id": PERSON_ID } })),
+      ...c.articles.map((a) => ({ "@type": "Article", headline: a.title, url: a.url, datePublished: a.date, inLanguage: a.lang, author: { "@id": PERSON_ID }, publisher: { "@type": "Organization", name: "Devoteam" } })),
       {
         "@type": "FAQPage", inLanguage: l,
         mainEntity: c.qa.map((x) => ({ "@type": "Question", name: x.q, acceptedAnswer: { "@type": "Answer", text: x.a } })),

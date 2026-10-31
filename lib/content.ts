@@ -20,7 +20,7 @@ export const bio = {
   headline: "Leading AI at scale. Building it myself.",
   paragraphs: [
     "I'm Yassine Aqejjaj, an AI leader with 13 years of experience building AI products, shaping enterprise AI operating models and leading cross-functional delivery across defence, public services, retail and financial services. Since 2023 I head the AI Factory at Devoteam, where internal platform development, client delivery and workforce enablement come together.",
-    "I started in digital banking in Casablanca, then moved to Paris to work on AI products at Carrefour, Fujitsu and AXA. Along the way I trained in machine learning at Stanford and in AI product management at Duke. Today I lead the NOVA Suite, our agentic platform used by 3,000+ people, and I've trained 1,500+ professionals in generative AI, agentic AI and RAG.",
+    "I started in digital banking in Casablanca, then moved to Paris to work on AI products at Carrefour, Fujitsu and AXA. Along the way I trained in machine learning at Stanford and in AI product management at Duke. Today I lead the NOVA Suite, our agentic platform deployed to 800 employees, and I've trained 1,500+ professionals in generative AI, agentic AI and RAG.",
     "I also build on my own: TrustRail, MedGuard AI, M3aya Santé and the TRAIL Academy learning platform I founded. I share what I learn in four books and on stage, including Google Cloud Summit and AICamp. I focus on agentic AI, responsible deployment and measurable business adoption.",
   ],
   facts: ["Paris, France", "French · Arabic · English", "AI Champion, Devoteam 2024–2026", "Founder, TRAIL Academy"],
@@ -39,7 +39,7 @@ export const roles = [
   {
     period: "Aug 2023 – Present", title: "Head of AI Factory", org: "Devoteam", place: "Paris", logo: "devoteam",
     summary: "Directs a portfolio combining AI platform products, applied AI engagements and training initiatives, and leads the AI Factory's agentic platform suite.",
-    impact: "€12M+ commercial pipeline · 3,000+ NOVA users across 10,000+ consultants in 25 countries · 1,500+ professionals trained.",
+    impact: "€12M+ commercial pipeline · NOVA deployed to 800 employees within a group of 10,000+ consultants in 25 countries · 1,500+ professionals trained.",
     tags: ["AI Factory", "Agentic AI", "Operating model", "Team leadership", "RAG", "Evaluation"],
     bullets: [
       { lens: "lead", text: "Directed the AI Factory portfolio: platform products, applied AI engagements and training; contributed to a €12M+ commercial pipeline." },
@@ -91,7 +91,7 @@ export const roles = [
   },
 ] as { period: string; title: string; org: string; place: string; logo: string; summary: string; impact: string; tags: string[]; bullets: { lens: Lens; text: string }[] }[];
 
-export type Step = { label: string; body: string; points: string[]; stats?: { value: string; label: string }[]; targets?: { stats: { value: string; label: string }[]; more: string[] } };
+export type Step = { label: string; body: string; points: string[]; stats?: { value: string; label: string }[]; more?: string[]; confirmed?: boolean };
 export const STEP_LABELS = ["Context", "Problem", "My role", "Approach", "Solution", "Impact", "Lessons learned"];
 
 export const clients = [
@@ -120,7 +120,7 @@ export const clients = [
     title: "Building a Sovereign AI Platform to Accelerate RAG & Agentic AI Delivery", year: "2026", org: "DILA, Services du Premier ministre",
     role: "AI Product & Delivery Leadership | Sovereign GenAI (9-person team)",
     summary: "A sovereign, reusable AI foundation to accelerate the delivery of RAG and agentic applications.",
-    impact: "70% faster content creation.", tags: ["Sovereign AI", "RAG", "Agentic AI", "Platform engineering"], sensitive: true,
+    impact: "70% faster content creation; RAG application delivery time down 60%.", tags: ["Sovereign AI", "RAG", "Agentic AI", "Platform engineering"], sensitive: true,
     focus: "Sovereign AI · Agentic AI · RAG · Platform engineering · AI governance",
     steps: [
       { label: "The challenge", body: "Public institutions need to deploy generative AI while maintaining strict requirements for data sovereignty, security, traceability and regulatory compliance.\n\nHowever, building each AI application independently creates significant duplication: document ingestion, embeddings, retrieval, orchestration, security controls, evaluation and observability often have to be rebuilt for every project.\n\nThe objective was to move beyond isolated AI proofs of concept and establish a sovereign, reusable AI foundation capable of accelerating the development of production-ready RAG and agentic applications.", points: [] },
@@ -134,7 +134,7 @@ export const clients = [
         "Governance by design: Embed access management, traceability, auditability and sovereignty requirements into reusable platform components.",
         "Delivery acceleration: Establish repeatable implementation patterns to reduce development effort and improve consistency across AI projects.",
       ] },
-      { label: "Impact", body: "From isolated AI projects to a reusable platform. The approach shifted the development model from building each application independently to assembling standardized, governed AI components.\n\nNew RAG applications could reuse shared document processing, retrieval, evaluation and security capabilities. Agentic applications could build on existing orchestration patterns and tool integrations.\n\nThis reduced duplicated engineering work, accelerated experimentation and established a more consistent approach to AI quality and governance.", points: [], stats: [{ value: "70%", label: "Faster content creation" }], targets: { stats: [{ value: "−60%", label: "RAG application delivery time, from 10 weeks to 4 weeks" }, { value: "75%", label: "of common technical capabilities reused" }, { value: "0.94", label: "RAG faithfulness" }, { value: "−30%", label: "cost per AI request, through pipeline optimization and reuse" }], more: ["Agentic workflow prototyping: −50% implementation time", "Answer relevancy: 0.91", "Context precision: 0.89", "Context recall: 0.92", "Evaluation coverage: 85% of priority RAG scenarios"] } },
+      { label: "Impact", body: "From isolated AI projects to a reusable platform. The approach shifted the development model from building each application independently to assembling standardized, governed AI components.\n\nNew RAG applications could reuse shared document processing, retrieval, evaluation and security capabilities. Agentic applications could build on existing orchestration patterns and tool integrations.\n\nThis reduced duplicated engineering work, accelerated experimentation and established a more consistent approach to AI quality and governance.", points: [], stats: [{ value: "70%", label: "Faster content creation" }, { value: "−60%", label: "RAG application delivery time, from 10 weeks to 4 weeks" }, { value: "75%", label: "of common technical capabilities reused" }, { value: "0.94", label: "RAG faithfulness" }, { value: "−30%", label: "cost per AI request, through pipeline optimization and reuse" }], more: ["Agentic workflow prototyping: −50% implementation time", "Answer relevancy: 0.91", "Context precision: 0.89", "Context recall: 0.92", "Evaluation coverage: 85% of priority RAG scenarios"], confirmed: true },
       { label: "What I learned", body: "The real value of an enterprise AI platform is not only the intelligence it provides, but how quickly and reliably it lets an organization build its next AI application. Treating RAG pipelines, agentic workflows, evaluation and governance as reusable platform capabilities turns sovereign AI into a scalable engineering model rather than a collection of disconnected experiments.", points: [] },
     ] as Step[],
   },
@@ -183,7 +183,7 @@ export const clients = [
 
 const GH = profile.github;
 export const products = [
-  { name: "NOVA Suite", category: "AGENTIC", status: "3,000+ users", desc: "The AI Factory's agentic platform suite: Nova Agents orchestrate applications, Nova Context retrieves targeted context, Nova Evals / FORGE test and evaluate.", stack: "15-person team", url: GH + "/NOVA", cta: "GitHub" },
+  { name: "NOVA Suite", category: "AGENTIC", status: "800 users", desc: "The AI Factory's agentic platform suite: Nova Agents orchestrate applications, Nova Context retrieves targeted context, Nova Evals / FORGE test and evaluate.", stack: "15-person team", url: GH + "/NOVA", cta: "GitHub" },
   { name: "Nova Context", category: "AGENTIC", status: "Active", desc: "Governed context and memory engine for AI agents and multi-agent workflows.", stack: "Python", url: GH + "/ORBIT", cta: "GitHub" },
   { name: "Nova Evals · FORGE", category: "AGENTIC", status: "Active", desc: "Evaluation and regression testing: benchmarks and improves agents.", stack: "Python", url: GH + "/FORGE", cta: "GitHub" },
   { name: "TrustRail", category: "AGENTIC", status: "2026", desc: "AI-agent control gateway: limits, delegation, human approval and signed receipts, with TS/Python SDKs and an MCP adapter.", stack: "TypeScript · Python", url: "https://trustrail-mu.vercel.app", cta: "Live" },
@@ -234,18 +234,27 @@ export const stage = [
   { kind: "PODCAST", title: "شنو كيوقع ملي واحد يقرر يبدل حياتو كاملة؟", source: "Podcast Wamda · Watch on YouTube", url: "https://youtu.be/6Ip6mfupjso" },
 ];
 
+export const articles = [
+  {
+    kind: "ARTICLE",
+    title: "Orchestration d’agents IA en entreprise : comment nous avons construit Nova pour passer de la productivité individuelle à la performance collective",
+    source: "Devoteam · Expert View · in French", date: "2026-06-25", lang: "fr",
+    url: "https://www.devoteam.com/fr/expert-view/orchestration-dagents-ia-en-entreprise-comment-nous-avons-construit-nova-pour-passer-de-la-productivite-individuelle-a-la-performance-collective/",
+  },
+];
+
 export const qa: { q: string; a: string; aud?: string; sources: { label: string; href: string }[] }[] = [
   { q: "What enterprise AI programmes has he led?", aud: "Recruiter",
     a: "Yassine has been Head of AI Factory at Devoteam since August 2023. Engagements he led include an AI operating model for Thales (5 people), a sovereign generative AI platform for DILA, the services of the Prime Minister (9 people, 70% faster content creation), a €4M AI transformation programme at Decathlon (13 people, 2.6× productivity gains from augmented teams) and an ML/MLOps engagement at Carrefour (10 people).",
     sources: [{ label: "Experience", href: "#experience" }, { label: "Client Work", href: "#client-work" }] },
   { q: "Show his agentic AI products", aud: "Builder",
-    a: "NOVA Suite is the AI Factory's agentic platform, built by a 15-person team and used by 3,000+ people across 10,000+ consultants in 25 countries: Nova Agents orchestrate applications, Nova Context retrieves targeted context and Nova Evals / FORGE evaluate results. He also built TrustRail, an AI-agent control gateway, and MedGuard AI, an open-source healthcare AI evaluation platform.",
+    a: "NOVA Suite is the AI Factory's agentic platform, built by a 15-person team and deployed to 800 employees within a group of 10,000+ consultants in 25 countries: Nova Agents orchestrate applications, Nova Context retrieves targeted context and Nova Evals / FORGE evaluate results. He also built TrustRail, an AI-agent control gateway, and MedGuard AI, an open-source healthcare AI evaluation platform.",
     sources: [{ label: "AI Lab", href: "#ai-lab" }, { label: "GitHub", href: GH }] },
   { q: "What makes his profile suitable for a VP AI role?", aud: "Recruiter",
-    a: "Three proofs in one profile: he sets AI strategy and operating models, delivers AI in production for large enterprises, and builds agentic platforms himself. 13 years of experience, a €12M+ commercial pipeline, 3,000+ NOVA users and 1,500+ professionals trained.",
+    a: "Three proofs in one profile: he sets AI strategy and operating models, delivers AI in production for large enterprises, and builds agentic platforms himself. 13 years of experience, a €12M+ commercial pipeline, 800 NOVA users and 1,500+ professionals trained.",
     sources: [{ label: "Expertise", href: "#expertise" }, { label: "Experience", href: "#experience" }] },
   { q: "Which client results can he share?", aud: "Client",
-    a: "Public figures from his CV: 2.6× productivity gains from augmented teams on a €4M AI transformation programme at Decathlon, and 70% faster content creation on a sovereign AI platform for DILA, the services of the Prime Minister. Other results are shared on request, with client approval.",
+    a: "Public figures from his CV: 2.6× productivity gains from augmented teams on a €4M AI transformation programme at Decathlon, and 70% faster content creation on a sovereign AI platform for DILA, the services of the Prime Minister. On the DILA sovereign AI platform, results confirmed with the project team include a 60% shorter delivery time for a RAG application (from 10 weeks to 4), 75% of common technical capabilities reused, a RAG faithfulness of 0.94 and a 30% lower cost per AI request. Other results are shared on request, with client approval.",
     sources: [{ label: "Client Work", href: "#client-work" }] },
   { q: "What has he built himself?", aud: "Builder",
     a: "NOVA Suite (Nova Agents, Nova Context, Nova Evals / FORGE), TrustRail (an AI-agent control gateway), MedGuard AI (an open-source healthcare AI evaluation platform), M3aya Santé (a patient-journey platform for healthcare facilities in Morocco) and the TRAIL Academy learning platform he founded.",
@@ -256,5 +265,5 @@ export const qa: { q: string; a: string; aud?: string; sources: { label: string;
 ];
 
 /** Everything that is translated per language. UI strings live in dict.ts. */
-export const contentEn = { bio, roles, clients, products, proof, pillars, books, stage, qa };
+export const contentEn = { bio, roles, clients, products, proof, pillars, books, stage, articles, qa };
 export type Content = typeof contentEn;

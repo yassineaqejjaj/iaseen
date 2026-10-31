@@ -214,16 +214,22 @@ export const stage = [
   { kind: "PODCAST", title: "شنو كيوقع ملي واحد يقرر يبدل حياتو كاملة؟", source: "Podcast Wamda · Watch on YouTube", url: "https://youtu.be/6Ip6mfupjso" },
 ];
 
-export const qa = [
-  { q: "What enterprise AI programmes has he led?",
+export const qa: { q: string; a: string; aud?: string; sources: { label: string; href: string }[] }[] = [
+  { q: "What enterprise AI programmes has he led?", aud: "Recruiter",
     a: "Yassine has been Head of AI Factory at Devoteam since August 2023. Engagements he led include an AI operating model for Thales (5 people), sovereign agentic applications for the French Prime Minister's Office (9 people, 70% faster content creation), a €4M AI transformation programme at Decathlon (13 people, 2.6× productivity gains from augmented teams) and an ML/MLOps engagement at Carrefour (10 people).",
     sources: [{ label: "Experience", href: "#experience" }, { label: "Client Work", href: "#client-work" }] },
-  { q: "Show his agentic AI products",
+  { q: "Show his agentic AI products", aud: "Builder",
     a: "NOVA Suite is the AI Factory's agentic platform, built by a 15-person team and used by 3,000+ people across 10,000+ consultants in 25 countries: Nova Agents orchestrate applications, Nova Context retrieves targeted context and Nova Evals / FORGE evaluate results. He also built TrustRail, an AI-agent control gateway, and MedGuard AI, an open-source healthcare AI evaluation platform.",
     sources: [{ label: "AI Lab", href: "#ai-lab" }, { label: "GitHub", href: GH }] },
-  { q: "What makes his profile suitable for a VP AI role?",
+  { q: "What makes his profile suitable for a VP AI role?", aud: "Recruiter",
     a: "Three proofs in one profile: he sets AI strategy and operating models, delivers AI in production for large enterprises, and builds agentic platforms himself. 13 years of experience, a €12M+ commercial pipeline, 3,000+ NOVA users and 1,500+ professionals trained.",
     sources: [{ label: "Expertise", href: "#expertise" }, { label: "Experience", href: "#experience" }] },
+  { q: "Which client results can he share?", aud: "Client",
+    a: "Public figures from his CV: 2.6× productivity gains from augmented teams on a €4M AI transformation programme at Decathlon, and 70% faster content creation with sovereign agentic applications for the French Prime Minister's Office. Other results are shared on request, with client approval.",
+    sources: [{ label: "Client Work", href: "#client-work" }] },
+  { q: "What has he built himself?", aud: "Builder",
+    a: "NOVA Suite (Nova Agents, Nova Context, Nova Evals / FORGE), TrustRail (an AI-agent control gateway), MedGuard AI (an open-source healthcare AI evaluation platform), M3aya Santé (a patient-journey platform for healthcare facilities in Morocco) and the TRAIL Academy learning platform he founded.",
+    sources: [{ label: "AI Lab", href: "#ai-lab" }, { label: "GitHub", href: GH }] },
   { q: "What has he written?",
     a: "Four books: Symbiose on human–AI collaboration, Leading with AI on healthcare and on education, and The Artificial Candidate on generative AI and US elections.",
     sources: [{ label: "Insights", href: "#insights" }] },

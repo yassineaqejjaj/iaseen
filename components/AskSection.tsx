@@ -22,7 +22,7 @@ export default function AskSection() {
       <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
         {qa.map((x, i) => (
           <button key={x.q} type="button" aria-pressed={active === i} onClick={() => { setActive(i); setAns(x); }}
-            style={{ minHeight: 44, padding: "8px 16px", borderRadius: 14, cursor: "pointer", textAlign: "left", fontSize: 14, fontWeight: 500, lineHeight: 1.4, border: `1px solid ${active === i ? "var(--accent)" : "#2e3b5a"}`, background: active === i ? "#1f2b48" : "transparent", color: "#fff" }}>{x.q}</button>
+            style={{ minHeight: 44, padding: "8px 16px", borderRadius: 14, cursor: "pointer", textAlign: "left", fontSize: 14, fontWeight: 500, lineHeight: 1.4, border: `1px solid ${active === i ? "var(--accent)" : "#2e3b5a"}`, background: active === i ? "#1f2b48" : "transparent", color: "#fff" }}><span style={{ display: "block", fontSize: 10, fontWeight: 600, letterSpacing: ".12em", color: "var(--signal)", marginBottom: 2 }}>{(x.aud ?? "").toUpperCase()}</span>{x.q}</button>
         ))}
       </div>
       <div aria-live="polite" style={{ background: "rgba(8,11,18,.55)", border: "1px solid var(--line)", borderRadius: 18, padding: 20 }}>

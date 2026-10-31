@@ -5,7 +5,8 @@ import LabGrid from "@/components/LabGrid";
 import SkillProof from "@/components/SkillProof";
 import AskSection from "@/components/AskSection";
 import ProofPanel from "@/components/ProofPanel";
-import HeroOrb from "@/components/HeroOrb";
+import HeroPortrait from "@/components/HeroPortrait";
+import { FeaturedProducts } from "@/components/FeaturedProducts";
 import HeroTitle from "@/components/HeroTitle";
 import About from "@/components/About";
 import NovaSystem from "@/components/NovaSystem";
@@ -50,13 +51,13 @@ export default async function Home() {
             <p style={{ margin: "28px 0 0", maxWidth: 600, fontSize: 19, lineHeight: 1.6, color: "var(--body)" }}>
               From enterprise AI strategy to production-ready agentic systems. Turning ideas into products, teams into builders, and AI into measurable outcomes.
             </p>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 36 }}>
+            <div className="rise" style={{ animationDelay: ".7s", display: "flex", flexWrap: "wrap", gap: 12, marginTop: 36 }}>
               <Link href="/#ai-lab" className="pill pill-accent" style={{ minHeight: 52, padding: "0 26px", fontSize: 16, color: "#07101f" }}>Explore my work <Arrow /></Link>
               <Link href="/#ask" className="pill pill-line" style={{ minHeight: 52, padding: "0 26px", fontSize: 16 }}>Ask my AI</Link>
               <Link href="/#experience" style={{ display: "inline-flex", alignItems: "center", minHeight: 52, fontWeight: 600, fontSize: 15, textDecoration: "none" }}>Interactive CV →</Link>
             </div>
           </div>
-          <div style={{ flex: "1 1 340px", minWidth: 0 }}><HeroOrb /></div>
+          <HeroPortrait />
         </div>
         <div className="wrap" style={{ paddingBottom: 72 }}>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 16 }}>
@@ -139,6 +140,7 @@ export default async function Home() {
             <a href={profile.github} className="pill pill-dark-line" style={{ color: "#fff" }}>github.com/{profile.githubUser}</a>
           </div>
           <NovaSystem />
+          <FeaturedProducts />
           <LabGrid />
         </div>
       </section>

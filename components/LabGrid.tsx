@@ -4,11 +4,13 @@ import { products, FILTERS, real } from "@/lib/content";
 
 export default function LabGrid() {
   const [f, setF] = useState("All");
-  const list = products.filter((p) => f === "All" || p.category === f);
+  const SHOWN_ABOVE = ["NOVA Suite", "Nova Context", "Nova Evals · FORGE", "M3aya Santé", "TRAIL Academy"];
+  const rest = products.filter((p) => !SHOWN_ABOVE.includes(p.name));
+  const list = rest.filter((p) => f === "All" || p.category === f);
   return (
     <>
-      <div role="group" aria-label="Filter products" style={{ display: "flex", flexWrap: "wrap", gap: 8, margin: "40px 0 20px" }}>
-        {FILTERS.map((x) => (
+      <div role="group" aria-label="Filter products" style={{ display: "flex", flexWrap: "wrap", gap: 8, margin: "48px 0 20px" }}>
+        {FILTERS.filter((x) => x.id === "All" || rest.some((p) => p.category === x.id)).map((x) => (
           <button key={x.id} type="button" className="togglebtn" aria-pressed={f === x.id} onClick={() => setF(x.id)}
             style={{ padding: "0 18px", border: `1px solid ${f === x.id ? "var(--accent)" : "var(--line)"}`, background: f === x.id ? "var(--accent)" : "transparent", color: f === x.id ? "#07101f" : "var(--text2)" }}>{x.label}</button>
         ))}

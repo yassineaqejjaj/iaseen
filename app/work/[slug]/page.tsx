@@ -5,6 +5,14 @@ import ClientLogo from "@/components/ClientLogo";
 import Logo from "@/components/Logo";
 import { clients } from "@/lib/content";
 
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const c = clients.find((x) => x.slug === slug);
+  if (!c) return {};
+  const title = `${c.client}: ${c.title} — Yassine Aqejjaj`;
+  return { title, description: c.summary, openGraph: { title, description: c.summary, type: "article" as const } };
+}
+
 export function generateStaticParams() { return clients.map((c) => ({ slug: c.slug })); }
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {

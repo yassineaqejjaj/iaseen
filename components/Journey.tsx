@@ -1,48 +1,64 @@
 "use client";
 import { useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
-import { experiences, type Lens } from "@/lib/content";
-
-const lenses: Lens[] = ["Leadership", "AI Product", "Technical"];
+import { roles, LENSES, LENS_TAG, real, type Lens } from "@/lib/content";
+import ClientLogo from "./ClientLogo";
 
 export default function Journey() {
-  const [lens, setLens] = useState<Lens>("Leadership");
-  const [open, setOpen] = useState<string>(experiences[0].id);
+  const [lens, setLens] = useState<"all" | Lens>("all");
+  const [i, setI] = useState(0);
+  const role = roles[i];
+  const bullets = role.bullets.filter((b) => real(b.text) && (lens === "all" || b.lens === lens));
   return (
-    <div className="container-x pb-24">
-      <div role="tablist" className="flex flex-wrap gap-2">
-        {lenses.map((l) => (
-          <button key={l} role="tab" aria-selected={lens === l} onClick={() => setLens(l)}
-            className={`btn ${lens === l ? "btn-primary" : "btn-ghost"}`}>{l}</button>
+    <>
+      <div role="group" aria-label="Read the CV through a lens" style={{ display: "flex", flexWrap: "wrap", gap: 8, padding: 6, background: "var(--cloud)", border: "1px solid var(--line)", borderRadius: 999, width: "fit-content", marginBottom: 32 }}>
+        {LENSES.map((l) => (
+          <button key={l.id} type="button" className="togglebtn" aria-pressed={lens === l.id} onClick={() => setLens(l.id)}
+            style={{ padding: "0 18px", border: "none", background: lens === l.id ? "var(--midnight)" : "transparent", color: lens === l.id ? "#fff" : "var(--slate)" }}>{l.label}</button>
         ))}
       </div>
-      <ol className="relative mt-10 space-y-4 border-l-2 border-line pl-6">
-        {experiences.map((e) => {
-          const isOpen = open === e.id;
-          return (
-            <li key={e.id} className="relative">
-              <span className={`absolute -left-[33px] top-6 h-3 w-3 rounded-full ${isOpen ? "bg-electric" : "bg-line"}`} />
-              <button onClick={() => setOpen(isOpen ? "" : e.id)} aria-expanded={isOpen} className="card w-full p-5 text-left transition hover:border-electric">
-                <p className="eyebrow">{e.period}</p>
-                <p className="display mt-1 text-xl font-bold">{e.title}</p>
-                <p className="text-muted">{e.org}{e.sensitive ? " · public information only" : ""}</p>
-                <AnimatePresence initial={false}>
-                  {isOpen && (
-                    <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="overflow-hidden">
-                      <p className="mt-4">{e.summary}</p>
-                      <p className="mt-4 text-xs font-semibold uppercase tracking-widest text-muted">{lens}</p>
-                      <ul className="mt-2 list-disc space-y-1 pl-5">
-                        {e.lenses[lens].map((x) => <li key={x}>{x}</li>)}
-                      </ul>
-                      <div className="mt-4 flex flex-wrap gap-2">{e.tags.map((t) => <span key={t} className="chip">{t}</span>)}</div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 24, alignItems: "flex-start" }}>
+        <ol aria-label="Roles" style={{ listStyle: "none", margin: 0, padding: 0, flex: "1 1 340px", minWidth: 0, display: "flex", flexDirection: "column", gap: 10 }}>
+          {roles.map((r, k) => (
+            <li key={r.title + r.period}>
+              <button type="button" aria-pressed={i === k} onClick={() => setI(k)}
+                style={{ width: "100%", textAlign: "left", cursor: "pointer", display: "flex", gap: 16, alignItems: "flex-start", padding: "18px 20px", borderRadius: 16, border: `1px solid ${i === k ? "var(--accent)" : "var(--line)"}`, background: i === k ? "var(--cloud)" : "#fff", color: "var(--midnight)" }}>
+                <span aria-hidden style={{ marginTop: 6, width: 10, height: 10, borderRadius: "50%", flex: "none", background: i === k ? "var(--accent)" : "#c9d1e3" }} />
+                <span style={{ display: "flex", flexDirection: "column", gap: 4, minWidth: 0 }}>
+                  <span style={{ fontSize: 13, fontWeight: 600, color: "var(--muted)" }}>{r.period}</span>
+                  <span style={{ fontSize: 17, fontWeight: 600, lineHeight: 1.35 }}>{r.title}</span>
+                  <span style={{ fontSize: 14, color: "var(--muted)" }}>{r.org}</span>
+                </span>
               </button>
             </li>
-          );
-        })}
-      </ol>
-    </div>
+          ))}
+        </ol>
+        <article aria-live="polite" style={{ flex: "999 1 560px", minWidth: 0, background: "var(--cloud)", border: "1px solid var(--line)", borderRadius: 24, padding: 36 }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 16 }}>
+            <p style={{ margin: 0, fontSize: 14, fontWeight: 600, color: "var(--link)" }}>{role.period} · {role.org}, {role.place}</p>
+            <span style={{ background: "var(--midnight)", borderRadius: 10, padding: "8px 12px", display: "inline-flex" }}><ClientLogo name={role.logo} height={20} /></span>
+          </div>
+          <h3 className="display" style={{ margin: "10px 0 0", fontSize: 32, lineHeight: 1.15, letterSpacing: "-0.02em" }}>{role.title}</h3>
+          <p style={{ margin: "16px 0 0", fontSize: 17, lineHeight: 1.6, color: "var(--body)" }}>{role.summary}</p>
+          <h4 style={{ margin: "28px 0 12px", fontSize: 13, fontWeight: 600, letterSpacing: ".12em", color: "var(--muted)" }}>{lens === "all" ? "HIGHLIGHTS" : `${LENS_TAG[lens]} LENS`}</h4>
+          <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 12 }}>
+            {bullets.map((b) => (
+              <li key={b.text} style={{ display: "flex", gap: 12, alignItems: "flex-start", fontSize: 16, lineHeight: 1.55, color: "var(--slate)" }}>
+                <svg aria-hidden style={{ flex: "none", marginTop: 3 }} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3A5BD9" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12l5 5L20 7" /></svg>
+                <span><span style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".08em", color: "var(--muted)", marginRight: 8 }}>{LENS_TAG[b.lens]}</span>{b.text}</span>
+              </li>
+            ))}
+          </ul>
+          {real(role.impact) && (
+            <div style={{ marginTop: 28, padding: 20, borderRadius: 16, background: "#fff", border: "1px solid var(--line)" }}>
+              <p style={{ margin: 0, fontSize: 12, fontWeight: 600, letterSpacing: ".12em", color: "var(--muted)" }}>MEASURED IMPACT</p>
+              <p style={{ margin: "8px 0 0", fontSize: 16, lineHeight: 1.55 }}>{role.impact}</p>
+            </div>
+          )}
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 24 }}>
+            {role.tags.filter(real).map((t) => <span key={t} className="chip">{t}</span>)}
+          </div>
+        </article>
+      </div>
+    </>
   );
 }

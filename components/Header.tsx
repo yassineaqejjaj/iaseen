@@ -1,53 +1,24 @@
-"use client";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useState } from "react";
-import { profile } from "@/lib/content";
 
-const links = [
-  ["Experience", "/experience"],
-  ["Client Work", "/work"],
-  ["AI Lab", "/lab"],
-  ["Expertise", "/expertise"],
-  ["Insights", "/insights"],
-  ["Contact", "/contact"],
-] as const;
+const links = [["Experience", "/#experience"], ["Client Work", "/#client-work"], ["AI Lab", "/#ai-lab"], ["Expertise", "/#expertise"], ["Insights", "/#insights"], ["Contact", "/#contact"]];
 
 export default function Header() {
-  const path = usePathname();
-  const [open, setOpen] = useState(false);
-  const toggle = () => {
-    const el = document.documentElement;
-    const dark = el.dataset.theme !== "dark";
-    if (dark) el.dataset.theme = "dark"; else delete el.dataset.theme;
-    try { localStorage.setItem("theme", dark ? "dark" : "light"); } catch {}
-  };
   return (
-    <header className="sticky top-0 z-40 border-b border-line backdrop-blur" style={{ background: "color-mix(in srgb, var(--bg) 85%, transparent)" }}>
-      <div className="container-x flex h-16 items-center justify-between">
-        <Link href="/" className="display text-xl font-bold">
-          YA<span className="text-electric">.</span>
+    <header style={{ position: "sticky", top: 0, zIndex: 10, background: "rgba(255,255,255,.92)", backdropFilter: "blur(12px)", borderBottom: "1px solid var(--line)" }}>
+      <nav aria-label="Main" className="wrap" style={{ paddingBlock: 14, display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 12 }}>
+        <Link href="/#top" className="display" style={{ fontSize: 24, color: "var(--midnight)", textDecoration: "none", letterSpacing: "-0.02em" }}>
+          YA<span style={{ color: "var(--accent)" }}>.</span>
         </Link>
-        <nav className="hidden items-center gap-7 text-sm md:flex">
+        <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "4px 20px", fontSize: 15, fontWeight: 500 }}>
           {links.map(([l, h]) => (
-            <Link key={h} href={h} className={path.startsWith(h) ? "font-semibold text-electric" : "text-muted hover:text-fg"}>
-              {l}
-            </Link>
+            <Link key={h} href={h} style={{ color: "var(--slate)", textDecoration: "none", padding: "10px 0" }}>{l}</Link>
           ))}
-          <button onClick={toggle} aria-label="Toggle theme" className="chip hover:text-fg">◐ Theme</button>
-        </nav>
-        <button className="md:hidden chip" onClick={() => setOpen(!open)} aria-expanded={open}>
-          {open ? "Close" : "Menu"}
-        </button>
-      </div>
-      {open && (
-        <div className="container-x flex flex-col gap-4 pb-5 text-sm md:hidden">
-          {links.map(([l, h]) => (
-            <Link key={h} href={h} onClick={() => setOpen(false)}>{l}</Link>
-          ))}
-          <button onClick={toggle} className="chip w-fit">◐ Theme</button>
+          <Link href="/#ask" style={{ display: "inline-flex", alignItems: "center", gap: 8, minHeight: 44, padding: "0 18px", borderRadius: 999, background: "var(--midnight)", color: "#fff", textDecoration: "none", fontWeight: 600 }}>
+            <svg aria-hidden width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z" /></svg>
+            Ask my AI
+          </Link>
         </div>
-      )}
+      </nav>
     </header>
   );
 }

@@ -1,36 +1,58 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import PageHead from "@/components/PageHead";
-import { caseStudies } from "@/lib/content";
+import CaseStepper from "@/components/CaseStepper";
+import ClientLogo from "@/components/ClientLogo";
+import { clients } from "@/lib/content";
 
-export function generateStaticParams() { return caseStudies.map((c) => ({ slug: c.slug })); }
+export function generateStaticParams() { return clients.map((c) => ({ slug: c.slug })); }
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const c = caseStudies.find((x) => x.slug === slug);
-  if (!c) notFound();
-  const steps: [string, string | null][] = [
-    ["Context", c.story.context], ["Problem", c.story.problem], ["My role", c.story.role],
-    ["Approach", c.story.approach], ["Solution", c.story.solution], ["Impact", c.story.impact], ["Lessons", c.story.lessons],
-  ];
+  const k = clients.findIndex((x) => x.slug === slug);
+  if (k < 0) notFound();
+  const c = clients[k];
+  const next = clients[(k + 1) % clients.length];
+  const facts = [["ROLE", c.role], ["CLIENT", c.org], ["FOCUS", c.focus], ...(c.year ? [["YEAR", c.year]] : [])];
   return (
     <>
-      <PageHead eyebrow={`Case study · ${c.client}`} title={c.title}>{c.summary}</PageHead>
-      <div className="container-x max-w-3xl pb-24">
-        {c.sensitive && (
-          <p className="card mb-6 p-4 text-sm text-muted">Defense-related mission: only public or authorised information is shown. No internal architecture, documents, data or confidential figures.</p>
-        )}
-        <ol className="space-y-6">
-          {steps.map(([t, v], i) => (
-            <li key={t} className="grid gap-2 border-t border-line pt-6 md:grid-cols-[10rem_1fr]">
-              <p className="eyebrow">{String(i + 1).padStart(2, "0")} · {t}</p>
-              {v ? <p>{v}</p> : <p className="text-muted italic">Quantified results are shared on request once validated.</p>}
-            </li>
-          ))}
-        </ol>
-        <div className="mt-8 flex flex-wrap gap-2">{c.tags.map((t) => <span key={t} className="chip">{t}</span>)}</div>
-        <Link href="/work" className="mt-10 inline-block text-sm font-semibold text-electric">← All case studies</Link>
-      </div>
+      <header style={{ borderBottom: "1px solid var(--line)" }}>
+        <nav aria-label="Case study" className="wrap" style={{ paddingBlock: 14, display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 12 }}>
+          <Link href="/" className="display" style={{ fontSize: 24, color: "var(--midnight)", textDecoration: "none" }}>YA<span style={{ color: "var(--accent)" }}>.</span></Link>
+          <Link href="/#client-work" style={{ display: "inline-flex", alignItems: "center", gap: 8, minHeight: 44, fontWeight: 600, fontSize: 15, textDecoration: "none" }}>← All client work</Link>
+        </nav>
+      </header>
+      <section style={{ background: "var(--midnight)", color: "#fff" }}>
+        <div className="wrap" style={{ paddingBlock: "80px 64px" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 20, marginBottom: 20 }}>
+            <ClientLogo name={c.logo} height={36} />
+            <p style={{ margin: 0, fontSize: 13, fontWeight: 600, letterSpacing: ".14em", color: "#8fa6ff" }}>CASE STUDY · {c.sector}{c.year ? ` · ${c.year}` : ""}</p>
+          </div>
+          <h1 className="display" style={{ margin: 0, maxWidth: 860, fontSize: "clamp(38px, 5.4vw, 68px)", lineHeight: 1.05 }}>{c.client}: {c.title}</h1>
+          <p style={{ margin: "22px 0 0", maxWidth: 680, fontSize: 19, lineHeight: 1.6, color: "#c3cce3" }}>{c.summary}</p>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 12, marginTop: 40 }}>
+            {facts.map(([t, v]) => (
+              <div key={t} style={{ background: "var(--slate)", borderRadius: 16, padding: 18 }}>
+                <p style={{ margin: 0, fontSize: 12, fontWeight: 600, letterSpacing: ".1em", color: "#9aabd6" }}>{t}</p>
+                <p style={{ margin: "6px 0 0", fontSize: 16, fontWeight: 600 }}>{v}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      {c.sensitive && (
+        <div style={{ background: "var(--cloud)", borderBottom: "1px solid var(--line)" }}>
+          <div className="wrap" style={{ paddingBlock: 16, fontSize: 14, lineHeight: 1.5, color: "var(--body)" }}>
+            Only public or client-approved information is shared here: no internal architecture, documents, data or confidential figures.
+          </div>
+        </div>
+      )}
+      <CaseStepper steps={c.steps} />
+      <footer style={{ background: "var(--midnight)", color: "#fff" }}>
+        <div className="wrap" style={{ paddingBlock: 56, display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: 20 }}>
+          <p className="display" style={{ margin: 0, fontSize: 28, letterSpacing: "-0.02em" }}>Next case study: {next.client}, {next.title.toLowerCase()}</p>
+          <Link href={`/work/${next.slug}`} className="pill" style={{ minHeight: 52, padding: "0 24px", background: "#fff", color: "var(--midnight)" }}>Read it</Link>
+        </div>
+      </footer>
     </>
   );
 }

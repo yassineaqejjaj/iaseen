@@ -202,7 +202,7 @@ export default async function Home() {
                   <span style={{ fontSize: 15, color: "var(--muted)" }}>people trained in AI</span>
                 </div>
                 <p style={{ margin: 0, fontSize: 15, lineHeight: 1.6, color: "var(--body)" }}><strong style={{ color: "var(--text)" }}>TRAIL Academy</strong> — my professional AI learning platform, built to turn teams into builders.</p>
-                <a href={`${profile.github}/TRAIL-Academy`} style={{ display: "inline-flex", alignItems: "center", minHeight: 44, fontWeight: 600, fontSize: 15, textDecoration: "none" }}>Explore TRAIL Academy →</a>
+                <a href="https://trailacademy.fr" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", minHeight: 44, fontWeight: 600, fontSize: 15, textDecoration: "none" }}>Explore TRAIL Academy →</a>
               </div>
             </div>
           </div>

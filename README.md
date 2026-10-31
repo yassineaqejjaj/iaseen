@@ -1,19 +1,115 @@
-# YA. — Personal AI Portfolio
+# iaseen: Personal AI Portfolio
 
-Next.js 16 · TypeScript · Tailwind v4 · Motion
+Portfolio of Yassine Aqejjaj, Head of AI. Live at [iaseen.com](https://iaseen.com).
 
-## Run
-    npm install && npm run dev   # port 3100 (change in package.json if busy)
-    npm run build && npm start
+> I don't just lead AI. I build it.
 
-## Content
-Everything lives in `lib/content.ts`. Ask My AI answers only from that file.
-Case-study `impact` / `lessons` are `null` until you validate real figures; they never render as metrics.
-Defense missions: only public/authorised information.
+The site shows three things, each backed by a proof: defining an AI strategy (**Lead**), putting AI into production (**Deliver**) and building products myself (**Build**).
 
-## Env (optional)
-- `NEXT_PUBLIC_SITE_URL` — canonical URL (sitemap, OG)
-- `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` — enables Plausible analytics
+## What's on the page
 
-## Deploy
-Push to GitHub, import in Vercel, add the env vars, attach the domain.
+A single-page site, plus one page per client case study.
+
+| Section | Content |
+|---|---|
+| Hero | Positioning, animated node-graph object, key figures, client logos |
+| Lead · Deliver · Build | Tabbed panel linking each claim to its proof |
+| Experience | Interactive CV with Leadership / AI Product / Technical lenses |
+| Client Work | Case studies, opened at `/work/[slug]` as a seven-step path |
+| AI Lab | NOVA Suite explorer and filterable product grid |
+| Expertise | Skills tied to roles, missions and products (no skill bars) |
+| Insights | Books, podcast, teaching |
+| Ask My AI | Assistant that answers only from the validated content, with sources |
+| Contact | Email, CV, LinkedIn, GitHub |
+
+Other routes: `/cv` (print-friendly CV, save as PDF), `/sitemap.xml`, `/robots.txt`.
+
+A "I'm here as a" selector (Recruiter, Client / Partner, Builder / Founder) reorders the sections without extra pages.
+
+## Stack
+
+Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS v4 · [Motion](https://motion.dev) · [simple-icons](https://simpleicons.org) (Carrefour symbol)
+
+No database and no backend: all content is static and the assistant runs in the browser.
+
+## Getting started
+
+Requires Node.js 20 or later.
+
+```bash
+npm install
+npm run dev
+```
+
+The dev server runs on http://localhost:3100. If that port is taken, change `-p 3100` in the `dev` and `start` scripts of `package.json`.
+
+```bash
+npm run build   # production build
+npm start       # serve the build
+```
+
+## Project structure
+
+```
+app/
+  page.tsx                  home: all sections
+  work/[slug]/page.tsx      case study page
+  cv/page.tsx               printable CV
+  layout.tsx                fonts, metadata, analytics
+  globals.css               design tokens, surfaces, visitor-path ordering
+components/                 interactive sections and shared UI
+lib/
+  content.ts                single source of truth for all content
+  ask.ts                    retrieval behind Ask My AI
+  logos.ts                  client logo manifest
+public/logos/               client logo files
+```
+
+## Editing content
+
+Everything shown on the site lives in [`lib/content.ts`](lib/content.ts): roles, client case studies, products, skills and proofs, books, and the suggested Ask My AI questions.
+
+- **Placeholders:** any string starting with `[` is treated as not yet validated and is never rendered (see `real()`). Replace it with real text to publish it.
+- **Metrics:** only figures from the CV or approved by the client belong here. Case-study steps with no content are hidden.
+- **Sensitive missions:** for defence and public-sector work, publish only public or client-approved information: no internal architecture, documents, data or confidential figures. Case studies flagged `sensitive: true` show a confidentiality notice.
+- **Ask My AI:** it can only answer from `content.ts`, so updating content updates the assistant. Answers are retrieval by keywords, not a language model.
+
+## Client logos
+
+`ClientLogo` displays each mark on a transparent background.
+
+- Add a file to `public/logos/` and register it in `LOGO_FILES` in [`lib/logos.ts`](lib/logos.ts) as `key: "svg"` or `key: "png"`.
+- Logos are shown as white silhouettes on the dark theme. Add the key to `LOGO_COLOUR` to keep a mark's own colours.
+- Carrefour is the simple-icons symbol with the name set in text, because no free full logo file exists. Drop `public/logos/carrefour.svg` and register it to use the official one.
+- Devoteam uses `devoteam-light.png`: the original disc, with the lettering lightened for dark backgrounds.
+
+Client and employer logos are trademarks of their owners and are shown only to name the organisations the work was done for.
+
+## Design
+
+- **Direction:** dark editorial, with glass surfaces reserved for interactive elements (proof panel, visitor selector, assistant, NOVA module).
+- **Palette:** base `#080B12`, surface `#111827`, accent `#6A91FF`, signal `#98E4E0`, text `#F1F5F9`.
+- **Type:** Space Grotesk for headings, Inter for text.
+- **Motion:** hero title reveal, a node-graph object that follows the pointer and scroll, card hover reflections. All motion respects `prefers-reduced-motion`, and the node graph stays static on small screens.
+- **CV page:** a light theme, so it prints cleanly.
+
+## Environment variables
+
+Both are optional.
+
+| Variable | Effect |
+|---|---|
+| `NEXT_PUBLIC_SITE_URL` | Canonical URL used by the sitemap and Open Graph tags. Defaults to `https://iaseen.com`. |
+| `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` | Enables Plausible analytics for that domain. |
+
+## Deployment
+
+The site is deployed on Vercel.
+
+```bash
+npx vercel --prod
+```
+
+Add `--force` to rebuild without the cache. Set `NEXT_PUBLIC_SITE_URL` to `https://iaseen.com` in the Vercel project settings and attach the domain under Settings, then Domains.
+
+The home page fetches the public repository count from the GitHub API and revalidates it hourly. If the request fails, that figure is simply left out.

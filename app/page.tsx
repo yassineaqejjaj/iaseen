@@ -11,7 +11,7 @@ import About from "@/components/About";
 import NovaSystem from "@/components/NovaSystem";
 import PathLayout from "@/components/PathLayout";
 import ClientLogo from "@/components/ClientLogo";
-import { profile, clients, books, real } from "@/lib/content";
+import { profile, clients, books, stage, real } from "@/lib/content";
 
 export const revalidate = 3600;
 
@@ -70,7 +70,7 @@ export default async function Home() {
           <div style={{ marginTop: 40, display: "flex", flexWrap: "wrap", alignItems: "center", gap: "16px 40px" }}>
             <span style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".14em", color: "var(--muted)" }}>TRUSTED BY</span>
             {["thales", "decathlon", "carrefour", "fujitsu", "devoteam", "axa", "banquepopulaire", "pmoffice"].map((c) => (
-              <span key={c} style={{ display: "inline-flex", alignItems: "center", opacity: .85 }}><ClientLogo name={c} height={c === "pmoffice" ? 72 : c === "devoteam" ? 48 : c === "axa" ? 48 : 28} /></span>
+              <span key={c} style={{ display: "inline-flex", alignItems: "center", opacity: .85 }}><ClientLogo name={c} /></span>
             ))}
           </div>
         </div>
@@ -109,7 +109,7 @@ export default async function Home() {
               <article key={c.slug} className="card" style={{ overflow: "hidden", display: "flex", flexDirection: "column" }}>
                 <div style={{ height: 168, background: "linear-gradient(135deg, #0d1320, #131c33)", position: "relative", padding: 24, display: "flex", flexDirection: "column", justifyContent: "space-between", boxSizing: "border-box" }}>
                   <span style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".14em", color: "var(--muted)" }}>{c.sector}</span>
-                  <ClientLogo name={c.logo} height={c.logo === "pmoffice" ? 76 : c.logo === "thales" ? 34 : 44} />
+                  <ClientLogo name={c.logo} scale={1.5} />
                   <span aria-hidden style={{ position: "absolute", right: 24, top: 24, width: 56, height: 56, borderRadius: 16, border: "1px solid var(--line)" }} />
                   <span aria-hidden style={{ position: "absolute", right: 44, top: 44, width: 56, height: 56, borderRadius: 16, border: "1px solid var(--accent)" }} />
                 </div>
@@ -176,16 +176,20 @@ export default async function Home() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 16, marginTop: 40 }}>
             <div>
               <h3 style={{ margin: "0 0 16px", fontSize: 13, fontWeight: 600, letterSpacing: ".12em", color: "var(--muted)" }}>ON STAGE</h3>
-              <a href="https://youtu.be/6Ip6mfupjso" className="card" style={{ display: "flex", gap: 18, alignItems: "center", textDecoration: "none", color: "var(--text)", padding: 18 }}>
-                <span style={{ flex: "none", width: 120, height: 80, borderRadius: 12, background: "var(--bg)", border: "1px solid var(--line)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <svg aria-hidden width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="M10 8.5l5 3.5-5 3.5z" /></svg>
-                </span>
-                <span style={{ display: "flex", flexDirection: "column", gap: 4 }}>
-                  <span style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", color: "var(--link)" }}>PODCAST</span>
-                  <span style={{ fontSize: 17, fontWeight: 600, lineHeight: 1.35 }}>Podcast appearance</span>
-                  <span style={{ fontSize: 14, color: "var(--muted)" }}>Watch on YouTube</span>
-                </span>
-              </a>
+              <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+                {stage.map((v) => (
+                  <a key={v.url} href={v.url} target="_blank" rel="noopener noreferrer" className="card" style={{ display: "flex", gap: 18, alignItems: "center", textDecoration: "none", color: "var(--text)", padding: 18 }}>
+                    <span style={{ flex: "none", width: 120, height: 80, borderRadius: 12, background: "var(--bg)", border: "1px solid var(--line)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      <svg aria-hidden width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="M10 8.5l5 3.5-5 3.5z" /></svg>
+                    </span>
+                    <span style={{ display: "flex", flexDirection: "column", gap: 4, minWidth: 0 }}>
+                      <span style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", color: "var(--signal)" }}>{v.kind}</span>
+                      <span dir="auto" style={{ fontSize: 17, fontWeight: 600, lineHeight: 1.35 }}>{v.title}</span>
+                      <span style={{ fontSize: 14, color: "var(--muted)" }}>{v.source}</span>
+                    </span>
+                  </a>
+                ))}
+              </div>
             </div>
             <div>
               <h3 style={{ margin: "0 0 16px", fontSize: 13, fontWeight: 600, letterSpacing: ".12em", color: "var(--muted)" }}>TEACHING</h3>

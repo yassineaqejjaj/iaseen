@@ -1,4 +1,4 @@
-import { roles, clients, products, books, qa, proof, bio } from "./content";
+import { roles, clients, products, books, qa, proof, bio, stage } from "./content";
 
 export type Answer = { q: string; a: string; sources: { label: string; href: string }[] };
 type Chunk = { text: string; keys: string; src: { label: string; href: string } };
@@ -9,6 +9,7 @@ const chunks: Chunk[] = [
   ...clients.map((c) => ({ text: `${c.client} — ${c.title}: ${c.summary}`, keys: `${c.client} ${c.title} ${c.tags.join(" ")} ${c.summary} client mission case study programme programmes enterprise led`, src: { label: `${c.client} case study`, href: `/work/${c.slug}` } })),
   ...products.map((p) => ({ text: `${p.name}: ${p.desc}`, keys: `${p.name} ${p.category} ${p.desc} product products built project agents`, src: { label: "AI Lab", href: "#ai-lab" } })),
   ...books.map((b) => ({ text: `Book: ${b.title}. ${b.theme}`, keys: `${b.title} ${b.theme} book books author written publication`, src: { label: "Insights", href: "#insights" } })),
+  ...stage.map((v) => ({ text: `${v.kind}: ${v.title} (${v.source.split(" · ")[0]}).`, keys: `${v.title} ${v.source} ${v.kind} talk podcast video conference speaker stage interview`, src: { label: "On stage", href: "#insights" } })),
   ...Object.entries(proof).map(([k, v]) => ({ text: `${k}: ${v.map((x) => x.label).join("; ")}.`, keys: `${k} ${v.map((x) => x.label).join(" ")} skill expertise proof`, src: { label: "Expertise", href: "#expertise" } })),
 ];
 

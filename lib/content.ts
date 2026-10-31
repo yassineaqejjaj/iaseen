@@ -209,6 +209,11 @@ export const books = [
   { short: "Leading with AI", title: "Leading with AI: Embracing the Future of Education", theme: "AI leadership in education.", url: AMZ + "B0CN5PG7LT", cover: "#3B4660", coverSub: "#C3CCE3" },
 ];
 
+export const stage = [
+  { kind: "TALK", title: "Decathlon Digital & Devoteam - IA & Expérience Client en Magasin : l\u2019approche augmentée de Decathlon", source: "HUB Institute · Watch on YouTube", url: "https://www.youtube.com/watch?v=bRayefGqcsA&t=123s" },
+  { kind: "PODCAST", title: "شنو كيوقع ملي واحد يقرر يبدل حياتو كاملة؟", source: "Podcast Wamda · Watch on YouTube", url: "https://youtu.be/6Ip6mfupjso" },
+];
+
 export const qa = [
   { q: "What enterprise AI programmes has he led?",
     a: "Yassine has been Head of AI Factory at Devoteam since August 2023. Engagements he led include an AI operating model for Thales (5 people), sovereign agentic applications for the French Prime Minister's Office (9 people, 70% faster content creation), a €4M AI transformation programme at Decathlon (13 people, 2.6× productivity gains from augmented teams) and an ML/MLOps engagement at Carrefour (10 people).",

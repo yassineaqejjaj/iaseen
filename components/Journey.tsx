@@ -35,7 +35,7 @@ export default function Journey() {
         <article aria-live="polite" style={{ flex: "999 1 560px", minWidth: 0, background: "var(--surface)", border: "1px solid var(--line)", borderRadius: 24, padding: 36 }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 16 }}>
             <p style={{ margin: 0, fontSize: 14, fontWeight: 600, color: "var(--link)" }}>{role.period} · {role.org}, {role.place}</p>
-            <span style={{ display: "inline-flex", maxWidth: 160 }}><ClientLogo name={role.logo} height={role.logo === "axa" ? 30 : role.logo === "devoteam" ? 36 : 24} /></span>
+            <span style={{ display: "inline-flex", maxWidth: 200 }}><ClientLogo name={role.logo} scale={1} /></span>
           </div>
           <h3 className="display" style={{ margin: "10px 0 0", fontSize: 32, lineHeight: 1.15, letterSpacing: "-0.02em" }}>{role.title}</h3>
           <p style={{ margin: "16px 0 0", fontSize: 17, lineHeight: 1.6, color: "var(--body)" }}>{role.summary}</p>

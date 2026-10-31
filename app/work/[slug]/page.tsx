@@ -25,7 +25,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
       <section style={{ background: "radial-gradient(800px 400px at 80% 0%, rgba(106,145,255,.16), transparent 60%), var(--bg)", color: "#fff", borderBottom: "1px solid var(--line)" }}>
         <div className="wrap" style={{ paddingBlock: "80px 64px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: 20, marginBottom: 20 }}>
-            <ClientLogo name={c.logo} height={c.logo === "pmoffice" ? 72 : 40} />
+            <ClientLogo name={c.logo} scale={1.6} />
             <p style={{ margin: 0, fontSize: 13, fontWeight: 600, letterSpacing: ".14em", color: "var(--signal)" }}>CASE STUDY · {c.sector}{c.year ? ` · ${c.year}` : ""}</p>
           </div>
           <h1 className="display" style={{ margin: 0, maxWidth: 860, fontSize: "clamp(38px, 5.4vw, 68px)", lineHeight: 1.05 }}>{c.client}: {c.title}</h1>

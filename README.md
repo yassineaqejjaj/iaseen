@@ -26,6 +26,19 @@ Other routes: `/cv` (print-friendly CV, save as PDF), `/sitemap.xml`, `/robots.t
 
 A "I'm here as a" selector (Recruiter, Client / Partner, Builder / Founder) reorders the sections without extra pages.
 
+## Languages
+
+English (`/`), French (`/fr`) and Arabic (`/ar`, right-to-left). Every page and case study exists in all three.
+
+- **UI strings:** [`lib/dict.ts`](lib/dict.ts), one dictionary per language.
+- **Content:** English is the source in [`lib/content.ts`](lib/content.ts). [`lib/content.fr.ts`](lib/content.fr.ts) and [`lib/content.ar.ts`](lib/content.ar.ts) override only the text, so slugs, links and figures stay in one place. When you change an English text, update the two translations.
+- **Routing:** `proxy.ts` serves English at the root and leaves `/fr`, `/ar` as they are. The language switcher keeps you on the same page.
+- **Arabic:** the layout is mirrored (`dir="rtl"`), uses Noto Sans Arabic and disables letter-spacing, which breaks Arabic joins. Latin names and logos stay left-to-right.
+- **Ask My AI** answers in the visitor's language, from that language's content.
+- **SEO:** each page declares its alternates (`hreflang`) and the sitemap lists all three languages.
+
+Translations were written by Claude: have a native speaker review the French and, above all, the Arabic before relying on them.
+
 ## Stack
 
 Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS v4 · [Motion](https://motion.dev) · [simple-icons](https://simpleicons.org) (Carrefour symbol)

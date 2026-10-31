@@ -66,3 +66,10 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .rise { opacity: 0; animation: rise .8s cubic-bezier(.22,1,.36,1) forwards; }
 
 @media (max-width: 1100px) { .name-tag { display: none; } }
+
+/* Arabic: right-to-left, Arabic typeface, no letter-spacing (it breaks the joins) */
+html[lang="ar"] { --font-sans: var(--font-arabic), var(--font-inter), system-ui, sans-serif; --font-display: var(--font-arabic), var(--font-grotesk), sans-serif; }
+html[lang="ar"] * { letter-spacing: 0 !important; }
+html[lang="ar"] .eyebrow { text-transform: none; font-size: 14px; }
+[dir="rtl"] .flip { transform: scaleX(-1); }
+html[lang="ar"] .display { line-height: 1.2; }

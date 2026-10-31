@@ -252,3 +252,7 @@ export const qa: { q: string; a: string; aud?: string; sources: { label: string;
     a: "Four books: Symbiose on human–AI collaboration, Leading with AI on healthcare and on education, and The Artificial Candidate on generative AI and US elections.",
     sources: [{ label: "Insights", href: "#insights" }] },
 ];
+
+/** Everything that is translated per language. UI strings live in dict.ts. */
+export const contentEn = { bio, roles, clients, products, proof, pillars, books, stage, qa };
+export type Content = typeof contentEn;

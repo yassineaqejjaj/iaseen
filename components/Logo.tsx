@@ -2,7 +2,7 @@
 export default function Logo({ size = 32 }: { size?: number }) {
   const font = size * 0.86;
   return (
-    <span role="img" aria-label="iaseen" style={{ display: "inline-flex", alignItems: "center", gap: size * 0.34, lineHeight: 1 }}>
+    <span role="img" aria-label="iaseen" dir="ltr" style={{ display: "inline-flex", alignItems: "center", gap: size * 0.34, lineHeight: 1 }}>
       <svg aria-hidden width={size} height={size} viewBox="0 0 64 64">
         <rect width="64" height="64" rx="16" fill="#FFFFFF" />
         <path d="M18 20 Q32 8 46 20 Q32 32 18 20 Z" fill="none" stroke="#0B1020" strokeWidth="3" strokeLinejoin="round" />

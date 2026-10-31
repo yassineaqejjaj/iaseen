@@ -1,0 +1,77 @@
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import CaseStepper from "@/components/CaseStepper";
+import ClientLogo from "@/components/ClientLogo";
+import Logo from "@/components/Logo";
+import LangSwitch from "@/components/LangSwitch";
+import { contentEn } from "@/lib/content";
+import { getI18n, type Locale } from "@/lib/i18n";
+
+export function generateStaticParams() { return contentEn.clients.map((c) => ({ slug: c.slug })); }
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string; slug: string }> }) {
+  const { locale, slug } = await params;
+  const { c, t } = getI18n(locale as Locale);
+  const cl = c.clients.find((x) => x.slug === slug);
+  if (!cl) return {};
+  const title = `${cl.client}: ${cl.title} — ${t.meta.caseSuffix}`;
+  const p = (l: string) => (l === "en" ? `/work/${slug}` : `/${l}/work/${slug}`);
+  return { title, description: cl.summary, openGraph: { title, description: cl.summary, type: "article" as const, locale }, alternates: { canonical: p(locale), languages: { en: p("en"), fr: p("fr"), ar: p("ar") } } };
+}
+
+export default async function Page({ params }: { params: Promise<{ locale: string; slug: string }> }) {
+  const { locale: l, slug } = await params;
+  const locale = l as Locale;
+  const { t, c, href } = getI18n(locale);
+  const k = c.clients.findIndex((x) => x.slug === slug);
+  if (k < 0) notFound();
+  const cl = c.clients[k];
+  const next = c.clients[(k + 1) % c.clients.length];
+  const facts = [[t.case.role, cl.role], [t.case.client, cl.org], [t.case.focus, cl.focus], ...(cl.year ? [[t.case.year, cl.year]] : [])];
+  return (
+    <>
+      <header style={{ borderBottom: "1px solid var(--line)" }}>
+        <nav aria-label={t.case.aria} className="wrap" style={{ paddingBlock: 14, display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 12 }}>
+          <Link href={href("/")} aria-label={t.case.homeAria} style={{ textDecoration: "none", display: "inline-flex" }}><Logo size={34} /></Link>
+          <div style={{ display: "flex", alignItems: "center", gap: 16, flexWrap: "wrap" }}>
+            <LangSwitch locale={locale} aria={t.nav.lang} />
+            <Link href={href("#client-work")} style={{ display: "inline-flex", alignItems: "center", gap: 8, minHeight: 44, fontWeight: 600, fontSize: 15, textDecoration: "none" }}>
+              <svg className="flip" aria-hidden width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ transform: "scaleX(-1)" }}><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+              {t.case.back}
+            </Link>
+          </div>
+        </nav>
+      </header>
+      <section style={{ background: "radial-gradient(800px 400px at 80% 0%, rgba(106,145,255,.16), transparent 60%), var(--bg)", color: "#fff", borderBottom: "1px solid var(--line)" }}>
+        <div className="wrap" style={{ paddingBlock: "80px 64px" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 20, marginBottom: 20, flexWrap: "wrap" }}>
+            <span dir="ltr"><ClientLogo name={cl.logo} scale={1.6} /></span>
+            <p style={{ margin: 0, fontSize: 13, fontWeight: 600, letterSpacing: ".14em", color: "var(--signal)" }}>{t.case.label} · {cl.sector}{cl.year ? ` · ${cl.year}` : ""}</p>
+          </div>
+          <h1 className="display" style={{ margin: 0, maxWidth: 860, fontSize: "clamp(38px, 5.4vw, 68px)", lineHeight: 1.05 }}>{cl.client}: {cl.title}</h1>
+          <p style={{ margin: "22px 0 0", maxWidth: 680, fontSize: 19, lineHeight: 1.6, color: "var(--text2)" }}>{cl.summary}</p>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 12, marginTop: 40 }}>
+            {facts.map(([label, v]) => (
+              <div key={label} style={{ background: "var(--surface)", border: "1px solid var(--line)", borderRadius: 16, padding: 18 }}>
+                <p style={{ margin: 0, fontSize: 12, fontWeight: 600, letterSpacing: ".1em", color: "var(--muted)" }}>{label}</p>
+                <p style={{ margin: "6px 0 0", fontSize: 16, fontWeight: 600 }}>{v}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      {cl.sensitive && (
+        <div style={{ background: "var(--cloud)", borderBottom: "1px solid var(--line)" }}>
+          <div className="wrap" style={{ paddingBlock: 16, fontSize: 14, lineHeight: 1.5, color: "var(--body)" }}>{t.case.confidential}</div>
+        </div>
+      )}
+      <CaseStepper steps={cl.steps} />
+      <footer style={{ background: "var(--cloud)", borderTop: "1px solid var(--line)", color: "#fff" }}>
+        <div className="wrap" style={{ paddingBlock: 56, display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: 20 }}>
+          <p className="display" style={{ margin: 0, fontSize: 28, letterSpacing: "-0.02em" }}>{t.case.nextCase}: {next.client}, {next.title}</p>
+          <Link href={href(`/work/${next.slug}`)} className="pill" style={{ minHeight: 52, padding: "0 24px", background: "var(--accent)", color: "#07101f" }}>{t.case.readIt}</Link>
+        </div>
+      </footer>
+    </>
+  );
+}

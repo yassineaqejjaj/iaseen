@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import CaseStepper from "@/components/CaseStepper";
 import ClientLogo from "@/components/ClientLogo";
+import Logo from "@/components/Logo";
 import { clients } from "@/lib/content";
 
 export function generateStaticParams() { return clients.map((c) => ({ slug: c.slug })); }
@@ -17,7 +18,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
     <>
       <header style={{ borderBottom: "1px solid var(--line)" }}>
         <nav aria-label="Case study" className="wrap" style={{ paddingBlock: 14, display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 12 }}>
-          <Link href="/" className="display" style={{ fontSize: 24, color: "var(--text)", textDecoration: "none" }}>YA<span style={{ color: "var(--accent)" }}>.</span></Link>
+          <Link href="/" aria-label="iaseen, home" style={{ textDecoration: "none", display: "inline-flex" }}><Logo size={34} /></Link>
           <Link href="/#client-work" style={{ display: "inline-flex", alignItems: "center", gap: 8, minHeight: 44, fontWeight: 600, fontSize: 15, textDecoration: "none" }}>← All client work</Link>
         </nav>
       </header>

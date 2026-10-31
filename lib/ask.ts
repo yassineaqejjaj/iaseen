@@ -1,9 +1,10 @@
-import { roles, clients, products, books, qa, proof } from "./content";
+import { roles, clients, products, books, qa, proof, bio } from "./content";
 
 export type Answer = { q: string; a: string; sources: { label: string; href: string }[] };
 type Chunk = { text: string; keys: string; src: { label: string; href: string } };
 
 const chunks: Chunk[] = [
+  ...bio.paragraphs.map((t) => ({ text: t, keys: `${t} about biography bio who background story profile`, src: { label: "About", href: "#about" } })),
   ...roles.map((r) => ({ text: `${r.title}, ${r.org} (${r.period}). ${r.summary}`, keys: `${r.title} ${r.org} ${r.tags.join(" ")} ${r.summary} experience career role`, src: { label: "Experience", href: "#experience" } })),
   ...clients.map((c) => ({ text: `${c.client} — ${c.title}: ${c.summary}`, keys: `${c.client} ${c.title} ${c.tags.join(" ")} ${c.summary} client mission case study programme programmes enterprise led`, src: { label: `${c.client} case study`, href: `/work/${c.slug}` } })),
   ...products.map((p) => ({ text: `${p.name}: ${p.desc}`, keys: `${p.name} ${p.category} ${p.desc} product products built project agents`, src: { label: "AI Lab", href: "#ai-lab" } })),

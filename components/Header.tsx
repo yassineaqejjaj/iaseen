@@ -1,13 +1,14 @@
 import Link from "next/link";
+import Logo from "./Logo";
 
-const links = [["Experience", "/#experience"], ["Client Work", "/#client-work"], ["AI Lab", "/#ai-lab"], ["Expertise", "/#expertise"], ["Insights", "/#insights"], ["Contact", "/#contact"]];
+const links = [["About", "/#about"], ["Experience", "/#experience"], ["Client Work", "/#client-work"], ["AI Lab", "/#ai-lab"], ["Expertise", "/#expertise"], ["Insights", "/#insights"], ["Contact", "/#contact"]];
 
 export default function Header() {
   return (
     <header style={{ position: "sticky", top: 0, zIndex: 10, background: "rgba(8,11,18,.72)", backdropFilter: "blur(16px)", borderBottom: "1px solid var(--line)" }}>
       <nav aria-label="Main" className="wrap" style={{ paddingBlock: 14, display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 12 }}>
-        <Link href="/#top" className="display" style={{ fontSize: 24, color: "var(--text)", textDecoration: "none", letterSpacing: "-0.02em" }}>
-          YA<span style={{ color: "var(--accent)" }}>.</span>
+        <Link href="/#top" aria-label="iaseen, back to top" style={{ textDecoration: "none", display: "inline-flex" }}>
+          <Logo size={34} />
         </Link>
         <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "4px 20px", fontSize: 15, fontWeight: 500 }}>
           {links.map(([l, h]) => (

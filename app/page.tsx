@@ -7,6 +7,7 @@ import AskSection from "@/components/AskSection";
 import ProofPanel from "@/components/ProofPanel";
 import HeroOrb from "@/components/HeroOrb";
 import HeroTitle from "@/components/HeroTitle";
+import About from "@/components/About";
 import NovaSystem from "@/components/NovaSystem";
 import PathLayout from "@/components/PathLayout";
 import ClientLogo from "@/components/ClientLogo";
@@ -74,6 +75,8 @@ export default async function Home() {
           </div>
         </div>
       </section>
+
+      <About />
 
       <section id="proof" style={{ borderBottom: "1px solid var(--line)" }}>
         <div className="wrap" style={{ paddingBlock: "96px" }}>

@@ -46,7 +46,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
 /* Visitor paths: reorder sections without extra pages */
 .paths { display: flex; flex-direction: column; }
-.paths > #path-bar { order: -3; } .paths > #top { order: -2; } .paths > #proof { order: -1; }
+.paths > #path-bar { order: -3; } .paths > #top { order: -2; } .paths > #proof { order: -1; } .paths > #about { order: 0; }
 .paths > #experience { order: 1; } .paths > #client-work { order: 2; } .paths > #ai-lab { order: 3; }
 .paths > #expertise { order: 4; } .paths > #insights { order: 5; }
 .paths > #ask { order: 90; } .paths > #positioning { order: 91; } .paths > #contact { order: 99; }

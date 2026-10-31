@@ -7,4 +7,4 @@ export const LOGO_FILES: Record<string, string> = {
   thales: "svg", decathlon: "svg", axa: "svg", banquepopulaire: "svg", pmoffice: "svg", fujitsu: "svg", devoteam: "png",
 };
 // Logos whose own colours carry the brand (a filled shape): shown as-is, others become a white silhouette on the dark theme.
-export const LOGO_COLOUR: string[] = ["axa", "devoteam"];
+export const LOGO_COLOUR: string[] = ["axa", "devoteam", "pmoffice"];

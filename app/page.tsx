@@ -69,7 +69,7 @@ export default async function Home() {
           <div style={{ marginTop: 40, display: "flex", flexWrap: "wrap", alignItems: "center", gap: "16px 40px" }}>
             <span style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".14em", color: "var(--muted)" }}>TRUSTED BY</span>
             {["thales", "decathlon", "carrefour", "fujitsu", "devoteam", "axa", "banquepopulaire", "pmoffice"].map((c) => (
-              <span key={c} style={{ display: "inline-flex", alignItems: "center", opacity: .85 }}><ClientLogo name={c} height={c === "pmoffice" ? 56 : c === "devoteam" ? 48 : c === "axa" ? 40 : 28} /></span>
+              <span key={c} style={{ display: "inline-flex", alignItems: "center", opacity: .85 }}><ClientLogo name={c} height={c === "pmoffice" ? 72 : c === "devoteam" ? 48 : c === "axa" ? 48 : 28} /></span>
             ))}
           </div>
         </div>

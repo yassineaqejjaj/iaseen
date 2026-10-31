@@ -27,11 +27,28 @@ export default function CaseStepper({ steps: all }: { steps: Step[] }) {
         <p className="display" style={{ margin: 0, fontSize: 15, letterSpacing: 0, color: "var(--link)" }}>{n(i)} / {n(steps.length - 1)}</p>
         <h2 className="display" style={{ margin: "8px 0 0", fontSize: 40, lineHeight: 1.1 }}>{cur.label}</h2>
         {real(cur.body) ? (
-          <p style={{ margin: "20px 0 0", fontSize: 18, lineHeight: 1.7, color: "var(--text2)" }}>{cur.body}</p>
+          <p style={{ margin: "20px 0 0", fontSize: 18, lineHeight: 1.7, color: "var(--text2)", whiteSpace: "pre-line" }}>{cur.body}</p>
         ) : null}
+        {cur.stats && cur.stats.length > 0 && (
+          <div style={{ margin: "28px 0 0", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 12 }}>
+            {cur.stats.map((x) => (
+              <div key={x.label} className="glass" style={{ borderRadius: 20, padding: 24 }}>
+                <p className="display" style={{ margin: 0, fontSize: 40, lineHeight: 1.05, background: "linear-gradient(90deg, var(--accent), var(--signal))", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>{x.value}</p>
+                <p style={{ margin: "8px 0 0", fontSize: 14, lineHeight: 1.5, color: "var(--text2)" }}>{x.label}</p>
+              </div>
+            ))}
+          </div>
+        )}
         {cur.points.filter(real).length > 0 && (
           <ul style={{ margin: "28px 0 0", padding: 0, listStyle: "none", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 12 }}>
-            {cur.points.filter(real).map((p) => <li key={p} style={{ background: "var(--surface)", border: "1px solid var(--line)", borderRadius: 16, padding: 18, fontSize: 15, lineHeight: 1.55, color: "var(--text2)" }}>{p}</li>)}
+            {cur.points.filter(real).map((p) => {
+              const k = p.indexOf(": ");
+              return (
+                <li key={p} className="card" style={{ borderRadius: 16, padding: 20, fontSize: 15, lineHeight: 1.55, color: "var(--text2)" }}>
+                  {k > 0 && k < 48 ? <><strong style={{ display: "block", marginBottom: 6, fontSize: 16, color: "var(--text)" }}>{p.slice(0, k)}</strong>{p.slice(k + 2)}</> : p}
+                </li>
+              );
+            })}
           </ul>
         )}
         {hidden > 0 && i === steps.length - 1 && (

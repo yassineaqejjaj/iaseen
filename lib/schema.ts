@@ -1,0 +1,79 @@
+import { profile, real } from "./content";
+import { getI18n, type Locale } from "./i18n";
+
+export const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://iaseen.com";
+const PERSON_ID = `${SITE}/#yassine-aqejjaj`;
+const pageUrl = (l: Locale, p = "") => `${SITE}${l === "en" ? "" : `/${l}`}${p}`;
+
+/** Serialise JSON-LD safely for an inline <script>. */
+export const ld = (o: unknown) => JSON.stringify(o).replace(/</g, "\\u003c");
+
+const person = (l: Locale) => {
+  const { t, c } = getI18n(l);
+  return {
+    "@type": "Person",
+    "@id": PERSON_ID,
+    name: "Yassine Aqejjaj",
+    jobTitle: t.meta.jobTitle,
+    description: c.bio.paragraphs[0],
+    url: SITE,
+    image: `${SITE}/yassine-aqejjaj.webp`,
+    worksFor: { "@type": "Organization", name: "Devoteam" },
+    alumniOf: [
+      { "@type": "CollegeOrUniversity", name: "IAE Nice" },
+      { "@type": "CollegeOrUniversity", name: "Mundiapolis" },
+    ],
+    knowsAbout: ["AI strategy", "Agentic AI", "Retrieval-augmented generation (RAG)", "LLM evaluation", "AI operating models", "AI product management", "MLOps", "Sovereign AI"],
+    knowsLanguage: ["fr", "ar", "en"],
+    homeLocation: { "@type": "Place", name: "Paris, France" },
+    sameAs: [profile.linkedin, profile.github],
+  };
+};
+
+const website = (l: Locale) => ({
+  "@type": "WebSite", "@id": `${SITE}/#website`, url: SITE, name: "Yassine Aqejjaj", inLanguage: l, publisher: { "@id": PERSON_ID },
+});
+
+/** Entity graph shared by every page. */
+export const siteGraph = (l: Locale) => ({ "@context": "https://schema.org", "@graph": [person(l), website(l)] });
+
+/** Home page: profile, books and the FAQ that is visible on the page. */
+export const homeGraph = (l: Locale) => {
+  const { c } = getI18n(l);
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      { "@type": "ProfilePage", "@id": `${pageUrl(l)}#profile`, url: pageUrl(l) || SITE, inLanguage: l, mainEntity: { "@id": PERSON_ID }, isPartOf: { "@id": `${SITE}/#website` } },
+      ...c.books.map((b) => ({ "@type": "Book", name: b.title, description: b.theme, url: b.url, author: { "@id": PERSON_ID } })),
+      {
+        "@type": "FAQPage", inLanguage: l,
+        mainEntity: c.qa.map((x) => ({ "@type": "Question", name: x.q, acceptedAnswer: { "@type": "Answer", text: x.a } })),
+      },
+    ],
+  };
+};
+
+/** Case study page: article + breadcrumb. */
+export const caseGraph = (l: Locale, slug: string) => {
+  const { c, t } = getI18n(l);
+  const cl = c.clients.find((x) => x.slug === slug);
+  if (!cl) return null;
+  const url = pageUrl(l, `/work/${slug}`);
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article", "@id": `${url}#article`, headline: `${cl.client}: ${cl.title}`, description: cl.summary, inLanguage: l, url,
+        author: { "@id": PERSON_ID }, publisher: { "@id": PERSON_ID }, about: cl.tags.filter(real), mainEntityOfPage: url,
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Yassine Aqejjaj", item: pageUrl(l) || SITE },
+          { "@type": "ListItem", position: 2, name: t.nav.work, item: `${pageUrl(l)}#client-work` },
+          { "@type": "ListItem", position: 3, name: cl.client, item: url },
+        ],
+      },
+    ],
+  };
+};

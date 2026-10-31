@@ -49,7 +49,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .paths > #path-bar { order: -3; } .paths > #top { order: -2; } .paths > #proof { order: -1; } .paths > #about { order: 0; }
 .paths > #experience { order: 1; } .paths > #client-work { order: 2; } .paths > #ai-lab { order: 3; }
 .paths > #expertise { order: 4; } .paths > #insights { order: 5; }
-.paths > #ask { order: 90; } .paths > #positioning { order: 91; } .paths > #contact { order: 99; }
+.paths > #ask { order: 90; } .paths > #faq { order: 91; } .paths > #positioning { order: 92; } .paths > #contact { order: 99; }
 .paths[data-path="client"] > #client-work { order: 1; } .paths[data-path="client"] > #expertise { order: 2; }
 .paths[data-path="client"] > #experience { order: 3; } .paths[data-path="client"] > #ai-lab { order: 4; }
 .paths[data-path="builder"] > #ai-lab { order: 1; } .paths[data-path="builder"] > #expertise { order: 2; }

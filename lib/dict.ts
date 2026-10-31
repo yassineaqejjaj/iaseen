@@ -96,10 +96,11 @@ export const dictEn = {
     langText: "French (native) · Arabic (native) · English (professional)",
   },
   meta: {
-    title: "Yassine Aqejjaj — I don't just lead AI. I build it.",
-    description: "Head of AI, product builder and AI strategist. Enterprise AI strategy, production delivery and agentic products.",
+    title: "Yassine Aqejjaj | Head of AI, Agentic AI & RAG",
+    description: "Yassine Aqejjaj, Head of AI: 13 years leading enterprise AI strategy and building agentic AI and RAG platforms such as NOVA Suite. Portfolio, case studies and CV.",
     jobTitle: "Head of AI", caseSuffix: "Yassine Aqejjaj",
   },
+  faq: { eyebrow: "FAQ", title: "Quick answers" },
   rights: "Yassine Aqejjaj",
 };
 
@@ -198,10 +199,11 @@ export const dictFr: Dict = {
     langText: "Français (langue maternelle) · Arabe (langue maternelle) · Anglais (professionnel)",
   },
   meta: {
-    title: "Yassine Aqejjaj — Je ne fais pas que diriger l’IA. Je la construis.",
-    description: "Head of AI, product builder et stratège IA. Stratégie IA d’entreprise, livraison en production et produits agentiques.",
+    title: "Yassine Aqejjaj | Head of AI, IA agentique & RAG",
+    description: "Yassine Aqejjaj, Head of AI : 13 ans de stratégie IA d’entreprise et de plateformes d’IA agentique et RAG comme NOVA Suite. Portfolio, études de cas, CV.",
     jobTitle: "Head of AI", caseSuffix: "Yassine Aqejjaj",
   },
+  faq: { eyebrow: "FAQ", title: "Réponses rapides" },
   rights: "Yassine Aqejjaj",
 };
 
@@ -298,9 +300,10 @@ export const dictAr: Dict = {
     langText: "الفرنسية (لغة أم) · العربية (لغة أم) · الإنجليزية (مهنية)",
   },
   meta: {
-    title: "Yassine Aqejjaj — لا أقود الذكاء الاصطناعي فقط. بل أبنيه.",
-    description: "Head of AI وباني منتجات واستراتيجي ذكاء اصطناعي. استراتيجية الذكاء الاصطناعي في المؤسسات، والتسليم في الإنتاج، والمنتجات الوكيلة.",
+    title: "Yassine Aqejjaj | Head of AI والذكاء الاصطناعي الوكيل",
+    description: "Yassine Aqejjaj، Head of AI: 13 عامًا في استراتيجية الذكاء الاصطناعي المؤسسية وبناء منصات الذكاء الوكيل وRAG مثل NOVA Suite. أعمال ودراسات حالة وسيرة ذاتية.",
     jobTitle: "Head of AI", caseSuffix: "Yassine Aqejjaj",
   },
+  faq: { eyebrow: "أسئلة شائعة", title: "إجابات سريعة" },
   rights: "Yassine Aqejjaj",
 };

@@ -10,8 +10,6 @@ export default function Journey() {
   const [lens, setLens] = useState<"all" | Lens>("all");
   const [i, setI] = useState(0);
   const roles = c.roles;
-  const role = roles[i];
-  const bullets = role.bullets.filter((b) => real(b.text) && (lens === "all" || b.lens === lens));
   const lensIds = ["all", "lead", "product", "tech"] as const;
   return (
     <>
@@ -37,7 +35,11 @@ export default function Journey() {
             </li>
           ))}
         </ol>
-        <article aria-live="polite" style={{ flex: "999 1 560px", minWidth: 0, background: "var(--surface)", border: "1px solid var(--line)", borderRadius: 24, padding: 36 }}>
+        <div aria-live="polite" style={{ flex: "999 1 560px", minWidth: 0 }}>
+          {roles.map((role, ri) => {
+            const bullets = role.bullets.filter((b) => real(b.text) && (lens === "all" || b.lens === lens));
+            return (
+        <article key={role.org + role.period} hidden={ri !== i} style={{ background: "var(--surface)", border: "1px solid var(--line)", borderRadius: 24, padding: 36 }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 16 }}>
             <p style={{ margin: 0, fontSize: 14, fontWeight: 600, color: "var(--link)" }}>{role.period} · {role.org}, {role.place}</p>
             <span dir="ltr" style={{ display: "inline-flex", maxWidth: 200 }}><ClientLogo name={role.logo} scale={1} /></span>
@@ -63,6 +65,9 @@ export default function Journey() {
             {role.tags.filter(real).map((tag) => <span key={tag} className="chip">{tag}</span>)}
           </div>
         </article>
+            );
+          })}
+        </div>
       </div>
     </>
   );

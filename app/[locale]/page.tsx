@@ -9,6 +9,8 @@ import HeroPortrait from "@/components/HeroPortrait";
 import { FeaturedProducts } from "@/components/FeaturedProducts";
 import HeroTitle from "@/components/HeroTitle";
 import About from "@/components/About";
+import Faq from "@/components/Faq";
+import { homeGraph, ld } from "@/lib/schema";
 import NovaSystem from "@/components/NovaSystem";
 import PathLayout from "@/components/PathLayout";
 import ClientLogo from "@/components/ClientLogo";
@@ -43,6 +45,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   const sectionTitle = { margin: "0 0 16px", fontSize: 13, fontWeight: 600, letterSpacing: ".12em", color: "var(--muted)" } as const;
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ld(homeGraph(locale)) }} />
       <Header locale={locale} />
       <PathLayout>
       <section id="top" style={{ position: "relative", overflow: "hidden", borderBottom: "1px solid var(--line)", background: "radial-gradient(900px 500px at 78% 10%, rgba(106,145,255,.16), transparent 60%), radial-gradient(600px 400px at 10% 90%, rgba(152,228,224,.07), transparent 60%), var(--bg)" }}>
@@ -224,6 +227,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <AskSection />
         </div>
       </section>
+
+      <Faq locale={locale} />
 
       <section id="positioning">
         <div className="wrap" style={{ paddingBlock: 112, textAlign: "center" }}>

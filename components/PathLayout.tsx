@@ -11,7 +11,7 @@ export default function PathLayout({ children }: { children: React.ReactNode }) 
     { id: "builder", label: t.path.builder, hint: t.path.hintBuilder },
   ];
   return (
-    <div className="paths" data-path={p}>
+    <main className="paths" data-path={p}>
       <div id="path-bar" className="glass" style={{ borderRadius: 0, borderInline: "none", borderTop: "none" }}>
         <div className="wrap" style={{ paddingBlock: 10, display: "flex", flexWrap: "wrap", alignItems: "center", gap: "8px 16px" }}>
           <span style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".12em", color: "var(--muted)" }}>{t.path.label}</span>
@@ -25,6 +25,6 @@ export default function PathLayout({ children }: { children: React.ReactNode }) 
         </div>
       </div>
       {children}
-    </div>
+    </main>
   );
 }

@@ -39,6 +39,13 @@ English (`/`), French (`/fr`) and Arabic (`/ar`, right-to-left). Every page and 
 
 Translations were written by Claude: have a native speaker review the French and, above all, the Arabic before relying on them.
 
+## SEO and GEO
+
+Titles, canonical and `hreflang`, JSON-LD entity graph (Person, WebSite, ProfilePage, Books, FAQPage, Article), a visible FAQ,
+`/llms.txt` and `/llms-full.txt` for AI assistants, a sitemap in three languages and a `robots.txt` that welcomes search and AI crawlers.
+The full strategy, the actions only you can do (Search Console, profile alignment, third-party mentions) and the measurement plan are in
+[`docs/seo-geo-strategy.md`](docs/seo-geo-strategy.md). Optional env vars: `NEXT_PUBLIC_GSC_VERIFICATION`, `NEXT_PUBLIC_BING_VERIFICATION`.
+
 ## Stack
 
 Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS v4 · [Motion](https://motion.dev) · [simple-icons](https://simpleicons.org) (Carrefour symbol)

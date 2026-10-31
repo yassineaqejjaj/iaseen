@@ -6,6 +6,7 @@ import Logo from "@/components/Logo";
 import LangSwitch from "@/components/LangSwitch";
 import { contentEn } from "@/lib/content";
 import { getI18n, isLocale, type Locale } from "@/lib/i18n";
+import { caseGraph, ld } from "@/lib/schema";
 
 export function generateStaticParams() { return contentEn.clients.map((c) => ({ slug: c.slug })); }
 
@@ -15,9 +16,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { c, t } = getI18n(locale);
   const cl = c.clients.find((x) => x.slug === slug);
   if (!cl) return {};
-  const title = `${cl.client}: ${cl.title} — ${t.meta.caseSuffix}`;
+  const short = cl.client.split(" · ")[0];
+  const title = `${short}: ${t.case.label.toLowerCase()}, ${cl.tags.slice(0, 2).join(" & ")} | ${t.meta.caseSuffix}`;
+  const description = `${cl.summary} ${cl.role}`.slice(0, 160);
+  const image = [{ url: `${locale === "en" ? "" : `/${locale}`}/opengraph-image`, width: 1200, height: 630, alt: `${short} — Yassine Aqejjaj` }];
   const p = (l: string) => (l === "en" ? `/work/${slug}` : `/${l}/work/${slug}`);
-  return { title, description: cl.summary, openGraph: { title, description: cl.summary, type: "article" as const, locale }, alternates: { canonical: p(locale), languages: { en: p("en"), fr: p("fr"), ar: p("ar") } } };
+  return { title, description, openGraph: { title, description, type: "article" as const, locale, images: image }, alternates: { canonical: p(locale), languages: { en: p("en"), fr: p("fr"), ar: p("ar") } } };
 }
 
 export default async function Page({ params }: { params: Promise<{ locale: string; slug: string }> }) {
@@ -30,8 +34,10 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
   const cl = c.clients[k];
   const next = c.clients[(k + 1) % c.clients.length];
   const facts = [[t.case.role, cl.role], [t.case.client, cl.org], [t.case.focus, cl.focus], ...(cl.year ? [[t.case.year, cl.year]] : [])];
+  const graph = caseGraph(locale, slug);
   return (
     <>
+      {graph && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ld(graph) }} />}
       <header style={{ borderBottom: "1px solid var(--line)" }}>
         <nav aria-label={t.case.aria} className="wrap" style={{ paddingBlock: 14, display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 12 }}>
           <Link href={href("/")} aria-label={t.case.homeAria} style={{ textDecoration: "none", display: "inline-flex" }}><Logo size={34} /></Link>
@@ -44,6 +50,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
           </div>
         </nav>
       </header>
+      <main>
       <section style={{ background: "radial-gradient(800px 400px at 80% 0%, rgba(106,145,255,.16), transparent 60%), var(--bg)", color: "#fff", borderBottom: "1px solid var(--line)" }}>
         <div className="wrap" style={{ paddingBlock: "80px 64px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: 20, marginBottom: 20, flexWrap: "wrap" }}>
@@ -68,6 +75,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
         </div>
       )}
       <CaseStepper steps={cl.steps} />
+      </main>
       <footer style={{ background: "var(--cloud)", borderTop: "1px solid var(--line)", color: "#fff" }}>
         <div className="wrap" style={{ paddingBlock: 56, display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: 20 }}>
           <p className="display" style={{ margin: 0, fontSize: 28, letterSpacing: "-0.02em" }}>{t.case.nextCase}: {next.client}, {next.title}</p>

@@ -5,6 +5,7 @@ import "../globals.css";
 import PointerGlow from "@/components/PointerGlow";
 import { LocaleProvider } from "@/components/LocaleProvider";
 import { getI18n, isLocale, locales } from "@/lib/i18n";
+import { ld, siteGraph } from "@/lib/schema";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const grotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-grotesk" });
@@ -22,21 +23,13 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://iaseen.com"),
     title: t.meta.title,
     description: t.meta.description,
-    openGraph: { title: t.meta.title, description: t.meta.description, type: "website", locale },
+    openGraph: { title: t.meta.title, description: t.meta.description, type: "website", locale, siteName: "Yassine Aqejjaj", images: [{ url: `${locale === "en" ? "" : `/${locale}`}/opengraph-image`, width: 1200, height: 630, alt: "Yassine Aqejjaj, Head of AI" }] },
+    twitter: { card: "summary_large_image", title: t.meta.title, description: t.meta.description },
+    authors: [{ name: "Yassine Aqejjaj", url: "https://iaseen.com" }],
+    verification: { google: process.env.NEXT_PUBLIC_GSC_VERIFICATION, other: process.env.NEXT_PUBLIC_BING_VERIFICATION ? { "msvalidate.01": process.env.NEXT_PUBLIC_BING_VERIFICATION } : undefined },
     alternates: { canonical: locale === "en" ? "/" : `/${locale}`, languages: { en: "/", fr: "/fr", ar: "/ar", "x-default": "/" } },
   };
 }
-
-const person = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: "Yassine Aqejjaj",
-  jobTitle: "Head of AI",
-  worksFor: { "@type": "Organization", name: "Devoteam" },
-  url: "https://iaseen.com",
-  knowsLanguage: ["en", "fr", "ar"],
-  sameAs: ["https://www.linkedin.com/in/yassine-aqejjaj/", "https://github.com/yassineaqejjaj"],
-};
 
 export default async function RootLayout({ children, params }: { children: React.ReactNode; params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -52,7 +45,7 @@ export default async function RootLayout({ children, params }: { children: React
       <body>
         <LocaleProvider locale={locale}>{children}</LocaleProvider>
         <PointerGlow />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(person) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ld(siteGraph(locale)) }} />
       </body>
     </html>
   );

@@ -12,7 +12,7 @@ const line = (children: React.ReactNode, i: number, reduce: boolean | null) => (
 export default function HeroTitle({ line1, line2 }: { line1: string; line2: string }) {
   const reduce = useReducedMotion();
   return (
-    <h1 className="display" style={{ margin: 0, fontSize: "clamp(46px, 6.8vw, 92px)", lineHeight: 1.0, letterSpacing: "-0.04em" }}>
+    <h1 className="display" style={{ margin: 0, fontSize: "clamp(38px, min(6.8vw, 10.5vh), 92px)", lineHeight: 1.0, letterSpacing: "-0.04em" }}>
       {line(line1, 0, reduce)}
       {line(<span style={{ background: "linear-gradient(90deg, var(--accent), var(--signal))", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>{line2}</span>, 1, reduce)}
     </h1>

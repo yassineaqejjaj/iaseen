@@ -52,6 +52,14 @@ function Universe() {
     const t = state.clock.elapsedTime, p = heroProgress.v, split = smooth(0.22, 0.62, p), k = Math.min(1, dt * 2.5);
     [coreM, m1, m2, m3].forEach((m) => (m.uTime.value = t));
     const g = group.current!;
+    // The sphere sits just under the top text block and is sized from the canvas height, so it never covers the brand lines.
+    const h = state.size.height, cam = state.camera as THREE.PerspectiveCamera;
+    const halfH = Math.tan((cam.fov * Math.PI) / 360) * 6;                       // world half-height at the rest distance
+    const room = Math.max(0, heroProgress.bottomEdge - heroProgress.topEdge);   // free band between the two text blocks
+    const radiusPx = Math.min(190, Math.max(72, room / 2 + 34));              // may tuck slightly behind the headline, never over the brand lines
+    const centerPx = heroProgress.topEdge + 12 + radiusPx;
+    g.scale.setScalar((radiusPx / (h / 2)) * halfH / 1.25);
+    g.position.y = -((centerPx - h / 2) / (h / 2)) * halfH;
     g.rotation.y += (heroProgress.x * 0.3 - g.rotation.y) * k;
     g.rotation.x += (-heroProgress.y * 0.18 - g.rotation.x) * k;
     state.camera.position.z = 6 + p * 0.9;
@@ -67,7 +75,7 @@ function Universe() {
   });
 
   return (
-    <group ref={group} position={[0, -0.1, 0]} scale={0.74}>
+    <group ref={group}>
       <mesh ref={core} material={coreM.mat}><icosahedronGeometry args={[1.25, 30]} /></mesh>
       <mesh ref={parts[0]} material={m1.mat}><sphereGeometry args={[0.8, 64, 64]} /></mesh>
       <mesh ref={parts[1]} material={m2.mat}><boxGeometry args={[1.05, 1.05, 1.05]} /></mesh>

@@ -25,11 +25,13 @@ export default function HeroStory() {
   useEffect(() => {
     const el = root.current!;
     const hdr = () => document.documentElement.style.setProperty("--hdr", `${document.querySelector("header")?.getBoundingClientRect().height ?? 72}px`);
-    hdr(); addEventListener("resize", hdr);
+    const measure = () => { const top = el.querySelector<HTMLElement>(".hero-top"), bot = el.querySelector<HTMLElement>(".hero-bottom"); if (top) heroProgress.topEdge = top.offsetTop + top.offsetHeight; if (bot) heroProgress.bottomEdge = bot.offsetTop; };
+    hdr(); measure(); addEventListener("resize", hdr); addEventListener("resize", measure);
+    document.fonts?.ready.then(measure);
     const wide = matchMedia("(min-width: 760px)").matches;
     const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
     const onPointer = (e: PointerEvent) => { heroProgress.x = (e.clientX / innerWidth) * 2 - 1; heroProgress.y = (e.clientY / innerHeight) * 2 - 1; };
-    if (!wide || calm) { heroProgress.v = 0; return () => removeEventListener("resize", hdr); }   // static layout: no scroll story, no 3D
+    if (!wide || calm) { heroProgress.v = 0; return () => { removeEventListener("resize", hdr); removeEventListener("resize", measure); }; }   // static layout: no scroll story, no 3D
 
     let raf = 0, phase = 0;
     const apply = () => {
@@ -56,7 +58,7 @@ export default function HeroStory() {
     const start = () => { if (hasWebGL()) setWebgl(true); };
     const idle = (window as unknown as { requestIdleCallback?: (cb: () => void) => number }).requestIdleCallback;
     const h = idle ? idle(start) : window.setTimeout(start, 600);
-    return () => { removeEventListener("resize", hdr); removeEventListener("scroll", onScroll); removeEventListener("resize", onScroll); removeEventListener("pointermove", onPointer); io.disconnect(); if (raf) cancelAnimationFrame(raf); if (!idle) clearTimeout(h); };
+    return () => { removeEventListener("resize", hdr); removeEventListener("resize", measure); removeEventListener("scroll", onScroll); removeEventListener("resize", onScroll); removeEventListener("pointermove", onPointer); io.disconnect(); if (raf) cancelAnimationFrame(raf); if (!idle) clearTimeout(h); };
   }, []);
 
   const goCv = () => { setMode("executive"); setTimeout(() => document.getElementById("experience")?.scrollIntoView(), 50); };

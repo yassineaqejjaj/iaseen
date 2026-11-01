@@ -174,7 +174,7 @@ html[data-palette-open] .ambient, html[data-mode="executive"] .ambient { display
 
 /* Interludes: short, wide pauses between sections */
 .interlude { padding-block: clamp(72px, 13vw, 168px); text-align: center; border-bottom: 1px solid var(--line); background: radial-gradient(60% 80% at 50% 50%, rgba(106,145,255,.08), transparent 70%); }
-.interlude-big { margin: 0 auto; max-width: 16ch; font-size: clamp(40px, 8.2vw, 116px); line-height: 1; letter-spacing: -0.035em; font-weight: 600; }
+.interlude-big { margin: 0 auto; max-width: 22ch; white-space: pre-line; text-wrap: balance; font-size: clamp(38px, 6.6vw, 96px); line-height: 1.04; letter-spacing: -0.035em; font-weight: 600; }
 .interlude-big.fig { max-width: none; font-size: clamp(88px, 17vw, 240px); background: linear-gradient(120deg, #6a91ff, #98e4e0); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .interlude-small { text-wrap: balance; margin: 18px auto 0; max-width: 34ch; font-size: clamp(16px, 2vw, 22px); line-height: 1.5; color: var(--text2); }
 html[lang="ar"] .interlude-big { letter-spacing: 0; line-height: 1.25; }

@@ -158,7 +158,7 @@ export const dictEn = {
   },
   act: { hint: "ACT ON THE PAGE", case: "Open case study", filter: "Filter the AI Lab", skill: "Show skill", node: "Show on the map", page: "Open the page" },
   interlude: [
-    { big: "I don’t just lead AI. I build it.", small: "Strategy, delivery and shipped code, under one roof.", fig: false },
+    { big: "I don’t just lead AI.\nI build it.", small: "Strategy, delivery and shipped code, under one roof.", fig: false },
     { big: "13", small: "years turning AI from slides into systems in production.", fig: true },
     { big: "800", small: "employees use NOVA, the agentic platform I lead.", fig: true },
     { big: "1,500+", small: "professionals trained in generative AI, agentic AI and RAG.", fig: true },
@@ -352,7 +352,7 @@ export const dictFr: Dict = {
   },
   act: { hint: "AGIR SUR LA PAGE", case: "Ouvrir l’étude de cas", filter: "Filtrer l’AI Lab", skill: "Voir la compétence", node: "Voir sur la carte", page: "Ouvrir la page" },
   interlude: [
-    { big: "Je ne me contente pas de diriger l’IA. Je la construis.", small: "Stratégie, delivery et code livré, sous un même toit.", fig: false },
+    { big: "Je ne me contente pas de diriger l’IA.\nJe la construis.", small: "Stratégie, delivery et code livré, sous un même toit.", fig: false },
     { big: "13", small: "ans à faire passer l’IA des slides aux systèmes en production.", fig: true },
     { big: "800", small: "collaborateurs utilisent NOVA, la plateforme agentique que je dirige.", fig: true },
     { big: "1 500+", small: "professionnels formés à l’IA générative, à l’IA agentique et au RAG.", fig: true },
@@ -544,7 +544,7 @@ export const dictAr: Dict = {
   },
   act: { hint: "تصرّف في الصفحة", case: "افتح دراسة الحالة", filter: "صفِّ مختبر الذكاء الاصطناعي", skill: "أبرز المهارة", node: "أظهره على الخريطة", page: "افتح الصفحة" },
   interlude: [
-    { big: "لا أكتفي بقيادة الذكاء الاصطناعي. أنا أبنيه.", small: "استراتيجية وتسليم وشيفرة منشورة، تحت سقف واحد.", fig: false },
+    { big: "لا أكتفي بقيادة الذكاء الاصطناعي.\nأنا أبنيه.", small: "استراتيجية وتسليم وشيفرة منشورة، تحت سقف واحد.", fig: false },
     { big: "13", small: "عامًا في نقل الذكاء الاصطناعي من الشرائح إلى أنظمة قيد الإنتاج.", fig: true },
     { big: "800", small: "موظف يستخدمون NOVA، المنصة الوكيلة التي أقودها.", fig: true },
     { big: "+1,500", small: "متخصص دُرِّبوا على الذكاء الاصطناعي التوليدي والوكيل وRAG.", fig: true },

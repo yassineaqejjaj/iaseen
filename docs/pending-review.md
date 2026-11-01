@@ -9,7 +9,7 @@ Add a line back to the `points` of the matching step in `lib/content.ts` only af
 - **Thales, "The approach":** `Enterprise ecosystem: Align the technical strategy with the organization's cloud and data ecosystem.`
 - **DILA, "The approach":** `LLM strategy: Integrate Mistral-based generative AI capabilities into the target architecture.`
 
-## DILA KPIs: published as results confirmed with the project team
+## DILA KPIs: published as results (the "confirmed" note was removed on the owner's instruction)
 
 The DILA case study shows the nine KPIs (RAG delivery time −60%, 75% reuse, faithfulness 0.94, cost per request −30%, and five more)
 as results, with the note "Figures confirmed with the project team. Evaluation method shared on request."

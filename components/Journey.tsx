@@ -45,6 +45,16 @@ export default function Journey() {
             <span dir="ltr" style={{ display: "inline-flex", maxWidth: 200 }}><ClientLogo name={role.logo} scale={1} /></span>
           </div>
           <h3 className="display" style={{ margin: "10px 0 0", fontSize: 32, lineHeight: 1.15, letterSpacing: "-0.02em" }}>{role.title}</h3>
+          {(role as { path?: { year: string; title: string }[] }).path && (
+            <ol dir="ltr" aria-label="Career path" style={{ margin: "14px 0 0", padding: 0, listStyle: "none", display: "flex", flexWrap: "wrap", gap: "6px 10px", alignItems: "center", fontSize: 14, color: "var(--text2)" }}>
+              {(role as { path?: { year: string; title: string }[] }).path!.map((p, k) => (
+                <li key={p.year} style={{ display: "inline-flex", gap: 8, alignItems: "center" }}>
+                  {k > 0 && <span aria-hidden style={{ color: "var(--muted)" }}>→</span>}
+                  <span><strong style={{ color: "var(--signal)" }}>{p.year}</strong> {p.title}</span>
+                </li>
+              ))}
+            </ol>
+          )}
           <p style={{ margin: "16px 0 0", fontSize: 17, lineHeight: 1.6, color: "var(--body)" }}>{role.summary}</p>
           <h4 style={{ margin: "28px 0 12px", fontSize: 13, fontWeight: 600, letterSpacing: ".12em", color: "var(--muted)" }}>{lens === "all" ? j.highlights : `${j.tag[lens]} ${j.lensSuffix}`}</h4>
           <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 12 }}>

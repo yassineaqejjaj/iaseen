@@ -38,7 +38,7 @@ export const dictEn = {
     impact: "Impact:", read: "Read the case study",
   },
   lab: {
-    eyebrow: "AI LAB · BUILT BY ME", title: "Products, not just repos",
+    eyebrow: "AI LAB · PRODUCTS I BUILT", title: "Products, not just repos",
     lead: "Agentic platforms, health and learning tools I design, code and ship myself. Featured projects are curated; the full list lives on GitHub.",
     filtersAria: "Filter products", flagship: "FLAGSHIP",
     filters: { All: "All", AGENTIC: "Agentic AI", HEALTH: "HealthTech", EDUCATION: "Education", SPORT: "Sport & data" } as Record<string, string>,
@@ -102,6 +102,7 @@ export const dictEn = {
     jobTitle: "Head of AI", caseSuffix: "Yassine Aqejjaj",
   },
   faq: { eyebrow: "FAQ", title: "Quick answers" },
+  gallery: { title: "Inside NOVA", note: "Screens from the NOVA demo workspace. Client names are masked.", items: ["Today", "Architecture", "Skills", "Engineering", "Routines", "Voice"] },
   act: { hint: "ACT ON THE PAGE", case: "Open case study", filter: "Filter the AI Lab", skill: "Show skill", node: "Show on the map" },
   interlude: [
     { big: "I don’t just lead AI. I build it.", small: "Strategy, delivery and shipped code, under one roof.", fig: false },
@@ -181,7 +182,7 @@ export const dictFr: Dict = {
     impact: "Impact :", read: "Lire l’étude de cas",
   },
   lab: {
-    eyebrow: "AI LAB · CONÇU PAR MOI", title: "Des produits, pas seulement des dépôts",
+    eyebrow: "AI LAB · PRODUITS QUE J’AI CONSTRUITS", title: "Des produits, pas seulement des dépôts",
     lead: "Plateformes agentiques, outils de santé et d’apprentissage que je conçois, code et livre moi-même. Les projets phares sont choisis à la main ; la liste complète est sur GitHub.",
     filtersAria: "Filtrer les produits", flagship: "PROJET PHARE",
     filters: { All: "Tous", AGENTIC: "IA agentique", HEALTH: "HealthTech", EDUCATION: "Éducation", SPORT: "Sport & data" },
@@ -242,6 +243,7 @@ export const dictFr: Dict = {
     jobTitle: "Head of AI", caseSuffix: "Yassine Aqejjaj",
   },
   faq: { eyebrow: "FAQ", title: "Réponses rapides" },
+  gallery: { title: "Dans NOVA", note: "Captures de l’espace de démonstration NOVA. Les noms de clients sont masqués.", items: ["Aujourd’hui", "Architecture", "Compétences", "Engineering", "Routines", "Voix"] },
   act: { hint: "AGIR SUR LA PAGE", case: "Ouvrir l’étude de cas", filter: "Filtrer l’AI Lab", skill: "Voir la compétence", node: "Voir sur la carte" },
   interlude: [
     { big: "Je ne me contente pas de diriger l’IA. Je la construis.", small: "Stratégie, delivery et code livré, sous un même toit.", fig: false },
@@ -319,7 +321,7 @@ export const dictAr: Dict = {
     impact: "الأثر:", read: "اقرأ دراسة الحالة",
   },
   lab: {
-    eyebrow: "مختبر الذكاء الاصطناعي · من إنجازي", title: "منتجات، لا مجرد مستودعات",
+    eyebrow: "مختبر الذكاء الاصطناعي · منتجات بنيتُها", title: "منتجات، لا مجرد مستودعات",
     lead: "منصات وكيلة وأدوات للصحة والتعلم أصممها وأبرمجها وأطلقها بنفسي. المشاريع المميزة مختارة يدويًا، والقائمة الكاملة على GitHub.",
     filtersAria: "تصفية المنتجات", flagship: "المشروع الرئيسي",
     filters: { All: "الكل", AGENTIC: "الذكاء الاصطناعي الوكيل", HEALTH: "التقنية الصحية", EDUCATION: "التعليم", SPORT: "الرياضة والبيانات" },
@@ -380,6 +382,7 @@ export const dictAr: Dict = {
     jobTitle: "Head of AI", caseSuffix: "Yassine Aqejjaj",
   },
   faq: { eyebrow: "أسئلة شائعة", title: "إجابات سريعة" },
+  gallery: { title: "داخل NOVA", note: "لقطات من مساحة العرض التجريبية لـ NOVA. أسماء العملاء محجوبة.", items: ["اليوم", "البنية", "المهارات", "الهندسة", "الروتينات", "الصوت"] },
   act: { hint: "تصرّف في الصفحة", case: "افتح دراسة الحالة", filter: "صفِّ مختبر الذكاء الاصطناعي", skill: "أبرز المهارة", node: "أظهره على الخريطة" },
   interlude: [
     { big: "لا أكتفي بقيادة الذكاء الاصطناعي. أنا أبنيه.", small: "استراتيجية وتسليم وشيفرة منشورة، تحت سقف واحد.", fig: false },

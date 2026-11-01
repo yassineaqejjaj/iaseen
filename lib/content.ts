@@ -19,7 +19,7 @@ export const profile = {
 export const bio = {
   headline: "Leading AI at scale. Building it myself.",
   paragraphs: [
-    "I'm Yassine Aqejjaj, an AI leader with 13 years of experience building AI products, shaping enterprise AI operating models and leading cross-functional delivery across defence, public services, retail and financial services. Since 2023 I head the AI Factory at Devoteam, where internal platform development, client delivery and workforce enablement come together.",
+    "I'm Yassine Aqejjaj, an AI leader with 13 years of experience building AI products, shaping enterprise AI operating models and leading cross-functional delivery across defence, public services, retail and financial services. I joined Devoteam in 2023 as Principal Product Manager, became Lead of AI in 2024 and have headed the AI Factory since 2026, where internal platform development, client delivery and workforce enablement come together.",
     "I started in digital banking in Casablanca, then moved to Paris to work on AI products at Carrefour, Fujitsu and AXA. Along the way I trained in machine learning at Stanford and in AI product management at Duke. Today I lead the NOVA Suite, our agentic platform deployed to 800 employees, and I've trained 1,500+ professionals in generative AI, agentic AI and RAG.",
     "I also build on my own: TrustRail, MedGuard AI, M3aya Santé and the TRAIL Academy learning platform I founded. I share what I learn in four books and on stage, including Google Cloud Summit and AICamp. I focus on agentic AI, responsible deployment and measurable business adoption.",
   ],
@@ -38,6 +38,7 @@ export const LENS_TAG: Record<Lens, string> = { lead: "LEADERSHIP", product: "AI
 export const roles = [
   {
     period: "Aug 2023 – Present", title: "Head of AI Factory", org: "Devoteam", place: "Paris", logo: "devoteam",
+    path: [{ year: "2023", title: "Principal Product Manager" }, { year: "2024", title: "Lead of AI" }, { year: "2026", title: "Head of AI Factory" }],
     summary: "Directs a portfolio combining AI platform products, applied AI engagements and training initiatives, and leads the AI Factory's agentic platform suite.",
     impact: "€12M+ commercial pipeline · NOVA deployed to 800 employees within a group of 10,000+ consultants in 25 countries · 1,500+ professionals trained.",
     tags: ["AI Factory", "Agentic AI", "Operating model", "Team leadership", "RAG", "Evaluation"],
@@ -245,7 +246,7 @@ export const articles = [
 
 export const qa: { q: string; a: string; aud?: string; sources: { label: string; href: string }[] }[] = [
   { q: "What enterprise AI programmes has he led?", aud: "Recruiter",
-    a: "Yassine has been Head of AI Factory at Devoteam since August 2023. Engagements he led include an AI operating model for Thales (5 people), a sovereign generative AI platform for DILA, the services of the Prime Minister (9 people, 70% faster content creation), a €4M AI transformation programme at Decathlon (13 people, 2.6× productivity gains from augmented teams) and an ML/MLOps engagement at Carrefour (10 people).",
+    a: "Yassine joined Devoteam in August 2023 as Principal Product Manager, became Lead of AI in 2024 and has been Head of AI Factory since 2026. Engagements he led include an AI operating model for Thales (5 people), a sovereign generative AI platform for DILA, the services of the Prime Minister (9 people, 70% faster content creation), a €4M AI transformation programme at Decathlon (13 people, 2.6× productivity gains from augmented teams) and an ML/MLOps engagement at Carrefour (10 people).",
     sources: [{ label: "Experience", href: "#experience" }, { label: "Client Work", href: "#client-work" }] },
   { q: "Show his agentic AI products", aud: "Builder",
     a: "NOVA Suite is the AI Factory's agentic platform, built by a 15-person team and deployed to 800 employees within a group of 10,000+ consultants in 25 countries: Nova Agents orchestrate applications, Nova Context retrieves targeted context and Nova Evals / FORGE evaluate results. He also built TrustRail, an AI-agent control gateway, and MedGuard AI, an open-source healthcare AI evaluation platform.",

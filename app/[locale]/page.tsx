@@ -6,6 +6,7 @@ import SkillProof from "@/components/SkillProof";
 import AskSection from "@/components/AskSection";
 import ProofPanel from "@/components/ProofPanel";
 import LogoMarquee from "@/components/LogoMarquee";
+import NovaGallery from "@/components/NovaGallery";
 import Interlude from "@/components/Interlude";
 import { FeaturedProducts } from "@/components/FeaturedProducts";
 import HeroStory from "@/components/HeroStory";
@@ -142,6 +143,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           </div>
           <SectionAsk q={[1, 4]} />
           <NovaSystem />
+          <NovaGallery />
           <FeaturedProducts locale={locale} />
           <LabGrid />
         </div>

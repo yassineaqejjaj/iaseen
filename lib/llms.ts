@@ -7,10 +7,10 @@ const clean = (xs: string[]) => xs.filter(real);
 export function llmsTxt() {
   return `# Yassine Aqejjaj
 
-> Head of AI, AI strategist and product builder based in Paris. 13 years of experience leading enterprise AI programmes (strategy, operating models, delivery) and building agentic AI and RAG platforms. Head of AI Factory at Devoteam since August 2023.
+> Head of AI, AI strategist and product builder based in Paris. 13 years of experience leading enterprise AI programmes (strategy, operating models, delivery) and building agentic AI and RAG platforms. Head of AI Factory at Devoteam since 2026 (joined in 2023 as Principal Product Manager, Lead of AI in 2024).
 
 Key facts, each backed by a page on this site:
-- Role: Head of AI Factory, Devoteam (Paris), since August 2023.
+- Role: Head of AI Factory, Devoteam (Paris), since 2026. Career at Devoteam: Principal Product Manager (2023), Lead of AI (2024), Head of AI Factory (2026).
 - Built NOVA Suite (Nova Agents, Nova Context, Nova Evals / FORGE), an agentic platform deployed to 800 employees, with a 15-person team.
 - Trained 1,500+ professionals in generative AI, agentic AI and RAG (LEAP programme).
 - Founded TRAIL Academy, an AI e-learning platform (https://trailacademy.fr).

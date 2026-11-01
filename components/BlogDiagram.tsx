@@ -17,7 +17,7 @@ export default function BlogDiagram({ kind, d, label }: { kind: DiagramKind; d: 
       )}
       {kind === "steps" && (
         <ol className="dg-steps">
-          {d.nodes.map((n, i) => (<li key={n} style={{ ["--h" as string]: `${56 + i * 26}px` }}><span>{n}</span></li>))}
+          {d.nodes.map((n, i) => (<li key={n} style={{ ["--h" as string]: `${96 + i * 46}px` }}><span>{n}</span></li>))}
         </ol>
       )}
       {kind === "loop" && (

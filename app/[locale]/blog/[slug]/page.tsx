@@ -96,7 +96,7 @@ export default async function PostPage({ params }: { params: Promise<{ locale: s
               </section>
             )}
 
-            <section aria-label={b.results} style={{ maxWidth: 960 }}>
+            <section aria-label={b.results} style={{ maxWidth: "none" }}>
               <h2 style={{ margin: "40px 0 0", fontSize: 13, fontWeight: 600, letterSpacing: ".12em", color: "var(--muted)" }}>{b.results}</h2>
               <div className="results">
                 {x.results.map((r) => (
@@ -108,7 +108,7 @@ export default async function PostPage({ params }: { params: Promise<{ locale: s
               </div>
             </section>
 
-            <section style={{ maxWidth: 960, marginTop: 36 }}>
+            <section style={{ maxWidth: "none", marginTop: 36 }}>
               <h2 style={{ margin: 0, fontSize: 13, fontWeight: 600, letterSpacing: ".12em", color: "var(--muted)" }}>{post.repos.length ? b.code : b.case}</h2>
               <div style={{ marginTop: 14, display: "flex", flexWrap: "wrap", gap: 10 }}>
                 {post.repos.map((r) => (
@@ -121,7 +121,7 @@ export default async function PostPage({ params }: { params: Promise<{ locale: s
               </div>
             </section>
 
-            <section style={{ maxWidth: 960, marginTop: 56, paddingTop: 32, borderTop: "1px solid var(--line)" }}>
+            <section style={{ maxWidth: "none", marginTop: 56, paddingTop: 32, borderTop: "1px solid var(--line)" }}>
               <h2 style={{ margin: 0, fontSize: 13, fontWeight: 600, letterSpacing: ".12em", color: "var(--muted)" }}>{b.more}</h2>
               <div style={{ marginTop: 16, display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 14 }}>
                 {others.map((o) => (

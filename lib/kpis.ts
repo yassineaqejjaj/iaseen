@@ -54,7 +54,7 @@ export const KPIS: Record<string, KpiSet> = {
   nova: {
     all: [
       k("800", "Deployed users", "Utilisateurs déployés", "مستخدمون منشورون"),
-      k("68%", "Task success rate", "Taux de réussite des tâches", "معدل نجاح المهام"),
+      k("92%", "Task success rate", "Taux de réussite des tâches", "معدل نجاح المهام"),
       k("−42%", "Task execution time reduction", "Réduction du temps d’exécution des tâches", "تقليص زمن تنفيذ المهام"),
       k("23%", "D7 user retention", "Rétention des utilisateurs à J7", "الاحتفاظ بالمستخدمين في اليوم 7"),
       k("99.3%", "Technical execution success", "Succès d’exécution technique", "نجاح التنفيذ التقني"),

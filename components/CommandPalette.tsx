@@ -1,4 +1,5 @@
 "use client";
+import { posts } from "@/lib/blog";
 import { runAct } from "@/lib/actions";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
@@ -33,6 +34,8 @@ export default function CommandPalette({ onClose, initialQuery = "" }: { onClose
       ...sec.map(([label, h]) => ({ id: h, group: t.cmd.goTo, label, run: () => go(href(h)) })),
       ...c.clients.map((cl) => ({ id: cl.slug, group: t.cmd.cases, label: `${cl.client.split(" · ")[0]}: ${cl.title}`, run: () => go(href(`/work/${cl.slug}`)) })),
       { id: "nova", group: t.cmd.cases, label: "NOVA Suite", run: () => go(href("/nova")) },
+      { id: "blog", group: t.cmd.goTo, label: t.blog.nav, run: () => go(href("/blog")) },
+      ...posts.map((p) => ({ id: p.slug, group: t.blog.nav, label: p[locale].title, run: () => go(href(`/blog/${p.slug}`)) })),
       { id: "cv", group: t.cmd.actions, label: t.cmd.downloadCv, run: () => { onClose(); window.open(profile.cv, "_blank"); } },
       { id: "mode", group: t.cmd.actions, label: getMode() === "executive" ? t.cmd.toExperience : t.cmd.toExecutive, run: () => { setMode(getMode() === "executive" ? "experience" : "executive"); onClose(); } },
     ];

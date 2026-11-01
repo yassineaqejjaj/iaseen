@@ -19,7 +19,7 @@ export default function Header(_props: { locale?: string }) {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<string | null>(null);
   const links: [string, string][] = [
-    ["about", t.nav.about], ["experience", t.nav.experience], ["client-work", t.nav.work], ["ai-lab", t.nav.lab], ["expertise", t.nav.expertise], ["insights", t.nav.insights],
+    ["about", t.nav.about], ["experience", t.nav.experience], ["client-work", t.nav.work], ["ai-lab", t.nav.lab], ["expertise", t.nav.expertise], ["insights", t.nav.insights], ["blog", t.blog.nav],
   ];
 
   useEffect(() => {
@@ -56,7 +56,7 @@ export default function Header(_props: { locale?: string }) {
 
         <ul className="nav-links">
           {links.map(([id, label]) => (
-            <li key={id}><Link href={href(`#${id}`)} className="nav-link" aria-current={active === id ? "location" : undefined}>{label}</Link></li>
+            <li key={id}><Link href={href(id === "blog" ? "/blog" : `#${id}`)} className="nav-link" aria-current={active === id ? "location" : undefined}>{label}</Link></li>
           ))}
         </ul>
 
@@ -76,7 +76,7 @@ export default function Header(_props: { locale?: string }) {
           <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "grid" }}>
             {[...links, ["contact", t.nav.contact] as [string, string]].map(([id, label]) => (
               <li key={id}>
-                <Link href={href(`#${id}`)} onClick={() => setOpen(false)} aria-current={active === id ? "location" : undefined} className="mm-link">{label}</Link>
+                <Link href={href(id === "blog" ? "/blog" : `#${id}`)} onClick={() => setOpen(false)} aria-current={active === id ? "location" : undefined} className="mm-link">{label}</Link>
               </li>
             ))}
           </ul>

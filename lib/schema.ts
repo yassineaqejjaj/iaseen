@@ -1,4 +1,5 @@
 import { profile, real } from "./content";
+import { posts, postBySlug } from "./blog";
 import { getI18n, type Locale } from "./i18n";
 
 export const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://iaseen.com";
@@ -97,6 +98,53 @@ export const novaGraph = (l: Locale) => {
           { "@type": "ListItem", position: 1, name: "Yassine Aqejjaj", item: pageUrl(l) || SITE },
           { "@type": "ListItem", position: 2, name: t.nav.lab, item: `${pageUrl(l)}#ai-lab` },
           { "@type": "ListItem", position: 3, name: "NOVA Suite", item: url },
+        ],
+      },
+    ],
+  };
+};
+
+export const blogGraph = (l: Locale) => {
+  const { t } = getI18n(l);
+  const url = pageUrl(l, "/blog");
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Blog", "@id": `${url}#blog`, name: t.blog.title, description: t.blog.metaDescription, inLanguage: l, url, author: { "@id": PERSON_ID },
+        blogPost: posts.map((p) => ({ "@type": "BlogPosting", headline: p[l].title, url: pageUrl(l, `/blog/${p.slug}`), datePublished: p.date })),
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Yassine Aqejjaj", item: pageUrl(l) || SITE },
+          { "@type": "ListItem", position: 2, name: t.blog.nav, item: url },
+        ],
+      },
+    ],
+  };
+};
+
+export const postGraph = (l: Locale, slug: string) => {
+  const { t } = getI18n(l);
+  const post = postBySlug(slug);
+  if (!post) return null;
+  const x = post[l];
+  const url = pageUrl(l, `/blog/${slug}`);
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting", "@id": `${url}#post`, headline: x.title, description: x.dek, inLanguage: l, url, datePublished: post.date, dateModified: post.date,
+        author: { "@id": PERSON_ID }, publisher: { "@id": PERSON_ID }, mainEntityOfPage: url, keywords: post.tags.join(", "),
+        citation: post.repos.map((r) => r.url),
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Yassine Aqejjaj", item: pageUrl(l) || SITE },
+          { "@type": "ListItem", position: 2, name: t.blog.nav, item: pageUrl(l, "/blog") },
+          { "@type": "ListItem", position: 3, name: x.title, item: url },
         ],
       },
     ],

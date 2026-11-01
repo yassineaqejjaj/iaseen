@@ -1,3 +1,4 @@
+import { posts } from "./blog";
 import { contentEn as c, profile, real } from "./content";
 import { SITE } from "./schema";
 
@@ -20,6 +21,8 @@ Key facts, each backed by a page on this site:
 ## Pages
 - [Home, profile and FAQ](${SITE}/): positioning, experience, AI Lab, expertise, insights
 - [NOVA Suite, the agentic AI platform](${SITE}/nova): architecture (Agents, Context, Evals), real screens, open code
+- [Blog](${SITE}/blog): articles on agentic platforms, AI operating models, evaluation and context engineering
+${posts.map((p) => `- [${p.en.title}](${SITE}/blog/${p.slug}): ${p.en.dek}`).join("\n")}
 - [French version](${SITE}/fr) · [Arabic version](${SITE}/ar)
 ${c.clients.map((x) => `- [${x.client}: ${x.title}](${SITE}/work/${x.slug}): ${x.summary}`).join("\n")}
 

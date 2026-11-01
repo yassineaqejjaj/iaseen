@@ -156,6 +156,12 @@ export const dictEn = {
       ] },
     },
   },
+  blog: {
+    nav: "Blog", metaTitle: "Blog: Agentic AI, Evaluation, Context | Yassine Aqejjaj", metaDescription: "Articles by Yassine Aqejjaj on enterprise agentic platforms, AI operating models, evaluating multi-agent systems and context engineering.",
+    eyebrow: "BLOG", title: "Notes from building AI platforms", lead: "Four articles on what I learned building and deploying agentic platforms: analysis, diagrams, results and the code.",
+    latest: "LATEST ARTICLES", all: "All articles", back: "Back to the blog", read: "min read", take: "MY TAKE", results: "RESULTS", diagram: "DIAGRAM", code: "THE CODE", case: "RELATED CASE STUDY", on: "Published", more: "KEEP READING",
+    note: "Figures come from validated client results and from my role at Devoteam. The open-source projects are public betas.",
+  },
   act: { hint: "ACT ON THE PAGE", case: "Open case study", filter: "Filter the AI Lab", skill: "Show skill", node: "Show on the map", page: "Open the page" },
   interlude: [
     { big: "I don’t just lead AI.\nI build it.", small: "Strategy, delivery and shipped code, under one roof.", fig: false },
@@ -350,6 +356,12 @@ export const dictFr: Dict = {
       ] },
     },
   },
+  blog: {
+    nav: "Blog", metaTitle: "Blog : IA agentique, évaluation, contexte | Yassine Aqejjaj", metaDescription: "Articles de Yassine Aqejjaj sur les plateformes agentiques d’entreprise, les modèles opérationnels IA, l’évaluation des systèmes multi-agents et l’ingénierie du contexte.",
+    eyebrow: "BLOG", title: "Notes de terrain sur les plateformes IA", lead: "Quatre articles sur ce que j’ai appris en construisant et en déployant des plateformes agentiques : analyse, schémas, résultats et code.",
+    latest: "DERNIERS ARTICLES", all: "Tous les articles", back: "Retour au blog", read: "min de lecture", take: "MON ANALYSE", results: "RÉSULTATS", diagram: "SCHÉMA", code: "LE CODE", case: "ÉTUDE DE CAS ASSOCIÉE", on: "Publié le", more: "À LIRE AUSSI",
+    note: "Les chiffres viennent de résultats clients validés et de mon rôle chez Devoteam. Les projets open source sont des bêtas publiques.",
+  },
   act: { hint: "AGIR SUR LA PAGE", case: "Ouvrir l’étude de cas", filter: "Filtrer l’AI Lab", skill: "Voir la compétence", node: "Voir sur la carte", page: "Ouvrir la page" },
   interlude: [
     { big: "Je ne me contente pas de diriger l’IA.\nJe la construis.", small: "Stratégie, delivery et code livré, sous un même toit.", fig: false },
@@ -541,6 +553,12 @@ export const dictAr: Dict = {
         "تجمع NOVA الوكلاء والسياق والتقييم. افتح صفحتها.",
       ] },
     },
+  },
+  blog: {
+    nav: "المدونة", metaTitle: "المدونة: الذكاء الوكيل والتقييم والسياق | Yassine Aqejjaj", metaDescription: "مقالات Yassine Aqejjaj حول المنصات الوكيلة للمؤسسات ونماذج تشغيل الذكاء الاصطناعي وتقييم الأنظمة متعددة الوكلاء وهندسة السياق.",
+    eyebrow: "المدونة", title: "ملاحظات من بناء منصات الذكاء الاصطناعي", lead: "أربع مقالات عمّا تعلمته من بناء ونشر منصات وكيلة: تحليل ومخططات ونتائج وشيفرة.",
+    latest: "أحدث المقالات", all: "كل المقالات", back: "العودة إلى المدونة", read: "دقائق قراءة", take: "تحليلي", results: "النتائج", diagram: "مخطط", code: "الشيفرة", case: "دراسة حالة ذات صلة", on: "نُشر في", more: "تابع القراءة",
+    note: "تأتي الأرقام من نتائج عملاء مُصادَق عليها ومن دوري في Devoteam. المشاريع المفتوحة المصدر نسخ تجريبية عامة.",
   },
   act: { hint: "تصرّف في الصفحة", case: "افتح دراسة الحالة", filter: "صفِّ مختبر الذكاء الاصطناعي", skill: "أبرز المهارة", node: "أظهره على الخريطة", page: "افتح الصفحة" },
   interlude: [

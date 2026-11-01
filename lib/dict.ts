@@ -158,7 +158,7 @@ export const dictEn = {
   },
   blog: {
     nav: "Blog", metaTitle: "Blog: Agentic AI, Evaluation, Context | Yassine Aqejjaj", metaDescription: "Articles by Yassine Aqejjaj on enterprise agentic platforms, AI operating models, evaluating multi-agent systems and context engineering.",
-    eyebrow: "BLOG", title: "Notes from building AI platforms", lead: "Four articles on what I learned building and deploying agentic platforms: analysis, diagrams, results and the code.",
+    eyebrow: "BLOG", title: "Notes from building AI platforms", lead: "Articles on what I learned building and deploying agentic platforms: analysis, diagrams, results and the code.",
     latest: "LATEST ARTICLES", all: "All articles", back: "Back to the blog", read: "min read", take: "MY TAKE", results: "RESULTS", diagram: "DIAGRAM", code: "THE CODE", case: "RELATED CASE STUDY", on: "Published", updated: "Updated on", faq: "FREQUENTLY ASKED QUESTIONS", more: "KEEP READING",
     note: "Figures come from validated client results and from my role at Devoteam. The projects on GitHub are public betas.",
   },
@@ -358,7 +358,7 @@ export const dictFr: Dict = {
   },
   blog: {
     nav: "Blog", metaTitle: "Blog : IA agentique, évaluation, contexte | Yassine Aqejjaj", metaDescription: "Articles de Yassine Aqejjaj sur les plateformes agentiques d’entreprise, les modèles opérationnels IA, l’évaluation des systèmes multi-agents et l’ingénierie du contexte.",
-    eyebrow: "BLOG", title: "Notes de terrain sur les plateformes IA", lead: "Quatre articles sur ce que j’ai appris en construisant et en déployant des plateformes agentiques : analyse, schémas, résultats et code.",
+    eyebrow: "BLOG", title: "Notes de terrain sur les plateformes IA", lead: "Des articles sur ce que j’ai appris en construisant et en déployant des plateformes agentiques : analyse, schémas, résultats et code.",
     latest: "DERNIERS ARTICLES", all: "Tous les articles", back: "Retour au blog", read: "min de lecture", take: "MON ANALYSE", results: "RÉSULTATS", diagram: "SCHÉMA", code: "LE CODE", case: "ÉTUDE DE CAS ASSOCIÉE", on: "Publié le", updated: "Mis à jour le", faq: "QUESTIONS FRÉQUENTES", more: "À LIRE AUSSI",
     note: "Les chiffres viennent de résultats clients validés et de mon rôle chez Devoteam. Les projets GitHub sont des bêtas publiques.",
   },
@@ -556,7 +556,7 @@ export const dictAr: Dict = {
   },
   blog: {
     nav: "المدونة", metaTitle: "المدونة: الذكاء الوكيل والتقييم والسياق | Yassine Aqejjaj", metaDescription: "مقالات Yassine Aqejjaj حول المنصات الوكيلة للمؤسسات ونماذج تشغيل الذكاء الاصطناعي وتقييم الأنظمة متعددة الوكلاء وهندسة السياق.",
-    eyebrow: "المدونة", title: "ملاحظات من بناء منصات الذكاء الاصطناعي", lead: "أربع مقالات عمّا تعلمته من بناء ونشر منصات وكيلة: تحليل ومخططات ونتائج وشيفرة.",
+    eyebrow: "المدونة", title: "ملاحظات من بناء منصات الذكاء الاصطناعي", lead: "مقالات عمّا تعلمته من بناء ونشر منصات وكيلة: تحليل ومخططات ونتائج وشيفرة.",
     latest: "أحدث المقالات", all: "كل المقالات", back: "العودة إلى المدونة", read: "دقائق قراءة", take: "تحليلي", results: "النتائج", diagram: "مخطط", code: "الشيفرة", case: "دراسة حالة ذات صلة", on: "نُشر في", updated: "آخر تحديث", faq: "أسئلة شائعة", more: "تابع القراءة",
     note: "تأتي الأرقام من نتائج عملاء مُصادَق عليها ومن دوري في Devoteam. مشاريع GitHub نسخ تجريبية عامة.",
   },

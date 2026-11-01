@@ -109,7 +109,7 @@ export default async function PostPage({ params }: { params: Promise<{ locale: s
             </section>
 
             <section style={{ maxWidth: 960, marginTop: 36 }}>
-              <h2 style={{ margin: 0, fontSize: 13, fontWeight: 600, letterSpacing: ".12em", color: "var(--muted)" }}>{b.code}</h2>
+              <h2 style={{ margin: 0, fontSize: 13, fontWeight: 600, letterSpacing: ".12em", color: "var(--muted)" }}>{post.repos.length ? b.code : b.case}</h2>
               <div style={{ marginTop: 14, display: "flex", flexWrap: "wrap", gap: 10 }}>
                 {post.repos.map((r) => (
                   <a key={r.url} href={r.url} target="_blank" rel="noopener noreferrer" className="pill pill-line" dir="ltr" style={{ minHeight: 46, padding: "0 18px" }}>{r.label} ↗</a>

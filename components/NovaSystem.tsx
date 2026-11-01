@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import { KpiRow } from "./Kpi";
 import { profile } from "@/lib/content";
 import { useI18n } from "./LocaleProvider";
 
@@ -18,11 +19,13 @@ export default function NovaSystem() {
         <h3 className="display" style={{ margin: "18px 0 0", fontSize: 44, lineHeight: 1.05 }} dir="ltr">NOVA Suite</h3>
         <p style={{ margin: "8px 0 0", fontSize: 18, fontWeight: 500, color: "#8fa6ff" }}>{n.subtitle}</p>
         <p style={{ margin: "18px 0 0", fontSize: 16, lineHeight: 1.65, color: "#c3cce3" }}>{n.desc}</p>
+        <div style={{ marginTop: 22 }}><KpiRow id="nova" /></div>
         <Link href={href("/nova")} className="pill pill-accent" style={{ marginTop: 22, minHeight: 48, padding: "0 22px", color: "#07101f" }}>{t.novaPage.open} {t.arrow}</Link>
         <div aria-live="polite" className="glass" style={{ marginTop: 24, borderRadius: 18, padding: 20 }}>
           <p style={{ margin: 0, fontSize: 12, fontWeight: 600, letterSpacing: ".12em", color: "#8fa6ff" }}>{m.tag}</p>
           <p className="display" style={{ margin: "6px 0 0", fontSize: 22, letterSpacing: 0 }} dir="ltr">{m.name}</p>
           <p style={{ margin: "8px 0 0", fontSize: 15, lineHeight: 1.6, color: "#c3cce3" }}>{m.fn}</p>
+          <div style={{ marginTop: 14 }}><KpiRow id={["nova-agents", "nova-context", "nova-evals"][s]} compact /></div>
           <a href={urls[s]} className="pill" style={{ marginTop: 14, minHeight: 44, padding: "0 18px", background: "var(--accent)", color: "#07101f", fontSize: 14 }}>{m.cta}</a>
         </div>
       </div>

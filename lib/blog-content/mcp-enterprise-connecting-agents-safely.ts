@@ -88,7 +88,7 @@ export const content: Content = {
       {
         h: "Is ORBIT ready for production, and where should you start?",
         p: [
-          "No. ORBIT is a public beta and is not validated for production use. Its README says that full production hardening, including single sign-on, multi-factor authentication, chained audit and backups, is still in progress. I have no measured results to quote: what follows describes what the project provides, not what it has achieved. Its demo set contains deliberately fictitious C2 (confidential) and C3 (secret) content, and the README warns never to mix in real data. I repeat that warning.",
+          "No. ORBIT is a public beta and is not validated for production use. Its README says that full production hardening, including single sign-on, multi-factor authentication, chained audit and backups, is still in progress. What follows describes what the project provides; the results measured on Nova Context are on the NOVA page. Its demo set contains deliberately fictitious C2 (confidential) and C3 (secret) content, and the README warns never to mix in real data. I repeat that warning.",
           "Whatever tool you choose, this is the order I would follow:",
         ],
         list: [
@@ -224,7 +224,7 @@ export const content: Content = {
       {
         h: "ORBIT est-il prêt pour la production, et par où commencer ?",
         p: [
-          "Non. ORBIT est une bêta publique, non validée pour un usage en production. Son README indique que le durcissement complet pour la production, avec authentification unique, authentification multifacteur, audit chaîné et sauvegardes, est encore en cours. Je n’ai aucun résultat mesuré à citer : ce qui précède décrit ce que le projet fournit, pas ses résultats. Son jeu de démonstration contient des contenus volontairement fictifs C2 (confidentiel) et C3 (secret), et le README met en garde : n’y mélangez jamais de vraies données.",
+          "Non. ORBIT est une bêta publique, non validée pour un usage en production. Son README indique que le durcissement complet pour la production, avec authentification unique, authentification multifacteur, audit chaîné et sauvegardes, est encore en cours. Ce qui précède décrit ce que le projet fournit ; les résultats mesurés sur Nova Context figurent sur la page NOVA. Son jeu de démonstration contient des contenus volontairement fictifs C2 (confidentiel) et C3 (secret), et le README met en garde : n’y mélangez jamais de vraies données.",
           "Quel que soit l’outil retenu, voici l’ordre que je suivrais :",
         ],
         list: [
@@ -360,7 +360,7 @@ export const content: Content = {
       {
         h: "هل ORBIT جاهزة للإنتاج، ومن أين تبدأ؟",
         p: [
-          "لا. ORBIT نسخة تجريبية عامة وغير مُصادَق عليها للاستخدام في الإنتاج. ويذكر ملف README أن التقوية الكاملة للإنتاج، ومنها الدخول الموحد والمصادقة متعددة العوامل والتدقيق المتسلسل والنسخ الاحتياطية، ما تزال قيد التنفيذ. وليست لدي نتائج مقيسة أستشهد بها: فما سبق يصف ما يوفره المشروع لا ما حققه. وتحتوي بيانات العرض التجريبي على محتوى وهمي عن قصد من فئتي C2 (سري) وC3 (بالغ السرية)،ويحذّر README من خلط بيانات حقيقية بها. وأكرر هذا التحذير هنا لأن الخطأ في هذا الأمر مكلف.",
+          "لا. ORBIT نسخة تجريبية عامة وغير مُصادَق عليها للاستخدام في الإنتاج. ويذكر ملف README أن التقوية الكاملة للإنتاج، ومنها الدخول الموحد والمصادقة متعددة العوامل والتدقيق المتسلسل والنسخ الاحتياطية، ما تزال قيد التنفيذ. وما سبق يصف ما يوفره المشروع، أما النتائج المقيسة على Nova Context فتجدها في صفحة NOVA. وتحتوي بيانات العرض التجريبي على محتوى وهمي عن قصد من فئتي C2 (سري) وC3 (بالغ السرية)،ويحذّر README من خلط بيانات حقيقية بها. وأكرر هذا التحذير هنا لأن الخطأ في هذا الأمر مكلف.",
           "وأيًّا كانت الأداة التي تختارها، فهذا هو الترتيب الذي أتبعه، وهو لا يتطلب منصة جديدة منذ اليوم الأول:",
         ],
         list: [

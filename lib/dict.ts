@@ -162,6 +162,7 @@ export const dictEn = {
     latest: "LATEST ARTICLES", all: "All articles", back: "Back to the blog", read: "min read", take: "MY TAKE", results: "RESULTS", diagram: "DIAGRAM", code: "THE CODE", case: "RELATED CASE STUDY", on: "Published", updated: "Updated on", faq: "FREQUENTLY ASKED QUESTIONS", more: "KEEP READING",
     note: "Figures come from validated client results and from my role at Devoteam. The projects on GitHub are public betas.",
   },
+  kpi: { title: "KEY RESULTS", indicator: "Indicator", value: "Value", note: "Calculation method, scope and measurement period are available on request." },
   act: { hint: "ACT ON THE PAGE", case: "Open case study", filter: "Filter the AI Lab", skill: "Show skill", node: "Show on the map", page: "Open the page" },
   interlude: [
     { big: "I don’t just lead AI.\nI build it.", small: "Strategy, delivery and shipped code, under one roof.", fig: false },
@@ -362,6 +363,7 @@ export const dictFr: Dict = {
     latest: "DERNIERS ARTICLES", all: "Tous les articles", back: "Retour au blog", read: "min de lecture", take: "MON ANALYSE", results: "RÉSULTATS", diagram: "SCHÉMA", code: "LE CODE", case: "ÉTUDE DE CAS ASSOCIÉE", on: "Publié le", updated: "Mis à jour le", faq: "QUESTIONS FRÉQUENTES", more: "À LIRE AUSSI",
     note: "Les chiffres viennent de résultats clients validés et de mon rôle chez Devoteam. Les projets GitHub sont des bêtas publiques.",
   },
+  kpi: { title: "RÉSULTATS CLÉS", indicator: "Indicateur", value: "Valeur", note: "La méthode de calcul, le périmètre et la période de mesure sont communiqués sur demande." },
   act: { hint: "AGIR SUR LA PAGE", case: "Ouvrir l’étude de cas", filter: "Filtrer l’AI Lab", skill: "Voir la compétence", node: "Voir sur la carte", page: "Ouvrir la page" },
   interlude: [
     { big: "Je ne me contente pas de diriger l’IA.\nJe la construis.", small: "Stratégie, delivery et code livré, sous un même toit.", fig: false },
@@ -560,6 +562,7 @@ export const dictAr: Dict = {
     latest: "أحدث المقالات", all: "كل المقالات", back: "العودة إلى المدونة", read: "دقائق قراءة", take: "تحليلي", results: "النتائج", diagram: "مخطط", code: "الشيفرة", case: "دراسة حالة ذات صلة", on: "نُشر في", updated: "آخر تحديث", faq: "أسئلة شائعة", more: "تابع القراءة",
     note: "تأتي الأرقام من نتائج عملاء مُصادَق عليها ومن دوري في Devoteam. مشاريع GitHub نسخ تجريبية عامة.",
   },
+  kpi: { title: "النتائج الرئيسية", indicator: "المؤشر", value: "القيمة", note: "تُقدَّم طريقة الحساب والنطاق وفترة القياس عند الطلب." },
   act: { hint: "تصرّف في الصفحة", case: "افتح دراسة الحالة", filter: "صفِّ مختبر الذكاء الاصطناعي", skill: "أبرز المهارة", node: "أظهره على الخريطة", page: "افتح الصفحة" },
   interlude: [
     { big: "لا أكتفي بقيادة الذكاء الاصطناعي.\nأنا أبنيه.", small: "استراتيجية وتسليم وشيفرة منشورة، تحت سقف واحد.", fig: false },

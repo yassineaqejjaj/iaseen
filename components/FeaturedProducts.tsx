@@ -1,3 +1,4 @@
+import { KpiRow } from "./Kpi";
 import { real } from "@/lib/content";
 import { getI18n, type Locale } from "@/lib/i18n";
 
@@ -24,6 +25,7 @@ export function FeaturedProducts({ locale }: { locale: Locale }) {
           </div>
           <h3 className="display" style={{ margin: 0, fontSize: 32, lineHeight: 1.1 }} dir="ltr">{p.name}</h3>
           <p style={{ margin: 0, fontSize: 16, lineHeight: 1.65, color: "var(--text2)", flex: 1 }}>{p.desc}</p>
+          <KpiRow id={p.name} />
           <a href={p.url} target="_blank" rel="noopener noreferrer" className="pill pill-accent" style={{ alignSelf: "flex-start", color: "#07101f" }}>
             {p.cta === "Live" ? t.lab.live : t.lab.visit}
           </a>

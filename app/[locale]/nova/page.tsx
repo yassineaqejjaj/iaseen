@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Header from "@/components/Header";
+import { KpiTable } from "@/components/Kpi";
 import NovaGallery from "@/components/NovaGallery";
 import { profile } from "@/lib/content";
 import { getI18n, isLocale, locales, type Locale } from "@/lib/i18n";
@@ -61,6 +62,18 @@ export default async function NovaPage({ params }: { params: Promise<{ locale: s
         <section style={{ borderBottom: "1px solid var(--line)" }}>
           <div className="wrap sec">
             <NovaGallery />
+          </div>
+        </section>
+
+        <section style={{ borderBottom: "1px solid var(--line)" }}>
+          <div className="wrap sec">
+            <h2 className="h2">{t.kpi.title}</h2>
+            <div style={{ marginTop: 28, display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: 28 }}>
+              <KpiTable id="nova" title="NOVA Suite" />
+              <KpiTable id="nova-agents" title="Nova Agents" />
+              <KpiTable id="nova-context" title="Nova Context" />
+              <KpiTable id="nova-evals" title="Nova Evals" />
+            </div>
           </div>
         </section>
 

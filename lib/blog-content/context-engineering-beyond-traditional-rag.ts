@@ -82,7 +82,7 @@ export const content: Content = {
         h: "How do you measure context quality?",
         p: [
           "A context you cannot measure is a context you cannot improve. ORBIT is designed to record latency, tokens, estimated cost, exclusions by reason and the sources that proved most useful, and to export traces for evaluation. Versioned snapshots let several agents share the same context and compare it over time.",
-          "ORBIT is a public beta and is not validated for production use. I do not claim measured gains for it. The figures I can stand behind come from the DILA platform, which serves the services of the Prime Minister: the retrieval chain was measured at 0.94 faithfulness, 0.91 answer relevancy, 0.89 context precision and 0.92 context recall, with 85% of priority RAG scenarios covered.",
+          "ORBIT is a public beta and is not validated for production use. The results measured on Nova Context are listed on the NOVA page. The figures below come from the DILA platform, which serves the services of the Prime Minister: the retrieval chain was measured at 0.94 faithfulness, 0.91 answer relevancy, 0.89 context precision and 0.92 context recall, with 85% of priority RAG scenarios covered.",
           "The same pipeline work contributed to a 30% lower cost per AI request, and reusable components cut delivery of a RAG application from 10 weeks to 4. Those results come from engineering the chain around the model, which is the same argument as this article.",
         ],
       },
@@ -223,7 +223,7 @@ export const content: Content = {
         h: "Comment mesurer la qualité du contexte ?",
         p: [
           "Un contexte que l’on ne mesure pas est un contexte que l’on ne peut pas améliorer. ORBIT est conçu pour enregistrer la latence, les tokens, le coût estimé, les exclusions par raison et les sources les plus utiles, et pour exporter les traces vers l’évaluation. Des snapshots versionnés permettent à plusieurs agents de partager le même contexte et de le comparer dans le temps.",
-          "ORBIT est une bêta publique, non validée pour un usage en production, et je n’en revendique aucun gain mesuré. Les chiffres que je peux défendre viennent de la plateforme de la DILA, au service du Premier ministre : la chaîne de récupération a été mesurée à 0,94 de fidélité, 0,91 de pertinence des réponses, 0,89 de précision du contexte et 0,92 de rappel du contexte, avec 85 % des scénarios RAG prioritaires couverts.",
+          "ORBIT est une bêta publique, non validée pour un usage en production, Les résultats mesurés sur Nova Context sont présentés sur la page NOVA. Les chiffres ci-dessous viennent de la plateforme de la DILA, au service du Premier ministre : la chaîne de récupération a été mesurée à 0,94 de fidélité, 0,91 de pertinence des réponses, 0,89 de précision du contexte et 0,92 de rappel du contexte, avec 85 % des scénarios RAG prioritaires couverts.",
           "Le même travail sur les chaînes a contribué à un coût par requête d’IA en baisse de 30 %, et les composants réutilisables ont ramené la livraison d’une application RAG de 10 semaines à 4. Ces résultats viennent de l’ingénierie de la chaîne autour du modèle, ce qui est exactement l’argument de cet article.",
         ],
       },
@@ -366,7 +366,7 @@ export const content: Content = {
         h: "كيف تُقاس جودة السياق؟",
         p: [
           "السياق الذي لا تقيسه لا يمكنك تحسينه. صُممت ORBIT لتسجّل زمن الاستجابة والرموز والكلفة المقدّرة والاستبعادات حسب السبب والمصادر الأكثر فائدة، ولتصدّر التتبعات للتقييم، فيمكن إعادة تشغيل أي إخفاق وفحصه بدل الاكتفاء بالانطباع. وتتيح اللقطات المُرقَّمة (snapshots) لعدة وكلاء مشاركة السياق نفسه ومقارنته عبر الزمن.",
-          "ORBIT نسخة تجريبية عامة وغير مُصادَق عليها للاستخدام في الإنتاج، ولا أدّعي لها مكاسب مقيسة. أما الأرقام التي أتحمل مسؤوليتها فمصدرها منصة DILA التابعة لمصالح رئيس الوزراء: قيست سلسلة الاسترجاع بأمانة 0.94 وملاءمة إجابات 0.91 ودقة سياق 0.89 واسترجاع سياق 0.92، مع تغطية 85% من سيناريوهات RAG ذات الأولوية.",
+          "ORBIT نسخة تجريبية عامة وغير مُصادَق عليها للاستخدام في الإنتاج. وتجد النتائج المقيسة لـ Nova Context في صفحة NOVA. أما الأرقام التالية فمصدرها منصة DILA التابعة لمصالح رئيس الوزراء: قيست سلسلة الاسترجاع بأمانة 0.94 وملاءمة إجابات 0.91 ودقة سياق 0.89 واسترجاع سياق 0.92، مع تغطية 85% من سيناريوهات RAG ذات الأولوية.",
           "وأسهم العمل نفسه على المسارات في خفض كلفة كل طلب ذكاء اصطناعي بنسبة 30%، وخفضت المكونات القابلة لإعادة الاستخدام زمن تسليم تطبيق RAG من 10 أسابيع إلى 4. وهذه النتائج مصدرها هندسة السلسلة المحيطة بالنموذج، وهي حجة هذا المقال نفسها. فلم يأتِ التحسن من استبدال النموذج، بل من تقييم كل حلقة في السلسلة وإعادة استخدام المكونات المشتركة وضبط ما يصل فعلًا إلى النموذج.",
         ],
       },

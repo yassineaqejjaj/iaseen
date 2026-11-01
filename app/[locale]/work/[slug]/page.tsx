@@ -2,6 +2,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import CaseStepper from "@/components/CaseStepper";
 import ClientLogo from "@/components/ClientLogo";
+import { KpiTable } from "@/components/Kpi";
+import { KPIS } from "@/lib/kpis";
 import Header from "@/components/Header";
 import { contentEn } from "@/lib/content";
 import { getI18n, isLocale, type Locale } from "@/lib/i18n";
@@ -58,6 +60,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
               </div>
             ))}
           </div>
+          {KPIS[slug] && <div style={{ marginTop: 40, maxWidth: 760 }}><KpiTable id={slug} title={t.kpi.title} /></div>}
         </div>
       </section>
       {cl.sensitive && (

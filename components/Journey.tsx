@@ -1,4 +1,5 @@
 "use client";
+import { KpiRow } from "./Kpi";
 import { useState } from "react";
 import { real, type Lens } from "@/lib/content";
 import ClientLogo from "./ClientLogo";
@@ -61,6 +62,7 @@ export default function Journey() {
             </p>
           )}
           <p style={{ margin: "16px 0 0", fontSize: 17, lineHeight: 1.6, color: "var(--body)" }}>{role.summary}</p>
+          <div style={{ marginTop: 16 }}><KpiRow id={`role:${role.org}`} compact /></div>
           <h4 style={{ margin: "28px 0 12px", fontSize: 13, fontWeight: 600, letterSpacing: ".12em", color: "var(--muted)" }}>{lens === "all" ? j.highlights : `${j.tag[lens]} ${j.lensSuffix}`}</h4>
           <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 12 }}>
             {bullets.map((b) => (

@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import type { PageAct } from "@/lib/actions";
 import { real } from "@/lib/content";
+import { KpiRow } from "./Kpi";
 import { useI18n } from "./LocaleProvider";
 
 const SHOWN_ABOVE = ["NOVA Suite", "Nova Context", "Nova Evals · FORGE", "M3aya Santé", "TRAIL Academy"];
@@ -35,6 +36,7 @@ export default function LabGrid() {
             </div>
             <h3 className="display" style={{ margin: 0, fontSize: 22, letterSpacing: "-0.01em" }} dir="ltr">{p.name}</h3>
             <p style={{ margin: 0, fontSize: 14, lineHeight: 1.6, color: "#c3cce3", flex: 1 }}>{p.desc}</p>
+            <KpiRow id={p.name} compact />
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 8, paddingTop: 12, borderTop: "1px solid var(--line)" }}>
               <span style={{ fontSize: 13, color: "#9aabd6" }}>{real(p.stack) ? p.stack : ""}</span>
               <a href={p.url} style={{ display: "inline-flex", alignItems: "center", minHeight: 44, gap: 6, color: "var(--signal)", textDecoration: "none", fontWeight: 600, fontSize: 14 }}>

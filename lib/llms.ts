@@ -19,6 +19,7 @@ Key facts, each backed by a page on this site:
 
 ## Pages
 - [Home, profile and FAQ](${SITE}/): positioning, experience, AI Lab, expertise, insights
+- [NOVA Suite, the agentic AI platform](${SITE}/nova): architecture (Agents, Context, Evals), real screens, open code
 - [French version](${SITE}/fr) · [Arabic version](${SITE}/ar)
 ${c.clients.map((x) => `- [${x.client}: ${x.title}](${SITE}/work/${x.slug}): ${x.summary}`).join("\n")}
 

@@ -43,11 +43,15 @@ export default function AskSection() {
             <Link key={s.href + s.label} href={s.href} style={{ fontSize: 13, fontWeight: 600, padding: "6px 12px", borderRadius: 999, background: "#1f2b48", color: "#c3cce3", textDecoration: "none" }}>{s.label}</Link>
           ))}
         </div>
+        {ans.tour && (
+          <button type="button" className="pill pill-accent" onClick={() => window.dispatchEvent(new CustomEvent("iaseen-tour", { detail: { id: ans.tour!.id } }))}
+            style={{ marginTop: 14, minHeight: 44, padding: "0 18px", color: "#07101f" }}>{t.tours.start}: {ans.tour.title} {t.arrow}</button>
+        )}
         {!!ans.acts?.length && (
           <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 12, alignItems: "center" }}>
             <span style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".08em", color: "var(--signal)" }}>{t.act.hint}</span>
             {ans.acts.map((x) => (
-              <button key={x.act.k + x.act.v} type="button" onClick={() => runAct(x.act, (slug) => router.push(href(`/work/${slug}`)))}
+              <button key={x.act.k + x.act.v} type="button" onClick={() => runAct(x.act, (path) => router.push(href(path)))}
                 style={{ minHeight: 40, fontSize: 13, fontWeight: 600, padding: "0 14px", borderRadius: 999, cursor: "pointer", border: "1px solid var(--accent)", background: "transparent", color: "#fff" }}>
                 {t.act[x.act.k]}: {x.label}
               </button>

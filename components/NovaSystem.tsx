@@ -1,12 +1,13 @@
 "use client";
 import { useState } from "react";
+import Link from "next/link";
 import { profile } from "@/lib/content";
 import { useI18n } from "./LocaleProvider";
 
 const urls = [`${profile.github}/NOVA`, `${profile.github}/ORBIT`, `${profile.github}/FORGE`];
 
 export default function NovaSystem() {
-  const { t } = useI18n();
+  const { t, href } = useI18n();
   const n = t.lab.nova;
   const [s, setS] = useState(0);
   const m = n.modules[s];
@@ -17,6 +18,7 @@ export default function NovaSystem() {
         <h3 className="display" style={{ margin: "18px 0 0", fontSize: 44, lineHeight: 1.05 }} dir="ltr">NOVA Suite</h3>
         <p style={{ margin: "8px 0 0", fontSize: 18, fontWeight: 500, color: "#8fa6ff" }}>{n.subtitle}</p>
         <p style={{ margin: "18px 0 0", fontSize: 16, lineHeight: 1.65, color: "#c3cce3" }}>{n.desc}</p>
+        <Link href={href("/nova")} className="pill pill-accent" style={{ marginTop: 22, minHeight: 48, padding: "0 22px", color: "#07101f" }}>{t.novaPage.open} {t.arrow}</Link>
         <div aria-live="polite" className="glass" style={{ marginTop: 24, borderRadius: 18, padding: 20 }}>
           <p style={{ margin: 0, fontSize: 12, fontWeight: 600, letterSpacing: ".12em", color: "#8fa6ff" }}>{m.tag}</p>
           <p className="display" style={{ margin: "6px 0 0", fontSize: 22, letterSpacing: 0 }} dir="ltr">{m.name}</p>

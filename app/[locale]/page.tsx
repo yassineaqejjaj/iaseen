@@ -4,9 +4,8 @@ import Journey from "@/components/Journey";
 import LabGrid from "@/components/LabGrid";
 import SkillProof from "@/components/SkillProof";
 import AskSection from "@/components/AskSection";
-import ProofPanel from "@/components/ProofPanel";
 import LogoMarquee from "@/components/LogoMarquee";
-import NovaGallery from "@/components/NovaGallery";
+import Disclosure from "@/components/Disclosure";
 import Interlude from "@/components/Interlude";
 import { FeaturedProducts } from "@/components/FeaturedProducts";
 import HeroStory from "@/components/HeroStory";
@@ -16,7 +15,6 @@ import SectionAsk from "@/components/SectionAsk";
 import Faq from "@/components/Faq";
 import { homeGraph, ld } from "@/lib/schema";
 import NovaSystem from "@/components/NovaSystem";
-import PathLayout from "@/components/PathLayout";
 import ClientLogo from "@/components/ClientLogo";
 import { profile, real } from "@/lib/content";
 import { notFound } from "next/navigation";
@@ -51,7 +49,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ld(homeGraph(locale)) }} />
       <Header locale={locale} />
-      <PathLayout>
+      <main className="paths">
       <HeroStory />
 
       <section id="numbers" style={{ borderBottom: "1px solid var(--line)" }}>
@@ -73,14 +71,6 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
 
       <About locale={locale} />
       <Interlude i={0} />
-
-      <section id="proof" style={{ borderBottom: "1px solid var(--line)" }}>
-        <div className="wrap" style={{ paddingBlock: "96px" }}>
-          <p className="eyebrow">{t.proof.eyebrow}</p>
-          <h2 className="h2" style={{ marginBottom: 32 }}>{t.proof.title}</h2>
-          <ProofPanel />
-        </div>
-      </section>
 
       <section id="experience">
         <div className="wrap sec">
@@ -143,9 +133,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           </div>
           <SectionAsk q={[1, 4]} />
           <NovaSystem />
-          <NovaGallery />
           <FeaturedProducts locale={locale} />
-          <LabGrid />
+          <Disclosure label={t.more.products} count={c.products.length - 5}>
+            <LabGrid />
+          </Disclosure>
         </div>
       </section>
 
@@ -183,7 +174,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               </a>
             ))}
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 16, marginTop: 40 }}>
+          <Disclosure label={t.more.talks}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 16, marginTop: 8 }}>
             <div>
               <h3 style={sectionTitle}>{t.insights.onStage}</h3>
               <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
@@ -230,6 +222,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               </div>
             </div>
           </div>
+          </Disclosure>
         </div>
       </section>
 
@@ -251,14 +244,6 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
 
       <Faq locale={locale} />
 
-      <section id="positioning">
-        <div className="wrap" style={{ paddingBlock: 112, textAlign: "center" }}>
-          <p className="eyebrow" style={{ marginBottom: 20 }}>{t.positioning.eyebrow}</p>
-          <p className="display" style={{ margin: 0, fontSize: "clamp(40px, 6vw, 76px)", lineHeight: 1.05, letterSpacing: "-0.035em" }}>{t.positioning.l1}<br />{t.positioning.l2}<br /><span style={{ color: "var(--accent)" }}>{t.positioning.l3}</span></p>
-          <p style={{ margin: "28px auto 0", maxWidth: 620, fontSize: 19, lineHeight: 1.6, color: "var(--muted)" }}>{t.positioning.text}</p>
-        </div>
-      </section>
-
       <footer id="contact" style={{ background: "var(--cloud)", borderTop: "1px solid var(--line)", color: "#fff" }}>
         <div className="wrap" style={{ paddingBlock: "96px 40px" }}>
           <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", gap: 40, alignItems: "flex-end" }}>
@@ -279,7 +264,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           </div>
         </div>
       </footer>
-      </PathLayout>
+      </main>
     </>
   );
 }

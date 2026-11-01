@@ -78,3 +78,27 @@ export const caseGraph = (l: Locale, slug: string) => {
     ],
   };
 };
+
+export const novaGraph = (l: Locale) => {
+  const { t, c } = getI18n(l);
+  const n = t.novaPage;
+  const url = pageUrl(l, "/nova");
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication", "@id": `${url}#app`, name: "NOVA Suite", applicationCategory: "BusinessApplication", operatingSystem: "Web",
+        description: n.metaDescription, inLanguage: l, url, creator: { "@id": PERSON_ID },
+        sameAs: [`${profile.github}/NOVA`, `${profile.github}/ORBIT`, `${profile.github}/FORGE`],
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Yassine Aqejjaj", item: pageUrl(l) || SITE },
+          { "@type": "ListItem", position: 2, name: t.nav.lab, item: `${pageUrl(l)}#ai-lab` },
+          { "@type": "ListItem", position: 3, name: "NOVA Suite", item: url },
+        ],
+      },
+    ],
+  };
+};

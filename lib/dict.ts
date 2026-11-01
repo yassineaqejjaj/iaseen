@@ -27,7 +27,7 @@ export const dictEn = {
   },
   journey: {
     eyebrow: "EXPERIENCE · INTERACTIVE CV", title: "Professional journey", lead: "Pick a lens to read the same career the way a CEO, a product leader or a CTO would.",
-    lensAria: "Read the CV through a lens", rolesAria: "Roles",
+    lensAria: "Read the CV through a lens", rolesAria: "Roles", alongside: "ALONGSIDE", alongsideText: "Mar 2025 – Present · Applied AI Research Lead, Multi-Agent Systems & Context Engineering",
     lenses: { all: "All", lead: "Leadership", product: "AI Product", tech: "Technical" } as Record<string, string>,
     tag: { lead: "LEADERSHIP", product: "AI PRODUCT", tech: "TECHNICAL" } as Record<string, string>,
     highlights: "HIGHLIGHTS", lensSuffix: "LENS", impact: "MEASURED IMPACT", download: "Download CV (PDF)", downloadNote: "The full CV as a PDF, in English.",
@@ -103,7 +103,60 @@ export const dictEn = {
   },
   faq: { eyebrow: "FAQ", title: "Quick answers" },
   gallery: { title: "Inside NOVA", note: "Screens from the NOVA demo workspace. Client names are masked.", items: ["Today", "Architecture", "Skills", "Engineering", "Routines", "Voice"] },
-  act: { hint: "ACT ON THE PAGE", case: "Open case study", filter: "Filter the AI Lab", skill: "Show skill", node: "Show on the map" },
+  more: { products: "More products", talks: "Talks, articles and teaching", faq: "Quick answers" },
+  novaPage: {
+    metaTitle: "NOVA Suite: Agentic AI Platform | Yassine Aqejjaj",
+    metaDescription: "NOVA Suite is the AI Factory's agentic platform: orchestrated specialist agents, governed context and continuous evaluation, deployed to 800 employees at Devoteam.",
+    back: "Back to the AI Lab", open: "Open the NOVA page", eyebrow: "NOVA SUITE · FLAGSHIP PRODUCT", title: "NOVA: agents that work like a product team",
+    lead: "NOVA is the AI Factory's agentic platform. One agent you talk to, a team of specialists behind it, governed context underneath and continuous evaluation around it.",
+    facts: [["800", "employees use NOVA"], ["15", "people in the cross-functional team"], ["10,000+", "consultants in the group, in 25 countries"], ["3", "bricks: Agents, Context, Evals"]],
+    roleLabel: "MY ROLE", role: "I led the 15-person cross-functional team that builds NOVA Suite, within the AI Factory at Devoteam.",
+    archTitle: "Three layers, one improvement loop",
+    layers: [
+      { tag: "LAYER 1", name: "Orchestration", text: "The one agent you talk to. NOVA frames the request, plans, delegates to specialists, supervises the work, then assembles and hands back the result." },
+      { tag: "LAYER 2", name: "Context", text: "Before any work starts, the task is anchored in real project data through Nova Context (ORBIT): governed, traceable context and memory, with your access rights." },
+      { tag: "LAYER 3", name: "Specialists", text: "One agent per profile: Product, Project, Design and Engineering. Each masters a domain and comes with its own versioned skills." },
+    ],
+    loopTitle: "Evaluation closes the loop", loopText: "Nova Evals · FORGE benchmarks every release and runs regression tests, so each evaluation feeds back into context and behaviour.",
+    galleryTitle: "Inside NOVA", usesTitle: "What it does in practice",
+    uses: [
+      ["Product work", "Drafts PRDs, backlogs, OKRs and sprint plans from versioned product skills."],
+      ["Engineering runs", "Turns an intent or an issue into a plan, code, tests and a pull request. A human validates the plan and the merge."],
+      ["Routines", "Runs recurring work on a schedule, such as a weekly product brief, and drops the result in the inbox."],
+      ["Voice", "A hands-free mode, with speech recognition and voice by ElevenLabs. Confidential answers are never read aloud."],
+    ],
+    reposTitle: "Open code", repos: [["NOVA", "The agents and the product"], ["ORBIT", "Nova Context: governed context and memory"], ["FORGE", "Nova Evals: evaluation and benchmarks"]],
+    ask: "Ask my AI about NOVA", askQ: "Show his agentic AI products",
+  },
+  tours: {
+    start: "Guided tour", next: "Next", prev: "Back", close: "Close", open: "Open", step: "Step",
+    list: {
+      leadership: { title: "Enterprise AI leadership", kw: "leadership leader lead led strategy operating model governance direct head manage management transformation programme programmes", steps: [
+        "Head of AI Factory at Devoteam, after Principal Product Manager in 2023 and Lead of AI in 2024. This is where he sets strategy and leads teams.",
+        "AI strategy: the roles, missions and books that back it up.",
+        "Operating models and governance, built into client programmes and into the AI Factory itself.",
+        "The clearest proof: Thales, an AI operating model for a defence group, with a 5-person team.",
+      ] },
+      build: { title: "Building agentic products", kw: "build built builder product products agent agents agentic nova platform code hands-on shipped repos github", steps: [
+        "NOVA Suite, the agentic platform he leads, on the map with the skills and roles behind it.",
+        "The agentic products of the AI Lab.",
+        "AI agents: what backs the skill, from NOVA to client work.",
+        "NOVA has its own page: architecture, real screens and open code.",
+      ] },
+      delivery: { title: "Client delivery", kw: "client clients delivery deliver missions mission enterprise production customers results impact", steps: [
+        "Four client engagements, with the skills and roles behind them.",
+        "Enterprise delivery: what he has shipped for large organisations.",
+        "DILA: a sovereign generative AI platform for the services of the Prime Minister. Open the case study.",
+      ] },
+      rag: { title: "RAG and context engineering", kw: "rag retrieval context engineering knowledge grounded", steps: [
+        "RAG: the missions and products that prove the skill.",
+        "DILA: a sovereign RAG platform with reusable components.",
+        "Nova Context: governed context and memory for agents.",
+        "NOVA ties it together with agents, context and evaluation. Open its page.",
+      ] },
+    },
+  },
+  act: { hint: "ACT ON THE PAGE", case: "Open case study", filter: "Filter the AI Lab", skill: "Show skill", node: "Show on the map", page: "Open the page" },
   interlude: [
     { big: "I don’t just lead AI. I build it.", small: "Strategy, delivery and shipped code, under one roof.", fig: false },
     { big: "13", small: "years turning AI from slides into systems in production.", fig: true },
@@ -137,7 +190,7 @@ export const dictEn = {
   },
   constellation: {
     eyebrow: "CAREER CONSTELLATION", title: "A connected journey", hint: "Select a node to see how roles, skills and products connect.",
-    products: "PRODUCTS", skills: "SKILLS", roles: "ROLES", none: "Select a node to explore.", mobile: "Open this page on a larger screen to explore the constellation, or use the list below.",
+    products: "PRODUCTS", skills: "SKILLS", roles: "ROLES", missions: "MISSIONS", openCase: "Open the case study", none: "Select a node to explore.", mobile: "Open this page on a larger screen to explore the constellation, or use the list below.",
   },
   rights: "Yassine Aqejjaj",
 };
@@ -171,7 +224,7 @@ export const dictFr: Dict = {
   },
   journey: {
     eyebrow: "PARCOURS · CV INTERACTIF", title: "Parcours professionnel", lead: "Choisissez un angle pour lire la même carrière comme le ferait un dirigeant, un responsable produit ou un CTO.",
-    lensAria: "Lire le CV selon un angle", rolesAria: "Postes",
+    lensAria: "Lire le CV selon un angle", rolesAria: "Postes", alongside: "EN PARALLÈLE", alongsideText: "Mars 2025 – Aujourd’hui · Applied AI Research Lead, systèmes multi-agents et ingénierie du contexte",
     lenses: { all: "Tout", lead: "Leadership", product: "Produit IA", tech: "Technique" },
     tag: { lead: "LEADERSHIP", product: "PRODUIT IA", tech: "TECHNIQUE" },
     highlights: "POINTS FORTS", lensSuffix: "ANGLE", impact: "IMPACT MESURÉ", download: "Télécharger le CV (PDF)", downloadNote: "Le CV complet au format PDF, en anglais.",
@@ -244,7 +297,60 @@ export const dictFr: Dict = {
   },
   faq: { eyebrow: "FAQ", title: "Réponses rapides" },
   gallery: { title: "Dans NOVA", note: "Captures de l’espace de démonstration NOVA. Les noms de clients sont masqués.", items: ["Aujourd’hui", "Architecture", "Compétences", "Engineering", "Routines", "Voix"] },
-  act: { hint: "AGIR SUR LA PAGE", case: "Ouvrir l’étude de cas", filter: "Filtrer l’AI Lab", skill: "Voir la compétence", node: "Voir sur la carte" },
+  more: { products: "Plus de produits", talks: "Conférences, articles et enseignement", faq: "Réponses rapides" },
+  novaPage: {
+    metaTitle: "NOVA Suite : plateforme d’IA agentique | Yassine Aqejjaj",
+    metaDescription: "NOVA Suite est la plateforme agentique de l’AI Factory : agents spécialisés orchestrés, contexte gouverné et évaluation continue, déployée auprès de 800 collaborateurs chez Devoteam.",
+    back: "Retour à l’AI Lab", open: "Ouvrir la page NOVA", eyebrow: "NOVA SUITE · PRODUIT PHARE", title: "NOVA : des agents qui travaillent comme une équipe produit",
+    lead: "NOVA est la plateforme agentique de l’AI Factory. Un agent auquel on parle, une équipe de spécialistes derrière, un contexte gouverné en dessous et une évaluation continue autour.",
+    facts: [["800", "collaborateurs utilisent NOVA"], ["15", "personnes dans l’équipe pluridisciplinaire"], ["10 000+", "consultants dans le groupe, dans 25 pays"], ["3", "briques : Agents, Context, Evals"]],
+    roleLabel: "MON RÔLE", role: "J’ai dirigé l’équipe pluridisciplinaire de 15 personnes qui construit NOVA Suite, au sein de l’AI Factory de Devoteam.",
+    archTitle: "Trois couches, une boucle d’amélioration",
+    layers: [
+      { tag: "COUCHE 1", name: "Orchestration", text: "Le seul agent auquel on parle. NOVA cadre la demande, planifie, délègue aux spécialistes, supervise le travail, puis assemble et remet le résultat." },
+      { tag: "COUCHE 2", name: "Contexte", text: "Avant tout travail, la tâche est ancrée dans les données réelles du projet via Nova Context (ORBIT) : contexte et mémoire gouvernés et traçables, selon vos droits." },
+      { tag: "COUCHE 3", name: "Spécialistes", text: "Un agent par profil : Produit, Projet, Design et Ingénierie. Chacun maîtrise un domaine et dispose de compétences versionnées." },
+    ],
+    loopTitle: "L’évaluation ferme la boucle", loopText: "Nova Evals · FORGE évalue chaque version et exécute des tests de non-régression : chaque évaluation alimente le contexte et le comportement.",
+    galleryTitle: "Dans NOVA", usesTitle: "Ce que ça fait concrètement",
+    uses: [
+      ["Travail produit", "Rédige PRD, backlogs, OKR et plans de sprint à partir de compétences produit versionnées."],
+      ["Runs d’ingénierie", "Transforme une intention ou une issue en plan, code, tests et pull request. Un humain valide le plan et la fusion."],
+      ["Routines", "Exécute le travail récurrent selon un planning, comme un Product Brief hebdomadaire, et dépose le résultat dans l’inbox."],
+      ["Voix", "Un mode mains libres, avec reconnaissance vocale et voix par ElevenLabs. Les réponses confidentielles ne sont jamais lues."],
+    ],
+    reposTitle: "Code ouvert", repos: [["NOVA", "Les agents et le produit"], ["ORBIT", "Nova Context : contexte et mémoire gouvernés"], ["FORGE", "Nova Evals : évaluation et benchmarks"]],
+    ask: "Interroger mon IA sur NOVA", askQ: "Montre ses produits d’IA agentique",
+  },
+  tours: {
+    start: "Visite guidée", next: "Suivant", prev: "Retour", close: "Fermer", open: "Ouvrir", step: "Étape",
+    list: {
+      leadership: { title: "Leadership IA en entreprise", kw: "leadership leader diriger dirigé direction stratégie modèle opérationnel gouvernance management transformation programme programmes responsable", steps: [
+        "Head of AI Factory chez Devoteam, après Principal Product Manager en 2023 et Lead of AI en 2024. C’est là qu’il définit la stratégie et dirige les équipes.",
+        "Stratégie IA : les postes, missions et livres qui la prouvent.",
+        "Modèles opérationnels et gouvernance, intégrés aux programmes clients et à l’AI Factory elle-même.",
+        "La preuve la plus claire : Thales, un modèle opérationnel IA pour un groupe de défense, avec une équipe de 5 personnes.",
+      ] },
+      build: { title: "Construire des produits agentiques", kw: "construire construit produit produits agent agents agentique nova plateforme code github dépôts", steps: [
+        "NOVA Suite, la plateforme agentique qu’il dirige, sur la carte avec les compétences et postes associés.",
+        "Les produits agentiques de l’AI Lab.",
+        "Agents IA : ce qui prouve la compétence, de NOVA aux missions clients.",
+        "NOVA a sa propre page : architecture, vraies captures et code ouvert.",
+      ] },
+      delivery: { title: "Livraison chez les clients", kw: "client clients livraison livrer missions mission entreprise production résultats impact", steps: [
+        "Quatre missions clients, avec les compétences et postes associés.",
+        "Livraison en entreprise : ce qu’il a livré pour de grandes organisations.",
+        "DILA : une plateforme d’IA générative souveraine pour les services du Premier ministre. Ouvrir l’étude de cas.",
+      ] },
+      rag: { title: "RAG et ingénierie du contexte", kw: "rag récupération contexte ingénierie connaissances", steps: [
+        "RAG : les missions et produits qui prouvent la compétence.",
+        "DILA : une plateforme RAG souveraine avec des composants réutilisables.",
+        "Nova Context : contexte et mémoire gouvernés pour les agents.",
+        "NOVA réunit agents, contexte et évaluation. Ouvrir sa page.",
+      ] },
+    },
+  },
+  act: { hint: "AGIR SUR LA PAGE", case: "Ouvrir l’étude de cas", filter: "Filtrer l’AI Lab", skill: "Voir la compétence", node: "Voir sur la carte", page: "Ouvrir la page" },
   interlude: [
     { big: "Je ne me contente pas de diriger l’IA. Je la construis.", small: "Stratégie, delivery et code livré, sous un même toit.", fig: false },
     { big: "13", small: "ans à faire passer l’IA des slides aux systèmes en production.", fig: true },
@@ -278,7 +384,7 @@ export const dictFr: Dict = {
   },
   constellation: {
     eyebrow: "CONSTELLATION DE CARRIÈRE", title: "Un parcours relié", hint: "Sélectionnez un nœud pour voir comment postes, compétences et produits se relient.",
-    products: "PRODUITS", skills: "COMPÉTENCES", roles: "POSTES", none: "Sélectionnez un nœud pour explorer.", mobile: "Ouvrez cette page sur un écran plus grand pour explorer la constellation, ou utilisez la liste ci-dessous.",
+    products: "PRODUITS", skills: "COMPÉTENCES", roles: "POSTES", missions: "MISSIONS", openCase: "Ouvrir l’étude de cas", none: "Sélectionnez un nœud pour explorer.", mobile: "Ouvrez cette page sur un écran plus grand pour explorer la constellation, ou utilisez la liste ci-dessous.",
   },
   rights: "Yassine Aqejjaj",
 };
@@ -310,7 +416,7 @@ export const dictAr: Dict = {
   },
   journey: {
     eyebrow: "المسار · السيرة الذاتية التفاعلية", title: "المسار المهني", lead: "اختر زاوية لقراءة المسار نفسه كما يقرأه مدير تنفيذي أو مسؤول منتج أو مدير تقني.",
-    lensAria: "اقرأ السيرة الذاتية من زاوية معينة", rolesAria: "المناصب",
+    lensAria: "اقرأ السيرة الذاتية من زاوية معينة", rolesAria: "المناصب", alongside: "بالتوازي", alongsideText: "مارس 2025 – الآن · Applied AI Research Lead، الأنظمة متعددة الوكلاء وهندسة السياق",
     lenses: { all: "الكل", lead: "القيادة", product: "منتج الذكاء الاصطناعي", tech: "التقني" },
     tag: { lead: "القيادة", product: "منتج الذكاء الاصطناعي", tech: "التقني" },
     highlights: "أبرز النقاط", lensSuffix: "زاوية", impact: "الأثر المُقاس", download: "تنزيل السيرة الذاتية (PDF)", downloadNote: "السيرة الذاتية الكاملة بصيغة PDF، بالإنجليزية.",
@@ -383,7 +489,60 @@ export const dictAr: Dict = {
   },
   faq: { eyebrow: "أسئلة شائعة", title: "إجابات سريعة" },
   gallery: { title: "داخل NOVA", note: "لقطات من مساحة العرض التجريبية لـ NOVA. أسماء العملاء محجوبة.", items: ["اليوم", "البنية", "المهارات", "الهندسة", "الروتينات", "الصوت"] },
-  act: { hint: "تصرّف في الصفحة", case: "افتح دراسة الحالة", filter: "صفِّ مختبر الذكاء الاصطناعي", skill: "أبرز المهارة", node: "أظهره على الخريطة" },
+  more: { products: "المزيد من المنتجات", talks: "محاضرات ومقالات وتدريس", faq: "إجابات سريعة" },
+  novaPage: {
+    metaTitle: "NOVA Suite: منصة ذكاء اصطناعي وكيل | Yassine Aqejjaj",
+    metaDescription: "NOVA Suite هي منصة AI Factory الوكيلة: وكلاء متخصصون منسَّقون وسياق خاضع للحوكمة وتقييم مستمر، منشورة لدى 800 موظف في Devoteam.",
+    back: "العودة إلى مختبر الذكاء الاصطناعي", open: "افتح صفحة NOVA", eyebrow: "NOVA SUITE · المنتج الرئيسي", title: "NOVA: وكلاء يعملون كفريق منتج",
+    lead: "NOVA هي منصة AI Factory الوكيلة: وكيل واحد تتحدث إليه، وفريق متخصصون خلفه، وسياق خاضع للحوكمة تحته، وتقييم مستمر حوله.",
+    facts: [["800", "موظف يستخدمون NOVA"], ["15", "شخصًا في الفريق متعدد التخصصات"], ["+10,000", "مستشار في المجموعة، في 25 دولة"], ["3", "مكوّنات: Agents وContext وEvals"]],
+    roleLabel: "دوري", role: "قدتُ الفريق متعدد التخصصات المكوَّن من 15 شخصًا الذي يبني NOVA Suite ضمن AI Factory في Devoteam.",
+    archTitle: "ثلاث طبقات وحلقة تحسين واحدة",
+    layers: [
+      { tag: "الطبقة 1", name: "التنسيق", text: "الوكيل الوحيد الذي تتحدث إليه. تؤطّر NOVA الطلب وتخطط وتفوّض المتخصصين وتشرف على العمل ثم تجمع النتيجة وتسلّمها." },
+      { tag: "الطبقة 2", name: "السياق", text: "قبل بدء أي عمل تُربط المهمة ببيانات المشروع الفعلية عبر Nova Context (ORBIT): سياق وذاكرة خاضعان للحوكمة وقابلان للتتبع وفق صلاحياتك." },
+      { tag: "الطبقة 3", name: "المتخصصون", text: "وكيل لكل ملف: المنتج والمشروع والتصميم والهندسة. يتقن كل منهم مجالًا ويأتي بمهارات مُؤرشَفة بالإصدارات." },
+    ],
+    loopTitle: "التقييم يغلق الحلقة", loopText: "يقيس Nova Evals · FORGE كل إصدار ويجري اختبارات الانحدار، فيغذّي كل تقييم السياق والسلوك.",
+    galleryTitle: "داخل NOVA", usesTitle: "ما تفعله عمليًا",
+    uses: [
+      ["عمل المنتج", "تصوغ وثائق المتطلبات وقوائم الأعمال والأهداف وخطط السباقات اعتمادًا على مهارات منتج مُؤرشَفة بالإصدارات."],
+      ["مهام الهندسة", "تحوّل نية أو مسألة إلى خطة وشيفرة واختبارات وطلب دمج. ويصادق إنسان على الخطة وعلى الدمج."],
+      ["الروتينات", "تنفّذ العمل المتكرر وفق جدول، مثل موجز المنتج الأسبوعي، وتضع النتيجة في صندوق الوارد."],
+      ["الصوت", "وضع بلا استخدام اليدين، مع التعرف على الكلام والصوت من ElevenLabs. لا تُقرأ الإجابات السرية بصوت مسموع أبدًا."],
+    ],
+    reposTitle: "شيفرة مفتوحة", repos: [["NOVA", "الوكلاء والمنتج"], ["ORBIT", "Nova Context: سياق وذاكرة خاضعان للحوكمة"], ["FORGE", "Nova Evals: التقييم والمقارنات"]],
+    ask: "اسأل ذكائي الاصطناعي عن NOVA", askQ: "اعرض منتجاته في الذكاء الاصطناعي الوكيل",
+  },
+  tours: {
+    start: "جولة موجّهة", next: "التالي", prev: "رجوع", close: "إغلاق", open: "افتح", step: "الخطوة",
+    list: {
+      leadership: { title: "قيادة الذكاء الاصطناعي في المؤسسات", kw: "قيادة قائد قاد استراتيجية نموذج تشغيل حوكمة إدارة تحول برنامج برامج مسؤول", steps: [
+        "رئيس AI Factory في Devoteam، بعد منصب Principal Product Manager عام 2023 وLead of AI عام 2024. هنا يضع الاستراتيجية ويقود الفرق.",
+        "استراتيجية الذكاء الاصطناعي: المناصب والمهام والكتب التي تثبتها.",
+        "نماذج التشغيل والحوكمة، المدمجة في برامج العملاء وفي AI Factory نفسها.",
+        "أوضح دليل: Thales، نموذج تشغيل للذكاء الاصطناعي لمجموعة دفاعية، بفريق من 5 أشخاص.",
+      ] },
+      build: { title: "بناء منتجات وكيلة", kw: "بناء بنى منتج منتجات وكيل وكلاء وكيلة nova منصة شيفرة github", steps: [
+        "NOVA Suite، المنصة الوكيلة التي يقودها، على الخريطة مع المهارات والمناصب المرتبطة بها.",
+        "المنتجات الوكيلة في مختبر الذكاء الاصطناعي.",
+        "وكلاء الذكاء الاصطناعي: ما يثبت المهارة، من NOVA إلى أعمال العملاء.",
+        "لـ NOVA صفحتها الخاصة: البنية ولقطات حقيقية وشيفرة مفتوحة.",
+      ] },
+      delivery: { title: "التسليم لدى العملاء", kw: "عميل عملاء تسليم مهام مهمة مؤسسة إنتاج نتائج أثر", steps: [
+        "أربع مهام لدى العملاء، مع المهارات والمناصب المرتبطة بها.",
+        "التسليم في المؤسسات: ما أنجزه لمنظمات كبرى.",
+        "DILA: منصة ذكاء اصطناعي توليدي سيادية لخدمات رئيس الوزراء. افتح دراسة الحالة.",
+      ] },
+      rag: { title: "RAG وهندسة السياق", kw: "rag استرجاع سياق هندسة معرفة", steps: [
+        "RAG: المهام والمنتجات التي تثبت المهارة.",
+        "DILA: منصة RAG سيادية بمكوّنات قابلة لإعادة الاستخدام.",
+        "Nova Context: سياق وذاكرة خاضعان للحوكمة للوكلاء.",
+        "تجمع NOVA الوكلاء والسياق والتقييم. افتح صفحتها.",
+      ] },
+    },
+  },
+  act: { hint: "تصرّف في الصفحة", case: "افتح دراسة الحالة", filter: "صفِّ مختبر الذكاء الاصطناعي", skill: "أبرز المهارة", node: "أظهره على الخريطة", page: "افتح الصفحة" },
   interlude: [
     { big: "لا أكتفي بقيادة الذكاء الاصطناعي. أنا أبنيه.", small: "استراتيجية وتسليم وشيفرة منشورة، تحت سقف واحد.", fig: false },
     { big: "13", small: "عامًا في نقل الذكاء الاصطناعي من الشرائح إلى أنظمة قيد الإنتاج.", fig: true },
@@ -417,7 +576,7 @@ export const dictAr: Dict = {
   },
   constellation: {
     eyebrow: "كوكبة المسار المهني", title: "مسار مترابط", hint: "اختر عقدة لترى كيف ترتبط المناصب والمهارات والمنتجات.",
-    products: "المنتجات", skills: "المهارات", roles: "المناصب", none: "اختر عقدة للاستكشاف.", mobile: "افتح هذه الصفحة على شاشة أكبر لاستكشاف الكوكبة، أو استخدم القائمة أدناه.",
+    products: "المنتجات", skills: "المهارات", roles: "المناصب", missions: "المهام", openCase: "افتح دراسة الحالة", none: "اختر عقدة للاستكشاف.", mobile: "افتح هذه الصفحة على شاشة أكبر لاستكشاف الكوكبة، أو استخدم القائمة أدناه.",
   },
   rights: "Yassine Aqejjaj",
 };

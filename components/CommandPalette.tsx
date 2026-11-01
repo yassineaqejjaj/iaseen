@@ -32,6 +32,7 @@ export default function CommandPalette({ onClose, initialQuery = "" }: { onClose
     return [
       ...sec.map(([label, h]) => ({ id: h, group: t.cmd.goTo, label, run: () => go(href(h)) })),
       ...c.clients.map((cl) => ({ id: cl.slug, group: t.cmd.cases, label: `${cl.client.split(" · ")[0]}: ${cl.title}`, run: () => go(href(`/work/${cl.slug}`)) })),
+      { id: "nova", group: t.cmd.cases, label: "NOVA Suite", run: () => go(href("/nova")) },
       { id: "cv", group: t.cmd.actions, label: t.cmd.downloadCv, run: () => { onClose(); window.open(profile.cv, "_blank"); } },
       { id: "mode", group: t.cmd.actions, label: getMode() === "executive" ? t.cmd.toExperience : t.cmd.toExecutive, run: () => { setMode(getMode() === "executive" ? "experience" : "executive"); onClose(); } },
     ];
@@ -73,10 +74,14 @@ export default function CommandPalette({ onClose, initialQuery = "" }: { onClose
             <div style={{ margin: "4px 4px 8px", padding: 14, borderRadius: 14, background: "rgba(106,145,255,.1)", border: "1px solid rgba(106,145,255,.3)" }}>
               <p style={{ margin: 0, fontSize: 11, fontWeight: 700, letterSpacing: ".12em", color: "var(--signal)" }}>{t.cmd.answer}</p>
               <p style={{ margin: "6px 0 0", fontSize: 14, lineHeight: 1.6, color: "var(--text2)", display: "-webkit-box", WebkitLineClamp: 4, WebkitBoxOrient: "vertical", overflow: "hidden", whiteSpace: "pre-line" }}>{answer.a.split("\n\n")[0]}</p>
+              {answer.tour && (
+                <button type="button" className="pill pill-accent" onClick={() => { onClose(); setTimeout(() => window.dispatchEvent(new CustomEvent("iaseen-tour", { detail: { id: answer.tour!.id } })), 50); }}
+                  style={{ marginTop: 10, minHeight: 38, padding: "0 16px", fontSize: 13, color: "#07101f" }}>{t.tours.start}: {answer.tour.title} {t.arrow}</button>
+              )}
               {!!answer.acts?.length && (
                 <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 10 }}>
                   {answer.acts.map((x) => (
-                    <button key={x.act.k + x.act.v} type="button" onClick={() => { if (x.act.k === "case") go(href(`/work/${x.act.v}`)); else { onClose(); runAct(x.act, () => {}); } }}
+                    <button key={x.act.k + x.act.v} type="button" onClick={() => { if (x.act.k === "case" || x.act.k === "page") go(href(x.act.k === "case" ? `/work/${x.act.v}` : x.act.v)); else { onClose(); runAct(x.act, () => {}); } }}
                       style={{ minHeight: 36, fontSize: 12, fontWeight: 600, padding: "0 12px", borderRadius: 999, cursor: "pointer", border: "1px solid var(--accent)", background: "transparent", color: "#fff" }}>
                       {t.act[x.act.k]}: {x.label}
                     </button>

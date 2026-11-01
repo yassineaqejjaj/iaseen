@@ -7,7 +7,7 @@ const url = (l: string, p: string) => `${base}${l === "en" ? "" : `/${l}`}${p ==
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
-  const pages = [{ p: "/", priority: 1 }, ...contentEn.clients.map((c) => ({ p: `/work/${c.slug}`, priority: 0.8 }))];
+  const pages = [{ p: "/", priority: 1 }, { p: "/nova", priority: 0.9 }, ...contentEn.clients.map((c) => ({ p: `/work/${c.slug}`, priority: 0.8 }))];
   return pages.flatMap(({ p, priority }) =>
     locales.map((l) => ({
       url: url(l, p) || base,

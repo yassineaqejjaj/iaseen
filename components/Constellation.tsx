@@ -1,12 +1,15 @@
 "use client";
+import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import type { PageAct } from "@/lib/actions";
 import { PRODUCTS, productFor } from "@/lib/graph";
 import { useI18n } from "./LocaleProvider";
 
-type Kind = "role" | "skill" | "product";
+type Kind = "role" | "skill" | "product" | "mission";
 type Node = { id: string; kind: Kind; label: string; sub?: string; x: number; y: number };
 
+// Which mission (case study) a proof label points to.
+const MISSION_MATCH: Record<string, RegExp> = { "thales-data-ai-operating-model": /Thales/, "dila-sovereign-ai": /DILA/, "decathlon-ai-transformation": /Decathlon/, "carrefour-ml-mlops": /Carrefour/ };
 // Which role a proof label points to.
 const ROLE_MATCH: Record<string, RegExp> = { Devoteam: /Devoteam|AI Factory/, Fujitsu: /Fujitsu/, Carrefour: /Carrefour/ };
 // Roles with no named proof, linked from the CV role titles (AI product work, regulated governance).
@@ -15,7 +18,7 @@ const ROLE_PRODUCTS: Record<string, string[]> = { Devoteam: ["nova", "context", 
 const ROLE_EXTRA: Record<string, string[]> = { AXA: ["Governance", "AI Products"], "Banque Populaire": ["AI Products"], Carrefour: ["AI Products"] };
 
 export default function Constellation() {
-  const { t, c } = useI18n();
+  const { t, c, href } = useI18n();
   const k = t.constellation;
   const [sel, setSel] = useState<string | null>(null);
 
@@ -24,6 +27,7 @@ export default function Constellation() {
     const skills = Object.keys(c.proof);
     const nodes: Node[] = [
       ...PRODUCTS.map((p, i) => ({ id: `p:${p.id}`, kind: "product" as Kind, label: p.name, x: 90 + i * 164, y: 60 })),
+      ...c.clients.map((cl, i) => ({ id: `m:${cl.slug}`, kind: "mission" as Kind, label: cl.client.split(" · ")[0], x: 170 + i * 220, y: 395 })),
       ...skills.map((s, i) => ({ id: `s:${s}`, kind: "skill" as Kind, label: t.expertise.skills[s] ?? s, x: 60 + i * 80, y: i % 2 ? 300 : 230 })),
       ...roles.map((r, i) => ({ id: `r:${r.org}`, kind: "role" as Kind, label: r.org, sub: r.period.replace(/^.* – /, ""), x: 100 + i * 200, y: 470 })),
     ];
@@ -31,6 +35,7 @@ export default function Constellation() {
     const add = (a: string, b: string) => edges.add(`${a}|${b}`);
     for (const s of skills) {
       for (const pf of c.proof[s]) {
+        for (const cl of c.clients) if (MISSION_MATCH[cl.slug]?.test(pf.label)) add(`s:${s}`, `m:${cl.slug}`);
         const prod = productFor(pf.label);
         if (prod) add(`s:${s}`, `p:${prod.id}`);
         for (const r of roles) if (ROLE_MATCH[r.org]?.test(pf.label) || (r.org === "Devoteam" && /AI Factory/.test(pf.label))) add(`r:${r.org}`, `s:${s}`);
@@ -38,6 +43,7 @@ export default function Constellation() {
     }
     for (const r of roles) for (const s of ROLE_EXTRA[r.org] ?? []) add(`r:${r.org}`, `s:${s}`);
     for (const r of roles) for (const p of ROLE_PRODUCTS[r.org] ?? []) add(`r:${r.org}`, `p:${p}`);
+    for (const cl of c.clients) add("r:Devoteam", `m:${cl.slug}`); // engagements delivered at Devoteam
     return { nodes, edges: [...edges].map((e) => e.split("|") as [string, string]) };
   }, [c, t]);
 
@@ -69,7 +75,7 @@ export default function Constellation() {
 
   const chainChips = () => {
     if (!selected || !chain) return null;
-    const groups: [Kind, string][] = [["role", k.roles], ["skill", k.skills], ["product", k.products]];
+    const groups: [Kind, string][] = [["role", k.roles], ["skill", k.skills], ["product", k.products], ["mission", k.missions]];
     return (
       <div style={{ marginTop: 14, display: "flex", flexDirection: "column", gap: 8 }}>
         {groups.map(([kind, label]) => {
@@ -95,11 +101,15 @@ export default function Constellation() {
       const key = selected.id.slice(2);
       return <><p className="display" style={{ margin: 0, fontSize: 22 }}>{selected.label}</p><ul style={{ margin: "8px 0 0", padding: 0, listStyle: "none", display: "flex", flexWrap: "wrap", gap: 8 }}>{c.proof[key].map((x) => <li key={x.label} className="chip">{t.proof.kinds[x.kind] ?? x.kind} · {x.label}</li>)}</ul></>;
     }
+    if (selected.kind === "mission") {
+      const cl = c.clients.find((x) => `m:${x.slug}` === selected.id)!;
+      return <><p style={{ margin: 0, fontSize: 13, color: "var(--link)", fontWeight: 600 }}>{cl.sector}{cl.year ? ` · ${cl.year}` : ""}</p><p className="display" style={{ margin: "6px 0 0", fontSize: 22 }}>{cl.client}: {cl.title}</p><p style={{ margin: "8px 0 0", color: "var(--text2)", lineHeight: 1.6 }}>{cl.summary}</p><Link href={href(`/work/${cl.slug}`)} className="pill pill-line" style={{ marginTop: 12, display: "inline-flex" }}>{k.openCase} {t.arrow}</Link></>;
+    }
     const prod = c.products.find((x) => x.name === selected.label);
     return <><p className="display" style={{ margin: 0, fontSize: 22 }} dir="ltr">{selected.label}</p><p style={{ margin: "8px 0 0", color: "var(--text2)", lineHeight: 1.6 }}>{prod?.desc}</p>{prod && /^https?:/.test(prod.url) && <a href={prod.url} target="_blank" rel="noopener noreferrer" className="pill pill-line" style={{ marginTop: 12, display: "inline-flex" }} dir="ltr">{t.lab.cta[prod.cta] ?? prod.cta} ↗</a>}</>;
   };
 
-  const color = (kind: Kind) => (kind === "role" ? "#6a91ff" : kind === "skill" ? "#98e4e0" : "#f1f5f9");
+  const color = (kind: Kind) => (kind === "role" ? "#6a91ff" : kind === "skill" ? "#98e4e0" : kind === "mission" ? "#f5b97a" : "#f1f5f9");
   return (
     <div id="constellation" style={{ marginBottom: 40, scrollMarginTop: 96 }}>
       <p className="eyebrow">{k.eyebrow}</p>
@@ -107,7 +117,7 @@ export default function Constellation() {
       <p style={{ margin: "8px 0 20px", color: "var(--muted)", maxWidth: 620 }}>{k.hint}</p>
       <div className="constellation-svg glass" dir="ltr" style={{ borderRadius: 24, padding: 12 }}>
         <svg viewBox="0 0 1000 520" role="group" aria-label={k.title} style={{ width: "100%", height: "auto", display: "block" }}>
-          {[[k.products, 30], [k.skills, 205], [k.roles, 440]].map(([label, y]) => (
+          {[[k.products, 30], [k.skills, 205], [k.missions, 372], [k.roles, 440]].map(([label, y]) => (
             <text key={String(label)} x="8" y={y as number} fontSize="10" letterSpacing="1.4" fill="#94a3b8">{label as string}</text>
           ))}
           {edges.map(([a, b]) => {
@@ -123,7 +133,7 @@ export default function Constellation() {
                 onClick={() => setSel(sel === n.id ? null : n.id)} onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setSel(sel === n.id ? null : n.id); } }}>
                 <circle cx={n.x} cy={n.y} r={r + 8} fill="transparent" />
                 <circle cx={n.x} cy={n.y} r={r} fill={color(n.kind)} stroke={sel === n.id ? "#fff" : "none"} strokeWidth="2" />
-                <text x={n.x} y={n.y + (n.kind === "role" ? 30 : n.kind === "product" ? -16 : 22)} textAnchor="middle" fontSize={n.kind === "skill" ? 11 : 13} fontWeight={n.kind === "skill" ? 500 : 600} fill="#e2e8f0">{n.label}</text>
+                <text x={n.x} y={n.y + (n.kind === "role" ? 30 : n.kind === "product" || n.kind === "mission" ? -16 : 22)} textAnchor="middle" fontSize={n.kind === "skill" ? 11 : 13} fontWeight={n.kind === "skill" ? 500 : 600} fill="#e2e8f0">{n.label}</text>
                 {n.sub && <text x={n.x} y={n.y + 46} textAnchor="middle" fontSize="11" fill="#94a3b8">{n.sub}</text>}
               </g>
             );

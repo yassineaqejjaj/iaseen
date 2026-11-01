@@ -12,7 +12,7 @@ A single-page site, plus one page per client case study.
 
 | Section | Content |
 |---|---|
-| Hero | Positioning, animated node-graph object, key figures, client logos |
+| Hero | Dark-glass sphere that splits into Lead / Build / Think, key figures, client and partner logos |
 | Lead · Deliver · Build | Tabbed panel linking each claim to its proof |
 | Experience | Interactive CV with Leadership / AI Product / Technical lenses |
 | Client Work | Case studies, opened at `/work/[slug]` as a seven-step path |
@@ -22,7 +22,7 @@ A single-page site, plus one page per client case study.
 | Ask My AI | Assistant that answers only from the validated content, with sources |
 | Contact | Email, CV, LinkedIn, GitHub |
 
-Other routes: `/sitemap.xml`, `/robots.txt`. The CV is a static PDF, `public/Yassine-Aqejjaj-CV.pdf` (English); `/cv`, `/fr/cv` and `/ar/cv` redirect to it. It contains a phone number and a personal email: replace the file to change them.
+Other routes: `/nova` (NOVA Suite product page: architecture, real screens, open code), `/sitemap.xml`, `/robots.txt`. The CV is a static PDF, `public/Yassine-Aqejjaj-CV.pdf` (English); `/cv`, `/fr/cv` and `/ar/cv` redirect to it. It contains a phone number and a personal email: replace the file to change them.
 
 A "I'm here as a" selector (Recruiter, Client / Partner, Builder / Founder) reorders the sections without extra pages.
 
@@ -54,7 +54,9 @@ The home page opens on **IASEEN · The Intelligence Universe**: a dark-glass sph
 - **`⌘K` / `Ctrl K` command palette**: jump to any section or case study, download the CV, switch mode, or ask a question. It answers only from the validated content (the same grounded search as Ask My AI) and is downloaded only the first time it is opened.
 - **Interludes**: four short pauses between sections (one sentence, then three figures taken from the content). Hidden in executive mode.
 - **Ask My AI acts on the page**: answers carry buttons that open a case study, filter the AI Lab, highlight a skill or select a node of the constellation (`lib/actions.ts`, event `iaseen-act`). The same buttons appear in the command palette.
-- **Career constellation**: an interactive graph linking roles, skills and products, built from the `proof` data in `lib/content.ts`. Selecting a node lights the whole chain (role, skills, products) and lists it as clickable chips, with the GitHub or site link for products. On small screens it is replaced by the list below it.
+- **Guided tours**: an answer can start a step-by-step tour (leadership, building, delivery, RAG) that moves the page at each step (`lib/tours.ts`, `components/GuidedTour.tsx`; captions are in `t.tours`).
+- **Career constellation**: an interactive graph linking roles, skills, products and client missions, built from the `proof` data in `lib/content.ts`. Selecting a node lights the whole chain (role, skills, products) and lists it as clickable chips, with the GitHub or site link for products. On small screens it is replaced by the list below it.
+- Secondary content on the home page (more products, talks and articles, quick answers) is folded in `<details>` (`components/Disclosure.tsx`): it stays in the HTML for crawlers.
 - Inactive tab panels (roles, case-study steps, skill proofs) carry `data-inactive` rather than `hidden`: they stay in the HTML for crawlers but are not displayed.
 
 ## SEO and GEO

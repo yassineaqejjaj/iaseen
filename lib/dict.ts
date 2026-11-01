@@ -163,6 +163,7 @@ export const dictEn = {
     note: "Figures come from validated client results and from my role at Devoteam. The projects on GitHub are public betas.",
   },
   kpi: { title: "KEY RESULTS", indicator: "Indicator", value: "Value", note: "Calculation method, scope and measurement period are available on request." },
+  ui: { toTop: "Back to top" },
   act: { hint: "ACT ON THE PAGE", case: "Open case study", filter: "Filter the AI Lab", skill: "Show skill", node: "Show on the map", page: "Open the page" },
   interlude: [
     { big: "I don’t just lead AI.\nI build it.", small: "Strategy, delivery and shipped code, under one roof.", fig: false },
@@ -364,6 +365,7 @@ export const dictFr: Dict = {
     note: "Les chiffres viennent de résultats clients validés et de mon rôle chez Devoteam. Les projets GitHub sont des bêtas publiques.",
   },
   kpi: { title: "RÉSULTATS CLÉS", indicator: "Indicateur", value: "Valeur", note: "La méthode de calcul, le périmètre et la période de mesure sont communiqués sur demande." },
+  ui: { toTop: "Retour en haut" },
   act: { hint: "AGIR SUR LA PAGE", case: "Ouvrir l’étude de cas", filter: "Filtrer l’AI Lab", skill: "Voir la compétence", node: "Voir sur la carte", page: "Ouvrir la page" },
   interlude: [
     { big: "Je ne me contente pas de diriger l’IA.\nJe la construis.", small: "Stratégie, delivery et code livré, sous un même toit.", fig: false },
@@ -563,6 +565,7 @@ export const dictAr: Dict = {
     note: "تأتي الأرقام من نتائج عملاء مُصادَق عليها ومن دوري في Devoteam. مشاريع GitHub نسخ تجريبية عامة.",
   },
   kpi: { title: "النتائج الرئيسية", indicator: "المؤشر", value: "القيمة", note: "تُقدَّم طريقة الحساب والنطاق وفترة القياس عند الطلب." },
+  ui: { toTop: "العودة إلى الأعلى" },
   act: { hint: "تصرّف في الصفحة", case: "افتح دراسة الحالة", filter: "صفِّ مختبر الذكاء الاصطناعي", skill: "أبرز المهارة", node: "أظهره على الخريطة", page: "افتح الصفحة" },
   interlude: [
     { big: "لا أكتفي بقيادة الذكاء الاصطناعي.\nأنا أبنيه.", small: "استراتيجية وتسليم وشيفرة منشورة، تحت سقف واحد.", fig: false },

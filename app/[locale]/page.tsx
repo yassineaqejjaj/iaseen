@@ -5,7 +5,7 @@ import LabGrid from "@/components/LabGrid";
 import SkillProof from "@/components/SkillProof";
 import AskSection from "@/components/AskSection";
 import LogoMarquee from "@/components/LogoMarquee";
-import { posts } from "@/lib/blog";
+import { latestPosts } from "@/lib/blog";
 import { KpiRow } from "@/components/Kpi";
 import Disclosure from "@/components/Disclosure";
 import Interlude from "@/components/Interlude";
@@ -163,7 +163,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <SectionAsk q={[5]} />
           <h3 style={sectionTitle}>{t.blog.latest}</h3>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 16, marginBottom: 48 }}>
-            {posts.map((p) => (
+            {latestPosts(4).map((p) => (
               <Link key={p.slug} href={href(`/blog/${p.slug}`)} className="card" style={{ padding: 22, textDecoration: "none", color: "var(--text)", display: "flex", flexDirection: "column", gap: 10 }}>
                 <span style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", color: "var(--signal)" }}>{p.tags[0].toUpperCase()} · {p.minutes} {t.blog.read}</span>
                 <span className="display" style={{ fontSize: 20, lineHeight: 1.25 }} dir="auto">{p[locale].title}</span>

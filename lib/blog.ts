@@ -100,5 +100,8 @@ export const posts: Post[] = [
   },
 ];
 
+/** Newest first; articles sharing a date keep the most recently added first. */
+export const latestPosts = (n: number) => posts.map((p, i) => ({ p, i })).sort((a, b) => (b.p.date.localeCompare(a.p.date)) || b.i - a.i).slice(0, n).map((x) => x.p);
+
 export const postBySlug = (slug: string) => posts.find((p) => p.slug === slug);
 export const loc = (p: Post, l: Locale): Loc => p[l];

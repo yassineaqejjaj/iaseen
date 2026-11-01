@@ -46,7 +46,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
 /* Visitor paths: reorder sections without extra pages */
 .paths { display: flex; flex-direction: column; }
-.paths > #path-bar { order: -3; } .paths > #top { order: -2; } .paths > #proof { order: -1; } .paths > #about { order: 0; }
+.paths > #top { order: -5; } .paths > #path-bar { order: -4; } .paths > #numbers { order: -3; } .paths > #proof { order: -1; } .paths > #about { order: 0; }
 .paths > #experience { order: 1; } .paths > #client-work { order: 2; } .paths > #ai-lab { order: 3; }
 .paths > #expertise { order: 4; } .paths > #insights { order: 5; }
 .paths > #ask { order: 90; } .paths > #faq { order: 91; } .paths > #positioning { order: 92; } .paths > #contact { order: 99; }
@@ -65,7 +65,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
 .rise { opacity: 0; animation: rise .8s cubic-bezier(.22,1,.36,1) forwards; }
 
-@media (max-width: 1100px) { .name-tag { display: none; } }
+@media (max-width: 1400px) { .name-tag { display: none; } }
 
 /* Arabic: right-to-left, Arabic typeface, no letter-spacing (it breaks the joins) */
 html[lang="ar"] { --font-sans: var(--font-arabic), var(--font-inter), system-ui, sans-serif; --font-display: var(--font-arabic), var(--font-grotesk), sans-serif; }
@@ -73,3 +73,70 @@ html[lang="ar"] * { letter-spacing: 0 !important; }
 html[lang="ar"] .eyebrow { text-transform: none; font-size: 14px; }
 [dir="rtl"] .flip { transform: scaleX(-1); }
 html[lang="ar"] .display { line-height: 1.2; }
+
+/* Constellation: the list below it carries the same information on small screens */
+@media (max-width: 760px) { .constellation-svg { display: none; } .constellation-mobile { display: block !important; } }
+.palette-label { display: none; }
+@media (min-width: 1500px) { .palette-label { display: inline; } }
+
+/* Executive mode: a compact, motion-free CV view of the same content (set by the toggle, saved in the browser) */
+html[data-mode="executive"] .fx, html[data-mode="executive"] #proof, html[data-mode="executive"] #ai-lab, html[data-mode="executive"] #ask,
+html[data-mode="executive"] #faq, html[data-mode="executive"] #positioning, html[data-mode="executive"] #path-bar { display: none !important; }
+html[data-mode="executive"] *, html[data-mode="executive"] *::before, html[data-mode="executive"] *::after { animation: none !important; transition: none !important; }
+html[data-mode="executive"] .rise { opacity: 1; }
+html[data-mode="executive"] .sec { padding-block: 40px; }
+html[data-mode="executive"] #top > .wrap:first-child { padding-block: 40px 24px; }
+html[data-mode="executive"] #experience ol { display: none; }
+html[data-mode="executive"] #experience [aria-live] { flex: 1 1 100%; display: grid; gap: 16px; }
+html[data-mode="executive"] #experience article[data-inactive] { display: block; }
+html[data-mode="executive"] #expertise [aria-live] { display: none; }
+html[data-mode="executive"] .paths > #experience { order: 1; } html[data-mode="executive"] .paths > #client-work { order: 2; }
+html[data-mode="executive"] .paths > #expertise { order: 3; } html[data-mode="executive"] .paths > #insights { order: 4; } html[data-mode="executive"] .paths > #about { order: 0; }
+
+/* Inactive tab panels stay in the HTML (crawlable) but are not displayed. Tailwind's [hidden] rule is !important and cannot be overridden. */
+[data-inactive] { display: none; }
+
+/* ---------- Hero story: sticky scroll scene (desktop, motion allowed), static layout otherwise ---------- */
+.hero-story { position: relative; border-bottom: 1px solid var(--line); --p: 0;
+  --split: clamp(0, calc((var(--p) - 0.22) / 0.4), 1); --out: clamp(0, calc((var(--p) - 0.1) / 0.24), 1); --in: clamp(0, calc((var(--p) - 0.52) / 0.2), 1);
+  background: radial-gradient(900px 560px at 50% 38%, rgba(106,145,255,.2), transparent 62%), radial-gradient(500px 360px at 12% 92%, rgba(152,228,224,.07), transparent 60%), var(--bg); }
+.hero-sticky { position: relative; padding: 110px 0 72px; }
+.hero-copy { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 28px; padding-inline: 24px; }
+.hero-brand { margin: 0; font-size: clamp(30px, 4vw, 52px); letter-spacing: .28em !important; padding-inline-start: .28em; }
+.hero-bottom h1 { text-shadow: 0 2px 36px rgba(5,7,13,.85); }
+.hero-pitch { text-shadow: 0 1px 20px rgba(5,7,13,.9); margin: 22px auto 0; max-width: 600px; font-size: 19px; line-height: 1.6; color: var(--body); }
+.hero-stage { position: relative; width: 100%; height: 340px; pointer-events: none; }
+.hero-parts { list-style: none; margin: 40px auto 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; }
+.hero-scroll { display: none; }
+.orb { position: absolute; inset: 0; transition: opacity .6s; transform: translateY(4%); }
+.hero-story[data-webgl="on"] .orb { opacity: 0; }
+.orb-core, .orb-part { position: absolute; left: 50%; top: 50%; border-radius: 50%; translate: -50% -50%; }
+.orb-core { width: min(300px, 38vh, 70vw); aspect-ratio: 1; background: radial-gradient(circle at 32% 28%, #fff 0, #cfdcff 7%, #6a91ff 28%, #16204a 60%, #05070d 100%); box-shadow: 0 0 90px rgba(106,145,255,.45), inset 0 0 60px rgba(152,228,224,.25); scale: calc(1 - var(--split) * .94); }
+.orb-part { width: 150px; aspect-ratio: 1; scale: var(--split); background: radial-gradient(circle at 32% 28%, #fff 0, #bcd0ff 8%, #6a91ff 34%, #0d1536 100%); box-shadow: 0 0 50px rgba(106,145,255,.4); }
+.orb-1 { transform: translateX(calc(var(--split) * -30vw)); }
+.orb-2 { border-radius: 24px; background: radial-gradient(circle at 32% 28%, #fff 0, #c8f4f1 8%, #98e4e0 34%, #0d2a2c 100%); transform: translateY(calc(var(--split) * 4vh)) rotate(calc(var(--split) * 45deg)); }
+.orb-3 { border-radius: 40% 60% 55% 45%; background: radial-gradient(circle at 32% 28%, #fff 0, #e6edff 12%, #8fa0c4 45%, #141a2e 100%); transform: translateX(calc(var(--split) * 30vw)); }
+
+@media (min-width: 760px) and (prefers-reduced-motion: no-preference) {
+  .hero-story { height: 300vh; margin-top: calc(var(--hdr, 72px) * -1); }
+  .hero-sticky { position: sticky; top: 0; height: 100vh; padding: 0; overflow: hidden; }
+  .hero-copy { height: 100%; justify-content: space-between; padding-block: calc(var(--hdr, 72px) + 14px) 44px; position: static; }
+  .hero-stage { position: absolute; inset: 0; height: auto; z-index: 0; }
+  .hero-top, .hero-bottom { position: relative; z-index: 1; }
+  .hero-top { opacity: calc(1 - var(--out)); transform: translateY(calc(var(--out) * -30px)); }
+  .hero-bottom { opacity: calc(1 - var(--out)); transform: translateY(calc(var(--out) * 40px)); }
+  .hero-parts { position: absolute; left: 0; right: 0; bottom: 9vh; margin: 0 auto; z-index: 2; opacity: var(--in); transform: translateY(calc((1 - var(--in)) * 36px)); }
+  .hero-scroll { display: block; position: absolute; left: 0; right: 0; bottom: 18px; margin: 0; text-align: center; font-size: 11px; letter-spacing: .24em; color: var(--muted); opacity: calc(1 - var(--out)); }
+  .hero-story[data-phase="2"] .hero-copy { pointer-events: none; }
+  .hero-story[data-phase="1"] .hero-parts { pointer-events: none; }
+}
+.magnetic { transition: transform .35s cubic-bezier(.22,1,.36,1); will-change: transform; }
+
+/* Executive mode: no scroll story, flat hero */
+html[data-mode="executive"] .hero-story { height: auto !important; margin-top: 0 !important; }
+html[data-mode="executive"] .hero-sticky { position: static !important; height: auto !important; padding: 56px 0 32px !important; overflow: visible !important; }
+html[data-mode="executive"] .hero-copy { height: auto !important; padding-block: 0 !important; }
+html[data-mode="executive"] .hero-stage { display: none; }
+html[data-mode="executive"] .hero-top, html[data-mode="executive"] .hero-bottom { opacity: 1 !important; transform: none !important; }
+html[data-mode="executive"] .hero-parts { position: static !important; opacity: 1 !important; transform: none !important; pointer-events: auto !important; }
+html[data-mode="executive"] .hero-scroll { display: none !important; }

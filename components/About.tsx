@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { profile } from "@/lib/content";
+import HeroPortrait from "./HeroPortrait";
 import { getI18n, type Locale } from "@/lib/i18n";
 
 export default function About({ locale }: { locale: Locale }) {
@@ -8,6 +9,7 @@ export default function About({ locale }: { locale: Locale }) {
   return (
     <section id="about" style={{ borderBottom: "1px solid var(--line)" }}>
       <div className="wrap sec" style={{ display: "flex", flexWrap: "wrap", gap: "56px 72px", alignItems: "center" }}>
+        <div style={{ flex: "0 1 380px", minWidth: 260, width: "100%" }}><HeroPortrait alt={t.about.alt} /></div>
         <div style={{ flex: "1 1 460px", minWidth: 0, maxWidth: 820 }}>
           <p className="eyebrow">{t.about.eyebrow}</p>
           <h2 className="h2">{bio.headline}</h2>

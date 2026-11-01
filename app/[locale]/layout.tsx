@@ -6,6 +6,9 @@ import PointerGlow from "@/components/PointerGlow";
 import { LocaleProvider } from "@/components/LocaleProvider";
 import { getI18n, isLocale, locales } from "@/lib/i18n";
 import { ld, siteGraph } from "@/lib/schema";
+import { modeScript } from "@/lib/mode";
+import CommandLauncher from "@/components/CommandLauncher";
+import MagneticCursor from "@/components/MagneticCursor";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const grotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-grotesk" });
@@ -36,15 +39,17 @@ export default async function RootLayout({ children, params }: { children: React
   if (!isLocale(locale)) notFound();
   const { dir } = getI18n(locale);
   return (
-    <html lang={locale} dir={dir} className={`${inter.variable} ${grotesk.variable} ${arabic.variable}`}>
+    <html lang={locale} dir={dir} suppressHydrationWarning className={`${inter.variable} ${grotesk.variable} ${arabic.variable}`}>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: modeScript }} />
         {process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN && (
           <script defer data-domain={process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN} src="https://plausible.io/js/script.js" />
         )}
       </head>
       <body>
-        <LocaleProvider locale={locale}>{children}</LocaleProvider>
+        <LocaleProvider locale={locale}>{children}<CommandLauncher /></LocaleProvider>
         <PointerGlow />
+        <MagneticCursor />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ld(siteGraph(locale)) }} />
       </body>
     </html>

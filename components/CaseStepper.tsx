@@ -27,7 +27,7 @@ export default function CaseStepper({ steps: all }: { steps: Step[] }) {
       </nav>
       <div aria-live="polite" style={{ flex: "999 1 640px", minWidth: 0 }}>
         {steps.map((cur, k) => (
-          <article key={cur.label} hidden={k !== i}>
+          <article key={cur.label} data-inactive={k !== i ? "" : undefined}>
             <p className="display" style={{ margin: 0, fontSize: 15, letterSpacing: 0, color: "var(--link)" }} dir="ltr">{n(k)} / {n(steps.length - 1)}</p>
             <h2 className="display" style={{ margin: "8px 0 0", fontSize: 40, lineHeight: 1.1 }}>{cur.label}</h2>
             {real(cur.body) ? (

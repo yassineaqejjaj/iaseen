@@ -39,6 +39,22 @@ English (`/`), French (`/fr`) and Arabic (`/ar`, right-to-left). Every page and 
 
 Translations were written by Claude: have a native speaker review the French and, above all, the Arabic before relying on them.
 
+## Hero story
+
+The home page opens on **IASEEN · The Intelligence Universe**: a liquid-chrome sphere (three.js through React Three Fiber, reflections generated in code, no HDR file) that splits into three objects, LEAD, BUILD and THINK, as you scroll; each links to its section. Pointer parallax and magnetic buttons add depth.
+
+- **Progressive:** the 3D code (about 0.9 MB, uncompressed) is a separate chunk, downloaded on desktop when the browser is idle. The headline, brand and CTAs are plain server-rendered HTML, so the first paint and SEO do not wait for it.
+- **Fallbacks:** the same scroll story runs in pure CSS (a gradient orb that splits) when WebGL is missing. On small screens or with `prefers-reduced-motion`, there is no scroll story and no 3D: the hero is a normal static block with the three entries listed under it.
+- **Code:** `components/HeroStory.tsx` (layout, scroll progress, fallback), `components/HeroScene.tsx` (3D), `lib/heroProgress.ts` (scroll and pointer values read every frame), `components/MagneticCursor.tsx`.
+- **Executive mode** flattens the hero and removes the scroll story.
+
+## Interactions
+
+- **Executive mode** (header toggle): a compact, motion-free CV view of the same content, saved in the browser. The server HTML is always the full experience, so crawlers and AI assistants never see the reduced version.
+- **`⌘K` / `Ctrl K` command palette**: jump to any section or case study, download the CV, switch mode, or ask a question. It answers only from the validated content (the same grounded search as Ask My AI) and is downloaded only the first time it is opened.
+- **Career constellation**: an interactive graph linking roles, skills and products, built from the `proof` data in `lib/content.ts`. On small screens it is replaced by the list below it.
+- Inactive tab panels (roles, case-study steps, skill proofs) carry `data-inactive` rather than `hidden`: they stay in the HTML for crawlers but are not displayed.
+
 ## SEO and GEO
 
 Titles, canonical and `hreflang`, JSON-LD entity graph (Person, WebSite, ProfilePage, Books, FAQPage, Article), a visible FAQ,

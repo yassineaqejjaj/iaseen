@@ -22,6 +22,24 @@ function chunksFor(locale: Locale): Chunk[] {
   ].filter((x) => real(x.text));
 }
 
+function rank(q: string, locale: Locale, n: number) {
+  const { t } = getI18n(locale);
+  const stop = new Set(norm(t.ask.stop).split(" "));
+  const qt = tok(q, stop);
+  return chunksFor(locale)
+    .map((ch) => { const k = tok(ch.keys, new Set()); return { ch, s: qt.filter((w) => k.some((x) => x === w || (w.length > 3 && x.startsWith(w)))).length }; })
+    .filter((x) => x.s > 0).sort((a, b) => b.s - a.s).slice(0, n);
+}
+
+/** Top matches for the command palette: a label, a short snippet and a link. */
+export function searchContent(q: string, locale: Locale, n = 6) {
+  const seen = new Set<string>();
+  return rank(q, locale, n * 3)
+    .map(({ ch }) => ({ label: ch.src.label, text: ch.text.length > 120 ? ch.text.slice(0, 117) + "…" : ch.text, href: ch.src.href }))
+    .filter((r) => !seen.has(r.href + r.text) && !!seen.add(r.href + r.text))
+    .slice(0, n);
+}
+
 export function ask(q: string, locale: Locale): Answer {
   const { c, t, href } = getI18n(locale);
   const stop = new Set(norm(t.ask.stop).split(" "));

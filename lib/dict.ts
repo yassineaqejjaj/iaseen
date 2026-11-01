@@ -101,6 +101,20 @@ export const dictEn = {
     jobTitle: "Head of AI", caseSuffix: "Yassine Aqejjaj",
   },
   faq: { eyebrow: "FAQ", title: "Quick answers" },
+  story: {
+    brand: "IASEEN", sub: "THE INTELLIGENCE UNIVERSE", h1a: "I architect", h1b: "intelligence.", pitch: "I lead AI. I build products. I turn ideas into reality.",
+    enter: "Enter my universe", cv: "Traditional CV", scroll: "SCROLL TO DISCOVER", partsAria: "Three ways into my work",
+    parts: [{ k: "LEAD", d: "Strategy & people", h: "#experience" }, { k: "BUILD", d: "Products & systems", h: "#ai-lab" }, { k: "THINK", d: "Ideas & research", h: "#insights" }],
+  },
+  mode: { aria: "Display mode", experience: "Experience", executive: "Executive", hint: "Executive mode: a compact, motion-free CV view of the same content." },
+  cmd: {
+    open: "Search or ask", placeholder: "Search the site or ask a question…", hint: "↑↓ to move · ↵ to open · esc to close", goTo: "GO TO", cases: "CASE STUDIES", actions: "ACTIONS",
+    related: "RELATED", answer: "ANSWER", noResults: "No match. Try a skill, a client or a product.", downloadCv: "Download CV (PDF)", toExecutive: "Switch to Executive mode", toExperience: "Switch to Experience mode", close: "Close",
+  },
+  constellation: {
+    eyebrow: "CAREER CONSTELLATION", title: "A connected journey", hint: "Select a node to see how roles, skills and products connect.",
+    products: "PRODUCTS", skills: "SKILLS", roles: "ROLES", none: "Select a node to explore.", mobile: "Open this page on a larger screen to explore the constellation, or use the list below.",
+  },
   rights: "Yassine Aqejjaj",
 };
 
@@ -204,6 +218,20 @@ export const dictFr: Dict = {
     jobTitle: "Head of AI", caseSuffix: "Yassine Aqejjaj",
   },
   faq: { eyebrow: "FAQ", title: "Réponses rapides" },
+  story: {
+    brand: "IASEEN", sub: "L’UNIVERS DE L’INTELLIGENCE", h1a: "J’architecte", h1b: "l’intelligence.", pitch: "Je dirige l’IA. Je construis des produits. Je transforme les idées en réalité.",
+    enter: "Entrer dans mon univers", cv: "CV classique", scroll: "FAIRE DÉFILER POUR DÉCOUVRIR", partsAria: "Trois portes d’entrée vers mon travail",
+    parts: [{ k: "DIRIGER", d: "Stratégie & équipes", h: "#experience" }, { k: "CONSTRUIRE", d: "Produits & systèmes", h: "#ai-lab" }, { k: "RÉFLÉCHIR", d: "Idées & recherche", h: "#insights" }],
+  },
+  mode: { aria: "Mode d’affichage", experience: "Expérience", executive: "Exécutif", hint: "Mode exécutif : une vue CV compacte et sans animation du même contenu." },
+  cmd: {
+    open: "Rechercher ou demander", placeholder: "Rechercher sur le site ou poser une question…", hint: "↑↓ pour naviguer · ↵ pour ouvrir · échap pour fermer", goTo: "ALLER À", cases: "ÉTUDES DE CAS", actions: "ACTIONS",
+    related: "LIÉS", answer: "RÉPONSE", noResults: "Aucun résultat. Essayez une compétence, un client ou un produit.", downloadCv: "Télécharger le CV (PDF)", toExecutive: "Passer en mode exécutif", toExperience: "Passer en mode expérience", close: "Fermer",
+  },
+  constellation: {
+    eyebrow: "CONSTELLATION DE CARRIÈRE", title: "Un parcours relié", hint: "Sélectionnez un nœud pour voir comment postes, compétences et produits se relient.",
+    products: "PRODUITS", skills: "COMPÉTENCES", roles: "POSTES", none: "Sélectionnez un nœud pour explorer.", mobile: "Ouvrez cette page sur un écran plus grand pour explorer la constellation, ou utilisez la liste ci-dessous.",
+  },
   rights: "Yassine Aqejjaj",
 };
 
@@ -305,5 +333,19 @@ export const dictAr: Dict = {
     jobTitle: "Head of AI", caseSuffix: "Yassine Aqejjaj",
   },
   faq: { eyebrow: "أسئلة شائعة", title: "إجابات سريعة" },
+  story: {
+    brand: "IASEEN", sub: "عالم الذكاء", h1a: "أصمّم", h1b: "الذكاء.", pitch: "أقود الذكاء الاصطناعي. أبني المنتجات. أحوّل الأفكار إلى واقع.",
+    enter: "ادخل عالمي", cv: "السيرة الذاتية التقليدية", scroll: "مرّر للاكتشاف", partsAria: "ثلاثة مداخل إلى أعمالي",
+    parts: [{ k: "قيادة", d: "الاستراتيجية والأفراد", h: "#experience" }, { k: "بناء", d: "المنتجات والأنظمة", h: "#ai-lab" }, { k: "تفكير", d: "الأفكار والأبحاث", h: "#insights" }],
+  },
+  mode: { aria: "وضع العرض", experience: "التجربة", executive: "التنفيذي", hint: "الوضع التنفيذي: عرض مضغوط للسيرة الذاتية بلا حركة، بالمحتوى نفسه." },
+  cmd: {
+    open: "ابحث أو اسأل", placeholder: "ابحث في الموقع أو اطرح سؤالًا…", hint: "↑↓ للتنقل · ↵ للفتح · esc للإغلاق", goTo: "انتقل إلى", cases: "دراسات الحالة", actions: "إجراءات",
+    related: "ذو صلة", answer: "الإجابة", noResults: "لا نتائج. جرّب مهارة أو عميلًا أو منتجًا.", downloadCv: "تنزيل السيرة الذاتية (PDF)", toExecutive: "التبديل إلى الوضع التنفيذي", toExperience: "التبديل إلى وضع التجربة", close: "إغلاق",
+  },
+  constellation: {
+    eyebrow: "كوكبة المسار المهني", title: "مسار مترابط", hint: "اختر عقدة لترى كيف ترتبط المناصب والمهارات والمنتجات.",
+    products: "المنتجات", skills: "المهارات", roles: "المناصب", none: "اختر عقدة للاستكشاف.", mobile: "افتح هذه الصفحة على شاشة أكبر لاستكشاف الكوكبة، أو استخدم القائمة أدناه.",
+  },
   rights: "Yassine Aqejjaj",
 };

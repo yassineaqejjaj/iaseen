@@ -5,10 +5,10 @@ import LabGrid from "@/components/LabGrid";
 import SkillProof from "@/components/SkillProof";
 import AskSection from "@/components/AskSection";
 import ProofPanel from "@/components/ProofPanel";
-import HeroPortrait from "@/components/HeroPortrait";
 import { FeaturedProducts } from "@/components/FeaturedProducts";
-import HeroTitle from "@/components/HeroTitle";
+import HeroStory from "@/components/HeroStory";
 import About from "@/components/About";
+import Constellation from "@/components/Constellation";
 import Faq from "@/components/Faq";
 import { homeGraph, ld } from "@/lib/schema";
 import NovaSystem from "@/components/NovaSystem";
@@ -48,22 +48,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ld(homeGraph(locale)) }} />
       <Header locale={locale} />
       <PathLayout>
-      <section id="top" style={{ position: "relative", overflow: "hidden", borderBottom: "1px solid var(--line)", background: "radial-gradient(900px 500px at 78% 10%, rgba(106,145,255,.16), transparent 60%), radial-gradient(600px 400px at 10% 90%, rgba(152,228,224,.07), transparent 60%), var(--bg)" }}>
-        <div className="wrap" style={{ paddingBlock: "88px 72px", display: "flex", flexWrap: "wrap", gap: 56, alignItems: "center" }}>
-          <div style={{ flex: "999 1 560px", minWidth: 0 }}>
-            <p className="display" style={{ margin: "0 0 14px", fontSize: "clamp(22px, 2.4vw, 30px)", letterSpacing: "-0.02em", color: "var(--text)" }}>Yassine Aqejjaj</p>
-            <p className="eyebrow" style={{ marginBottom: 24 }}>{t.hero.roles}</p>
-            <HeroTitle line1={t.hero.line1} line2={t.hero.line2} />
-            <p style={{ margin: "28px 0 0", maxWidth: 600, fontSize: 19, lineHeight: 1.6, color: "var(--body)" }}>{t.hero.pitch}</p>
-            <div className="rise" style={{ animationDelay: ".7s", display: "flex", flexWrap: "wrap", gap: 12, marginTop: 36 }}>
-              <Link href={href("#ai-lab")} className="pill pill-accent" style={{ minHeight: 52, padding: "0 26px", fontSize: 16, color: "#07101f" }}>{t.hero.explore} <Arrow /></Link>
-              <Link href={href("#ask")} className="pill pill-line" style={{ minHeight: 52, padding: "0 26px", fontSize: 16 }}>{t.hero.ask}</Link>
-              <Link href={href("#experience")} style={{ display: "inline-flex", alignItems: "center", minHeight: 52, fontWeight: 600, fontSize: 15, textDecoration: "none" }}>{t.hero.cv} {t.arrow}</Link>
-            </div>
-          </div>
-          <HeroPortrait alt={t.about.alt} />
-        </div>
-        <div className="wrap" style={{ paddingBottom: 72 }}>
+      <HeroStory />
+
+      <section id="numbers" style={{ borderBottom: "1px solid var(--line)" }}>
+        <div className="wrap" style={{ paddingBlock: "56px 64px" }}>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 16 }}>
             {stats.map(([v, l]) => (
               <div key={l} className="card" style={{ borderRadius: 16, padding: 24 }}>
@@ -96,6 +84,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <p className="eyebrow">{t.journey.eyebrow}</p>
           <h2 className="h2">{t.journey.title}</h2>
           <p className="lead" style={{ marginBottom: 32 }}>{t.journey.lead}</p>
+          <div className="fx"><Constellation /></div>
           <Journey />
           <div style={{ marginTop: 28, display: "flex", flexWrap: "wrap", gap: 12, alignItems: "center" }}>
             <a href={profile.cv} download="Yassine-Aqejjaj-CV.pdf" className="pill pill-line">{t.journey.download}</a>

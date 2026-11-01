@@ -39,7 +39,7 @@ export default function Journey() {
           {roles.map((role, ri) => {
             const bullets = role.bullets.filter((b) => real(b.text) && (lens === "all" || b.lens === lens));
             return (
-        <article key={role.org + role.period} hidden={ri !== i} style={{ background: "var(--surface)", border: "1px solid var(--line)", borderRadius: 24, padding: 36 }}>
+        <article key={role.org + role.period} data-inactive={ri !== i ? "" : undefined} style={{ background: "var(--surface)", border: "1px solid var(--line)", borderRadius: 24, padding: 36 }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 16 }}>
             <p style={{ margin: 0, fontSize: 14, fontWeight: 600, color: "var(--link)" }}>{role.period} · {role.org}, {role.place}</p>
             <span dir="ltr" style={{ display: "inline-flex", maxWidth: 200 }}><ClientLogo name={role.logo} scale={1} /></span>

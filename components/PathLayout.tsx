@@ -12,7 +12,7 @@ export default function PathLayout({ children }: { children: React.ReactNode }) 
   ];
   return (
     <main className="paths" data-path={p}>
-      <div id="path-bar" className="glass" style={{ borderRadius: 0, borderInline: "none", borderTop: "none" }}>
+      <div id="path-bar" className="glass fx" style={{ borderRadius: 0, borderInline: "none", borderTop: "none" }}>
         <div className="wrap" style={{ paddingBlock: 10, display: "flex", flexWrap: "wrap", alignItems: "center", gap: "8px 16px" }}>
           <span style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".12em", color: "var(--muted)" }}>{t.path.label}</span>
           <div role="group" aria-label={t.path.aria} style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>

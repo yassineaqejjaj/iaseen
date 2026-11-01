@@ -25,7 +25,8 @@ export default function HeroStory() {
   useEffect(() => {
     const el = root.current!;
     const hdr = () => document.documentElement.style.setProperty("--hdr", `${document.querySelector("header")?.getBoundingClientRect().height ?? 72}px`);
-    const measure = () => { const top = el.querySelector<HTMLElement>(".hero-top"), bot = el.querySelector<HTMLElement>(".hero-bottom"); if (top) heroProgress.topEdge = top.offsetTop + top.offsetHeight; if (bot) heroProgress.bottomEdge = bot.offsetTop; };
+    const measure = () => { const top = el.querySelector<HTMLElement>(".hero-top"), bot = el.querySelector<HTMLElement>(".hero-bottom"); if (top) heroProgress.topEdge = top.offsetTop + top.offsetHeight; if (bot) heroProgress.bottomEdge = bot.offsetTop;
+      el.style.setProperty("--band-top", `${heroProgress.topEdge}px`); el.style.setProperty("--band-h", `${Math.max(0, heroProgress.bottomEdge - heroProgress.topEdge)}px`); };
     hdr(); measure(); addEventListener("resize", hdr); addEventListener("resize", measure);
     document.fonts?.ready.then(measure);
     const wide = matchMedia("(min-width: 760px)").matches;

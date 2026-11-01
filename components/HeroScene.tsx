@@ -22,7 +22,7 @@ function Env() {
 /** Liquid chrome: a physical metal whose surface slowly ripples (vertex displacement injected into the standard shader). */
 function useChrome(color: string, roughness: number, amp: number) {
   return useMemo(() => {
-    const mat = new THREE.MeshPhysicalMaterial({ color, metalness: 1, roughness, clearcoat: 1, clearcoatRoughness: 0.08, envMapIntensity: 1.7 });
+    const mat = new THREE.MeshPhysicalMaterial({ color, metalness: 1, roughness, clearcoat: 1, clearcoatRoughness: 0.08, envMapIntensity: 1.15, transparent: true });
     const uTime = { value: 0 };
     mat.onBeforeCompile = (sh) => {
       sh.uniforms.uTime = uTime;
@@ -56,10 +56,13 @@ function Universe() {
     const h = state.size.height, cam = state.camera as THREE.PerspectiveCamera;
     const halfH = Math.tan((cam.fov * Math.PI) / 360) * 6;                       // world half-height at the rest distance
     const room = Math.max(0, heroProgress.bottomEdge - heroProgress.topEdge);   // free band between the two text blocks
-    const radiusPx = Math.min(190, Math.max(72, room / 2 + 34));              // may tuck slightly behind the headline, never over the brand lines
-    const centerPx = heroProgress.topEdge + 12 + radiusPx;
-    g.scale.setScalar((radiusPx / (h / 2)) * halfH / 1.25);
-    g.position.y = -((centerPx - h / 2) / (h / 2)) * halfH;
+    const fit = Math.min(130, room / 2 - 10);                                  // radius that fits entirely inside the band
+    const squeezed = fit < 48;                                                 // band too small: keep a small, dimmed sphere
+    const rBand = squeezed ? 48 : fit, cBand = heroProgress.topEdge + room / 2;
+    const rPx = rBand + (190 - rBand) * split, cPx = cBand + (h * 0.4 - cBand) * split;   // grows and centres once the text has faded
+    g.scale.setScalar((rPx / (h / 2)) * halfH / 1.25);
+    g.position.y = -((cPx - h / 2) / (h / 2)) * halfH;
+    coreM.mat.opacity = squeezed ? 0.35 + 0.65 * split : 1;
     g.rotation.y += (heroProgress.x * 0.3 - g.rotation.y) * k;
     g.rotation.x += (-heroProgress.y * 0.18 - g.rotation.x) * k;
     state.camera.position.z = 6 + p * 0.9;
@@ -92,8 +95,8 @@ export default function HeroScene({ active, onReady }: { active: boolean; onRead
       <Env />
       <ambientLight intensity={0.2} />
       <directionalLight position={[2, 4, 3]} intensity={1.1} />
-      <pointLight position={[4, 2.5, 4]} intensity={70} color="#5578f4" />
-      <pointLight position={[-4, -2, 3]} intensity={45} color="#98e4e0" />
+      <pointLight position={[4, 2.5, 4]} intensity={45} color="#5578f4" />
+      <pointLight position={[-4, -2, 3]} intensity={28} color="#98e4e0" />
       <pointLight position={[0, -3, -3]} intensity={30} color="#6a91ff" />
       <Universe />
     </Canvas>

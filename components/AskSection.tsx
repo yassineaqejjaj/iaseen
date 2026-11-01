@@ -1,6 +1,8 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { runAct } from "@/lib/actions";
 import { ask, type Answer } from "@/lib/ask";
 import { useI18n } from "./LocaleProvider";
 
@@ -10,6 +12,7 @@ export default function AskSection() {
   const [ans, setAns] = useState<Answer>(first);
   const [text, setText] = useState("");
   const [active, setActive] = useState(0);
+  const router = useRouter();
   const pick = (i: number) => { setActive(i); setAns(ask(c.qa[i].q, locale)); };
   return (
     <div className="glass" style={{ flex: "999 1 560px", minWidth: 0, borderRadius: 28, padding: 24, display: "flex", flexDirection: "column", gap: 18 }}>
@@ -40,6 +43,17 @@ export default function AskSection() {
             <Link key={s.href + s.label} href={s.href} style={{ fontSize: 13, fontWeight: 600, padding: "6px 12px", borderRadius: 999, background: "#1f2b48", color: "#c3cce3", textDecoration: "none" }}>{s.label}</Link>
           ))}
         </div>
+        {!!ans.acts?.length && (
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 12, alignItems: "center" }}>
+            <span style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".08em", color: "var(--signal)" }}>{t.act.hint}</span>
+            {ans.acts.map((x) => (
+              <button key={x.act.k + x.act.v} type="button" onClick={() => runAct(x.act, (slug) => router.push(href(`/work/${slug}`)))}
+                style={{ minHeight: 40, fontSize: 13, fontWeight: 600, padding: "0 14px", borderRadius: 999, cursor: "pointer", border: "1px solid var(--accent)", background: "transparent", color: "#fff" }}>
+                {t.act[x.act.k]}: {x.label}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
       <form onSubmit={(e) => { e.preventDefault(); if (!text.trim()) return; setActive(-1); setAns(ask(text, locale)); setText(""); }} style={{ display: "flex", gap: 8, alignItems: "center" }}>
         <label htmlFor="ask-input" style={{ position: "absolute", width: 1, height: 1, overflow: "hidden", clip: "rect(0 0 0 0)" }}>{t.ask.placeholder}</label>

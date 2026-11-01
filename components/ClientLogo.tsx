@@ -1,6 +1,6 @@
 import { LOGO_PATHS, LOGO_FILES } from "@/lib/logos";
 
-const NAMES: Record<string, string> = { thales: "Thales", decathlon: "Decathlon", carrefour: "Carrefour", fujitsu: "Fujitsu", devoteam: "Devoteam", axa: "AXA", banquepopulaire: "Banque Populaire", pmoffice: "Services du Premier ministre" };
+const NAMES: Record<string, string> = { thales: "Thales", decathlon: "Decathlon", carrefour: "Carrefour", fujitsu: "Fujitsu", devoteam: "Devoteam", axa: "AXA", banquepopulaire: "Banque Populaire", pmoffice: "Services du Premier ministre", anthropic: "Anthropic", google: "Google", cursor: "Cursor", elevenlabs: "ElevenLabs" };
 
 /**
  * Client mark: white silhouette on a transparent background, in a fixed-size cell per brand

@@ -1,8 +1,9 @@
 import { real } from "./content";
+import { actKey, type PageAct } from "./actions";
 import { getI18n, type Locale } from "./i18n";
 
-export type Answer = { q: string; a: string; sources: { label: string; href: string }[] };
-type Chunk = { text: string; keys: string; src: { label: string; href: string } };
+export type Answer = { q: string; a: string; sources: { label: string; href: string }[]; acts?: { label: string; act: PageAct }[] };
+type Chunk = { text: string; keys: string; src: { label: string; href: string }; act?: { label: string; act: PageAct } };
 
 const norm = (s: string) => s.toLowerCase().normalize("NFKD").replace(/[̀-ًͯ-ٟ]/g, "");
 const tok = (s: string, stop: Set<string>) =>
@@ -13,12 +14,12 @@ function chunksFor(locale: Locale): Chunk[] {
   const lab = (k: "experience" | "work" | "lab" | "expertise" | "insights" | "about") => t.nav[k];
   return [
     ...c.bio.paragraphs.map((p) => ({ text: p, keys: `${p} ${t.ask.kw.about}`, src: { label: lab("about"), href: href("#about") } })),
-    ...c.roles.map((r) => ({ text: `${r.title}, ${r.org} (${r.period}). ${r.summary}`, keys: `${r.title} ${r.org} ${r.tags.join(" ")} ${r.summary} ${t.ask.kw.exp}`, src: { label: lab("experience"), href: href("#experience") } })),
-    ...c.clients.map((cl) => ({ text: `${cl.client} — ${cl.title}: ${cl.summary}`, keys: `${cl.client} ${cl.title} ${cl.tags.join(" ")} ${cl.summary} ${t.ask.kw.client}`, src: { label: cl.client, href: href(`/work/${cl.slug}`) } })),
-    ...c.products.map((p) => ({ text: `${p.name}: ${p.desc}`, keys: `${p.name} ${p.category} ${p.desc} ${t.ask.kw.product}`, src: { label: lab("lab"), href: href("#ai-lab") } })),
+    ...c.roles.map((r) => ({ text: `${r.title}, ${r.org} (${r.period}). ${r.summary}`, keys: `${r.title} ${r.org} ${r.tags.join(" ")} ${r.summary} ${t.ask.kw.exp}`, src: { label: lab("experience"), href: href("#experience") }, act: { label: r.org, act: { k: "node", v: `r:${r.org}` } } })),
+    ...c.clients.map((cl) => ({ text: `${cl.client} — ${cl.title}: ${cl.summary}`, keys: `${cl.client} ${cl.title} ${cl.tags.join(" ")} ${cl.summary} ${t.ask.kw.client}`, src: { label: cl.client, href: href(`/work/${cl.slug}`) }, act: { label: cl.client.split(" · ")[0], act: { k: "case", v: cl.slug } } })),
+    ...c.products.map((p) => ({ text: `${p.name}: ${p.desc}`, keys: `${p.name} ${p.category} ${p.desc} ${t.ask.kw.product}`, src: { label: lab("lab"), href: href("#ai-lab") }, act: { label: t.lab.filters[p.category] ?? p.category, act: { k: "filter", v: p.category } } })),
     ...c.books.map((b) => ({ text: `${b.title}. ${b.theme}`, keys: `${b.title} ${b.theme} ${t.ask.kw.book}`, src: { label: lab("insights"), href: href("#insights") } })),
     ...c.stage.map((v) => ({ text: `${v.title} (${v.source.split(" · ")[0]}).`, keys: `${v.title} ${v.source} ${t.ask.kw.talk}`, src: { label: lab("insights"), href: href("#insights") } })),
-    ...Object.entries(c.proof).map(([k, v]) => ({ text: `${t.expertise.skills[k] ?? k}: ${v.map((x) => x.label).join("; ")}.`, keys: `${t.expertise.skills[k] ?? k} ${v.map((x) => x.label).join(" ")} ${t.ask.kw.skill}`, src: { label: lab("expertise"), href: href("#expertise") } })),
+    ...Object.entries(c.proof).map(([k, v]) => ({ text: `${t.expertise.skills[k] ?? k}: ${v.map((x) => x.label).join("; ")}.`, keys: `${t.expertise.skills[k] ?? k} ${v.map((x) => x.label).join(" ")} ${t.ask.kw.skill}`, src: { label: lab("expertise"), href: href("#expertise") }, act: { label: t.expertise.skills[k] ?? k, act: { k: "skill", v: k } } })),
   ].filter((x) => real(x.text));
 }
 
@@ -53,5 +54,9 @@ export function ask(q: string, locale: Locale): Answer {
     .filter((x) => x.s > 0).sort((a, b) => b.s - a.s).slice(0, 3);
   if (!top.length) return { q, a: t.ask.fallback, sources: [{ label: t.nav.lab, href: href("#ai-lab") }] };
   const seen = new Set<string>();
-  return { q, a: top.map((x) => x.ch.text).join("\n\n"), sources: top.map((x) => x.ch.src).filter((s) => !seen.has(s.href) && !!seen.add(s.href)) };
+  const seenAct = new Set<string>();
+  // A skill named in the question comes first: "your RAG projects" highlights RAG.
+  const named = Object.keys(c.proof).filter((k) => norm(q).includes(norm(t.expertise.skills[k] ?? k))).map((k) => ({ label: t.expertise.skills[k] ?? k, act: { k: "skill", v: k } as PageAct }));
+  const acts = [...named, ...top.map((x) => x.ch.act)].filter((x): x is NonNullable<typeof x> => !!x && !seenAct.has(actKey(x.act)) && !!seenAct.add(actKey(x.act)));
+  return { q, a: top.map((x) => x.ch.text).join("\n\n"), sources: top.map((x) => x.ch.src).filter((s) => !seen.has(s.href) && !!seen.add(s.href)), acts: acts.slice(0, 4) };
 }

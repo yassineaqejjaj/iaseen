@@ -1,4 +1,5 @@
 "use client";
+import { runAct } from "@/lib/actions";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { ask, searchContent } from "@/lib/ask";
@@ -72,6 +73,16 @@ export default function CommandPalette({ onClose, initialQuery = "" }: { onClose
             <div style={{ margin: "4px 4px 8px", padding: 14, borderRadius: 14, background: "rgba(106,145,255,.1)", border: "1px solid rgba(106,145,255,.3)" }}>
               <p style={{ margin: 0, fontSize: 11, fontWeight: 700, letterSpacing: ".12em", color: "var(--signal)" }}>{t.cmd.answer}</p>
               <p style={{ margin: "6px 0 0", fontSize: 14, lineHeight: 1.6, color: "var(--text2)", display: "-webkit-box", WebkitLineClamp: 4, WebkitBoxOrient: "vertical", overflow: "hidden", whiteSpace: "pre-line" }}>{answer.a.split("\n\n")[0]}</p>
+              {!!answer.acts?.length && (
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 10 }}>
+                  {answer.acts.map((x) => (
+                    <button key={x.act.k + x.act.v} type="button" onClick={() => { if (x.act.k === "case") go(href(`/work/${x.act.v}`)); else { onClose(); runAct(x.act, () => {}); } }}
+                      style={{ minHeight: 36, fontSize: 12, fontWeight: 600, padding: "0 12px", borderRadius: 999, cursor: "pointer", border: "1px solid var(--accent)", background: "transparent", color: "#fff" }}>
+                      {t.act[x.act.k]}: {x.label}
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
           )}
           <ul id="cmd-list" role="listbox" aria-label={t.cmd.open} style={{ listStyle: "none", margin: 0, padding: 0 }}>

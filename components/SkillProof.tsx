@@ -1,13 +1,19 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import type { PageAct } from "@/lib/actions";
 import { useI18n } from "./LocaleProvider";
 
 export default function SkillProof() {
   const { t, c } = useI18n();
   const [s, setS] = useState("AI Agents");
+  useEffect(() => {
+    const on = (e: Event) => { const a = (e as CustomEvent<PageAct>).detail; if (a.k === "skill" && c.proof[a.v]) setS(a.v); };
+    window.addEventListener("iaseen-act", on);
+    return () => window.removeEventListener("iaseen-act", on);
+  }, [c]);
   const label = (k: string) => t.expertise.skills[k] ?? k;
   return (
-    <>
+    <div id="skill-proof" style={{ scrollMarginTop: 96 }}>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 20 }}>
         {c.pillars.map((p) => (
           <div key={p.skills[0]} style={{ border: "1px solid var(--line)", borderRadius: 20, padding: 26, background: "var(--surface)" }}>
@@ -40,6 +46,6 @@ export default function SkillProof() {
       </div>
         ))}
       </div>
-    </>
+    </div>
   );
 }

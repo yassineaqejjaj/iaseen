@@ -11,6 +11,7 @@ export const dictEn = {
   },
   stats: { years: "Years of experience", pipeline: "Commercial pipeline", users: "NOVA users", trained: "Professionals trained", books: "Books published", repos: "Public repos on GitHub" },
   trusted: "TRUSTED BY",
+  partners: "PARTNERS I WORK WITH",
   about: { eyebrow: "ABOUT", journey: "See the journey", linkedin: "LinkedIn", alt: "Portrait of Yassine Aqejjaj" },
   proof: {
     eyebrow: "LEAD · DELIVER · BUILD", title: "Every claim, linked to a proof", panel: "EVERY CLAIM, LINKED TO A PROOF", aria: "Lead, Deliver, Build",
@@ -101,6 +102,13 @@ export const dictEn = {
     jobTitle: "Head of AI", caseSuffix: "Yassine Aqejjaj",
   },
   faq: { eyebrow: "FAQ", title: "Quick answers" },
+  act: { hint: "ACT ON THE PAGE", case: "Open case study", filter: "Filter the AI Lab", skill: "Show skill", node: "Show on the map" },
+  interlude: [
+    { big: "I don’t just lead AI. I build it.", small: "Strategy, delivery and shipped code, under one roof.", fig: false },
+    { big: "13", small: "years turning AI from slides into systems in production.", fig: true },
+    { big: "800", small: "employees use NOVA, the agentic platform I lead.", fig: true },
+    { big: "1,500+", small: "professionals trained in generative AI, agentic AI and RAG.", fig: true },
+  ],
   ambient: {
     label: "AI", aria: "Contextual insight", close: "Close", ask: "Ask about this", sectionAsk: "ASK ABOUT THIS SECTION", sources: "SOURCES",
     lines: {
@@ -146,6 +154,7 @@ export const dictFr: Dict = {
   },
   stats: { years: "Années d’expérience", pipeline: "Pipeline commercial", users: "Utilisateurs NOVA", trained: "Professionnels formés", books: "Livres publiés", repos: "Dépôts publics sur GitHub" },
   trusted: "ILS M’ONT FAIT CONFIANCE",
+  partners: "PARTENAIRES AVEC QUI JE TRAVAILLE",
   about: { eyebrow: "À PROPOS", journey: "Voir le parcours", linkedin: "LinkedIn", alt: "Portrait de Yassine Aqejjaj" },
   proof: {
     eyebrow: "DIRIGER · LIVRER · CONSTRUIRE", title: "Chaque affirmation, reliée à une preuve", panel: "CHAQUE AFFIRMATION, RELIÉE À UNE PREUVE", aria: "Diriger, livrer, construire",
@@ -233,6 +242,13 @@ export const dictFr: Dict = {
     jobTitle: "Head of AI", caseSuffix: "Yassine Aqejjaj",
   },
   faq: { eyebrow: "FAQ", title: "Réponses rapides" },
+  act: { hint: "AGIR SUR LA PAGE", case: "Ouvrir l’étude de cas", filter: "Filtrer l’AI Lab", skill: "Voir la compétence", node: "Voir sur la carte" },
+  interlude: [
+    { big: "Je ne me contente pas de diriger l’IA. Je la construis.", small: "Stratégie, delivery et code livré, sous un même toit.", fig: false },
+    { big: "13", small: "ans à faire passer l’IA des slides aux systèmes en production.", fig: true },
+    { big: "800", small: "collaborateurs utilisent NOVA, la plateforme agentique que je dirige.", fig: true },
+    { big: "1 500+", small: "professionnels formés à l’IA générative, à l’IA agentique et au RAG.", fig: true },
+  ],
   ambient: {
     label: "IA", aria: "Éclairage contextuel", close: "Fermer", ask: "Demander à propos de ceci", sectionAsk: "QUESTIONS SUR CETTE SECTION", sources: "SOURCES",
     lines: {
@@ -276,6 +292,7 @@ export const dictAr: Dict = {
   },
   stats: { years: "سنة من الخبرة", pipeline: "خط المبيعات التجاري", users: "مستخدمو NOVA", trained: "محترف تم تدريبهم", books: "كتب منشورة", repos: "مستودعات عامة على GitHub" },
   trusted: "حظيتُ بثقة",
+  partners: "شركاء أعمل معهم",
   about: { eyebrow: "نبذة", journey: "اطّلع على المسار", linkedin: "LinkedIn", alt: "صورة شخصية لـ Yassine Aqejjaj" },
   proof: {
     eyebrow: "قيادة · تسليم · بناء", title: "كل ادّعاء مرتبط بدليل", panel: "كل ادّعاء مرتبط بدليل", aria: "قيادة، تسليم، بناء",
@@ -363,6 +380,13 @@ export const dictAr: Dict = {
     jobTitle: "Head of AI", caseSuffix: "Yassine Aqejjaj",
   },
   faq: { eyebrow: "أسئلة شائعة", title: "إجابات سريعة" },
+  act: { hint: "تصرّف في الصفحة", case: "افتح دراسة الحالة", filter: "صفِّ مختبر الذكاء الاصطناعي", skill: "أبرز المهارة", node: "أظهره على الخريطة" },
+  interlude: [
+    { big: "لا أكتفي بقيادة الذكاء الاصطناعي. أنا أبنيه.", small: "استراتيجية وتسليم وشيفرة منشورة، تحت سقف واحد.", fig: false },
+    { big: "13", small: "عامًا في نقل الذكاء الاصطناعي من الشرائح إلى أنظمة قيد الإنتاج.", fig: true },
+    { big: "800", small: "موظف يستخدمون NOVA، المنصة الوكيلة التي أقودها.", fig: true },
+    { big: "+1,500", small: "متخصص دُرِّبوا على الذكاء الاصطناعي التوليدي والوكيل وRAG.", fig: true },
+  ],
   ambient: {
     label: "ذكاء", aria: "ملاحظة سياقية", close: "إغلاق", ask: "اسأل عن هذا", sectionAsk: "أسئلة حول هذا القسم", sources: "المصادر",
     lines: {

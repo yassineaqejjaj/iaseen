@@ -1,5 +1,6 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import type { PageAct } from "@/lib/actions";
 import { real } from "@/lib/content";
 import { useI18n } from "./LocaleProvider";
 
@@ -8,12 +9,18 @@ const SHOWN_ABOVE = ["NOVA Suite", "Nova Context", "Nova Evals · FORGE", "M3aya
 export default function LabGrid() {
   const { t, c } = useI18n();
   const [f, setF] = useState("All");
+  useEffect(() => {
+    const on = (e: Event) => { const a = (e as CustomEvent<PageAct>).detail; if (a.k === "filter") setF(a.v); };
+    window.addEventListener("iaseen-act", on);
+    return () => window.removeEventListener("iaseen-act", on);
+  }, []);
   const rest = c.products.filter((p) => !SHOWN_ABOVE.includes(p.name));
   const list = rest.filter((p) => f === "All" || p.category === f);
   const ids = ["All", ...["AGENTIC", "HEALTH", "EDUCATION", "SPORT"].filter((id) => rest.some((p) => p.category === id))];
   return (
     <>
-      <div role="group" aria-label={t.lab.filtersAria} style={{ display: "flex", flexWrap: "wrap", gap: 8, margin: "48px 0 20px" }}>
+      <div id="lab-grid" style={{ marginTop: 48, scrollMarginTop: 96 }}>
+      <div role="group" aria-label={t.lab.filtersAria} style={{ display: "flex", flexWrap: "wrap", gap: 8, margin: "0 0 20px" }}>
         {ids.map((id) => (
           <button key={id} type="button" className="togglebtn" aria-pressed={f === id} onClick={() => setF(id)}
             style={{ padding: "0 18px", border: `1px solid ${f === id ? "var(--accent)" : "var(--line)"}`, background: f === id ? "var(--accent)" : "transparent", color: f === id ? "#07101f" : "var(--text2)" }}>{t.lab.filters[id]}</button>
@@ -37,6 +44,7 @@ export default function LabGrid() {
             </div>
           </article>
         ))}
+      </div>
       </div>
     </>
   );

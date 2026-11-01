@@ -94,8 +94,11 @@ function Universe() {
     if (shell.current) shell.current.rotation.y = -t * 0.06;
     parts.forEach((r, i) => {
       const m = r.current!, e = split;
-      m.position.set(TARGETS[i][0] * e, TARGETS[i][1] * e, TARGETS[i][2] * e);
-      m.scale.setScalar(Math.max(0.0001, e * 0.95));
+      // Fly-in: the chosen object swells toward the camera and the others fall away.
+      const d = heroProgress.dive, mine = heroProgress.focus === i;
+      const f = mine ? d : 0;
+      m.position.set(TARGETS[i][0] * e * (1 - f), (TARGETS[i][1] * e) * (1 - f) + f * 0.2, TARGETS[i][2] * e + f * 2.4);
+      m.scale.setScalar(Math.max(0.0001, e * 0.95 * (mine ? 1 + d * 1.6 : 1 - d)));
       m.rotation.x = t * (0.12 + i * 0.05) + p * 2; m.rotation.y = t * (0.16 - i * 0.04);
     });
   });

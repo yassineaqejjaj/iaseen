@@ -62,6 +62,29 @@ export default function HeroStory() {
     return () => { removeEventListener("resize", hdr); removeEventListener("resize", measure); removeEventListener("scroll", onScroll); removeEventListener("resize", onScroll); removeEventListener("pointermove", onPointer); io.disconnect(); if (raf) cancelAnimationFrame(raf); if (!idle) clearTimeout(h); };
   }, []);
 
+  // Choosing an object: it flies toward the camera, the page fades, then the destination section arrives with its own reveal.
+  const dive = (e: React.MouseEvent<HTMLAnchorElement>, i: number, h: string) => {
+    const el = root.current;
+    const target = document.getElementById(h.replace(/^.*#/, ""));
+    const story = !!el && el.dataset.phase === "2" && getComputedStyle(el.querySelector(".hero-sticky")!).position === "sticky";
+    if (!story || !target || e.metaKey || e.ctrlKey || e.shiftKey || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    e.preventDefault();
+    heroProgress.focus = i;
+    const t0 = performance.now();
+    const step = (now: number) => {
+      const k = Math.min(1, (now - t0) / 650), d = k * k * (3 - 2 * k);
+      heroProgress.dive = d;
+      el!.style.setProperty("--dive", d.toFixed(3));
+      if (k < 1) return requestAnimationFrame(step);
+      target.scrollIntoView({ behavior: "instant" as ScrollBehavior, block: "start" });
+      history.replaceState(null, "", `#${target.id}`);
+      target.setAttribute("data-arrive", "");
+      setTimeout(() => target.removeAttribute("data-arrive"), 1400);
+      setTimeout(() => { heroProgress.dive = 0; heroProgress.focus = -1; el!.style.setProperty("--dive", "0"); }, 120);
+    };
+    requestAnimationFrame(step);
+  };
+
   const goCv = () => { setMode("executive"); setTimeout(() => document.getElementById("experience")?.scrollIntoView(), 50); };
 
   return (
@@ -90,9 +113,9 @@ export default function HeroStory() {
           </div>
         </div>
         <ul className="hero-parts wrap" ref={partsEl} aria-label={s.partsAria}>
-          {s.parts.map((x) => (
+          {s.parts.map((x, i) => (
             <li key={x.k}>
-              <Link href={href(x.h)} className="card magnetic" style={{ display: "block", padding: "18px 20px", borderRadius: 18, textDecoration: "none", color: "var(--text)", background: "rgba(13,19,32,.7)", backdropFilter: "blur(10px)" }}>
+              <Link href={href(x.h)} onClick={(e) => dive(e, i, x.h)} className="card magnetic" style={{ display: "block", padding: "18px 20px", borderRadius: 18, textDecoration: "none", color: "var(--text)", background: "rgba(13,19,32,.7)", backdropFilter: "blur(10px)" }}>
                 <span className="display" style={{ display: "block", fontSize: 24, letterSpacing: "0.04em" }}>{x.k}</span>
                 <span style={{ display: "block", marginTop: 4, fontSize: 14, color: "var(--text2)" }}>{x.d}</span>
               </Link>

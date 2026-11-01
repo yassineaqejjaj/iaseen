@@ -41,7 +41,7 @@ Translations were written by Claude: have a native speaker review the French and
 
 ## Hero story
 
-The home page opens on **IASEEN · The Intelligence Universe**: a liquid-chrome sphere (three.js through React Three Fiber, reflections generated in code, no HDR file) that splits into three objects, LEAD, BUILD and THINK, as you scroll; each links to its section. Pointer parallax and magnetic buttons add depth.
+The home page opens on **IASEEN · The Intelligence Universe**: a dark-glass sphere with a luminous rim (three.js through React Three Fiber, one small shader, no HDR file) that splits into three objects, LEAD, BUILD and THINK, as you scroll; each links to its section, with a fly-in transition toward the chosen object. Pointer parallax and magnetic buttons add depth.
 
 - **Progressive:** the 3D code (about 0.9 MB, uncompressed) is a separate chunk, downloaded on desktop when the browser is idle. The headline, brand and CTAs are plain server-rendered HTML, so the first paint and SEO do not wait for it.
 - **Fallbacks:** the same scroll story runs in pure CSS (a gradient orb that splits) when WebGL is missing. On small screens or with `prefers-reduced-motion`, there is no scroll story and no 3D: the hero is a normal static block with the three entries listed under it.
@@ -52,7 +52,9 @@ The home page opens on **IASEEN · The Intelligence Universe**: a liquid-chrome 
 
 - **Executive mode** (header toggle): a compact, motion-free CV view of the same content, saved in the browser. The server HTML is always the full experience, so crawlers and AI assistants never see the reduced version.
 - **`⌘K` / `Ctrl K` command palette**: jump to any section or case study, download the CV, switch mode, or ask a question. It answers only from the validated content (the same grounded search as Ask My AI) and is downloaded only the first time it is opened.
-- **Career constellation**: an interactive graph linking roles, skills and products, built from the `proof` data in `lib/content.ts`. On small screens it is replaced by the list below it.
+- **Interludes**: four short pauses between sections (one sentence, then three figures taken from the content). Hidden in executive mode.
+- **Ask My AI acts on the page**: answers carry buttons that open a case study, filter the AI Lab, highlight a skill or select a node of the constellation (`lib/actions.ts`, event `iaseen-act`). The same buttons appear in the command palette.
+- **Career constellation**: an interactive graph linking roles, skills and products, built from the `proof` data in `lib/content.ts`. Selecting a node lights the whole chain (role, skills, products) and lists it as clickable chips, with the GitHub or site link for products. On small screens it is replaced by the list below it.
 - Inactive tab panels (roles, case-study steps, skill proofs) carry `data-inactive` rather than `hidden`: they stay in the HTML for crawlers but are not displayed.
 
 ## SEO and GEO

@@ -5,6 +5,8 @@ import LabGrid from "@/components/LabGrid";
 import SkillProof from "@/components/SkillProof";
 import AskSection from "@/components/AskSection";
 import ProofPanel from "@/components/ProofPanel";
+import LogoMarquee from "@/components/LogoMarquee";
+import Interlude from "@/components/Interlude";
 import { FeaturedProducts } from "@/components/FeaturedProducts";
 import HeroStory from "@/components/HeroStory";
 import About from "@/components/About";
@@ -61,16 +63,15 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               </div>
             ))}
           </div>
-          <div style={{ marginTop: 40, display: "flex", flexWrap: "wrap", alignItems: "center", gap: "16px 40px" }}>
-            <span style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".14em", color: "var(--muted)" }}>{t.trusted}</span>
-            {["thales", "decathlon", "carrefour", "fujitsu", "devoteam", "axa", "banquepopulaire", "pmoffice"].map((l) => (
-              <span key={l} dir="ltr" style={{ display: "inline-flex", alignItems: "center", opacity: .85 }}><ClientLogo name={l} /></span>
-            ))}
+          <div style={{ marginTop: 40 }}>
+            <LogoMarquee label={t.trusted} names={["thales", "decathlon", "carrefour", "fujitsu", "devoteam", "axa", "banquepopulaire", "pmoffice"]} seconds={38} />
+            <LogoMarquee label={t.partners} names={["anthropic", "google", "elevenlabs", "cursor"]} reverse seconds={30} />
           </div>
         </div>
       </section>
 
       <About locale={locale} />
+      <Interlude i={0} />
 
       <section id="proof" style={{ borderBottom: "1px solid var(--line)" }}>
         <div className="wrap" style={{ paddingBlock: "96px" }}>
@@ -94,6 +95,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           </div>
         </div>
       </section>
+
+      <Interlude i={1} />
 
       <section id="client-work" style={{ background: "var(--cloud)", borderBlock: "1px solid var(--line)" }}>
         <div className="wrap sec">
@@ -125,6 +128,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         </div>
       </section>
 
+      <Interlude i={2} />
+
       <section id="ai-lab" className="on-dark" style={{ background: "radial-gradient(800px 400px at 15% 0%, rgba(106,145,255,.10), transparent 60%), var(--bg)", color: "#fff" }}>
         <div className="wrap sec">
           <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "flex-end", gap: 24, marginBottom: 40 }}>
@@ -141,6 +146,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <LabGrid />
         </div>
       </section>
+
+      <Interlude i={3} />
 
       <section id="expertise">
         <div className="wrap sec">

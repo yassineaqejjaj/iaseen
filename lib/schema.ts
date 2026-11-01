@@ -135,10 +135,11 @@ export const postGraph = (l: Locale, slug: string) => {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "BlogPosting", "@id": `${url}#post`, headline: x.title, description: x.dek, inLanguage: l, url, datePublished: post.date, dateModified: post.date,
+        "@type": "BlogPosting", "@id": `${url}#post`, headline: x.title, description: x.dek, inLanguage: l, url, datePublished: post.date, dateModified: post.updated ?? post.date,
         author: { "@id": PERSON_ID }, publisher: { "@id": PERSON_ID }, mainEntityOfPage: url, keywords: post.tags.join(", "),
         citation: post.repos.map((r) => r.url),
       },
+      ...(x.faq ? [{ "@type": "FAQPage", "@id": `${url}#faq`, mainEntity: x.faq.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) }] : []),
       {
         "@type": "BreadcrumbList",
         itemListElement: [

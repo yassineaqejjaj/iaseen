@@ -22,7 +22,7 @@ A single-page site, plus one page per client case study.
 | Ask My AI | Assistant that answers only from the validated content, with sources |
 | Contact | Email, CV, LinkedIn, GitHub |
 
-Other routes: `/nova` (NOVA Suite product page: architecture, real screens, open code), `/sitemap.xml`, `/robots.txt`. The CV is a static PDF, `public/Yassine-Aqejjaj-CV.pdf` (English); `/cv`, `/fr/cv` and `/ar/cv` redirect to it. It contains a phone number and a personal email: replace the file to change them.
+Other routes: `/nova` (NOVA Suite product page: architecture, real screens, public code), `/sitemap.xml`, `/robots.txt`. The CV is a static PDF, `public/Yassine-Aqejjaj-CV.pdf` (English); `/cv`, `/fr/cv` and `/ar/cv` redirect to it. It contains a phone number and a personal email: replace the file to change them.
 
 A "I'm here as a" selector (Recruiter, Client / Partner, Builder / Founder) reorders the sections without extra pages.
 

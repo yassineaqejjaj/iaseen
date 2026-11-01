@@ -22,6 +22,25 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 }
 
+type SectionData = { h: string; p?: string[]; list?: string[]; table?: { head: string[]; rows: string[][] } };
+function Section({ s }: { s: SectionData }) {
+  return (
+    <section>
+      <h2 dir="auto">{s.h}</h2>
+      {s.p?.map((q) => <p key={q} dir="auto">{q}</p>)}
+      {s.list && <ul className="prose-list" dir="auto">{s.list.map((i) => <li key={i}>{i}</li>)}</ul>}
+      {s.table && (
+        <div className="prose-table" dir="auto">
+          <table>
+            <thead><tr>{s.table.head.map((c) => <th key={c} scope="col">{c}</th>)}</tr></thead>
+            <tbody>{s.table.rows.map((r) => <tr key={r[0]}>{r.map((c, i) => (i === 0 ? <th key={i} scope="row">{c}</th> : <td key={i}>{c}</td>))}</tr>)}</tbody>
+          </table>
+        </div>
+      )}
+    </section>
+  );
+}
+
 export default async function PostPage({ params }: { params: Promise<{ locale: string; slug: string }> }) {
   const { locale: l, slug } = await params;
   if (!isLocale(l)) notFound();
@@ -49,24 +68,33 @@ export default async function PostPage({ params }: { params: Promise<{ locale: s
               </p>
               <h1 className="display" style={{ margin: "14px 0 0", maxWidth: 880, fontSize: "clamp(34px, 5vw, 60px)", lineHeight: 1.08 }} dir="auto">{x.title}</h1>
               <p style={{ margin: "20px 0 0", maxWidth: 700, fontSize: 20, lineHeight: 1.55, color: "var(--text2)" }}>{x.dek}</p>
-              <p style={{ margin: "18px 0 0", fontSize: 14, color: "var(--muted)" }}>Yassine Aqejjaj · {t.hero.roles.split(" · ")[0]}</p>
+              <p style={{ margin: "18px 0 0", fontSize: 14, color: "var(--muted)" }}>Yassine Aqejjaj · {t.hero.roles.split(" · ")[0]} · {b.updated} {fmt.format(new Date(post.updated ?? post.date))}</p>
             </div>
           </header>
 
           <div className="wrap" style={{ paddingBlock: "48px 24px" }}>
             <div className="prose">
-              {x.sections.slice(0, 1).map((s) => (
-                <section key={s.h}><h2 dir="auto">{s.h}</h2>{s.p.map((q) => <p key={q}>{q}</p>)}</section>
-              ))}
+              {x.answer && <p className="answer" dir="auto">{x.answer}</p>}
+              {x.sections.slice(0, 1).map((s) => <Section key={s.h} s={s} />)}
               <BlogDiagram kind={post.kind} d={x.diagram} label={b.diagram} />
-              {x.sections.slice(1).map((s) => (
-                <section key={s.h}><h2 dir="auto">{s.h}</h2>{s.p.map((q) => <p key={q}>{q}</p>)}</section>
-              ))}
+              {x.sections.slice(1).map((s) => <Section key={s.h} s={s} />)}
               <aside className="take">
                 <p style={{ margin: 0, fontSize: 12, fontWeight: 700, letterSpacing: ".14em", color: "var(--signal)" }}>{b.take}</p>
                 <p>{x.take}</p>
               </aside>
             </div>
+
+            {x.faq && (
+              <section aria-label={b.faq} className="prose" style={{ marginTop: 8 }}>
+                <h2 style={{ fontSize: 13, fontWeight: 600, letterSpacing: ".12em", color: "var(--muted)" }}>{b.faq}</h2>
+                {x.faq.map((f) => (
+                  <details key={f.q} className="card" style={{ borderRadius: 14, padding: "4px 20px", marginBottom: 10 }}>
+                    <summary style={{ cursor: "pointer", minHeight: 48, display: "flex", alignItems: "center", fontSize: 17, fontWeight: 600, listStyle: "none" }} dir="auto">{f.q}</summary>
+                    <p style={{ margin: "0 0 14px", fontSize: 16 }} dir="auto">{f.a}</p>
+                  </details>
+                ))}
+              </section>
+            )}
 
             <section aria-label={b.results} style={{ maxWidth: 960 }}>
               <h2 style={{ margin: "40px 0 0", fontSize: 13, fontWeight: 600, letterSpacing: ".12em", color: "var(--muted)" }}>{b.results}</h2>

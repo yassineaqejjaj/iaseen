@@ -258,3 +258,12 @@ html[data-mode="executive"] .tour { display: none; }
 .results { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin: 22px 0 8px; }
 .results > div { padding: 18px; border-radius: 16px; border: 1px solid var(--line); background: var(--surface); }
 html[data-mode="executive"] .dg-steps li { background: none; }
+.answer { font-size: 20px !important; line-height: 1.65 !important; color: var(--text) !important; font-weight: 500; padding-inline-start: 18px; border-inline-start: 3px solid var(--signal); margin-bottom: 32px !important; }
+.prose-list { margin: 0 0 18px; padding-inline-start: 22px; color: var(--text2); font-size: 17px; line-height: 1.7; display: grid; gap: 8px; }
+.prose-table { margin: 8px 0 26px; overflow-x: auto; border: 1px solid var(--line); border-radius: 16px; }
+.prose-table table { width: 100%; border-collapse: collapse; font-size: 15px; min-width: 520px; }
+.prose-table th, .prose-table td { padding: 12px 14px; text-align: start; vertical-align: top; border-bottom: 1px solid var(--line); line-height: 1.5; }
+.prose-table thead th { font-size: 12px; letter-spacing: .1em; color: var(--signal); background: rgba(255,255,255,.03); }
+.prose-table tbody th { font-weight: 600; color: var(--text); }
+.prose-table td { color: var(--text2); }
+.prose-table tr:last-child > * { border-bottom: none; }

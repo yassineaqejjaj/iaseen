@@ -16,7 +16,7 @@ export const dictEn = {
   proof: {
     eyebrow: "LEAD · DELIVER · BUILD", title: "Every claim, linked to a proof", panel: "EVERY CLAIM, LINKED TO A PROOF", aria: "Lead, Deliver, Build",
     tabs: { Lead: "Lead", Deliver: "Deliver", Build: "Build" },
-    desc: { Lead: "Strategy, operating model, governance, transformation", Deliver: "Client programmes, teams and AI in production", Build: "Agentic platforms, products and open code on GitHub" },
+    desc: { Lead: "Strategy, operating model, governance, transformation", Deliver: "Client programmes, teams and AI in production", Build: "Agentic platforms, products and public code on GitHub" },
     leadItems: [
       { k: "ROLE", t: "Head of AI Factory, Devoteam", h: "#experience" },
       { k: "MISSION", t: "AI operating model design at Thales", h: "/work/thales-data-ai-operating-model" },
@@ -125,7 +125,7 @@ export const dictEn = {
       ["Routines", "Runs recurring work on a schedule, such as a weekly product brief, and drops the result in the inbox."],
       ["Voice", "A hands-free mode, with speech recognition and voice by ElevenLabs. Confidential answers are never read aloud."],
     ],
-    reposTitle: "Open code", repos: [["NOVA", "The agents and the product"], ["ORBIT", "Nova Context: governed context and memory"], ["FORGE", "Nova Evals: evaluation and benchmarks"]],
+    reposTitle: "Public code", repos: [["NOVA", "The agents and the product"], ["ORBIT", "Nova Context: governed context and memory"], ["FORGE", "Nova Evals: evaluation and benchmarks"]],
     ask: "Ask my AI about NOVA", askQ: "Show his agentic AI products",
   },
   tours: {
@@ -141,7 +141,7 @@ export const dictEn = {
         "NOVA Suite, the agentic platform he leads, on the map with the skills and roles behind it.",
         "The agentic products of the AI Lab.",
         "AI agents: what backs the skill, from NOVA to client work.",
-        "NOVA has its own page: architecture, real screens and open code.",
+        "NOVA has its own page: architecture, real screens and public code.",
       ] },
       delivery: { title: "Client delivery", kw: "client clients delivery deliver missions mission enterprise production customers results impact", steps: [
         "Four client engagements, with the skills and roles behind them.",
@@ -159,8 +159,8 @@ export const dictEn = {
   blog: {
     nav: "Blog", metaTitle: "Blog: Agentic AI, Evaluation, Context | Yassine Aqejjaj", metaDescription: "Articles by Yassine Aqejjaj on enterprise agentic platforms, AI operating models, evaluating multi-agent systems and context engineering.",
     eyebrow: "BLOG", title: "Notes from building AI platforms", lead: "Four articles on what I learned building and deploying agentic platforms: analysis, diagrams, results and the code.",
-    latest: "LATEST ARTICLES", all: "All articles", back: "Back to the blog", read: "min read", take: "MY TAKE", results: "RESULTS", diagram: "DIAGRAM", code: "THE CODE", case: "RELATED CASE STUDY", on: "Published", more: "KEEP READING",
-    note: "Figures come from validated client results and from my role at Devoteam. The open-source projects are public betas.",
+    latest: "LATEST ARTICLES", all: "All articles", back: "Back to the blog", read: "min read", take: "MY TAKE", results: "RESULTS", diagram: "DIAGRAM", code: "THE CODE", case: "RELATED CASE STUDY", on: "Published", updated: "Updated on", faq: "FREQUENTLY ASKED QUESTIONS", more: "KEEP READING",
+    note: "Figures come from validated client results and from my role at Devoteam. The projects on GitHub are public betas.",
   },
   act: { hint: "ACT ON THE PAGE", case: "Open case study", filter: "Filter the AI Lab", skill: "Show skill", node: "Show on the map", page: "Open the page" },
   interlude: [
@@ -219,7 +219,7 @@ export const dictFr: Dict = {
   proof: {
     eyebrow: "DIRIGER · LIVRER · CONSTRUIRE", title: "Chaque affirmation, reliée à une preuve", panel: "CHAQUE AFFIRMATION, RELIÉE À UNE PREUVE", aria: "Diriger, livrer, construire",
     tabs: { Lead: "Diriger", Deliver: "Livrer", Build: "Construire" },
-    desc: { Lead: "Stratégie, modèle opérationnel, gouvernance, transformation", Deliver: "Programmes clients, équipes et IA en production", Build: "Plateformes agentiques, produits et code ouvert sur GitHub" },
+    desc: { Lead: "Stratégie, modèle opérationnel, gouvernance, transformation", Deliver: "Programmes clients, équipes et IA en production", Build: "Plateformes agentiques, produits et code public sur GitHub" },
     leadItems: [
       { k: "ROLE", t: "Head of AI Factory, Devoteam", h: "#experience" },
       { k: "MISSION", t: "Conception du modèle opérationnel IA chez Thales", h: "/work/thales-data-ai-operating-model" },
@@ -325,7 +325,7 @@ export const dictFr: Dict = {
       ["Routines", "Exécute le travail récurrent selon un planning, comme un Product Brief hebdomadaire, et dépose le résultat dans l’inbox."],
       ["Voix", "Un mode mains libres, avec reconnaissance vocale et voix par ElevenLabs. Les réponses confidentielles ne sont jamais lues."],
     ],
-    reposTitle: "Code ouvert", repos: [["NOVA", "Les agents et le produit"], ["ORBIT", "Nova Context : contexte et mémoire gouvernés"], ["FORGE", "Nova Evals : évaluation et benchmarks"]],
+    reposTitle: "Code public", repos: [["NOVA", "Les agents et le produit"], ["ORBIT", "Nova Context : contexte et mémoire gouvernés"], ["FORGE", "Nova Evals : évaluation et benchmarks"]],
     ask: "Interroger mon IA sur NOVA", askQ: "Montre ses produits d’IA agentique",
   },
   tours: {
@@ -341,7 +341,7 @@ export const dictFr: Dict = {
         "NOVA Suite, la plateforme agentique qu’il dirige, sur la carte avec les compétences et postes associés.",
         "Les produits agentiques de l’AI Lab.",
         "Agents IA : ce qui prouve la compétence, de NOVA aux missions clients.",
-        "NOVA a sa propre page : architecture, vraies captures et code ouvert.",
+        "NOVA a sa propre page : architecture, vraies captures et code public.",
       ] },
       delivery: { title: "Livraison chez les clients", kw: "client clients livraison livrer missions mission entreprise production résultats impact", steps: [
         "Quatre missions clients, avec les compétences et postes associés.",
@@ -359,8 +359,8 @@ export const dictFr: Dict = {
   blog: {
     nav: "Blog", metaTitle: "Blog : IA agentique, évaluation, contexte | Yassine Aqejjaj", metaDescription: "Articles de Yassine Aqejjaj sur les plateformes agentiques d’entreprise, les modèles opérationnels IA, l’évaluation des systèmes multi-agents et l’ingénierie du contexte.",
     eyebrow: "BLOG", title: "Notes de terrain sur les plateformes IA", lead: "Quatre articles sur ce que j’ai appris en construisant et en déployant des plateformes agentiques : analyse, schémas, résultats et code.",
-    latest: "DERNIERS ARTICLES", all: "Tous les articles", back: "Retour au blog", read: "min de lecture", take: "MON ANALYSE", results: "RÉSULTATS", diagram: "SCHÉMA", code: "LE CODE", case: "ÉTUDE DE CAS ASSOCIÉE", on: "Publié le", more: "À LIRE AUSSI",
-    note: "Les chiffres viennent de résultats clients validés et de mon rôle chez Devoteam. Les projets open source sont des bêtas publiques.",
+    latest: "DERNIERS ARTICLES", all: "Tous les articles", back: "Retour au blog", read: "min de lecture", take: "MON ANALYSE", results: "RÉSULTATS", diagram: "SCHÉMA", code: "LE CODE", case: "ÉTUDE DE CAS ASSOCIÉE", on: "Publié le", updated: "Mis à jour le", faq: "QUESTIONS FRÉQUENTES", more: "À LIRE AUSSI",
+    note: "Les chiffres viennent de résultats clients validés et de mon rôle chez Devoteam. Les projets GitHub sont des bêtas publiques.",
   },
   act: { hint: "AGIR SUR LA PAGE", case: "Ouvrir l’étude de cas", filter: "Filtrer l’AI Lab", skill: "Voir la compétence", node: "Voir sur la carte", page: "Ouvrir la page" },
   interlude: [
@@ -417,7 +417,7 @@ export const dictAr: Dict = {
   proof: {
     eyebrow: "قيادة · تسليم · بناء", title: "كل ادّعاء مرتبط بدليل", panel: "كل ادّعاء مرتبط بدليل", aria: "قيادة، تسليم، بناء",
     tabs: { Lead: "القيادة", Deliver: "التسليم", Build: "البناء" },
-    desc: { Lead: "الاستراتيجية، نموذج التشغيل، الحوكمة، التحول", Deliver: "برامج العملاء، الفرق، والذكاء الاصطناعي في الإنتاج", Build: "منصات وكيلة، منتجات، وشيفرة مفتوحة على GitHub" },
+    desc: { Lead: "الاستراتيجية، نموذج التشغيل، الحوكمة، التحول", Deliver: "برامج العملاء، الفرق، والذكاء الاصطناعي في الإنتاج", Build: "منصات وكيلة، منتجات، وشيفرة عامة على GitHub" },
     leadItems: [
       { k: "ROLE", t: "Head of AI Factory، Devoteam", h: "#experience" },
       { k: "MISSION", t: "تصميم نموذج تشغيل الذكاء الاصطناعي لدى Thales", h: "/work/thales-data-ai-operating-model" },
@@ -523,7 +523,7 @@ export const dictAr: Dict = {
       ["الروتينات", "تنفّذ العمل المتكرر وفق جدول، مثل موجز المنتج الأسبوعي، وتضع النتيجة في صندوق الوارد."],
       ["الصوت", "وضع بلا استخدام اليدين، مع التعرف على الكلام والصوت من ElevenLabs. لا تُقرأ الإجابات السرية بصوت مسموع أبدًا."],
     ],
-    reposTitle: "شيفرة مفتوحة", repos: [["NOVA", "الوكلاء والمنتج"], ["ORBIT", "Nova Context: سياق وذاكرة خاضعان للحوكمة"], ["FORGE", "Nova Evals: التقييم والمقارنات"]],
+    reposTitle: "شيفرة عامة", repos: [["NOVA", "الوكلاء والمنتج"], ["ORBIT", "Nova Context: سياق وذاكرة خاضعان للحوكمة"], ["FORGE", "Nova Evals: التقييم والمقارنات"]],
     ask: "اسأل ذكائي الاصطناعي عن NOVA", askQ: "اعرض منتجاته في الذكاء الاصطناعي الوكيل",
   },
   tours: {
@@ -539,7 +539,7 @@ export const dictAr: Dict = {
         "NOVA Suite، المنصة الوكيلة التي يقودها، على الخريطة مع المهارات والمناصب المرتبطة بها.",
         "المنتجات الوكيلة في مختبر الذكاء الاصطناعي.",
         "وكلاء الذكاء الاصطناعي: ما يثبت المهارة، من NOVA إلى أعمال العملاء.",
-        "لـ NOVA صفحتها الخاصة: البنية ولقطات حقيقية وشيفرة مفتوحة.",
+        "لـ NOVA صفحتها الخاصة: البنية ولقطات حقيقية وشيفرة عامة.",
       ] },
       delivery: { title: "التسليم لدى العملاء", kw: "عميل عملاء تسليم مهام مهمة مؤسسة إنتاج نتائج أثر", steps: [
         "أربع مهام لدى العملاء، مع المهارات والمناصب المرتبطة بها.",
@@ -557,8 +557,8 @@ export const dictAr: Dict = {
   blog: {
     nav: "المدونة", metaTitle: "المدونة: الذكاء الوكيل والتقييم والسياق | Yassine Aqejjaj", metaDescription: "مقالات Yassine Aqejjaj حول المنصات الوكيلة للمؤسسات ونماذج تشغيل الذكاء الاصطناعي وتقييم الأنظمة متعددة الوكلاء وهندسة السياق.",
     eyebrow: "المدونة", title: "ملاحظات من بناء منصات الذكاء الاصطناعي", lead: "أربع مقالات عمّا تعلمته من بناء ونشر منصات وكيلة: تحليل ومخططات ونتائج وشيفرة.",
-    latest: "أحدث المقالات", all: "كل المقالات", back: "العودة إلى المدونة", read: "دقائق قراءة", take: "تحليلي", results: "النتائج", diagram: "مخطط", code: "الشيفرة", case: "دراسة حالة ذات صلة", on: "نُشر في", more: "تابع القراءة",
-    note: "تأتي الأرقام من نتائج عملاء مُصادَق عليها ومن دوري في Devoteam. المشاريع المفتوحة المصدر نسخ تجريبية عامة.",
+    latest: "أحدث المقالات", all: "كل المقالات", back: "العودة إلى المدونة", read: "دقائق قراءة", take: "تحليلي", results: "النتائج", diagram: "مخطط", code: "الشيفرة", case: "دراسة حالة ذات صلة", on: "نُشر في", updated: "آخر تحديث", faq: "أسئلة شائعة", more: "تابع القراءة",
+    note: "تأتي الأرقام من نتائج عملاء مُصادَق عليها ومن دوري في Devoteam. مشاريع GitHub نسخ تجريبية عامة.",
   },
   act: { hint: "تصرّف في الصفحة", case: "افتح دراسة الحالة", filter: "صفِّ مختبر الذكاء الاصطناعي", skill: "أبرز المهارة", node: "أظهره على الخريطة", page: "افتح الصفحة" },
   interlude: [

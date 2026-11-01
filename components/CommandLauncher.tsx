@@ -7,12 +7,13 @@ const CommandPalette = dynamic(() => import("./CommandPalette"), { ssr: false })
 
 export default function CommandLauncher() {
   const [open, setOpen] = useState(false);
+  const [initial, setInitial] = useState("");
   useEffect(() => {
     const key = (e: KeyboardEvent) => { if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") { e.preventDefault(); setOpen((o) => !o); } };
-    const openIt = () => setOpen(true);
+    const openIt = (e: Event) => { setInitial(((e as CustomEvent).detail?.q as string) ?? ""); setOpen(true); };
     window.addEventListener("keydown", key);
     window.addEventListener("iaseen-palette", openIt);
     return () => { window.removeEventListener("keydown", key); window.removeEventListener("iaseen-palette", openIt); };
   }, []);
-  return open ? <CommandPalette onClose={() => setOpen(false)} /> : null;
+  return open ? <CommandPalette initialQuery={initial} onClose={() => { setOpen(false); setInitial(""); }} /> : null;
 }

@@ -160,7 +160,7 @@ export const contentFr: Content = {
   ]),
   proof: {
     "AI Strategy": [{ kind: "ROLE", label: "Head of AI Factory, Devoteam" }, { kind: "MISSION", label: "Thales : modèle opérationnel Data & IA" }, { kind: "BOOK", label: "Leading with AI" }],
-    "Operating Model": [{ kind: "MISSION", label: "Thales LAS OME" }, { kind: "ROLE", label: "Mise en place de l’AI Factory" }, { kind: "ROLE", label: "AI CoE de Fujitsu" }],
+    "Operating Model": [{ kind: "MISSION", label: "Thales LAS" }, { kind: "ROLE", label: "Mise en place de l’AI Factory" }, { kind: "ROLE", label: "AI CoE de Fujitsu" }],
     Governance: [{ kind: "PRODUCT", label: "Nova Evals / FORGE : gouvernance et évaluation" }, { kind: "PRODUCT", label: "Nova Context : contexte gouverné" }, { kind: "MISSION", label: "Thales : gouvernance Data & IA" }],
     Transformation: [{ kind: "TEACHING", label: "Plus de 1 500 personnes formées (LEAP)" }, { kind: "PRODUCT", label: "TRAIL Academy" }, { kind: "BOOK", label: "Symbiose" }],
     "AI Products": [{ kind: "MISSION", label: "Decathlon : retail intelligent" }, { kind: "MISSION", label: "Carrefour : analytique retail" }, { kind: "ROLE", label: "AI Product Manager, Devoteam" }],

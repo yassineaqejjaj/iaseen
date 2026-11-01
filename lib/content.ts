@@ -203,7 +203,7 @@ export const FILTERS: { id: string; label: string }[] = [
 
 export const proof: Record<string, { kind: string; label: string }[]> = {
   "AI Strategy": [{ kind: "ROLE", label: "Head of AI Factory, Devoteam" }, { kind: "MISSION", label: "Thales: Data & AI operating model" }, { kind: "BOOK", label: "Leading with AI" }],
-  "Operating Model": [{ kind: "MISSION", label: "Thales LAS OME" }, { kind: "ROLE", label: "AI Factory set-up" }, { kind: "ROLE", label: "Fujitsu AI CoE" }],
+  "Operating Model": [{ kind: "MISSION", label: "Thales LAS" }, { kind: "ROLE", label: "AI Factory set-up" }, { kind: "ROLE", label: "Fujitsu AI CoE" }],
   Governance: [{ kind: "PRODUCT", label: "Nova Evals / FORGE: governance & evaluation" }, { kind: "PRODUCT", label: "Nova Context: governed context" }, { kind: "MISSION", label: "Thales: Data & AI governance" }],
   Transformation: [{ kind: "TEACHING", label: "1,500+ people trained" }, { kind: "PRODUCT", label: "TRAIL Academy" }, { kind: "BOOK", label: "Symbiose" }],
   "AI Products": [{ kind: "MISSION", label: "Decathlon: intelligent retail" }, { kind: "MISSION", label: "Carrefour: retail analytics" }, { kind: "ROLE", label: "AI Product Manager, Devoteam" }],

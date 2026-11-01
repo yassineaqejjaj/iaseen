@@ -2,7 +2,7 @@
 
 export const dictEn = {
   arrow: "→",
-  nav: { about: "About", experience: "Experience", work: "Client Work", lab: "AI Lab", expertise: "Expertise", insights: "Insights", contact: "Contact", ask: "Ask my AI", homeAria: "iaseen, back to top", lang: "Language" },
+  nav: { about: "About", experience: "Experience", work: "Client Work", lab: "AI Lab", expertise: "Expertise", insights: "Insights", contact: "Contact", ask: "Ask my AI", homeAria: "iaseen, back to top", lang: "Language", menu: "Menu", closeMenu: "Close menu", mainAria: "Main" },
   path: { aria: "Choose your path", label: "I'M HERE AS A", recruiter: "Recruiter", client: "Client / Partner", builder: "Builder / Founder", hintRecruiter: "Leadership, impact, CV", hintClient: "Expertise, missions, results", hintBuilder: "Products, demos, code" },
   hero: {
     roles: "HEAD OF AI · PRODUCT BUILDER · AI STRATEGIST", line1: "I don’t just lead AI.", line2: "I build it.",
@@ -101,6 +101,21 @@ export const dictEn = {
     jobTitle: "Head of AI", caseSuffix: "Yassine Aqejjaj",
   },
   faq: { eyebrow: "FAQ", title: "Quick answers" },
+  ambient: {
+    label: "AI", aria: "Contextual insight", close: "Close", ask: "Ask about this", sectionAsk: "ASK ABOUT THIS SECTION", sources: "SOURCES",
+    lines: {
+      about: "13 years, from digital banking in Casablanca to leading AI at Devoteam.",
+      proof: "Every claim here links to a role, a mission or a product.",
+      experience: "Five roles, one thread: AI products, then AI strategy, then platforms built hands-on.",
+      "client-work": "Four engagements across defence, public services and retail. Figures shown are confirmed with the project teams.",
+      "ai-lab": "NOVA Suite is deployed to 800 employees; the rest of the lab is built solo.",
+      expertise: "Each skill is tied to a role, a mission or a product. No skill bars.",
+      insights: "Four books, one Devoteam article and two talks or podcasts.",
+      ask: "Ask anything: answers come only from validated content, with their sources.",
+      faq: "The frequent questions, as short sourced answers.",
+      contact: "A role, a programme or a talk: write to me or download the CV.",
+    } as Record<string, string>,
+  },
   story: {
     brand: "IASEEN", sub: "THE INTELLIGENCE UNIVERSE", h1a: "I architect", h1b: "intelligence.", pitch: "I lead AI. I build products. I turn ideas into reality.",
     enter: "Enter my universe", cv: "Traditional CV", scroll: "SCROLL TO DISCOVER", partsAria: "Three ways into my work",
@@ -122,7 +137,7 @@ export type Dict = typeof dictEn;
 
 export const dictFr: Dict = {
   arrow: "→",
-  nav: { about: "À propos", experience: "Parcours", work: "Missions clients", lab: "AI Lab", expertise: "Expertise", insights: "Publications", contact: "Contact", ask: "Demander à mon IA", homeAria: "iaseen, retour en haut", lang: "Langue" },
+  nav: { about: "À propos", experience: "Parcours", work: "Missions clients", lab: "AI Lab", expertise: "Expertise", insights: "Publications", contact: "Contact", ask: "Demander à mon IA", homeAria: "iaseen, retour en haut", lang: "Langue", menu: "Menu", closeMenu: "Fermer le menu", mainAria: "Navigation principale" },
   path: { aria: "Choisissez votre parcours", label: "JE VISITE EN TANT QUE", recruiter: "Recruteur", client: "Client / Partenaire", builder: "Builder / Fondateur", hintRecruiter: "Leadership, impact, CV", hintClient: "Expertise, missions, résultats", hintBuilder: "Produits, démos, code" },
   hero: {
     roles: "HEAD OF AI · PRODUCT BUILDER · STRATÈGE IA", line1: "Je ne fais pas que diriger l’IA.", line2: "Je la construis.",
@@ -218,6 +233,21 @@ export const dictFr: Dict = {
     jobTitle: "Head of AI", caseSuffix: "Yassine Aqejjaj",
   },
   faq: { eyebrow: "FAQ", title: "Réponses rapides" },
+  ambient: {
+    label: "IA", aria: "Éclairage contextuel", close: "Fermer", ask: "Demander à propos de ceci", sectionAsk: "QUESTIONS SUR CETTE SECTION", sources: "SOURCES",
+    lines: {
+      about: "13 ans, de la banque digitale à Casablanca à la direction de l’IA chez Devoteam.",
+      proof: "Chaque affirmation renvoie à un poste, une mission ou un produit.",
+      experience: "Cinq postes, un fil : produits IA, stratégie IA, puis plateformes construites en direct.",
+      "client-work": "Quatre missions, de la défense au retail. Les chiffres affichés sont confirmés avec les équipes projet.",
+      "ai-lab": "NOVA Suite est déployé auprès de 800 collaborateurs ; le reste du lab est construit seul.",
+      expertise: "Chaque compétence est reliée à un poste, une mission ou un produit. Pas de barres de niveau.",
+      insights: "Quatre livres, un article Devoteam et deux interventions ou podcasts.",
+      ask: "Posez une question : les réponses viennent uniquement du contenu validé, avec leurs sources.",
+      faq: "Les questions fréquentes, en réponses courtes et sourcées.",
+      contact: "Un poste, un programme ou une conférence : écrivez-moi ou téléchargez le CV.",
+    } as Record<string, string>,
+  },
   story: {
     brand: "IASEEN", sub: "L’UNIVERS DE L’INTELLIGENCE", h1a: "J’architecte", h1b: "l’intelligence.", pitch: "Je dirige l’IA. Je construis des produits. Je transforme les idées en réalité.",
     enter: "Entrer dans mon univers", cv: "CV classique", scroll: "FAIRE DÉFILER POUR DÉCOUVRIR", partsAria: "Trois portes d’entrée vers mon travail",
@@ -237,7 +267,7 @@ export const dictFr: Dict = {
 
 export const dictAr: Dict = {
   arrow: "←",
-  nav: { about: "نبذة", experience: "المسار", work: "أعمال العملاء", lab: "مختبر الذكاء الاصطناعي", expertise: "الخبرات", insights: "رؤى", contact: "تواصل", ask: "اسأل ذكائي الاصطناعي", homeAria: "iaseen، العودة إلى الأعلى", lang: "اللغة" },
+  nav: { about: "نبذة", experience: "المسار", work: "أعمال العملاء", lab: "مختبر الذكاء الاصطناعي", expertise: "الخبرات", insights: "رؤى", contact: "تواصل", ask: "اسأل ذكائي الاصطناعي", homeAria: "iaseen، العودة إلى الأعلى", lang: "اللغة", menu: "القائمة", closeMenu: "إغلاق القائمة", mainAria: "التنقل الرئيسي" },
   path: { aria: "اختر مسارك", label: "أزور الموقع بصفتي", recruiter: "مسؤول توظيف", client: "عميل / شريك", builder: "مطوّر / مؤسس", hintRecruiter: "القيادة، الأثر، السيرة الذاتية", hintClient: "الخبرات، المهام، النتائج", hintBuilder: "المنتجات، العروض، الشيفرة" },
   hero: {
     roles: "HEAD OF AI · باني منتجات · استراتيجي ذكاء اصطناعي", line1: "لا أقود الذكاء الاصطناعي فقط.", line2: "بل أبنيه.",
@@ -333,6 +363,21 @@ export const dictAr: Dict = {
     jobTitle: "Head of AI", caseSuffix: "Yassine Aqejjaj",
   },
   faq: { eyebrow: "أسئلة شائعة", title: "إجابات سريعة" },
+  ambient: {
+    label: "ذكاء", aria: "ملاحظة سياقية", close: "إغلاق", ask: "اسأل عن هذا", sectionAsk: "أسئلة حول هذا القسم", sources: "المصادر",
+    lines: {
+      about: "13 عامًا، من الخدمات المصرفية الرقمية بالدار البيضاء إلى قيادة الذكاء الاصطناعي في Devoteam.",
+      proof: "كل ادّعاء مرتبط بمنصب أو مهمة أو منتج.",
+      experience: "خمسة مناصب وخيط واحد: منتجات الذكاء الاصطناعي، ثم الاستراتيجية، ثم منصات تُبنى بالممارسة.",
+      "client-work": "أربع مهام بين الدفاع والخدمات العامة والتجزئة. الأرقام المعروضة مؤكدة مع فرق المشاريع.",
+      "ai-lab": "نُشرت NOVA Suite لدى 800 موظف؛ وبقية المختبر مبنية بجهد فردي.",
+      expertise: "كل مهارة مرتبطة بمنصب أو مهمة أو منتج. بلا أشرطة مستوى.",
+      insights: "أربعة كتب ومقال من Devoteam ومداخلتان أو بودكاست.",
+      ask: "اطرح سؤالًا: الإجابات من المحتوى المعتمد فقط، مع مصادرها.",
+      faq: "الأسئلة الشائعة بإجابات قصيرة وموثّقة.",
+      contact: "منصب أو برنامج أو مداخلة: راسلني أو نزّل السيرة الذاتية.",
+    } as Record<string, string>,
+  },
   story: {
     brand: "IASEEN", sub: "عالم الذكاء", h1a: "أصمّم", h1b: "الذكاء.", pitch: "أقود الذكاء الاصطناعي. أبني المنتجات. أحوّل الأفكار إلى واقع.",
     enter: "ادخل عالمي", cv: "السيرة الذاتية التقليدية", scroll: "مرّر للاكتشاف", partsAria: "ثلاثة مداخل إلى أعمالي",

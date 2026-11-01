@@ -2,8 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import CaseStepper from "@/components/CaseStepper";
 import ClientLogo from "@/components/ClientLogo";
-import Logo from "@/components/Logo";
-import LangSwitch from "@/components/LangSwitch";
+import Header from "@/components/Header";
 import { contentEn } from "@/lib/content";
 import { getI18n, isLocale, type Locale } from "@/lib/i18n";
 import { caseGraph, ld } from "@/lib/schema";
@@ -38,21 +37,13 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
   return (
     <>
       {graph && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ld(graph) }} />}
-      <header style={{ borderBottom: "1px solid var(--line)" }}>
-        <nav aria-label={t.case.aria} className="wrap" style={{ paddingBlock: 14, display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 12 }}>
-          <Link href={href("/")} aria-label={t.case.homeAria} style={{ textDecoration: "none", display: "inline-flex" }}><Logo size={34} /></Link>
-          <div style={{ display: "flex", alignItems: "center", gap: 16, flexWrap: "wrap" }}>
-            <LangSwitch locale={locale} aria={t.nav.lang} />
-            <Link href={href("#client-work")} style={{ display: "inline-flex", alignItems: "center", gap: 8, minHeight: 44, fontWeight: 600, fontSize: 15, textDecoration: "none" }}>
-              <svg className="flip" aria-hidden width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ transform: "scaleX(-1)" }}><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-              {t.case.back}
-            </Link>
-          </div>
-        </nav>
-      </header>
+      <Header locale={locale} />
       <main>
       <section style={{ background: "radial-gradient(800px 400px at 80% 0%, rgba(106,145,255,.16), transparent 60%), var(--bg)", color: "#fff", borderBottom: "1px solid var(--line)" }}>
-        <div className="wrap" style={{ paddingBlock: "80px 64px" }}>
+        <div className="wrap" style={{ paddingBlock: "48px 64px" }}>
+          <Link href={href("#client-work")} style={{ display: "inline-flex", alignItems: "center", gap: 8, minHeight: 44, marginBottom: 20, fontWeight: 600, fontSize: 15, textDecoration: "none" }}>
+            <svg className="flip" aria-hidden width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ transform: "scaleX(-1)" }}><path d="M5 12h14M13 6l6 6-6 6" /></svg>{t.case.back}
+          </Link>
           <div style={{ display: "flex", alignItems: "center", gap: 20, marginBottom: 20, flexWrap: "wrap" }}>
             <span dir="ltr"><ClientLogo name={cl.logo} scale={1.6} /></span>
             <p style={{ margin: 0, fontSize: 13, fontWeight: 600, letterSpacing: ".14em", color: "var(--signal)" }}>{t.case.label} · {cl.sector}{cl.year ? ` · ${cl.year}` : ""}</p>

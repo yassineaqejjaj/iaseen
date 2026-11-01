@@ -9,6 +9,7 @@ import { FeaturedProducts } from "@/components/FeaturedProducts";
 import HeroStory from "@/components/HeroStory";
 import About from "@/components/About";
 import Constellation from "@/components/Constellation";
+import SectionAsk from "@/components/SectionAsk";
 import Faq from "@/components/Faq";
 import { homeGraph, ld } from "@/lib/schema";
 import NovaSystem from "@/components/NovaSystem";
@@ -84,6 +85,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <p className="eyebrow">{t.journey.eyebrow}</p>
           <h2 className="h2">{t.journey.title}</h2>
           <p className="lead" style={{ marginBottom: 32 }}>{t.journey.lead}</p>
+          <SectionAsk q={[0, 2]} />
           <div className="fx"><Constellation /></div>
           <Journey />
           <div style={{ marginTop: 28, display: "flex", flexWrap: "wrap", gap: 12, alignItems: "center" }}>
@@ -98,6 +100,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <p className="eyebrow">{t.work.eyebrow}</p>
           <h2 className="h2">{t.work.title}</h2>
           <p className="lead">{t.work.lead}</p>
+          <SectionAsk q={[3, 0]} />
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 20 }}>
             {c.clients.map((cl) => (
               <article key={cl.slug} className="card" style={{ overflow: "hidden", display: "flex", flexDirection: "column" }}>
@@ -132,6 +135,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             </div>
             <a href={profile.github} className="pill pill-dark-line" style={{ color: "#fff" }} dir="ltr">github.com/{profile.githubUser}</a>
           </div>
+          <SectionAsk q={[1, 4]} />
           <NovaSystem />
           <FeaturedProducts locale={locale} />
           <LabGrid />
@@ -143,6 +147,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <p className="eyebrow">{t.expertise.eyebrow}</p>
           <h2 className="h2">{t.expertise.title}</h2>
           <p className="lead">{t.expertise.lead}</p>
+          <SectionAsk q={[2, 4]} />
           <SkillProof />
         </div>
       </section>
@@ -152,6 +157,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <p className="eyebrow">{t.insights.eyebrow}</p>
           <h2 className="h2">{t.insights.title}</h2>
           <p className="lead">{t.insights.lead}</p>
+          <SectionAsk q={[5]} />
           <h3 style={sectionTitle}>{t.insights.books}</h3>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 16 }}>
             {c.books.map((b) => (

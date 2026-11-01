@@ -9,6 +9,7 @@ import { ld, siteGraph } from "@/lib/schema";
 import { modeScript } from "@/lib/mode";
 import CommandLauncher from "@/components/CommandLauncher";
 import MagneticCursor from "@/components/MagneticCursor";
+import AmbientLayer from "@/components/AmbientLayer";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const grotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-grotesk" });
@@ -47,7 +48,7 @@ export default async function RootLayout({ children, params }: { children: React
         )}
       </head>
       <body>
-        <LocaleProvider locale={locale}>{children}<CommandLauncher /></LocaleProvider>
+        <LocaleProvider locale={locale}>{children}<CommandLauncher /><AmbientLayer /></LocaleProvider>
         <PointerGlow />
         <MagneticCursor />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ld(siteGraph(locale)) }} />

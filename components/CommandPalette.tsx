@@ -9,10 +9,10 @@ import { useI18n } from "./LocaleProvider";
 type Item = { id: string; group: string; label: string; hint?: string; run: () => void };
 const norm = (s: string) => s.toLowerCase().normalize("NFKD").replace(/[̀-ًͯ-ٟ]/g, "");
 
-export default function CommandPalette({ onClose }: { onClose: () => void }) {
+export default function CommandPalette({ onClose, initialQuery = "" }: { onClose: () => void; initialQuery?: string }) {
   const { t, c, href, locale } = useI18n();
   const router = useRouter();
-  const [q, setQ] = useState("");
+  const [q, setQ] = useState(initialQuery);
   const [i, setI] = useState(0);
   const input = useRef<HTMLInputElement>(null);
   const go = (h: string) => { onClose(); router.push(h); };
@@ -22,7 +22,8 @@ export default function CommandPalette({ onClose }: { onClose: () => void }) {
     input.current?.focus();
     const overflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-    return () => { document.body.style.overflow = overflow; prev?.focus?.(); };
+    document.documentElement.dataset.paletteOpen = "";
+    return () => { document.body.style.overflow = overflow; delete document.documentElement.dataset.paletteOpen; prev?.focus?.(); };
   }, []);
 
   const base = useMemo<Item[]>(() => {

@@ -74,12 +74,12 @@ export default function CommandPalette({ onClose, initialQuery = "" }: { onClose
         </div>
         <div style={{ overflowY: "auto", padding: 8 }}>
           {answer && (
-            <div style={{ margin: "4px 4px 8px", padding: 14, borderRadius: 14, background: "rgba(106,145,255,.1)", border: "1px solid rgba(106,145,255,.3)" }}>
+            <div style={{ margin: "4px 4px 8px", padding: 14, borderRadius: 14, background: "rgba(76,111,240,.1)", border: "1px solid rgba(76,111,240,.3)" }}>
               <p style={{ margin: 0, fontSize: 11, fontWeight: 700, letterSpacing: ".12em", color: "var(--signal)" }}>{t.cmd.answer}</p>
               <p style={{ margin: "6px 0 0", fontSize: 14, lineHeight: 1.6, color: "var(--text2)", display: "-webkit-box", WebkitLineClamp: 4, WebkitBoxOrient: "vertical", overflow: "hidden", whiteSpace: "pre-line" }}>{answer.a.split("\n\n")[0]}</p>
               {answer.tour && (
                 <button type="button" className="pill pill-accent" onClick={() => { onClose(); setTimeout(() => window.dispatchEvent(new CustomEvent("iaseen-tour", { detail: { id: answer.tour!.id } })), 50); }}
-                  style={{ marginTop: 10, minHeight: 38, padding: "0 16px", fontSize: 13, color: "#07101f" }}>{t.tours.start}: {answer.tour.title} {t.arrow}</button>
+                  style={{ marginTop: 10, minHeight: 38, padding: "0 16px", fontSize: 13, color: "#05060a" }}>{t.tours.start}: {answer.tour.title} {t.arrow}</button>
               )}
               {!!answer.acts?.length && (
                 <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 10 }}>
@@ -101,7 +101,7 @@ export default function CommandPalette({ onClose, initialQuery = "" }: { onClose
                 <li key={it.id + k} role="presentation">
                   {head && <p style={{ margin: "10px 10px 4px", fontSize: 11, fontWeight: 700, letterSpacing: ".12em", color: "var(--muted)" }}>{it.group}</p>}
                   <div id={`cmd-opt-${k}`} role="option" aria-selected={k === i} onMouseMove={() => setI(k)} onClick={it.run}
-                    style={{ cursor: "pointer", padding: "10px 12px", borderRadius: 12, background: k === i ? "rgba(106,145,255,.18)" : "transparent", display: "flex", flexDirection: "column", gap: 2 }}>
+                    style={{ cursor: "pointer", padding: "10px 12px", borderRadius: 12, background: k === i ? "rgba(76,111,240,.18)" : "transparent", display: "flex", flexDirection: "column", gap: 2 }}>
                     <span style={{ fontSize: 15, fontWeight: 600 }}>{it.label}</span>
                     {it.hint && <span style={{ fontSize: 13, color: "var(--muted)", lineHeight: 1.45 }}>{it.hint}</span>}
                   </div>

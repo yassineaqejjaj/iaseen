@@ -129,8 +129,9 @@ Client and employer logos are trademarks of their owners and are shown only to n
 ## Design
 
 - **Direction:** dark editorial, with glass surfaces reserved for interactive elements (proof panel, visitor selector, assistant, NOVA module).
-- **Palette:** base `#080B12`, surface `#111827`, accent `#6A91FF`, signal `#98E4E0`, text `#F1F5F9`.
-- **Type:** Space Grotesk for headings, Inter for text.
+- **Identity:** IASEEN Constellation (an eye drawn by connected nodes). Logo files in `public/brand/`, rules and tokens in [`docs/brand.md`](docs/brand.md).
+- **Palette:** Void `#05060A`, Deep `#0B0E17`, Chrome `#C9CED8`, Light `#F2F4F8`, Electric `#4C6FF0` (the only accent), Glow `#7B96FF`.
+- **Type:** Space Grotesk (titles, wordmark), Inter (text), JetBrains Mono (labels).
 - **Motion:** hero title reveal, a node-graph object that follows the pointer and scroll, card hover reflections. All motion respects `prefers-reduced-motion`, and the node graph stays static on small screens.
 - **CV page:** a light theme, so it prints cleanly.
 

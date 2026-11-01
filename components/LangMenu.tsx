@@ -28,7 +28,7 @@ export default function LangMenu({ inline = false }: { inline?: boolean }) {
       <div role="group" aria-label={t.nav.lang} style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
         {locales.map((l) => (
           <Link key={l} href={to(l)} hrefLang={l} lang={l} aria-current={l === locale ? "true" : undefined}
-            style={{ minHeight: 44, padding: "0 18px", display: "inline-flex", alignItems: "center", borderRadius: 999, textDecoration: "none", fontWeight: 600, border: `1px solid ${l === locale ? "var(--accent)" : "var(--line)"}`, background: l === locale ? "var(--accent)" : "transparent", color: l === locale ? "#07101f" : "var(--text2)" }}>{name[l]}</Link>
+            style={{ minHeight: 44, padding: "0 18px", display: "inline-flex", alignItems: "center", borderRadius: 999, textDecoration: "none", fontWeight: 600, border: `1px solid ${l === locale ? "var(--accent)" : "var(--line)"}`, background: l === locale ? "var(--accent)" : "transparent", color: l === locale ? "#05060a" : "var(--text2)" }}>{name[l]}</Link>
         ))}
       </div>
     );
@@ -44,7 +44,7 @@ export default function LangMenu({ inline = false }: { inline?: boolean }) {
           {locales.map((l) => (
             <li key={l} role="none">
               <Link role="menuitem" href={to(l)} hrefLang={l} lang={l} aria-current={l === locale ? "true" : undefined} onClick={() => setOpen(false)}
-                style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 16, minHeight: 40, padding: "0 12px", borderRadius: 10, textDecoration: "none", fontSize: 14, fontWeight: l === locale ? 700 : 500, color: l === locale ? "#fff" : "var(--text2)", background: l === locale ? "rgba(106,145,255,.2)" : "transparent" }}>
+                style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 16, minHeight: 40, padding: "0 12px", borderRadius: 10, textDecoration: "none", fontSize: 14, fontWeight: l === locale ? 700 : 500, color: l === locale ? "#fff" : "var(--text2)", background: l === locale ? "rgba(76,111,240,.2)" : "transparent" }}>
                 {name[l]}<span style={{ fontSize: 11, color: "var(--muted)" }}>{l.toUpperCase()}</span>
               </Link>
             </li>

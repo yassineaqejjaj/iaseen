@@ -19,33 +19,33 @@ export default function AskSection() {
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12 }}>
         <span style={{ display: "inline-flex", alignItems: "center", gap: 10, fontWeight: 600 }}>
           <span aria-hidden style={{ width: 32, height: 32, borderRadius: 10, background: "var(--accent)", display: "inline-flex", alignItems: "center", justifyContent: "center" }}>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#07101f" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z" /></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#05060a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z" /></svg>
           </span>
           {t.ask.name}
         </span>
-        <span style={{ fontSize: 12, fontWeight: 600, padding: "4px 10px", borderRadius: 999, background: "#1f2b48", color: "#c3cce3" }}>{t.ask.badge}</span>
+        <span style={{ fontSize: 12, fontWeight: 600, padding: "4px 10px", borderRadius: 999, background: "#1c2233", color: "#c9ced8" }}>{t.ask.badge}</span>
       </div>
-      <p style={{ margin: 0, fontSize: 13, fontWeight: 600, letterSpacing: ".1em", color: "#9aabd6" }}>{t.ask.suggested}</p>
+      <p style={{ margin: 0, fontSize: 13, fontWeight: 600, letterSpacing: ".1em", color: "#9ba3b5" }}>{t.ask.suggested}</p>
       <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
         {c.qa.map((x, i) => (
           <button key={x.q} type="button" aria-pressed={active === i} onClick={() => pick(i)}
-            style={{ minHeight: 44, padding: "8px 16px", borderRadius: 14, cursor: "pointer", textAlign: "start", fontSize: 14, fontWeight: 500, lineHeight: 1.4, border: `1px solid ${active === i ? "var(--accent)" : "#2e3b5a"}`, background: active === i ? "#1f2b48" : "transparent", color: "#fff" }}>
+            style={{ minHeight: 44, padding: "8px 16px", borderRadius: 14, cursor: "pointer", textAlign: "start", fontSize: 14, fontWeight: 500, lineHeight: 1.4, border: `1px solid ${active === i ? "var(--accent)" : "#2a3042"}`, background: active === i ? "#1c2233" : "transparent", color: "#fff" }}>
             <span style={{ display: "block", fontSize: 10, fontWeight: 600, letterSpacing: ".12em", color: "var(--signal)", marginBottom: 2 }}>{x.aud ? (t.ask.aud[x.aud] ?? x.aud).toUpperCase() : ""}</span>{x.q}
           </button>
         ))}
       </div>
       <div aria-live="polite" style={{ background: "rgba(8,11,18,.55)", border: "1px solid var(--line)", borderRadius: 18, padding: 20 }}>
-        <p style={{ margin: 0, fontSize: 14, fontWeight: 600, color: "#8fa6ff" }}>{ans.q}</p>
-        <p style={{ margin: "10px 0 0", fontSize: 16, lineHeight: 1.65, color: "#e3e8f5", whiteSpace: "pre-line" }}>{ans.a}</p>
+        <p style={{ margin: 0, fontSize: 14, fontWeight: 600, color: "#7b96ff" }}>{ans.q}</p>
+        <p style={{ margin: "10px 0 0", fontSize: 16, lineHeight: 1.65, color: "#f2f4f8", whiteSpace: "pre-line" }}>{ans.a}</p>
         <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 14, alignItems: "center" }}>
-          <span style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".08em", color: "#9aabd6" }}>{t.ask.sources}</span>
+          <span style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".08em", color: "#9ba3b5" }}>{t.ask.sources}</span>
           {ans.sources.map((s) => (
-            <Link key={s.href + s.label} href={s.href} style={{ fontSize: 13, fontWeight: 600, padding: "6px 12px", borderRadius: 999, background: "#1f2b48", color: "#c3cce3", textDecoration: "none" }}>{s.label}</Link>
+            <Link key={s.href + s.label} href={s.href} style={{ fontSize: 13, fontWeight: 600, padding: "6px 12px", borderRadius: 999, background: "#1c2233", color: "#c9ced8", textDecoration: "none" }}>{s.label}</Link>
           ))}
         </div>
         {ans.tour && (
           <button type="button" className="pill pill-accent" onClick={() => window.dispatchEvent(new CustomEvent("iaseen-tour", { detail: { id: ans.tour!.id } }))}
-            style={{ marginTop: 14, minHeight: 44, padding: "0 18px", color: "#07101f" }}>{t.tours.start}: {ans.tour.title} {t.arrow}</button>
+            style={{ marginTop: 14, minHeight: 44, padding: "0 18px", color: "#05060a" }}>{t.tours.start}: {ans.tour.title} {t.arrow}</button>
         )}
         {!!ans.acts?.length && (
           <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 12, alignItems: "center" }}>
@@ -63,7 +63,7 @@ export default function AskSection() {
         <label htmlFor="ask-input" style={{ position: "absolute", width: 1, height: 1, overflow: "hidden", clip: "rect(0 0 0 0)" }}>{t.ask.placeholder}</label>
         <input id="ask-input" value={text} onChange={(e) => setText(e.target.value)} placeholder={t.ask.placeholder}
           style={{ flex: 1, minWidth: 0, minHeight: 52, padding: "0 18px", borderRadius: 999, border: "1px solid var(--line)", background: "rgba(8,11,18,.55)", color: "#fff", fontSize: 15, fontFamily: "inherit" }} />
-        <button type="submit" aria-label={t.ask.send} style={{ flex: "none", width: 52, height: 52, borderRadius: "50%", border: "none", cursor: "pointer", background: "var(--accent)", color: "#07101f", display: "inline-flex", alignItems: "center", justifyContent: "center" }}>
+        <button type="submit" aria-label={t.ask.send} style={{ flex: "none", width: 52, height: 52, borderRadius: "50%", border: "none", cursor: "pointer", background: "var(--accent)", color: "#05060a", display: "inline-flex", alignItems: "center", justifyContent: "center" }}>
           <svg className="flip" aria-hidden width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
         </button>
       </form>

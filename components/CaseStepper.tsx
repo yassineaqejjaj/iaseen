@@ -18,8 +18,8 @@ export default function CaseStepper({ steps: all }: { steps: Step[] }) {
           {steps.map((s, k) => (
             <li key={s.label}>
               <button type="button" aria-pressed={i === k} onClick={() => setI(k)}
-                style={{ width: "100%", minHeight: 44, display: "flex", alignItems: "center", gap: 12, padding: "0 14px", borderRadius: 12, border: "none", cursor: "pointer", textAlign: "start", fontSize: 15, fontWeight: 600, background: i === k ? "var(--accent)" : "transparent", color: i === k ? "#07101f" : "var(--text2)" }}>
-                <span className="display" style={{ fontSize: 13, letterSpacing: 0, color: i === k ? "#07101f" : "var(--muted)" }}>{n(k)}</span>{s.label}
+                style={{ width: "100%", minHeight: 44, display: "flex", alignItems: "center", gap: 12, padding: "0 14px", borderRadius: 12, border: "none", cursor: "pointer", textAlign: "start", fontSize: 15, fontWeight: 600, background: i === k ? "var(--accent)" : "transparent", color: i === k ? "#05060a" : "var(--text2)" }}>
+                <span className="display" style={{ fontSize: 13, letterSpacing: 0, color: i === k ? "#05060a" : "var(--muted)" }}>{n(k)}</span>{s.label}
               </button>
             </li>
           ))}
@@ -68,7 +68,7 @@ export default function CaseStepper({ steps: all }: { steps: Step[] }) {
         ))}
         <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", gap: 12, marginTop: 40, paddingTop: 24, borderTop: "1px solid var(--line)" }}>
           <button type="button" className="pill pill-line" onClick={() => setI(Math.max(0, i - 1))} style={{ minHeight: 48 }}>{t.case.prev}</button>
-          <button type="button" className="pill pill-accent" onClick={() => setI(Math.min(steps.length - 1, i + 1))} style={{ minHeight: 48, color: "#07101f" }}>{t.case.next}</button>
+          <button type="button" className="pill pill-accent" onClick={() => setI(Math.min(steps.length - 1, i + 1))} style={{ minHeight: 48, color: "#05060a" }}>{t.case.next}</button>
         </div>
       </div>
     </div>

@@ -41,7 +41,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
       {graph && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ld(graph) }} />}
       <Header locale={locale} />
       <main>
-      <section style={{ background: "radial-gradient(800px 400px at 80% 0%, rgba(106,145,255,.16), transparent 60%), var(--bg)", color: "#fff", borderBottom: "1px solid var(--line)" }}>
+      <section style={{ background: "radial-gradient(800px 400px at 80% 0%, rgba(76,111,240,.16), transparent 60%), var(--bg)", color: "#fff", borderBottom: "1px solid var(--line)" }}>
         <div className="wrap" style={{ paddingBlock: "48px 64px" }}>
           <Link href={href("#client-work")} style={{ display: "inline-flex", alignItems: "center", gap: 8, minHeight: 44, marginBottom: 20, fontWeight: 600, fontSize: 15, textDecoration: "none" }}>
             <svg className="flip" aria-hidden width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ transform: "scaleX(-1)" }}><path d="M5 12h14M13 6l6 6-6 6" /></svg>{t.case.back}
@@ -73,7 +73,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
       <footer style={{ background: "var(--cloud)", borderTop: "1px solid var(--line)", color: "#fff" }}>
         <div className="wrap" style={{ paddingBlock: 56, display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: 20 }}>
           <p className="display" style={{ margin: 0, fontSize: 28, letterSpacing: "-0.02em" }}>{t.case.nextCase}: {next.client}, {next.title}</p>
-          <Link href={href(`/work/${next.slug}`)} className="pill" style={{ minHeight: 52, padding: "0 24px", background: "var(--accent)", color: "#07101f" }}>{t.case.readIt}</Link>
+          <Link href={href(`/work/${next.slug}`)} className="pill" style={{ minHeight: 52, padding: "0 24px", background: "var(--accent)", color: "#05060a" }}>{t.case.readIt}</Link>
         </div>
       </footer>
     </>

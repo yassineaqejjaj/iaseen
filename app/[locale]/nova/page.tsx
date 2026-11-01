@@ -37,7 +37,7 @@ export default async function NovaPage({ params }: { params: Promise<{ locale: s
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ld(novaGraph(locale)) }} />
       <Header locale={locale} />
       <main>
-        <section style={{ background: "radial-gradient(900px 480px at 78% 0%, rgba(106,145,255,.18), transparent 60%), radial-gradient(600px 300px at 10% 100%, rgba(152,228,224,.08), transparent 60%), var(--bg)", color: "#fff", borderBottom: "1px solid var(--line)" }}>
+        <section style={{ background: "radial-gradient(900px 480px at 78% 0%, rgba(76,111,240,.18), transparent 60%), radial-gradient(600px 300px at 10% 100%, rgba(123,150,255,.08), transparent 60%), var(--bg)", color: "#fff", borderBottom: "1px solid var(--line)" }}>
           <div className="wrap" style={{ paddingBlock: "48px 72px" }}>
             <Link href={href("#ai-lab")} style={{ display: "inline-flex", alignItems: "center", gap: 8, minHeight: 44, marginBottom: 20, fontWeight: 600, fontSize: 15, textDecoration: "none" }}>
               <span aria-hidden className="flip">←</span> {n.back}
@@ -90,7 +90,7 @@ export default async function NovaPage({ params }: { params: Promise<{ locale: s
                 </article>
               ))}
             </div>
-            <div style={{ ...card, marginTop: 16, padding: 28, borderColor: "rgba(106,145,255,.35)", background: "linear-gradient(135deg, rgba(106,145,255,.14), rgba(152,228,224,.05))" }}>
+            <div style={{ ...card, marginTop: 16, padding: 28, borderColor: "rgba(76,111,240,.35)", background: "linear-gradient(135deg, rgba(76,111,240,.14), rgba(123,150,255,.05))" }}>
               <h3 className="display" style={{ margin: 0, fontSize: 24 }}>{n.loopTitle}</h3>
               <p style={{ margin: "10px 0 0", fontSize: 16, lineHeight: 1.65, color: "var(--text2)", maxWidth: 760 }}>{n.loopText}</p>
             </div>
@@ -123,7 +123,7 @@ export default async function NovaPage({ params }: { params: Promise<{ locale: s
               ))}
             </div>
             <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", gap: 12 }}>
-              <Link href={href("#ask")} className="pill pill-accent" style={{ minHeight: 52, padding: "0 24px", color: "#07101f" }}>{n.ask}</Link>
+              <Link href={href("#ask")} className="pill pill-accent" style={{ minHeight: 52, padding: "0 24px", color: "#05060a" }}>{n.ask}</Link>
               <Link href={href("#ai-lab")} className="pill pill-line" style={{ minHeight: 52, padding: "0 24px" }}>{n.back}</Link>
             </div>
           </div>

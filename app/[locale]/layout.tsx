@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Inter, Space_Grotesk, Noto_Sans_Arabic } from "next/font/google";
+import { Inter, Space_Grotesk, JetBrains_Mono, Noto_Sans_Arabic } from "next/font/google";
 import "../globals.css";
 import PointerGlow from "@/components/PointerGlow";
 import { LocaleProvider } from "@/components/LocaleProvider";
@@ -14,6 +14,7 @@ import GuidedTour from "@/components/GuidedTour";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const grotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-grotesk" });
+const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jbmono", weight: ["400", "500"] });
 const arabic = Noto_Sans_Arabic({ subsets: ["arabic"], variable: "--font-arabic", weight: ["400", "500", "600", "700"] });
 
 export function generateStaticParams() {
@@ -41,7 +42,7 @@ export default async function RootLayout({ children, params }: { children: React
   if (!isLocale(locale)) notFound();
   const { dir } = getI18n(locale);
   return (
-    <html lang={locale} dir={dir} suppressHydrationWarning className={`${inter.variable} ${grotesk.variable} ${arabic.variable}`}>
+    <html lang={locale} dir={dir} suppressHydrationWarning className={`${inter.variable} ${grotesk.variable} ${mono.variable} ${arabic.variable}`}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: modeScript }} />
         {process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN && (

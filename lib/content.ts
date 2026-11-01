@@ -230,10 +230,10 @@ export const pillars = [
 
 const AMZ = "https://www.amazon.fr/dp/";
 export const books = [
-  { short: "Symbiose", title: "Symbiose: La Collaboration Augmentée", theme: "Humans and AI working together.", url: AMZ + "B0G48PY7S5", cover: "#0B1020", coverSub: "#9AABD6" },
-  { short: "Leading with AI", title: "Leading with AI: The Blueprint for AI-Enhanced Healthcare", theme: "AI leadership in healthcare.", url: AMZ + "B0CVB848M6", cover: "#2A45B0", coverSub: "#C9D4FF" },
-  { short: "Artificial Candidate", title: "The Artificial Candidate: Generative AI and the Future of US Election", theme: "GenAI and democracy.", url: AMZ + "B0CN69XBKW", cover: "#18243A", coverSub: "#9AABD6" },
-  { short: "Leading with AI", title: "Leading with AI: Embracing the Future of Education", theme: "AI leadership in education.", url: AMZ + "B0CN5PG7LT", cover: "#3B4660", coverSub: "#C3CCE3" },
+  { short: "Symbiose", title: "Symbiose: La Collaboration Augmentée", theme: "Humans and AI working together.", url: AMZ + "B0G48PY7S5", cover: "#0B1020", coverSub: "#9ba3b5" },
+  { short: "Leading with AI", title: "Leading with AI: The Blueprint for AI-Enhanced Healthcare", theme: "AI leadership in healthcare.", url: AMZ + "B0CVB848M6", cover: "#2A45B0", coverSub: "#a9bbff" },
+  { short: "Artificial Candidate", title: "The Artificial Candidate: Generative AI and the Future of US Election", theme: "GenAI and democracy.", url: AMZ + "B0CN69XBKW", cover: "#18243A", coverSub: "#9ba3b5" },
+  { short: "Leading with AI", title: "Leading with AI: Embracing the Future of Education", theme: "AI leadership in education.", url: AMZ + "B0CN5PG7LT", cover: "#3B4660", coverSub: "#c9ced8" },
 ];
 
 export const stage = [

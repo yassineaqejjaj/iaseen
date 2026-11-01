@@ -15,7 +15,7 @@ export default function SectionAsk({ q }: { q: number[] }) {
       <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
         {q.map((i) => (
           <button key={i} type="button" aria-expanded={open === i} onClick={() => setOpen(open === i ? null : i)}
-            style={{ minHeight: 40, padding: "6px 14px", borderRadius: 999, cursor: "pointer", fontSize: 13, fontWeight: 500, textAlign: "start", border: `1px solid ${open === i ? "var(--accent)" : "var(--line)"}`, background: open === i ? "rgba(106,145,255,.16)" : "transparent", color: "var(--text2)" }}>
+            style={{ minHeight: 40, padding: "6px 14px", borderRadius: 999, cursor: "pointer", fontSize: 13, fontWeight: 500, textAlign: "start", border: `1px solid ${open === i ? "var(--accent)" : "var(--line)"}`, background: open === i ? "rgba(76,111,240,.16)" : "transparent", color: "var(--text2)" }}>
             {c.qa[i].q}
           </button>
         ))}

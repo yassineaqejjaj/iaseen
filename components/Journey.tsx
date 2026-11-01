@@ -17,7 +17,7 @@ export default function Journey() {
       <div role="group" aria-label={j.lensAria} style={{ display: "flex", flexWrap: "wrap", gap: 8, padding: 6, background: "var(--surface)", border: "1px solid var(--line)", borderRadius: 999, width: "fit-content", marginBottom: 32 }}>
         {lensIds.map((id) => (
           <button key={id} type="button" className="togglebtn" aria-pressed={lens === id} onClick={() => setLens(id)}
-            style={{ padding: "0 18px", border: "none", background: lens === id ? "var(--accent)" : "transparent", color: lens === id ? "#07101f" : "var(--text2)" }}>{j.lenses[id]}</button>
+            style={{ padding: "0 18px", border: "none", background: lens === id ? "var(--accent)" : "transparent", color: lens === id ? "#05060a" : "var(--text2)" }}>{j.lenses[id]}</button>
         ))}
       </div>
       <div style={{ display: "flex", flexWrap: "wrap", gap: 24, alignItems: "flex-start" }}>
@@ -25,7 +25,7 @@ export default function Journey() {
           {roles.map((r, k) => (
             <li key={r.org + r.period}>
               <button type="button" aria-pressed={i === k} onClick={() => setI(k)}
-                style={{ width: "100%", textAlign: "start", cursor: "pointer", display: "flex", gap: 16, alignItems: "flex-start", padding: "18px 20px", borderRadius: 16, border: `1px solid ${i === k ? "var(--accent)" : "var(--line)"}`, background: i === k ? "rgba(106,145,255,.1)" : "var(--surface)", color: "var(--text)" }}>
+                style={{ width: "100%", textAlign: "start", cursor: "pointer", display: "flex", gap: 16, alignItems: "flex-start", padding: "18px 20px", borderRadius: 16, border: `1px solid ${i === k ? "var(--accent)" : "var(--line)"}`, background: i === k ? "rgba(76,111,240,.1)" : "var(--surface)", color: "var(--text)" }}>
                 <span aria-hidden style={{ marginTop: 6, width: 10, height: 10, borderRadius: "50%", flex: "none", background: i === k ? "var(--accent)" : "#c9d1e3" }} />
                 <span style={{ display: "flex", flexDirection: "column", gap: 4, minWidth: 0 }}>
                   <span style={{ fontSize: 13, fontWeight: 600, color: "var(--muted)" }}>{r.period}</span>
@@ -67,7 +67,7 @@ export default function Journey() {
           <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 12 }}>
             {bullets.map((b) => (
               <li key={b.text} style={{ display: "flex", gap: 12, alignItems: "flex-start", fontSize: 16, lineHeight: 1.55, color: "var(--text2)" }}>
-                <svg aria-hidden style={{ flex: "none", marginTop: 3 }} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#98E4E0" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12l5 5L20 7" /></svg>
+                <svg aria-hidden style={{ flex: "none", marginTop: 3 }} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7b96ff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12l5 5L20 7" /></svg>
                 <span><span style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".08em", color: "var(--muted)", marginInlineEnd: 8 }}>{j.tag[b.lens]}</span>{b.text}</span>
               </li>
             ))}

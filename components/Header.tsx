@@ -64,7 +64,7 @@ export default function Header(_props: { locale?: string }) {
           <span className="hide-sm"><PaletteButton /></span>
           <span className="hide-sm"><ModeToggle compact /></span>
           <span className="hide-sm"><LangMenu /></span>
-          <Link href={href("#contact")} className="pill pill-accent nav-cta hide-sm" style={{ color: "#07101f" }}>{t.nav.contact}</Link>
+          <Link href={href("#contact")} className="pill pill-accent nav-cta hide-sm" style={{ color: "#05060a" }}>{t.nav.contact}</Link>
           <button type="button" className="icon-btn nav-burger" aria-expanded={open} aria-controls="mobile-menu" aria-label={open ? t.nav.closeMenu : t.nav.menu} onClick={() => setOpen(!open)}>
             <svg aria-hidden width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">{open ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 8h16M4 16h16" />}</svg>
           </button>

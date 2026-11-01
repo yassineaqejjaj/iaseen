@@ -64,7 +64,7 @@ export default function AmbientLayer() {
             <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
               {qs.map((i) => (
                 <button key={i} type="button" aria-expanded={open === i} onClick={() => setOpen(open === i ? null : i)}
-                  style={{ minHeight: 32, maxWidth: 260, padding: "4px 12px", borderRadius: 999, cursor: "pointer", fontSize: 12, fontWeight: 500, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", border: `1px solid ${open === i ? "var(--accent)" : "var(--line)"}`, background: open === i ? "rgba(106,145,255,.2)" : "transparent", color: "var(--text2)" }}>{c.qa[i].q}</button>
+                  style={{ minHeight: 32, maxWidth: 260, padding: "4px 12px", borderRadius: 999, cursor: "pointer", fontSize: 12, fontWeight: 500, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", border: `1px solid ${open === i ? "var(--accent)" : "var(--line)"}`, background: open === i ? "rgba(76,111,240,.2)" : "transparent", color: "var(--text2)" }}>{c.qa[i].q}</button>
               ))}
             </div>
           </div>

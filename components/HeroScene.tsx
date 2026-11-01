@@ -54,7 +54,7 @@ function useShell(n: number) {
   }, [n]);
 }
 
-const dark = { color: "#050814", transparent: true, opacity: 0.9, toneMapped: false } as const;
+const dark = { color: "#05060a", transparent: true, opacity: 0.9, toneMapped: false } as const;
 const TARGETS: [number, number, number][] = [[-2.6, 0.45, 0], [0, 0.45, 0.4], [2.6, 0.45, 0]];
 
 function Universe() {
@@ -62,10 +62,10 @@ function Universe() {
   const core = useRef<THREE.Group>(null);
   const shell = useRef<THREE.Points>(null);
   const parts = [useRef<THREE.Group>(null), useRef<THREE.Group>(null), useRef<THREE.Group>(null)];
-  const coreG = useGlass("#4f74ee", "#98e4e0", { power: 2.4, gain: 1.05, base: 0.05, wob: 0.012 });
-  const orbG = useGlass("#5578f4", "#98e4e0", { power: 2.4, gain: 1.0 });
-  const cubeG = useGlass("#4f74ee", "#98e4e0", { power: 3.2, gain: 0.7, base: 0.03 });
-  const knotG = useGlass("#98e4e0", "#6a91ff", { power: 1.8, gain: 0.85, base: 0.1 });
+  const coreG = useGlass("#4c6ff0", "#7b96ff", { power: 2.4, gain: 1.05, base: 0.05, wob: 0.012 });
+  const orbG = useGlass("#4c6ff0", "#7b96ff", { power: 2.4, gain: 1.0 });
+  const cubeG = useGlass("#4c6ff0", "#7b96ff", { power: 3.2, gain: 0.7, base: 0.03 });
+  const knotG = useGlass("#7b96ff", "#4c6ff0", { power: 1.8, gain: 0.85, base: 0.1 });
   const dots = useShell(1100);
   const cubeEdges = useMemo(() => new THREE.EdgesGeometry(new THREE.BoxGeometry(1.06, 1.06, 1.06)), []);
 
@@ -110,7 +110,7 @@ function Universe() {
         <mesh><sphereGeometry args={[1.2, 64, 64]} /><meshBasicMaterial {...dark} /></mesh>
         <mesh material={coreG.mat}><sphereGeometry args={[1.25, 96, 96]} /></mesh>
         <points ref={shell} geometry={dots} scale={1.27}>
-          <pointsMaterial color="#98e4e0" size={0.016} sizeAttenuation transparent opacity={0.7} depthWrite={false} blending={THREE.AdditiveBlending} toneMapped={false} />
+          <pointsMaterial color="#7b96ff" size={0.016} sizeAttenuation transparent opacity={0.7} depthWrite={false} blending={THREE.AdditiveBlending} toneMapped={false} />
         </points>
       </group>
 
@@ -118,14 +118,14 @@ function Universe() {
       <group ref={parts[0]}>
         <mesh><sphereGeometry args={[0.76, 48, 48]} /><meshBasicMaterial {...dark} /></mesh>
         <mesh material={orbG.mat}><sphereGeometry args={[0.8, 64, 64]} /></mesh>
-        <mesh rotation={[1.25, 0, 0.35]}><torusGeometry args={[1.08, 0.005, 8, 200]} /><meshBasicMaterial color="#9bb4ff" transparent opacity={0.65} toneMapped={false} /></mesh>
+        <mesh rotation={[1.25, 0, 0.35]}><torusGeometry args={[1.08, 0.005, 8, 200]} /><meshBasicMaterial color="#a9bbff" transparent opacity={0.65} toneMapped={false} /></mesh>
       </group>
 
       {/* BUILD: glass cube with a luminous edge */}
       <group ref={parts[1]}>
         <mesh><boxGeometry args={[1.0, 1.0, 1.0]} /><meshBasicMaterial {...dark} /></mesh>
         <mesh material={cubeG.mat}><boxGeometry args={[1.06, 1.06, 1.06]} /></mesh>
-        <lineSegments geometry={cubeEdges}><lineBasicMaterial color="#cfeef0" transparent opacity={0.6} toneMapped={false} /></lineSegments>
+        <lineSegments geometry={cubeEdges}><lineBasicMaterial color="#c9ced8" transparent opacity={0.6} toneMapped={false} /></lineSegments>
       </group>
 
       {/* THINK: a slim glass ribbon knot */}

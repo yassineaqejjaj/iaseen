@@ -58,7 +58,7 @@ export default async function PostPage({ params }: { params: Promise<{ locale: s
       <Header locale={locale} />
       <main>
         <article>
-          <header style={{ background: "radial-gradient(800px 400px at 80% 0%, rgba(106,145,255,.14), transparent 60%), var(--bg)", color: "#fff", borderBottom: "1px solid var(--line)" }}>
+          <header style={{ background: "radial-gradient(800px 400px at 80% 0%, rgba(76,111,240,.14), transparent 60%), var(--bg)", color: "#fff", borderBottom: "1px solid var(--line)" }}>
             <div className="wrap" style={{ paddingBlock: "48px 56px" }}>
               <Link href={href("/blog")} style={{ display: "inline-flex", alignItems: "center", gap: 8, minHeight: 44, marginBottom: 18, fontWeight: 600, fontSize: 15, textDecoration: "none" }}>
                 <span aria-hidden className="flip">←</span> {b.back}
@@ -116,7 +116,7 @@ export default async function PostPage({ params }: { params: Promise<{ locale: s
                 ))}
                 {post.cases?.map((s) => {
                   const cl = c.clients.find((k) => k.slug === s);
-                  return cl && <Link key={s} href={href(`/work/${s}`)} className="pill pill-accent" style={{ minHeight: 46, padding: "0 18px", color: "#07101f" }}>{b.case}: {cl.client.split(" · ")[0]}</Link>;
+                  return cl && <Link key={s} href={href(`/work/${s}`)} className="pill pill-accent" style={{ minHeight: 46, padding: "0 18px", color: "#05060a" }}>{b.case}: {cl.client.split(" · ")[0]}</Link>;
                 })}
               </div>
             </section>

@@ -22,7 +22,7 @@ export default function About({ locale }: { locale: Locale }) {
             {bio.facts.map((f) => <li key={f} className="chip">{f}</li>)}
           </ul>
           <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", gap: 12 }}>
-            <Link href={href("#experience")} className="pill pill-accent" style={{ color: "#07101f" }}>{t.about.journey}</Link>
+            <Link href={href("#experience")} className="pill pill-accent" style={{ color: "#05060a" }}>{t.about.journey}</Link>
             <a href={profile.linkedin} className="pill pill-line">{t.about.linkedin}</a>
           </div>
         </div>

@@ -31,7 +31,7 @@ export default async function BlogIndex({ params }: { params: Promise<{ locale: 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ld(blogGraph(locale)) }} />
       <Header locale={locale} />
       <main>
-        <section style={{ background: "radial-gradient(800px 400px at 80% 0%, rgba(106,145,255,.14), transparent 60%), var(--bg)", color: "#fff", borderBottom: "1px solid var(--line)" }}>
+        <section style={{ background: "radial-gradient(800px 400px at 80% 0%, rgba(76,111,240,.14), transparent 60%), var(--bg)", color: "#fff", borderBottom: "1px solid var(--line)" }}>
           <div className="wrap" style={{ paddingBlock: "56px 72px" }}>
             <p className="eyebrow">{b.eyebrow}</p>
             <h1 className="display" style={{ margin: 0, maxWidth: 820, fontSize: "clamp(38px, 5.4vw, 68px)", lineHeight: 1.05 }}>{b.title}</h1>

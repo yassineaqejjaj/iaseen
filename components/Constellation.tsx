@@ -109,7 +109,7 @@ export default function Constellation() {
     return <><p className="display" style={{ margin: 0, fontSize: 22 }} dir="ltr">{selected.label}</p><p style={{ margin: "8px 0 0", color: "var(--text2)", lineHeight: 1.6 }}>{prod?.desc}</p>{prod && /^https?:/.test(prod.url) && <a href={prod.url} target="_blank" rel="noopener noreferrer" className="pill pill-line" style={{ marginTop: 12, display: "inline-flex" }} dir="ltr">{t.lab.cta[prod.cta] ?? prod.cta} ↗</a>}</>;
   };
 
-  const color = (kind: Kind) => (kind === "role" ? "#6a91ff" : kind === "skill" ? "#98e4e0" : kind === "mission" ? "#f5b97a" : "#f1f5f9");
+  const color = (kind: Kind) => (kind === "role" ? "#4c6ff0" : kind === "skill" ? "#7b96ff" : kind === "mission" ? "#c9ced8" : "#f2f4f8");
   return (
     <div id="constellation" style={{ marginBottom: 40, scrollMarginTop: 96 }}>
       <p className="eyebrow">{k.eyebrow}</p>
@@ -118,12 +118,12 @@ export default function Constellation() {
       <div className="constellation-svg glass" dir="ltr" style={{ borderRadius: 24, padding: 12 }}>
         <svg viewBox="0 0 1000 520" role="group" aria-label={k.title} style={{ width: "100%", height: "auto", display: "block" }}>
           {[[k.products, 30], [k.skills, 205], [k.missions, 372], [k.roles, 440]].map(([label, y]) => (
-            <text key={String(label)} x="8" y={y as number} fontSize="10" letterSpacing="1.4" fill="#94a3b8">{label as string}</text>
+            <text key={String(label)} x="8" y={y as number} fontSize="10" letterSpacing="1.4" fill="#9ba3b5">{label as string}</text>
           ))}
           {edges.map(([a, b]) => {
             const A = byId.get(a)!, B = byId.get(b)!;
             const my = (A.y + B.y) / 2;
-            return <path key={a + b} d={`M${A.x},${A.y} C${A.x},${my} ${B.x},${my} ${B.x},${B.y}`} fill="none" stroke={edgeOn(a, b) ? "#6a91ff" : "#94a3b8"} strokeWidth={sel && edgeOn(a, b) ? 1.6 : 1} opacity={sel ? (edgeOn(a, b) ? 0.9 : 0.08) : 0.22} />;
+            return <path key={a + b} d={`M${A.x},${A.y} C${A.x},${my} ${B.x},${my} ${B.x},${B.y}`} fill="none" stroke={edgeOn(a, b) ? "#4c6ff0" : "#9ba3b5"} strokeWidth={sel && edgeOn(a, b) ? 1.6 : 1} opacity={sel ? (edgeOn(a, b) ? 0.9 : 0.08) : 0.22} />;
           })}
           {nodes.map((n) => {
             const active = on(n.id);
@@ -133,8 +133,8 @@ export default function Constellation() {
                 onClick={() => setSel(sel === n.id ? null : n.id)} onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setSel(sel === n.id ? null : n.id); } }}>
                 <circle cx={n.x} cy={n.y} r={r + 8} fill="transparent" />
                 <circle cx={n.x} cy={n.y} r={r} fill={color(n.kind)} stroke={sel === n.id ? "#fff" : "none"} strokeWidth="2" />
-                <text x={n.x} y={n.y + (n.kind === "role" ? 30 : n.kind === "product" || n.kind === "mission" ? -16 : 22)} textAnchor="middle" fontSize={n.kind === "skill" ? 11 : 13} fontWeight={n.kind === "skill" ? 500 : 600} fill="#e2e8f0">{n.label}</text>
-                {n.sub && <text x={n.x} y={n.y + 46} textAnchor="middle" fontSize="11" fill="#94a3b8">{n.sub}</text>}
+                <text x={n.x} y={n.y + (n.kind === "role" ? 30 : n.kind === "product" || n.kind === "mission" ? -16 : 22)} textAnchor="middle" fontSize={n.kind === "skill" ? 11 : 13} fontWeight={n.kind === "skill" ? 500 : 600} fill="#f2f4f8">{n.label}</text>
+                {n.sub && <text x={n.x} y={n.y + 46} textAnchor="middle" fontSize="11" fill="#9ba3b5">{n.sub}</text>}
               </g>
             );
           })}

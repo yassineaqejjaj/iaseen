@@ -100,7 +100,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 20 }}>
             {c.clients.map((cl) => (
               <article key={cl.slug} className="card" style={{ overflow: "hidden", display: "flex", flexDirection: "column" }}>
-                <div style={{ height: 168, background: "linear-gradient(135deg, #0d1320, #131c33)", position: "relative", padding: 24, display: "flex", flexDirection: "column", justifyContent: "space-between", boxSizing: "border-box" }}>
+                <div style={{ height: 168, background: "linear-gradient(135deg, #0b0e17, #11141f)", position: "relative", padding: 24, display: "flex", flexDirection: "column", justifyContent: "space-between", boxSizing: "border-box" }}>
                   <span style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".14em", color: "var(--muted)" }}>{cl.sector}</span>
                   <span dir="ltr"><ClientLogo name={cl.logo} scale={1.5} /></span>
                   <span aria-hidden style={{ position: "absolute", insetInlineEnd: 24, top: 24, width: 56, height: 56, borderRadius: 16, border: "1px solid var(--line)" }} />
@@ -124,7 +124,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
 
       <Interlude i={2} />
 
-      <section id="ai-lab" className="on-dark" style={{ background: "radial-gradient(800px 400px at 15% 0%, rgba(106,145,255,.10), transparent 60%), var(--bg)", color: "#fff" }}>
+      <section id="ai-lab" className="on-dark" style={{ background: "radial-gradient(800px 400px at 15% 0%, rgba(76,111,240,.10), transparent 60%), var(--bg)", color: "#fff" }}>
         <div className="wrap sec">
           <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "flex-end", gap: 24, marginBottom: 40 }}>
             <div>
@@ -239,7 +239,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         </div>
       </section>
 
-      <section id="ask" className="on-dark" style={{ background: "radial-gradient(700px 400px at 85% 20%, rgba(152,228,224,.08), transparent 60%), var(--cloud)", color: "#fff" }}>
+      <section id="ask" className="on-dark" style={{ background: "radial-gradient(700px 400px at 85% 20%, rgba(123,150,255,.08), transparent 60%), var(--cloud)", color: "#fff" }}>
         <div className="wrap sec" style={{ display: "flex", flexWrap: "wrap", gap: 48, alignItems: "flex-start" }}>
           <div style={{ flex: "1 1 340px", minWidth: 0 }}>
             <p className="eyebrow">{t.ask.eyebrow}</p>
@@ -265,7 +265,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               <p style={{ margin: "16px 0 0", maxWidth: 520, fontSize: 17, lineHeight: 1.6, color: "var(--text2)" }}>{t.contact.text}</p>
             </div>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
-              <a href={`mailto:${profile.email}`} className="pill pill-accent" style={{ minHeight: 52, padding: "0 24px", color: "#07101f" }}>{t.contact.contactMe}</a>
+              <a href={`mailto:${profile.email}`} className="pill pill-accent" style={{ minHeight: 52, padding: "0 24px", color: "#05060a" }}>{t.contact.contactMe}</a>
               <a href={profile.cv} download="Yassine-Aqejjaj-CV.pdf" className="pill pill-dark-line" style={{ minHeight: 52, padding: "0 24px", color: "#fff" }}>{t.contact.cv}</a>
               <a href={profile.linkedin} className="pill pill-dark-line" style={{ minHeight: 52, padding: "0 24px", color: "#fff" }}>{t.contact.linkedin}</a>
               <a href={profile.github} className="pill pill-dark-line" style={{ minHeight: 52, padding: "0 24px", color: "#fff" }}>{t.contact.github}</a>

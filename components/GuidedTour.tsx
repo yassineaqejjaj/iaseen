@@ -45,13 +45,13 @@ export default function GuidedTour() {
         <p style={{ margin: 0, fontSize: 11, fontWeight: 700, letterSpacing: ".12em", color: "var(--signal)" }}>{t.tours.start.toUpperCase()} · {x.title} · {t.tours.step} {i + 1}/{n}</p>
         <button type="button" onClick={() => setTour(null)} aria-label={t.tours.close} className="tour-x">✕</button>
       </div>
-      <p style={{ margin: "8px 0 0", fontSize: 15, lineHeight: 1.55, color: "#e3e8f5" }}>{x.steps[i]}</p>
+      <p style={{ margin: "8px 0 0", fontSize: 15, lineHeight: 1.55, color: "#f2f4f8" }}>{x.steps[i]}</p>
       <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 12, alignItems: "center" }}>
         <button type="button" className="pill pill-line" disabled={i === 0} onClick={() => setI(i - 1)} style={{ minHeight: 40, padding: "0 16px", opacity: i === 0 ? 0.4 : 1 }}>{t.tours.prev}</button>
         {nav ? (
-          <button type="button" className="pill pill-accent" onClick={go} style={{ minHeight: 40, padding: "0 18px", color: "#07101f" }}>{t.tours.open} {t.arrow}</button>
+          <button type="button" className="pill pill-accent" onClick={go} style={{ minHeight: 40, padding: "0 18px", color: "#05060a" }}>{t.tours.open} {t.arrow}</button>
         ) : (
-          <button type="button" className="pill pill-accent" onClick={() => (last ? setTour(null) : setI(i + 1))} style={{ minHeight: 40, padding: "0 18px", color: "#07101f" }}>{last ? t.tours.close : t.tours.next}</button>
+          <button type="button" className="pill pill-accent" onClick={() => (last ? setTour(null) : setI(i + 1))} style={{ minHeight: 40, padding: "0 18px", color: "#05060a" }}>{last ? t.tours.close : t.tours.next}</button>
         )}
         {nav && !last && <button type="button" className="pill pill-line" onClick={() => setI(i + 1)} style={{ minHeight: 40, padding: "0 16px" }}>{t.tours.next}</button>}
       </div>

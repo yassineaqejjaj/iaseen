@@ -64,7 +64,7 @@ function Universe() {
   const parts = [useRef<THREE.Group>(null), useRef<THREE.Group>(null), useRef<THREE.Group>(null)];
   const coreG = useGlass("#4f74ee", "#98e4e0", { power: 2.4, gain: 1.05, base: 0.05, wob: 0.012 });
   const orbG = useGlass("#5578f4", "#98e4e0", { power: 2.4, gain: 1.0 });
-  const cubeG = useGlass("#6a91ff", "#c8f4f1", { power: 2.0, gain: 0.8, base: 0.06 });
+  const cubeG = useGlass("#4f74ee", "#98e4e0", { power: 3.2, gain: 0.7, base: 0.03 });
   const knotG = useGlass("#98e4e0", "#6a91ff", { power: 1.8, gain: 0.85, base: 0.1 });
   const dots = useShell(1100);
   const cubeEdges = useMemo(() => new THREE.EdgesGeometry(new THREE.BoxGeometry(1.06, 1.06, 1.06)), []);
@@ -89,7 +89,8 @@ function Universe() {
     state.camera.position.z = 6 + p * 0.9;
     const c = core.current!;
     c.rotation.y = t * 0.1 + p * 2.4; c.rotation.x = Math.sin(t * 0.2) * 0.15;
-    c.scale.setScalar(Math.max(0.0001, 1.0 * (1 - split * 0.94)));
+    c.scale.setScalar(Math.max(0.0001, 1 - split));
+    c.visible = split < 0.9; // fully gone once split, so nothing shows through the cube
     if (shell.current) shell.current.rotation.y = -t * 0.06;
     parts.forEach((r, i) => {
       const m = r.current!, e = split;

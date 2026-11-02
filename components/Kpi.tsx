@@ -11,7 +11,7 @@ export function KpiRow({ id, compact = false }: { id: string; compact?: boolean 
     <ul className="kpis" data-compact={compact || undefined} aria-label="KPI">
       {list.map((x) => (
         <li key={x.l.en}>
-          <span className="kpi-v" dir="ltr">{fmtKpi(x.v, locale)}</span>
+          <span className="kpi-v" dir="ltr" data-long={x.v.length > 7 || undefined}>{fmtKpi(x.v, locale)}</span>
           <span className="kpi-l">{x.l[locale]}</span>
         </li>
       ))}

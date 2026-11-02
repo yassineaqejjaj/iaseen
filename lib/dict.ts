@@ -191,6 +191,15 @@ export const dictEn = {
       { h: "Cookies", p: ["This site does not use advertising trackers. The download form does not set any cookie."] },
     ],
   },
+  wp2: {
+    metaTitle: "White paper: Agentic Transformation | Yassine Aqejjaj",
+    metaDescription: "A 23-page guide to moving from assistants to agents: process selection, human oversight, architecture, evaluation, governance, change management and a 12-month roadmap.",
+    eyebrow: "WHITE PAPER · 2026", title: "Agentic transformation",
+    lead: "From assistants to agents: a method, governance and a roadmap to transform enterprise processes.",
+    meta: "Document in French · 23 pages · PDF",
+    inside: ["What “agentic” really changes, from assistant to multi-agent system", "Choosing the processes to transform: selection grid and value/risk matrix", "Designing the human’s place: roles, decision points and four autonomy levels", "Architecture of an agentic system: orchestration, specialists, governed context", "Context, data and access rights", "Evaluating before scaling: scenarios, judges and release gates", "Governing actions, and managing change with real training figures", "Measuring the transformation, a wave-based roadmap, common mistakes and templates"],
+    teaser: "NEW · WHITE PAPER", teaserText: "Agentic transformation: from assistants to agents, method and roadmap.",
+  },
   act: { hint: "ACT ON THE PAGE", case: "Open case study", filter: "Filter the AI Lab", skill: "Show skill", node: "Show on the map", page: "Open the page" },
   interlude: [
     { big: "I don’t just lead AI.\nI build it.", small: "Strategy, delivery and shipped code, under one roof.", fig: false },
@@ -420,6 +429,15 @@ export const dictFr: Dict = {
       { h: "Cookies", p: ["Ce site n’utilise pas de traceurs publicitaires. Le formulaire de téléchargement ne dépose aucun cookie."] },
     ],
   },
+  wp2: {
+    metaTitle: "Livre blanc : la transformation agentique | Yassine Aqejjaj",
+    metaDescription: "Un guide de 23 pages pour passer des assistants aux agents : choix des processus, supervision humaine, architecture, évaluation, gouvernance, conduite du changement et feuille de route sur 12 mois.",
+    eyebrow: "LIVRE BLANC · 2026", title: "La transformation agentique",
+    lead: "Passer des assistants aux agents : méthode, gouvernance et feuille de route pour transformer des processus d’entreprise.",
+    meta: "Document en français · 23 pages · PDF",
+    inside: ["Ce que « agentique » change vraiment, de l’assistant au système multi-agents", "Choisir les processus à transformer : grille de sélection et matrice valeur / risque", "Concevoir la place de l’humain : rôles, points de décision et quatre niveaux d’autonomie", "Architecture d’un système agentique : orchestration, spécialistes, contexte gouverné", "Contexte, données et droits d’accès", "Évaluer avant d’étendre : scénarios, juges et portes de mise en production", "Gouverner les actions, et conduire le changement avec des chiffres de formation réels", "Mesurer la transformation, feuille de route par vagues, erreurs à éviter et modèles"],
+    teaser: "NOUVEAU · LIVRE BLANC", teaserText: "La transformation agentique : des assistants aux agents, méthode et feuille de route.",
+  },
   act: { hint: "AGIR SUR LA PAGE", case: "Ouvrir l’étude de cas", filter: "Filtrer l’AI Lab", skill: "Voir la compétence", node: "Voir sur la carte", page: "Ouvrir la page" },
   interlude: [
     { big: "Je ne me contente pas de diriger l’IA.\nJe la construis.", small: "Stratégie, delivery et code livré, sous un même toit.", fig: false },
@@ -646,6 +664,15 @@ export const dictAr: Dict = {
       { h: "حقوقك", p: ["يمكنك طلب الاطلاع على بياناتك أو تصحيحها أو حذفها، أو الاعتراض على استخدامها، أو سحب موافقتك، بمراسلتي. ويمكنك أيضًا تقديم شكوى إلى هيئة حماية البيانات في بلدك. تتضمن كل رسالة أرسلها رابطًا لإلغاء الاشتراك."] },
       { h: "ملفات تعريف الارتباط", p: ["لا يستخدم هذا الموقع أدوات تتبع إعلانية. ولا يضع نموذج التحميل أي ملف تعريف ارتباط."] },
     ],
+  },
+  wp2: {
+    metaTitle: "ورقة بيضاء: التحول الوكيل | Yassine Aqejjaj",
+    metaDescription: "دليل من 23 صفحة للانتقال من المساعدين إلى الوكلاء: اختيار العمليات والإشراف البشري والبنية والتقييم والحوكمة وإدارة التغيير وخارطة طريق لاثني عشر شهرًا.",
+    eyebrow: "ورقة بيضاء · 2026", title: "التحول الوكيل",
+    lead: "من المساعدين إلى الوكلاء: منهج وحوكمة وخارطة طريق لتحويل عمليات المؤسسة.",
+    meta: "الوثيقة بالفرنسية · 23 صفحة · PDF",
+    inside: ["ما الذي يغيّره «الوكيل» فعلًا، من المساعد إلى النظام متعدد الوكلاء", "اختيار العمليات المراد تحويلها: شبكة الاختيار ومصفوفة القيمة والمخاطر", "تصميم مكان الإنسان: الأدوار ونقاط القرار وأربعة مستويات للاستقلالية", "بنية النظام الوكيل: التنسيق والمتخصصون والسياق الخاضع للحوكمة", "السياق والبيانات وصلاحيات الوصول", "التقييم قبل التوسع: السيناريوهات والمحكّمون وبوابات الإنتاج", "حوكمة الإجراءات وإدارة التغيير بأرقام تدريب حقيقية", "قياس التحول وخارطة طريق على موجات وأخطاء شائعة ونماذج"],
+    teaser: "جديد · ورقة بيضاء", teaserText: "التحول الوكيل: من المساعدين إلى الوكلاء، منهج وخارطة طريق.",
   },
   act: { hint: "تصرّف في الصفحة", case: "افتح دراسة الحالة", filter: "صفِّ مختبر الذكاء الاصطناعي", skill: "أبرز المهارة", node: "أظهره على الخريطة", page: "افتح الصفحة" },
   interlude: [

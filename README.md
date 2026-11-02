@@ -158,7 +158,7 @@ The home page fetches the public repository count from the GitHub API and revali
 
 ## Gated white paper
 
-`/resources/ai-factory-guide` offers the AI Factory guide in exchange for an e-mail address. The PDF (`whitepapers/ai-factory/`) is never a public URL: `/api/whitepaper` validates the address and the consent, stores the lead, then answers with the file itself.
+`/resources/ai-factory-guide` and `/resources/agentic-transformation` offer two white papers in exchange for an e-mail address. The PDF (`whitepapers/ai-factory/`) is never a public URL: `/api/whitepaper` validates the address and the consent, stores the lead, then answers with the file itself.
 
 Where the leads go (`lib/whitepaper.ts`):
 - **Production:** a private Google Sheet, through an Apps Script web app. Set `LEADS_WEBHOOK_URL` (and `LEADS_WEBHOOK_SECRET`) in the Vercel project settings. Setup steps: [`docs/leads-google-sheet.md`](docs/leads-google-sheet.md). If the sheet cannot be reached, the visitor gets an error and no file, so no download goes unrecorded.

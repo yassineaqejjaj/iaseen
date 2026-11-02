@@ -8,6 +8,7 @@ import path from "node:path";
  */
 export const WHITEPAPERS = {
   "ai-factory-guide": { downloadName: "Guide-AI-Factory-Yassine-Aqejjaj.pdf", source: "whitepaper-ai-factory-guide" },
+  "agentic-transformation": { downloadName: "Guide-Transformation-Agentique-Yassine-Aqejjaj.pdf", source: "whitepaper-agentic-transformation" },
 } as const;
 export type WhitepaperId = keyof typeof WHITEPAPERS;
 export const isWhitepaper = (s: string): s is WhitepaperId => s in WHITEPAPERS;

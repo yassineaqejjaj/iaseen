@@ -8,6 +8,7 @@ export const runtime = "nodejs";
 // Literal paths only: a computed path would make the bundler trace the whole project into the function.
 const FILES: Record<WhitepaperId, () => Promise<Buffer>> = {
   "ai-factory-guide": () => readFile(path.join(process.cwd(), "whitepapers", "ai-factory", "guide-ai-factory-fr.pdf")),
+  "agentic-transformation": () => readFile(path.join(process.cwd(), "whitepapers", "agentic-transformation", "guide-transformation-agentique-fr.pdf")),
 };
 
 export async function POST(req: Request) {

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useI18n } from "./LocaleProvider";
 
 /** E-mail gate for a white paper. The PDF link only exists after a successful submission and expires after 24 hours. */
-export default function WhitepaperForm({ id }: { id: string }) {
+export default function WhitepaperForm({ id, fileName }: { id: string; fileName: string }) {
   const { t, locale, href } = useI18n();
   const w = t.wp;
   const [email, setEmail] = useState("");
@@ -28,7 +28,7 @@ export default function WhitepaperForm({ id }: { id: string }) {
         const file = URL.createObjectURL(await r.blob());
         setUrl(file); setState("done");
         const a = document.createElement("a");
-        a.href = file; a.download = "Guide-AI-Factory-Yassine-Aqejjaj.pdf";
+        a.href = file; a.download = fileName;
         document.body.appendChild(a); a.click(); a.remove();
         return;
       }
@@ -41,7 +41,7 @@ export default function WhitepaperForm({ id }: { id: string }) {
     return (
       <div role="status" className="card" style={{ padding: 24, borderColor: "rgba(76,111,240,.5)" }}>
         <p className="display" style={{ margin: 0, fontSize: 22 }}>{w.ok}</p>
-        <a href={url} download="Guide-AI-Factory-Yassine-Aqejjaj.pdf" className="pill pill-accent" style={{ marginTop: 16, color: "#05060a" }}>{w.again}</a>
+        <a href={url} download={fileName} className="pill pill-accent" style={{ marginTop: 16, color: "#05060a" }}>{w.again}</a>
       </div>
     );
 

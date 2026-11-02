@@ -2,7 +2,7 @@ const old = ["experience", "work", "lab", "expertise", "insights", "contact"];
 const anchor = { work: "client-work", lab: "ai-lab" };
 export default {
   // The gated PDF is read at runtime by the white paper route, so it must be traced into the serverless bundle.
-  outputFileTracingIncludes: { "/api/whitepaper": ["./whitepapers/ai-factory/guide-ai-factory-fr.pdf"] },
+  outputFileTracingIncludes: { "/api/whitepaper": ["./whitepapers/ai-factory/guide-ai-factory-fr.pdf", "./whitepapers/agentic-transformation/guide-transformation-agentique-fr.pdf"] },
   async redirects() {
     return [
       ...old.map((p) => ({ source: `/${p}`, destination: `/#${anchor[p] ?? p}`, permanent: false })),

@@ -222,3 +222,62 @@ def gantt(l):
         last = m >= 12
         b += f'<path d="M{x - (7 if last else 0)} {yb} l7 -7 l7 7 l-7 7z" fill="{VOID}"/>' + txt(x if last else x + 7, yb + 24, lab, 8.2, INK, 600, "end" if last else "middle")
     return svg(640, yb + 36, b)
+
+
+# ---- Figure: autonomy spectrum -----------------------------------------------------------------
+def spectrum(l):
+    n = len(l["cols"])
+    w = 148
+    gap = (640 - n * w) / (n - 1)
+    b = f'<defs><linearGradient id="gr" x1="0" x2="1"><stop offset="0" stop-color="{CHROME}"/><stop offset="1" stop-color="{ELEC}"/></linearGradient></defs>'
+    b += f'<rect x="0" y="6" width="640" height="10" rx="5" fill="url(#gr)"/>'
+    for i, (t, rows) in enumerate(l["cols"]):
+        x = i * (w + gap)
+        last = i == n - 1
+        b += box(x, 34, w, 190, ELEC if last else "#fff", ELEC, 12, "", 1.2)
+        b += txt(x + 14, 60, t, 12.5, "#fff" if last else INK, 700, "start", DISP)
+        for j, (k, v) in enumerate(rows):
+            yy = 86 + j * 44
+            b += txt(x + 14, yy, k, 7.8, "#E6ECFF" if last else ELEC, 500, "start", MONO, 'letter-spacing="1.2"')
+            b += txt(x + 14, yy + 15, v, 9.8, "#fff" if last else INK, 500)
+    b += txt(0, 244, l["lo"], 9, MUTED) + txt(640, 244, l["hi"], 9, ELEC, 600, "end")
+    return svg(640, 252, b)
+
+
+# ---- Figure: 2x2 matrix ------------------------------------------------------------------------
+def matrix(l):
+    x0, y0, w, h = 46, 8, 574, 292
+    b = ""
+    quads = [(0, 0, l["q"][0], "#EEF1FF"), (1, 0, l["q"][1], "#FFF3F5"), (0, 1, l["q"][2], SOFT), (1, 1, l["q"][3], "#F6F6F8")]
+    for qx, qy, name, fill in quads:
+        b += f'<rect x="{x0 + qx * w / 2}" y="{y0 + qy * h / 2}" width="{w / 2}" height="{h / 2}" fill="{fill}" stroke="{LINE}"/>'
+        b += txt(x0 + qx * w / 2 + 12, y0 + qy * h / 2 + 22, name, 10.2, ELEC if (qx, qy) == (0, 0) else MUTED, 700, "start", DISP)
+    for (px, py, lab) in l["pts"]:
+        cx, cy = x0 + px * w, y0 + (1 - py) * h
+        b += f'<circle cx="{cx}" cy="{cy}" r="6" fill="{ELEC}" stroke="#fff" stroke-width="2"/>' + txt(cx + 11, cy + 4, lab, 9.4, INK, 500)
+    b += arrow(x0, y0 + h + 14, x0 + w, y0 + h + 14, MUTED) + txt(x0 + w / 2, y0 + h + 32, l["x"], 9.6, MUTED, 500, "middle")
+    b += arrow(x0 - 16, y0 + h, x0 - 16, y0, MUTED) + txt(14, y0 + h / 2, l["y"], 9.6, MUTED, 500, "middle", FONT, f'transform="rotate(-90 14 {y0 + h / 2})"')
+    return svg(640, 340, b)
+
+
+# ---- Figure: human in the loop lanes -----------------------------------------------------------
+def lanes(l):
+    lane_h, left = 84, 96
+    b = ""
+    for i, name in enumerate(l["lanes"]):
+        y = 4 + i * lane_h
+        b += f'<rect x="0" y="{y}" width="640" height="{lane_h - 6}" rx="10" fill="{SOFT if i != 1 else "#EEF1FF"}" stroke="{LINE}"/>'
+        b += txt(14, y + lane_h / 2 + 2, name, 10.4, INK, 700, "start", DISP)
+    cw = (640 - left - 8) / len(l["steps"])
+    prev = None
+    for k, (lane, label) in enumerate(l["steps"]):
+        x = left + k * cw + 4
+        y = 4 + lane * lane_h + 14
+        human = lane == 2
+        b += box(x, y, cw - 8, 52, "#fff" if not human else DEEP, ELEC if not human else DEEP, 10, "", 1.2)
+        b += lines(x + (cw - 8) / 2, y + (22 if len(label) < 3 else 17), label, 8.8, "#fff" if human else INK, 12, "middle", 600)
+        if prev:
+            px, py = prev
+            b += f'<path d="M{px} {py} L{x + 2} {y + 26}" stroke="{ELEC}" stroke-width="1.5" fill="none" marker-end="url(#ar)"/>'
+        prev = (x + cw - 8, y + 26)
+    return svg(640, 4 + len(l["lanes"]) * lane_h, b)

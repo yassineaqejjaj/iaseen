@@ -11,6 +11,7 @@ import CommandLauncher from "@/components/CommandLauncher";
 import MagneticCursor from "@/components/MagneticCursor";
 import AmbientLayer from "@/components/AmbientLayer";
 import GuidedTour from "@/components/GuidedTour";
+import PendingAct from "@/components/PendingAct";
 import ScrollFx from "@/components/ScrollFx";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -51,7 +52,7 @@ export default async function RootLayout({ children, params }: { children: React
         )}
       </head>
       <body>
-        <LocaleProvider locale={locale}>{children}<CommandLauncher /><AmbientLayer /><GuidedTour /><ScrollFx /></LocaleProvider>
+        <LocaleProvider locale={locale}>{children}<CommandLauncher /><AmbientLayer /><GuidedTour /><PendingAct /><ScrollFx /></LocaleProvider>
         <PointerGlow />
         <MagneticCursor />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ld(siteGraph(locale)) }} />

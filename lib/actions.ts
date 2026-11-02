@@ -20,10 +20,27 @@ export function flash(el: HTMLElement | null, block: ScrollLogicalPosition = "ce
   window.setTimeout(() => el.removeAttribute("data-flash"), 2000);
 }
 
+const HOST: Record<Exclude<PageAct["k"], "case" | "page">, string> = { filter: "/lab", skill: "/expertise", node: "/experience" };
+const PENDING = "iaseen-pending-act";
+
+/** Runs an action that was queued before a page change. */
+export function runPending(go: (path: string) => void) {
+  try {
+    const raw = sessionStorage.getItem(PENDING);
+    if (!raw) return;
+    sessionStorage.removeItem(PENDING);
+    window.setTimeout(() => runAct(JSON.parse(raw) as PageAct, go, false), 450);
+  } catch { /* storage unavailable */ }
+}
+
 /** Runs an action. `go` handles navigation (it receives a site path such as /work/slug). */
-export function runAct(a: PageAct, go: (path: string) => void) {
+export function runAct(a: PageAct, go: (path: string) => void, queue = true) {
   if (a.k === "case") return go(`/work/${a.v}`);
   if (a.k === "page") return go(a.v);
+  // The target lives on its own page: go there and run the action once it has mounted.
+  if (queue && !document.getElementById(TARGET[a.k])) {
+    try { sessionStorage.setItem(PENDING, JSON.stringify(a)); go(HOST[a.k]); return; } catch { /* fall through */ }
+  }
   window.dispatchEvent(new CustomEvent<PageAct>("iaseen-act", { detail: a }));
   // Wait one frame so the target has applied the new state before it is scrolled to.
   requestAnimationFrame(() => requestAnimationFrame(() => flash(document.getElementById(TARGET[a.k]))));

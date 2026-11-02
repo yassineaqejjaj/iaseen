@@ -13,13 +13,13 @@ function chunksFor(locale: Locale): Chunk[] {
   const { c, t, href } = getI18n(locale);
   const lab = (k: "experience" | "work" | "lab" | "expertise" | "insights" | "about") => t.nav[k];
   return [
-    ...c.bio.paragraphs.map((p) => ({ text: p, keys: `${p} ${t.ask.kw.about}`, src: { label: lab("about"), href: href("#about") } })),
-    ...c.roles.map((r) => ({ text: `${r.title}, ${r.org} (${r.period}). ${r.summary}`, keys: `${r.title} ${r.org} ${r.tags.join(" ")} ${r.summary} ${t.ask.kw.exp}`, src: { label: lab("experience"), href: href("#experience") }, act: { label: r.org, act: { k: "node", v: `r:${r.org}` } } })),
+    ...c.bio.paragraphs.map((p) => ({ text: p, keys: `${p} ${t.ask.kw.about}`, src: { label: lab("about"), href: href("/about") } })),
+    ...c.roles.map((r) => ({ text: `${r.title}, ${r.org} (${r.period}). ${r.summary}`, keys: `${r.title} ${r.org} ${r.tags.join(" ")} ${r.summary} ${t.ask.kw.exp}`, src: { label: lab("experience"), href: href("/experience") }, act: { label: r.org, act: { k: "node", v: `r:${r.org}` } } })),
     ...c.clients.map((cl) => ({ text: `${cl.client} — ${cl.title}: ${cl.summary}`, keys: `${cl.client} ${cl.title} ${cl.tags.join(" ")} ${cl.summary} ${t.ask.kw.client}`, src: { label: cl.client, href: href(`/work/${cl.slug}`) }, act: { label: cl.client.split(" · ")[0], act: { k: "case", v: cl.slug } } })),
-    ...c.products.map((p) => ({ text: `${p.name}: ${p.desc}`, keys: `${p.name} ${p.category} ${p.desc} ${t.ask.kw.product}`, src: { label: lab("lab"), href: href("#ai-lab") }, act: p.name === "NOVA Suite" ? { label: "NOVA Suite", act: { k: "page", v: "/nova" } } : { label: t.lab.filters[p.category] ?? p.category, act: { k: "filter", v: p.category } } })),
-    ...c.books.map((b) => ({ text: `${b.title}. ${b.theme}`, keys: `${b.title} ${b.theme} ${t.ask.kw.book}`, src: { label: lab("insights"), href: href("#insights") } })),
-    ...c.stage.map((v) => ({ text: `${v.title} (${v.source.split(" · ")[0]}).`, keys: `${v.title} ${v.source} ${t.ask.kw.talk}`, src: { label: lab("insights"), href: href("#insights") } })),
-    ...Object.entries(c.proof).map(([k, v]) => ({ text: `${t.expertise.skills[k] ?? k}: ${v.map((x) => x.label).join("; ")}.`, keys: `${t.expertise.skills[k] ?? k} ${v.map((x) => x.label).join(" ")} ${t.ask.kw.skill}`, src: { label: lab("expertise"), href: href("#expertise") }, act: { label: t.expertise.skills[k] ?? k, act: { k: "skill", v: k } } })),
+    ...c.products.map((p) => ({ text: `${p.name}: ${p.desc}`, keys: `${p.name} ${p.category} ${p.desc} ${t.ask.kw.product}`, src: { label: lab("lab"), href: href("/lab") }, act: p.name === "NOVA Suite" ? { label: "NOVA Suite", act: { k: "page", v: "/nova" } } : { label: t.lab.filters[p.category] ?? p.category, act: { k: "filter", v: p.category } } })),
+    ...c.books.map((b) => ({ text: `${b.title}. ${b.theme}`, keys: `${b.title} ${b.theme} ${t.ask.kw.book}`, src: { label: lab("insights"), href: href("/insights") } })),
+    ...c.stage.map((v) => ({ text: `${v.title} (${v.source.split(" · ")[0]}).`, keys: `${v.title} ${v.source} ${t.ask.kw.talk}`, src: { label: lab("insights"), href: href("/insights") } })),
+    ...Object.entries(c.proof).map(([k, v]) => ({ text: `${t.expertise.skills[k] ?? k}: ${v.map((x) => x.label).join("; ")}.`, keys: `${t.expertise.skills[k] ?? k} ${v.map((x) => x.label).join(" ")} ${t.ask.kw.skill}`, src: { label: lab("expertise"), href: href("/expertise") }, act: { label: t.expertise.skills[k] ?? k, act: { k: "skill", v: k } } })),
   ].filter((x) => real(x.text));
 }
 
@@ -69,7 +69,7 @@ function answer(q: string, locale: Locale): Answer {
   const top = chunksFor(locale)
     .map((ch) => { const k = tok(ch.keys, new Set()); return { ch, s: qt.filter((w) => k.some((x) => x === w || (w.length > 3 && x.startsWith(w)))).length }; })
     .filter((x) => x.s > 0).sort((a, b) => b.s - a.s).slice(0, 3);
-  if (!top.length) return { q, a: t.ask.fallback, sources: [{ label: t.nav.lab, href: href("#ai-lab") }] };
+  if (!top.length) return { q, a: t.ask.fallback, sources: [{ label: t.nav.lab, href: href("/lab") }] };
   const seen = new Set<string>();
   const seenAct = new Set<string>();
   // A skill named in the question comes first: "your RAG projects" highlights RAG.

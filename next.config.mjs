@@ -1,4 +1,4 @@
-const old = ["experience", "expertise", "insights", "contact"];
+const old = [];
 const anchor = {};
 export default {
   // The gated PDF is read at runtime by the white paper route, so it must be traced into the serverless bundle.

@@ -29,7 +29,7 @@ export default function CommandPalette({ onClose, initialQuery = "" }: { onClose
   }, []);
 
   const base = useMemo<Item[]>(() => {
-    const sec: [string, string][] = [[t.nav.about, "#about"], [t.nav.experience, "#experience"], [t.nav.work, "#client-work"], [t.nav.lab, "#ai-lab"], [t.nav.expertise, "#expertise"], [t.nav.insights, "#insights"], [t.ask.eyebrow, "#ask"], [t.nav.contact, "#contact"]];
+    const sec: [string, string][] = [[t.nav.about, "/about"], [t.nav.experience, "/experience"], [t.nav.work, "/work"], [t.nav.lab, "/lab"], [t.nav.expertise, "/expertise"], [t.nav.insights, "/insights"], [t.ask.eyebrow, "/ask"], [t.nav.contact, "/contact"]];
     return [
       ...sec.map(([label, h]) => ({ id: h, group: t.cmd.goTo, label, run: () => go(href(h)) })),
       ...c.clients.map((cl) => ({ id: cl.slug, group: t.cmd.cases, label: `${cl.client.split(" · ")[0]}: ${cl.title}`, run: () => go(href(`/work/${cl.slug}`)) })),

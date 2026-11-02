@@ -2,18 +2,14 @@ import Link from "next/link";
 import ClientCard from "@/components/ClientCard";
 import MobileFold from "@/components/MobileFold";
 import Header from "@/components/Header";
-import Journey from "@/components/Journey";
-import SkillProof from "@/components/SkillProof";
 import AskSection from "@/components/AskSection";
 import LogoMarquee from "@/components/LogoMarquee";
 import { latestPosts } from "@/lib/blog";
 import { KpiRow } from "@/components/Kpi";
-import Disclosure from "@/components/Disclosure";
 import Interlude from "@/components/Interlude";
 import { FeaturedProducts } from "@/components/FeaturedProducts";
 import HeroStory from "@/components/HeroStory";
 import About from "@/components/About";
-import Constellation from "@/components/Constellation";
 import SectionAsk from "@/components/SectionAsk";
 import Faq from "@/components/Faq";
 import { homeGraph, ld } from "@/lib/schema";
@@ -83,10 +79,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <h2 className="h2">{t.journey.title}</h2>
           <p className="lead" style={{ marginBottom: 32 }}>{t.journey.lead}</p>
           <SectionAsk q={[0, 2]} />
-          <MobileFold label={t.more.journey}>
-            <div className="fx"><Constellation /></div>
-            <Journey />
-          </MobileFold>
+          <p style={{ margin: "0 0 20px" }}><Link href={href("/experience")} className="pill pill-accent" style={{ color: "#05060a" }}>{t.about.journey} {t.arrow}</Link></p>
           <div style={{ marginTop: 28, display: "flex", flexWrap: "wrap", gap: 12, alignItems: "center" }}>
             <a href={profile.cv} download="Yassine-Aqejjaj-CV.pdf" className="pill pill-line">{t.journey.download}</a>
             <span style={{ fontSize: 14, color: "var(--muted)" }}>{t.journey.downloadNote}</span>
@@ -135,7 +128,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <h2 className="h2">{t.expertise.title}</h2>
           <p className="lead">{t.expertise.lead}</p>
           <SectionAsk q={[2, 4]} />
-          <MobileFold label={t.more.skills}><SkillProof /></MobileFold>
+          <p style={{ margin: "0" }}><Link href={href("/expertise")} className="pill pill-line">{t.nav.expertise} {t.arrow}</Link></p>
         </div>
       </section>
 
@@ -169,80 +162,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               </Link>
             ))}
           </div>
-          <p style={{ margin: "-32px 0 48px" }}><Link href={href("/blog")} style={{ fontWeight: 600, fontSize: 15 }}>{t.blog.all} {t.arrow}</Link></p>
-          <MobileFold label={t.insights.books}>
-          <h3 style={sectionTitle}>{t.insights.books}</h3>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 16 }}>
-            {c.books.map((b) => (
-              <a key={b.url} href={b.url} target="_blank" rel="noopener noreferrer" className="card" style={{ display: "flex", flexDirection: "column", textDecoration: "none", color: "var(--text)", overflow: "hidden" }}>
-                <span style={{ height: 200, background: b.cover, padding: 22, boxSizing: "border-box", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
-                  <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: ".14em", color: b.coverSub }}>{t.insights.author}</span>
-                  <span className="display" style={{ fontSize: 26, lineHeight: 1.1, letterSpacing: "-0.02em", color: "#fff" }} dir="ltr">{b.short}</span>
-                </span>
-                <span style={{ padding: "18px 20px 20px", display: "flex", flexDirection: "column", gap: 6 }}>
-                  <span dir="ltr" style={{ fontSize: 16, fontWeight: 600, lineHeight: 1.35, textAlign: "start" }}>{b.title}</span>
-                  <span style={{ fontSize: 14, lineHeight: 1.5, color: "var(--muted)" }}>{b.theme}</span>
-                  <span style={{ marginTop: 6, fontSize: 14, fontWeight: 600, color: "var(--link)" }}>{t.insights.onAmazon} {t.arrow}</span>
-                </span>
-              </a>
-            ))}
-          </div>
-          </MobileFold>
-          <Disclosure label={t.more.talks}>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 16, marginTop: 8 }}>
-            <div>
-              <h3 style={sectionTitle}>{t.insights.onStage}</h3>
-              <Link href={href("/speaking")} aria-label={t.speaking.all} style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 8, marginBottom: 12, textDecoration: "none" }}>
-                {t.speaking.items.map((it) => (
-                  <img key={it.img} src={it.img} alt={it.alt} width={600} height={400} loading="lazy" decoding="async" style={{ display: "block", width: "100%", aspectRatio: "3 / 2", objectFit: "cover", objectPosition: "50% 60%", borderRadius: 14, border: "1px solid var(--line)" }} />
-                ))}
-              </Link>
-              <p style={{ margin: "0 0 14px", fontSize: 14 }}><Link href={href("/speaking")} style={{ fontWeight: 600, color: "var(--link)" }}>{t.speaking.all} {t.arrow}</Link></p>
-              <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-                {c.stage.map((v) => (
-                  <a key={v.url} href={v.url} target="_blank" rel="noopener noreferrer" className="card" style={{ display: "flex", gap: 18, alignItems: "center", textDecoration: "none", color: "var(--text)", padding: 18 }}>
-                    <span style={{ flex: "none", width: 120, height: 80, borderRadius: 12, background: "var(--bg)", border: "1px solid var(--line)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                      <svg aria-hidden width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="M10 8.5l5 3.5-5 3.5z" /></svg>
-                    </span>
-                    <span style={{ display: "flex", flexDirection: "column", gap: 4, minWidth: 0 }}>
-                      <span style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", color: "var(--signal)" }}>{t.insights.kind[v.kind] ?? v.kind}</span>
-                      <span dir="auto" style={{ fontSize: 17, fontWeight: 600, lineHeight: 1.35 }}>{v.title}</span>
-                      <span style={{ fontSize: 14, color: "var(--muted)" }}>{v.source}</span>
-                    </span>
-                  </a>
-                ))}
-              </div>
-            </div>
-            <div>
-              <h3 style={sectionTitle}>{t.insights.inPrint}</h3>
-              <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-                {c.articles.map((v) => (
-                  <a key={v.url} href={v.url} target="_blank" rel="noopener noreferrer" className="card" style={{ display: "flex", gap: 18, alignItems: "center", textDecoration: "none", color: "var(--text)", padding: 18 }}>
-                    <span style={{ flex: "none", width: 120, height: 80, borderRadius: 12, background: "var(--bg)", border: "1px solid var(--line)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                      <svg aria-hidden width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M6 3h9l4 4v14H6z" /><path d="M14 3v5h5M9 13h7M9 17h7" /></svg>
-                    </span>
-                    <span style={{ display: "flex", flexDirection: "column", gap: 4, minWidth: 0 }}>
-                      <span style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", color: "var(--signal)" }}>{t.insights.kind[v.kind] ?? v.kind}</span>
-                      <span dir="auto" style={{ fontSize: 17, fontWeight: 600, lineHeight: 1.35 }}>{v.title}</span>
-                      <span style={{ fontSize: 14, color: "var(--muted)" }}>{v.source}</span>
-                    </span>
-                  </a>
-                ))}
-              </div>
-            </div>
-            <div>
-              <h3 style={sectionTitle}>{t.insights.teaching}</h3>
-              <div className="card" style={{ padding: 22, display: "flex", flexDirection: "column", gap: 14 }}>
-                <div style={{ display: "flex", alignItems: "baseline", gap: 12 }}>
-                  <span className="display" style={{ fontSize: 40 }} dir="ltr">1,500+</span>
-                  <span style={{ fontSize: 15, color: "var(--muted)" }}>{t.insights.trainedLine}</span>
-                </div>
-                <p style={{ margin: 0, fontSize: 15, lineHeight: 1.6, color: "var(--body)" }}><strong style={{ color: "var(--text)" }}>TRAIL Academy</strong> — {t.insights.trailText}</p>
-                <a href="https://trailacademy.fr" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", minHeight: 44, fontWeight: 600, fontSize: 15, textDecoration: "none" }}>{t.insights.trailCta} {t.arrow}</a>
-              </div>
-            </div>
-          </div>
-          </Disclosure>
+          <p style={{ margin: "-32px 0 32px" }}><Link href={href("/blog")} style={{ fontWeight: 600, fontSize: 15 }}>{t.blog.all} {t.arrow}</Link></p>
+          <p style={{ margin: "0" }}><Link href={href("/insights")} className="pill pill-line">{t.nav.insights} {t.arrow}</Link></p>
         </div>
       </section>
 

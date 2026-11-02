@@ -155,3 +155,14 @@ npx vercel --prod
 Add `--force` to rebuild without the cache. Set `NEXT_PUBLIC_SITE_URL` to `https://iaseen.com` in the Vercel project settings and attach the domain under Settings, then Domains.
 
 The home page fetches the public repository count from the GitHub API and revalidates it hourly. If the request fails, that figure is simply left out.
+
+## Gated white paper
+
+`/resources/ai-factory-guide` offers the AI Factory guide in exchange for an e-mail address. The PDF (`whitepapers/ai-factory/`) is never a public URL: `/api/whitepaper` validates the address and the consent, stores the lead, then answers with the file itself.
+
+Where the leads go (`lib/whitepaper.ts`):
+- **Production:** a private Google Sheet, through an Apps Script web app. Set `LEADS_WEBHOOK_URL` (and `LEADS_WEBHOOK_SECRET`) in the Vercel project settings. Setup steps: [`docs/leads-google-sheet.md`](docs/leads-google-sheet.md). If the sheet cannot be reached, the visitor gets an error and no file, so no download goes unrecorded.
+- **Local development:** `.leads/leads.csv` (git-ignored).
+- **Production without the variable:** the download works, but the address only appears in the Vercel function logs, which are not a durable store.
+
+The privacy policy is at `/privacy`.

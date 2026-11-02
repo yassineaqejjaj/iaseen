@@ -1,0 +1,49 @@
+@page { size: 210mm 297mm; margin: 0; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin: 0; background: #d9dce4; font-family: 'Inter', system-ui, sans-serif; color: #18243a; font-size: 10pt; line-height: 1.55; }
+.page { width: 210mm; height: 297mm; position: relative; overflow: hidden; background: #fff; margin: 0 auto 8mm; page-break-after: always; break-after: page; }
+@media print { body { background: none; } .page { margin: 0; } }
+.dark { background: #05060a; color: #f2f4f8; }
+.mono { font-family: 'JetBrains Mono', ui-monospace, monospace; letter-spacing: .22em; text-transform: uppercase; font-size: 7.2pt; font-weight: 500; }
+.disp { font-family: 'Space Grotesk', 'Inter', sans-serif; letter-spacing: -0.03em; }
+.pad { padding: 20mm 18mm 22mm; }
+.run { position: absolute; left: 18mm; right: 18mm; top: 9mm; display: flex; justify-content: space-between; color: #8a93a8; }
+.foot { position: absolute; left: 18mm; right: 18mm; bottom: 8mm; display: flex; justify-content: space-between; color: #8a93a8; border-top: 0.3mm solid #e4e8f2; padding-top: 3mm; }
+.dark .foot { border-color: #1c2233; }
+.band { background: #05060a; color: #f2f4f8; padding: 16mm 18mm 9mm; position: relative; overflow: hidden; }
+.band .num { font-family: 'Space Grotesk'; font-weight: 700; font-size: 44pt; line-height: .9; letter-spacing: -0.05em; color: #4c6ff0; }
+.band h1 { font-family: 'Space Grotesk'; font-weight: 700; font-size: 21pt; line-height: 1.05; letter-spacing: -0.035em; margin: 2mm 0 0; max-width: 150mm; }
+.band p.lead { margin: 3mm 0 0; max-width: 140mm; color: #c9ced8; font-size: 10pt; line-height: 1.5; }
+.band svg.bg { position: absolute; right: -8mm; top: 2mm; opacity: .5; }
+.body { padding: 7mm 18mm 0; }
+h2 { font-family: 'Space Grotesk'; font-weight: 700; font-size: 15pt; letter-spacing: -0.025em; line-height: 1.15; margin: 7mm 0 2.5mm; color: #05060a; }
+h3 { font-family: 'Space Grotesk'; font-weight: 700; font-size: 11pt; margin: 4mm 0 1.2mm; color: #05060a; }
+p { margin: 0 0 3mm; }
+ul { margin: 0 0 3mm; padding-left: 4.2mm; } li { margin-bottom: 1.2mm; }
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 7mm; }
+.cols3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; }
+.callout { border-radius: 3mm; padding: 5mm 6mm; background: #f1f4ff; border-left: 1.2mm solid #4c6ff0; margin: 4mm 0; }
+.callout .mono { color: #4c6ff0; display: block; margin-bottom: 1.5mm; }
+.callout p:last-child { margin-bottom: 0; }
+.take { border-radius: 3mm; padding: 5mm 6mm; background: #05060a; color: #f2f4f8; margin: 4mm 0; }
+.take .mono { color: #7b96ff; display: block; margin-bottom: 1.5mm; }
+.take p { margin: 0; font-family: 'Space Grotesk'; font-size: 11.5pt; line-height: 1.4; letter-spacing: -0.01em; }
+.card { border: 0.3mm solid #e4e8f2; border-radius: 3mm; padding: 4mm 4.5mm; background: #fff; }
+.card h3 { margin-top: 0; }
+.stat { border: 0.3mm solid #e4e8f2; border-radius: 3mm; padding: 4mm; background: #f6f8fc; }
+.stat b { display: block; font-family: 'Space Grotesk'; font-size: 22pt; letter-spacing: -0.03em; color: #05060a; line-height: 1; }
+.stat span { display: block; margin-top: 1.5mm; font-size: 8pt; color: #4a5672; line-height: 1.3; }
+table { width: 100%; border-collapse: collapse; font-size: 8.4pt; line-height: 1.4; margin: 3mm 0 4mm; }
+th, td { text-align: left; vertical-align: top; padding: 2.2mm 2.6mm; border-bottom: 0.25mm solid #e4e8f2; }
+thead th { background: #05060a; color: #f2f4f8; font-family: 'JetBrains Mono'; font-weight: 500; font-size: 6.8pt; letter-spacing: .14em; text-transform: uppercase; border: none; }
+thead th:first-child { border-radius: 2mm 0 0 0; } thead th:last-child { border-radius: 0 2mm 0 0; }
+tbody th { font-weight: 600; color: #05060a; width: 24%; }
+tbody tr:nth-child(even) td, tbody tr:nth-child(even) th { background: #f8f9fc; }
+.fig { margin: 4mm 0 5mm; }
+.fig svg { width: 100%; height: auto; display: block; }
+.fig figcaption { margin-top: 2mm; font-size: 7.8pt; color: #5a6682; }
+.fig figcaption b { color: #4c6ff0; font-family: 'JetBrains Mono'; font-weight: 500; letter-spacing: .1em; }
+.src { font-size: 7.4pt; color: #8a93a8; }
+.pill { display: inline-block; font-family: 'JetBrains Mono'; font-size: 6.6pt; letter-spacing: .14em; text-transform: uppercase; padding: 1mm 2.4mm; border-radius: 10mm; background: #eef1ff; color: #3a5bd9; }
+.check { list-style: none; padding: 0; } .check li { padding-left: 6mm; position: relative; } .check li::before { content: ''; position: absolute; left: 0; top: 1.1mm; width: 3.2mm; height: 3.2mm; border: 0.4mm solid #4c6ff0; border-radius: 0.8mm; }

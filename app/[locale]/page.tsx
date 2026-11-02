@@ -161,6 +161,15 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <h2 className="h2">{t.insights.title}</h2>
           <p className="lead">{t.insights.lead}</p>
           <SectionAsk q={[5]} />
+          <Link href={href("/resources/ai-factory-guide")} className="card" style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 20, padding: 24, marginBottom: 40, textDecoration: "none", color: "var(--text)", borderColor: "rgba(76,111,240,.4)" }}>
+            <span style={{ flex: "none", width: 64, aspectRatio: "794 / 1123", borderRadius: 6, overflow: "hidden", border: "1px solid var(--line)", background: "#05060a url(/whitepapers/ai-factory-cover.webp) center / cover" }} aria-hidden />
+            <span style={{ flex: "1 1 280px", minWidth: 0 }}>
+              <span style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: 12, letterSpacing: ".2em", color: "var(--signal)" }}>{t.wp.teaser}</span>
+              <span className="display" style={{ display: "block", marginTop: 6, fontSize: 24, lineHeight: 1.15 }}>{t.wp.title}</span>
+              <span style={{ display: "block", marginTop: 6, fontSize: 15, color: "var(--text2)" }}>{t.wp.teaserText}</span>
+            </span>
+            <span className="pill pill-accent" style={{ color: "#05060a" }}>{t.wp.teaserCta} {t.arrow}</span>
+          </Link>
           <h3 style={sectionTitle}>{t.blog.latest}</h3>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 16, marginBottom: 48 }}>
             {latestPosts(4).map((p) => (
@@ -273,7 +282,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           </div>
           <div style={{ marginTop: 72, paddingTop: 24, borderTop: "1px solid var(--line)", display: "flex", flexWrap: "wrap", justifyContent: "space-between", gap: 12, fontSize: 14, color: "var(--muted)" }}>
             <span>© {new Date().getFullYear()} {t.rights}</span>
-            <span dir="ltr">iaseen.com</span>
+            <span style={{ display: "inline-flex", gap: 20 }}><Link href={href("/privacy")} style={{ color: "inherit" }}>{t.wp.privacyLink}</Link><span dir="ltr">iaseen.com</span></span>
           </div>
         </div>
       </footer>

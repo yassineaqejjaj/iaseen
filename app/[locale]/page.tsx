@@ -206,7 +206,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 16, marginTop: 8 }}>
             <div>
               <h3 style={sectionTitle}>{t.insights.onStage}</h3>
-              <Link href={href("/speaking")} aria-label={t.speaking.all} style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, marginBottom: 12, textDecoration: "none" }}>
+              <Link href={href("/speaking")} aria-label={t.speaking.all} style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 8, marginBottom: 12, textDecoration: "none" }}>
                 {t.speaking.items.map((it) => (
                   <img key={it.img} src={it.img} alt={it.alt} width={600} height={400} loading="lazy" decoding="async" style={{ display: "block", width: "100%", aspectRatio: "3 / 2", objectFit: "cover", objectPosition: "50% 60%", borderRadius: 14, border: "1px solid var(--line)" }} />
                 ))}

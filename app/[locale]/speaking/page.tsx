@@ -32,10 +32,10 @@ export default async function Speaking({ params }: { params: Promise<{ locale: s
           <p className="eyebrow">{x.eyebrow}</p>
           <h1 className="display" style={{ margin: "8px 0 12px", fontSize: "clamp(34px, 5vw, 56px)" }}>{x.title}</h1>
           <p className="lead" style={{ maxWidth: 680 }}>{x.lead}</p>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 420px), 1fr))", gap: 24, marginTop: 36 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 340px), 1fr))", gap: 24, marginTop: 36 }}>
             {x.items.map((it, i) => (
               <figure key={it.img} className="card" style={{ margin: 0, padding: 0, overflow: "hidden", borderRadius: 24 }}>
-                <img src={it.img} alt={it.alt} width={i === 0 ? 1536 : 1152} height={i === 0 ? 1024 : 1536} loading={i === 0 ? "eager" : "lazy"} decoding="async" style={{ display: "block", width: "100%", aspectRatio: "4 / 3", objectFit: "cover", objectPosition: i === 0 ? "center" : "50% 62%" }} />
+                <img src={it.img} alt={it.alt} width={it.img.includes("meetup") ? 595 : i === 0 ? 1536 : 1152} height={it.img.includes("meetup") ? 335 : i === 0 ? 1024 : 1536} loading={i === 0 ? "eager" : "lazy"} decoding="async" style={{ display: "block", width: "100%", aspectRatio: "4 / 3", objectFit: it.img.includes("meetup") ? "contain" : "cover", background: "#111", objectPosition: i === 0 ? "center" : "50% 62%" }} />
                 <figcaption style={{ padding: 24, display: "flex", flexDirection: "column", gap: 8 }}>
                   <span style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", color: "var(--signal)" }}>{it.tag.toUpperCase()}</span>
                   <h2 className="display" style={{ margin: 0, fontSize: 26 }} dir="auto">{it.event}</h2>

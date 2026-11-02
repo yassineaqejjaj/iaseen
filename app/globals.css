@@ -364,7 +364,7 @@ html[data-theme="light"] .pill-line, html[data-theme="light"] .pill-dark-line { 
 html[data-theme="light"] [style*="rgba(13,19,32"], html[data-theme="light"] [style*="rgba(11,14,23"], html[data-theme="light"] [style*="rgba(5,8,20"] { background: rgba(255,255,255,.9) !important; }
 html[data-theme="light"] .hero-parts .card { background: rgba(255,255,255,.92) !important; }
 html[data-theme="light"] [style*="rgba(8,11,18"], html[data-theme="light"] .dg-node, html[data-theme="light"] .dg-layer { background: rgba(255,255,255,.92) !important; }
-html[data-theme="light"] .glass { background: rgba(255,255,255,.7); }
+html[data-theme="light"] .glass { background: rgba(255,255,255,.92); }
 html[data-theme="light"] .mobile-menu { background: rgba(246,248,252,.98); }
 html[data-theme="light"] .more, html[data-theme="light"] .dg { background: rgba(11,16,32,.02); }
 html[data-theme="light"] [style*="color:#c9ced8"], html[data-theme="light"] [style*="color: #c9ced8"], html[data-theme="light"] [style*="color:#f2f4f8"], html[data-theme="light"] [style*="color: #f2f4f8"] { color: var(--text2) !important; }
@@ -456,3 +456,17 @@ html[data-theme="light"] .orb-3 { box-shadow: 0 0 24px rgba(53,82,214,.25), inse
 .story-tl-o { font-family: var(--font-display); font-weight: 700; font-size: 18px; }
 .story-tl-t { font-size: 13px; line-height: 1.4; color: var(--muted); }
 @media (max-width: 760px) { .story-block { grid-template-columns: 1fr; } .story-p p { font-size: 17px; } }
+/* Light theme: assistant chips, badges and answer panels were fixed dark. */
+html[data-theme="light"] [style*="background:#1c2233"], html[data-theme="light"] [style*="background: #1c2233"] { background: #e4e9fa !important; color: var(--text) !important; }
+html[data-theme="light"] [style*="#2a3042"] { border-color: rgba(11,16,32,.2) !important; }
+html[data-theme="light"] [aria-pressed="true"][style*="#1c2233"], html[data-theme="light"] [style*="border:1px solid var(--accent)"][style*="#1c2233"] { border-color: var(--accent) !important; }
+html[data-theme="light"] input::placeholder, html[data-theme="light"] textarea::placeholder { color: #6a7490; }
+html[data-theme="light"] #ask-input, html[data-theme="light"] input[type="email"], html[data-theme="light"] input[name], html[data-theme="light"] textarea { color: var(--text) !important; }
+/* React rewrites inline styles in the browser as rgb(...) strings: repeat the dark-surface overrides for that spelling. */
+html[data-theme="light"] [style*="rgb(28, 34, 51)"] { background: #e4e9fa !important; color: var(--text) !important; }
+html[data-theme="light"] [style*="rgb(42, 48, 66)"] { border-color: rgba(11,16,32,.2) !important; }
+html[data-theme="light"] [style*="rgba(8, 11, 18"], html[data-theme="light"] [style*="rgba(13, 19, 32"], html[data-theme="light"] [style*="rgba(11, 14, 23"], html[data-theme="light"] [style*="rgba(5, 8, 20"] { background: rgba(255,255,255,.92) !important; }
+html[data-theme="light"] [style*="color: rgb(201, 206, 216)"], html[data-theme="light"] [style*="color: rgb(242, 244, 248)"] { color: var(--text2) !important; }
+html[data-theme="light"] [style*="color: rgb(155, 163, 181)"] { color: var(--muted) !important; }
+html[data-theme="light"] [style*="color: rgb(123, 150, 255)"] { color: var(--signal) !important; }
+html[data-theme="light"] [style*="background: var(--accent)"][style*="color: rgb(5, 6, 10)"] { color: #ffffff !important; }

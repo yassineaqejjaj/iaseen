@@ -66,7 +66,7 @@ export const dictEn = {
   },
   insights: {
     eyebrow: "INSIGHTS", title: "What I write, say and teach", lead: "Four books, talks and training programmes on AI, leadership and the future of work.",
-    books: "IDEAS · BOOKS", author: "YASSINE AQEJJAJ", onAmazon: "On Amazon", onStage: "ON STAGE", inPrint: "IN PRINT", teaching: "TEACHING",
+    wpLabel: "WHITE PAPERS", books: "IDEAS · BOOKS", author: "YASSINE AQEJJAJ", onAmazon: "On Amazon", onStage: "ON STAGE", inPrint: "IN PRINT", teaching: "TEACHING",
     trainedLine: "people trained in AI", trailText: "my professional AI learning platform, built to turn teams into builders.", trailCta: "Explore TRAIL Academy",
     kind: { TALK: "TALK", PODCAST: "PODCAST", ARTICLE: "ARTICLE" } as Record<string, string>,
   },
@@ -320,7 +320,7 @@ export const dictFr: Dict = {
     } },
   insights: {
     eyebrow: "PUBLICATIONS", title: "Ce que j’écris, dis et enseigne", lead: "Quatre livres, des interventions et des formations sur l’IA, le leadership et l’avenir du travail.",
-    books: "IDÉES · LIVRES", author: "YASSINE AQEJJAJ", onAmazon: "Sur Amazon", onStage: "PRISES DE PAROLE", inPrint: "PUBLICATIONS", teaching: "ENSEIGNEMENT",
+    wpLabel: "LIVRES BLANCS", books: "IDÉES · LIVRES", author: "YASSINE AQEJJAJ", onAmazon: "Sur Amazon", onStage: "PRISES DE PAROLE", inPrint: "PUBLICATIONS", teaching: "ENSEIGNEMENT",
     trainedLine: "personnes formées à l’IA", trailText: "ma plateforme professionnelle de formation à l’IA, conçue pour transformer les équipes en bâtisseurs.", trailCta: "Découvrir TRAIL Academy",
     kind: { TALK: "CONFÉRENCE", PODCAST: "PODCAST", ARTICLE: "ARTICLE" },
   },
@@ -572,7 +572,7 @@ export const dictAr: Dict = {
     } },
   insights: {
     eyebrow: "رؤى", title: "ما أكتبه وأقوله وأدرّسه", lead: "أربعة كتب ومداخلات وبرامج تدريبية حول الذكاء الاصطناعي والقيادة ومستقبل العمل.",
-    books: "أفكار · كتب", author: "YASSINE AQEJJAJ", onAmazon: "على Amazon", onStage: "مداخلات", inPrint: "منشورات", teaching: "التدريس",
+    wpLabel: "أوراق بيضاء", books: "أفكار · كتب", author: "YASSINE AQEJJAJ", onAmazon: "على Amazon", onStage: "مداخلات", inPrint: "منشورات", teaching: "التدريس",
     trainedLine: "شخص تم تدريبهم على الذكاء الاصطناعي", trailText: "منصتي المهنية للتعلم في الذكاء الاصطناعي، صُممت لتحويل الفرق إلى بُناة.", trailCta: "اكتشف TRAIL Academy",
     kind: { TALK: "مداخلة", PODCAST: "بودكاست", ARTICLE: "مقال" },
   },

@@ -71,11 +71,11 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
 
       <section id="numbers" style={{ borderBottom: "1px solid var(--line)" }}>
         <div className="wrap" style={{ paddingBlock: "56px 64px" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 16 }}>
+          <div className="stats-grid" style={{ ["--n" as string]: stats.length }}>
             {stats.map(([v, l]) => (
-              <div key={l} className="card" style={{ borderRadius: 16, padding: 24 }}>
-                <p className="display" style={{ margin: 0, fontSize: 44 }} dir="ltr">{v}</p>
-                <p style={{ margin: "6px 0 0", fontSize: 15, color: "var(--muted)" }}>{l}</p>
+              <div key={l} className="card stat-card">
+                <p className="display stat-v" dir="ltr">{v}</p>
+                <p className="stat-l">{l}</p>
               </div>
             ))}
           </div>

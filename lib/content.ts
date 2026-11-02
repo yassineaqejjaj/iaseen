@@ -186,6 +186,34 @@ export const clients = [
       { label: "What I learned", body: "Successful AI products are measured by the business indicators they improve, not by the complexity of their algorithms.", points: [] },
     ] as Step[],
   },
+  {
+    slug: "fujitsu-computer-vision", client: "Fujitsu", logo: "fujitsu", sector: "TECHNOLOGY & COMPUTER VISION",
+    title: "Computer-vision AI products for retail, industry and security", year: "2020–2022", org: "Fujitsu",
+    role: "AI Lead Product Manager | AI Centre of Excellence",
+    summary: "From research prototypes to computer-vision products in production.",
+    impact: "2nd place worldwide at the AVA Challenge · TotalEnergies Most Innovative Project Award · 94% computer-vision precision.", tags: ["Computer vision", "AI Centre of Excellence", "Product strategy"], sensitive: false,
+    focus: "Computer vision · AI product management",
+    steps: [
+      { label: "The challenge", body: "Computer-vision research only creates value once it becomes a product that retail, industrial and security customers can deploy and trust. Inside Fujitsu's AI Centre of Excellence, the task was to take solutions from research and prototyping to production.", points: [] },
+      { label: "My contribution", body: "I led AI product strategy and end-to-end delivery, directing multidisciplinary AI teams from research and prototyping to production deployment.", points: [] },
+      { label: "The approach", body: "", points: ["Behavioural recognition applications.", "Industrial quality inspection.", "Retail analytics.", "Infrastructure monitoring.", "FCV Secure: contribution to an initiative for AI-powered surveillance and anomaly detection."] },
+      { label: "Impact", body: "The work earned recognition at international and industry level: 2nd place worldwide at the AVA Challenge, the TotalEnergies Most Innovative Project Award and world-leading behavioural recognition accuracy (2022).", points: [], stats: [{ value: "94%", label: "Computer-vision precision" }, { value: "#2", label: "AVA Challenge ranking, worldwide" }] },
+    ] as Step[],
+  },
+  {
+    slug: "banque-populaire-digital-banking", client: "Banque Populaire du Maroc", logo: "banquepopulaire", sector: "BANKING",
+    title: "Digital banking and AI products", year: "2013–2018", org: "Banque Populaire du Maroc",
+    role: "AI Product Manager | Digital banking",
+    summary: "Contributed to digital banking and AI initiatives: Pocket Bank, biometrics, chatbot pilots and digital onboarding.",
+    impact: "+18 points on digital journey completion.", tags: ["Digital banking", "Chatbots", "Biometrics", "Onboarding"], sensitive: false,
+    focus: "Digital banking · conversational AI",
+    steps: [
+      { label: "The challenge", body: "Bringing banking journeys onto digital and conversational channels in Morocco, and making sure customers could complete them.", points: [] },
+      { label: "My contribution", body: "I contributed to digital banking and AI initiatives as a product manager in Casablanca.", points: [] },
+      { label: "The approach", body: "", points: ["Pocket Bank.", "Biometric experiences.", "Chatbot pilots.", "Digital onboarding."] },
+      { label: "Impact", body: "Higher completion of digital journeys.", points: [], stats: [{ value: "+18 pts", label: "Digital journey completion improvement" }] },
+    ] as Step[],
+  },
 ];
 
 const GH = profile.github;

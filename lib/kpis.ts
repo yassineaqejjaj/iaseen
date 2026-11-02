@@ -176,6 +176,18 @@ export const KPIS: Record<string, KpiSet> = {
     top: [0, 1, 2],
   },
 
+  "fujitsu-computer-vision": {
+    all: [
+      k("94%", "Computer vision precision", "Précision de la vision par ordinateur", "دقة الرؤية الحاسوبية"),
+      k("#2", "AVA Challenge ranking", "Classement à l’AVA Challenge", "الترتيب في AVA Challenge"),
+    ],
+    top: [0, 1, 1],
+  },
+  "banque-populaire-digital-banking": {
+    all: [k("+18 pts", "Digital journey completion improvement", "Amélioration de l’achèvement des parcours digitaux", "تحسّن إتمام الرحلات الرقمية")],
+    top: [0, 0, 0],
+  },
+
   // ---- Other experiences (CV roles)
   "role:Fujitsu": {
     all: [

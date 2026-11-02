@@ -85,6 +85,17 @@ export default function HeroStory() {
     requestAnimationFrame(step);
   };
 
+  // Phones: jump straight to the section, then re-align once layout has settled (folded blocks and lazy images can shift it).
+  const enter = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (!matchMedia("(max-width: 759px)").matches || e.metaKey || e.ctrlKey || e.shiftKey) return;
+    const target = document.getElementById("about");
+    if (!target) return;
+    e.preventDefault();
+    const go = () => target.scrollIntoView({ behavior: "instant" as ScrollBehavior, block: "start" });
+    go(); history.replaceState(null, "", "#about");
+    requestAnimationFrame(go); setTimeout(go, 350);
+  };
+
   const goCv = () => { setMode("executive"); setTimeout(() => document.getElementById("experience")?.scrollIntoView(), 50); };
 
   return (
@@ -107,7 +118,7 @@ export default function HeroStory() {
             <HeroTitle line1={s.h1a} line2={s.h1b} />
             <p className="hero-pitch">{s.pitch}</p>
             <div className="rise" style={{ animationDelay: ".7s", display: "flex", flexWrap: "wrap", gap: 12, justifyContent: "center", marginTop: 26 }}>
-              <Link href={href("#about")} className="pill pill-accent magnetic" style={{ minHeight: 52, padding: "0 26px", fontSize: 16, color: "#05060a" }}>{s.enter}</Link>
+              <Link href={href("#about")} onClick={enter} className="pill pill-accent magnetic" style={{ minHeight: 52, padding: "0 26px", fontSize: 16, color: "#05060a" }}>{s.enter}</Link>
               <button type="button" onClick={goCv} className="pill pill-line magnetic" style={{ minHeight: 52, padding: "0 26px", fontSize: 16 }}>{s.cv}</button>
             </div>
           </div>

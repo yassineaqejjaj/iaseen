@@ -198,9 +198,9 @@ html[data-mode="executive"] .interlude { display: none !important; }
 .marquee-wrap { margin-top: 28px; display: flex; flex-direction: column; gap: 14px; }
 .marquee-label { font-size: 12px; font-weight: 600; letter-spacing: .14em; color: var(--muted); }
 .marquee { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
-.marquee-track { display: flex; width: max-content; animation: marquee var(--dur, 40s) linear infinite; }
+.marquee-track { display: flex; width: max-content; will-change: transform; animation: marquee var(--dur, 40s) linear infinite; }
 .marquee[data-reverse] .marquee-track { animation-direction: reverse; }
-.marquee:hover .marquee-track { animation-play-state: paused; }
+@media (hover: hover) { .marquee:hover .marquee-track { animation-play-state: paused; } }
 .marquee-list { display: flex; align-items: center; gap: 64px; margin: 0; padding: 0 32px; list-style: none; flex: none; }
 .marquee-list li { display: inline-flex; align-items: center; opacity: .85; flex: none; }
 @keyframes marquee { to { transform: translateX(-50%); } }

@@ -162,7 +162,7 @@ export const contentFr: Content = {
     { desc: "MVP de formation en santé avec agents human-in-the-loop, RAG et simulation vocale." },
     { desc: "MVP éducation avec agents human-in-the-loop et RAG." },
     { status: "Bêta", desc: "Bêta utilisable, de l’architecture au déploiement, avec du code assisté par l’IA : analyse vidéo pour l’épée, le fleuret et le sabre." },
-    { status: "AI Factory", desc: "Pratique concrète du prompting, expérimentation et montée en compétences par des exercices appliqués." },
+    { status: "AI Factory", desc: "Formation gamifiée au prompt engineering : niveaux progressifs, un mentor IA qui note chaque prompt et donne un retour, un classement et un guide d’animation pour les événements." },
   ]),
   proof: {
     "AI Strategy": [{ kind: "ROLE", label: "Head of AI Factory, Devoteam" }, { kind: "MISSION", label: "Thales : modèle opérationnel Data & IA" }, { kind: "BOOK", label: "Leading with AI" }],

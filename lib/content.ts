@@ -201,7 +201,7 @@ export const products = [
   { name: "SimuLearn", category: "HEALTH", status: "MVP", desc: "Healthcare training MVP with human-in-the-loop agents, RAG and voice simulation.", stack: "", url: GH, cta: "GitHub" },
   { name: "ClassMind", category: "EDUCATION", status: "MVP", desc: "Education MVP with human-in-the-loop agents and RAG.", stack: "", url: GH, cta: "GitHub" },
   { name: "Fencing Intelligence", category: "SPORT", status: "Beta", desc: "Usable beta built from architecture through deployment with AI-assisted coding: video analysis for épée, foil and sabre.", stack: "Python", url: GH + "/fencing-intelligence", cta: "GitHub" },
-  { name: "Prompt Arena", category: "EDUCATION", status: "AI Factory", desc: "Hands-on prompting practice, experimentation and skill development through applied exercises.", stack: "Devoteam", url: "#expertise", cta: "Proof" },
+  { name: "Prompt Arena", category: "EDUCATION", status: "AI Factory", desc: "Gamified prompt-engineering training: progressive levels, an AI mentor that scores each prompt and gives feedback, a leaderboard and a facilitator playbook for events.", stack: "Devoteam", url: "https://devoteampromptarena.lovable.app", cta: "Live" },
 ];
 export const FILTERS: { id: string; label: string }[] = [
   { id: "All", label: "All" }, { id: "AGENTIC", label: "Agentic AI" }, { id: "HEALTH", label: "HealthTech" },

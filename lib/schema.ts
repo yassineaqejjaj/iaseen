@@ -40,11 +40,12 @@ export const siteGraph = (l: Locale) => ({ "@context": "https://schema.org", "@g
 
 /** Home page: profile, books and the FAQ that is visible on the page. */
 export const homeGraph = (l: Locale) => {
-  const { c } = getI18n(l);
+  const { c, t } = getI18n(l);
   return {
     "@context": "https://schema.org",
     "@graph": [
       { "@type": "ProfilePage", "@id": `${pageUrl(l)}#profile`, url: pageUrl(l) || SITE, inLanguage: l, mainEntity: { "@id": PERSON_ID }, isPartOf: { "@id": `${SITE}/#website` } },
+      { "@type": "Quotation", text: t.landing.quote, inLanguage: l, creator: { "@id": PERSON_ID }, isPartOf: { "@id": `${pageUrl(l)}#profile` } },
       ...c.books.map((b) => ({ "@type": "Book", name: b.title, description: b.theme, url: b.url, author: { "@id": PERSON_ID } })),
       ...c.articles.map((a) => ({ "@type": "Article", headline: a.title, url: a.url, datePublished: a.date, inLanguage: a.lang, author: { "@id": PERSON_ID }, publisher: { "@type": "Organization", name: "Devoteam" } })),
       {

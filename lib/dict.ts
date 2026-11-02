@@ -209,6 +209,12 @@ export const dictEn = {
     ],
   },
   pages: { workTitle: "Work: AI missions and results | Yassine Aqejjaj", workDesc: "Client missions led by Yassine Aqejjaj: sovereign generative AI, enterprise AI transformation and AI product delivery, with measured results.", labTitle: "AI Lab: products and platforms | Yassine Aqejjaj", labDesc: "The NOVA Suite, TrustRail, MedGuard AI, Prompt Arena and the other AI products built by Yassine Aqejjaj.", allWork: "All missions", allLab: "All products and projects" },
+  landing: {
+    quote: "Successful AI products are measured by the business indicators they improve, not by the complexity of their algorithms.", quoteBy: "Yassine Aqejjaj, Head of AI Factory at Devoteam",
+    pathsAria: "Three ways into my work", paths: [{ k: "I’m hiring", d: "Leadership, impact, CV", h: "/experience" }, { k: "I have a project", d: "Missions, results, contact", h: "/work" }, { k: "I want to learn", d: "Guides, articles, talks", h: "/insights" }],
+    form: { title: "Send me a message", name: "Your name", email: "Your email", message: "How can I help?", consent: "I agree that my details are used to reply to this message.", send: "Send message", sending: "Sending…", sent: "Thank you, your message is on its way. I will get back to you.", error: "The message could not be sent. Please write to me directly at", invalid: "Please fill in every field with a valid email and a message of at least 10 characters.", again: "Send another message" },
+    theme: { toLight: "Switch to the light theme", toDark: "Switch to the dark theme" },
+  },
   act: { hint: "ACT ON THE PAGE", case: "Open case study", filter: "Filter the AI Lab", skill: "Show skill", node: "Show on the map", page: "Open the page" },
   interlude: [
     { big: "I don’t just lead AI.\nI build it.", small: "Strategy, delivery and shipped code, under one roof.", fig: false },
@@ -233,6 +239,7 @@ export const dictEn = {
   },
   story: {
     brand: "IASEEN", sub: "THE INTELLIGENCE UNIVERSE", h1a: "I architect", h1b: "intelligence.", pitch: "I lead AI. I build products. I turn ideas into reality.",
+    proof: "Head of AI Factory at Devoteam · NOVA deployed to 800 employees · 13 years in AI",
     enter: "Enter my universe", cv: "Traditional CV", scroll: "SCROLL TO DISCOVER", partsAria: "Three ways into my work",
     parts: [{ k: "LEAD", d: "Strategy & people", h: "#experience" }, { k: "BUILD", d: "Products & systems", h: "#ai-lab" }, { k: "THINK", d: "Ideas & research", h: "#insights" }],
   },
@@ -456,6 +463,12 @@ export const dictFr: Dict = {
     ],
   },
   pages: { workTitle: "Missions : IA en entreprise et résultats | Yassine Aqejjaj", workDesc: "Missions menées par Yassine Aqejjaj : IA générative souveraine, transformation IA en entreprise et produits IA, avec des résultats mesurés.", labTitle: "AI Lab : produits et plateformes | Yassine Aqejjaj", labDesc: "La suite NOVA, TrustRail, MedGuard AI, Prompt Arena et les autres produits IA construits par Yassine Aqejjaj.", allWork: "Toutes les missions", allLab: "Tous les produits et projets" },
+  landing: {
+    quote: "Un produit IA réussi se mesure aux indicateurs métier qu’il améliore, pas à la complexité de ses algorithmes.", quoteBy: "Yassine Aqejjaj, Head of AI Factory chez Devoteam",
+    pathsAria: "Trois portes d’entrée vers mon travail", paths: [{ k: "Je recrute", d: "Leadership, impact, CV", h: "/experience" }, { k: "J’ai un projet", d: "Missions, résultats, contact", h: "/work" }, { k: "Je veux apprendre", d: "Guides, articles, interventions", h: "/insights" }],
+    form: { title: "Envoyez-moi un message", name: "Votre nom", email: "Votre e-mail", message: "Comment puis-je vous aider ?", consent: "J’accepte que mes informations servent à répondre à ce message.", send: "Envoyer le message", sending: "Envoi…", sent: "Merci, votre message est parti. Je reviens vers vous.", error: "Le message n’a pas pu être envoyé. Écrivez-moi directement à", invalid: "Merci de remplir tous les champs avec un e-mail valide et un message d’au moins 10 caractères.", again: "Envoyer un autre message" },
+    theme: { toLight: "Passer au thème clair", toDark: "Passer au thème sombre" },
+  },
   act: { hint: "AGIR SUR LA PAGE", case: "Ouvrir l’étude de cas", filter: "Filtrer l’AI Lab", skill: "Voir la compétence", node: "Voir sur la carte", page: "Ouvrir la page" },
   interlude: [
     { big: "Je ne me contente pas de diriger l’IA.\nJe la construis.", small: "Stratégie, delivery et code livré, sous un même toit.", fig: false },
@@ -480,6 +493,7 @@ export const dictFr: Dict = {
   },
   story: {
     brand: "IASEEN", sub: "L’UNIVERS DE L’INTELLIGENCE", h1a: "J’architecte", h1b: "l’intelligence.", pitch: "Je dirige l’IA. Je construis des produits. Je transforme les idées en réalité.",
+    proof: "Head of AI Factory chez Devoteam · NOVA déployé auprès de 800 collaborateurs · 13 ans d’IA",
     enter: "Entrer dans mon univers", cv: "CV classique", scroll: "FAIRE DÉFILER POUR DÉCOUVRIR", partsAria: "Trois portes d’entrée vers mon travail",
     parts: [{ k: "DIRIGER", d: "Stratégie & équipes", h: "#experience" }, { k: "CONSTRUIRE", d: "Produits & systèmes", h: "#ai-lab" }, { k: "RÉFLÉCHIR", d: "Idées & recherche", h: "#insights" }],
   },
@@ -701,6 +715,12 @@ export const dictAr: Dict = {
     ],
   },
   pages: { workTitle: "الأعمال: مهام الذكاء الاصطناعي ونتائجها | Yassine Aqejjaj", workDesc: "مهام قادها Yassine Aqejjaj: ذكاء اصطناعي توليدي سيادي وتحول مؤسسي ومنتجات ذكاء اصطناعي، بنتائج مقاسة.", labTitle: "مختبر الذكاء الاصطناعي: منتجات ومنصات | Yassine Aqejjaj", labDesc: "منصة NOVA وTrustRail وMedGuard AI وPrompt Arena وباقي منتجات الذكاء الاصطناعي التي بناها Yassine Aqejjaj.", allWork: "كل المهام", allLab: "كل المنتجات والمشاريع" },
+  landing: {
+    quote: "يُقاس نجاح منتجات الذكاء الاصطناعي بمؤشرات الأعمال التي تحسّنها، لا بتعقيد خوارزمياتها.", quoteBy: "Yassine Aqejjaj، Head of AI Factory في Devoteam",
+    pathsAria: "ثلاثة مداخل إلى أعمالي", paths: [{ k: "أبحث عن كفاءة", d: "القيادة والأثر والسيرة الذاتية", h: "/experience" }, { k: "لدي مشروع", d: "المهام والنتائج والتواصل", h: "/work" }, { k: "أريد أن أتعلّم", d: "أدلة ومقالات ومداخلات", h: "/insights" }],
+    form: { title: "أرسل لي رسالة", name: "اسمك", email: "بريدك الإلكتروني", message: "كيف يمكنني مساعدتك؟", consent: "أوافق على استخدام بياناتي للرد على هذه الرسالة.", send: "إرسال الرسالة", sending: "جارٍ الإرسال…", sent: "شكرًا، رسالتك في طريقها. سأعود إليك.", error: "تعذّر إرسال الرسالة. راسلني مباشرة على", invalid: "يرجى ملء كل الحقول ببريد إلكتروني صحيح ورسالة لا تقل عن 10 أحرف.", again: "إرسال رسالة أخرى" },
+    theme: { toLight: "التبديل إلى المظهر الفاتح", toDark: "التبديل إلى المظهر الداكن" },
+  },
   act: { hint: "تصرّف في الصفحة", case: "افتح دراسة الحالة", filter: "صفِّ مختبر الذكاء الاصطناعي", skill: "أبرز المهارة", node: "أظهره على الخريطة", page: "افتح الصفحة" },
   interlude: [
     { big: "لا أكتفي بقيادة الذكاء الاصطناعي.\nأنا أبنيه.", small: "استراتيجية وتسليم وشيفرة منشورة، تحت سقف واحد.", fig: false },
@@ -725,6 +745,7 @@ export const dictAr: Dict = {
   },
   story: {
     brand: "IASEEN", sub: "عالم الذكاء", h1a: "أصمّم", h1b: "الذكاء.", pitch: "أقود الذكاء الاصطناعي. أبني المنتجات. أحوّل الأفكار إلى واقع.",
+    proof: "Head of AI Factory في Devoteam · NOVA منشورة لدى 800 موظف · 13 عامًا في الذكاء الاصطناعي",
     enter: "ادخل عالمي", cv: "السيرة الذاتية التقليدية", scroll: "مرّر للاكتشاف", partsAria: "ثلاثة مداخل إلى أعمالي",
     parts: [{ k: "قيادة", d: "الاستراتيجية والأفراد", h: "#experience" }, { k: "بناء", d: "المنتجات والأنظمة", h: "#ai-lab" }, { k: "تفكير", d: "الأفكار والأبحاث", h: "#insights" }],
   },

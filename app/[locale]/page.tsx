@@ -53,6 +53,22 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <main className="paths">
       <HeroStory />
 
+      <section id="choose" aria-label={t.landing.pathsAria} style={{ borderBottom: "1px solid var(--line)" }}>
+        <div className="wrap" style={{ paddingBlock: "40px" }}>
+          <ul className="choose-grid">
+            {t.landing.paths.map((x) => (
+              <li key={x.h}>
+                <Link href={href(x.h)} className="card choose-card">
+                  <span className="display" style={{ fontSize: 22 }}>{x.k}</span>
+                  <span style={{ fontSize: 14, color: "var(--muted)" }}>{x.d}</span>
+                  <span aria-hidden className="choose-go">{t.arrow}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       <section id="numbers" style={{ borderBottom: "1px solid var(--line)" }}>
         <div className="wrap" style={{ paddingBlock: "56px 64px" }}>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 16 }}>
@@ -70,7 +86,16 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         </div>
       </section>
 
-      <About locale={locale} />
+      <section id="quote" className="quote-sec">
+        <div className="wrap" style={{ maxWidth: 900 }}>
+          <figure style={{ margin: 0 }}>
+            <blockquote className="quote-text" dir="auto">“{t.landing.quote}”</blockquote>
+            <figcaption className="quote-by">— {t.landing.quoteBy}</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <About locale={locale} compact />
       <Interlude i={0} />
 
       <section id="experience">

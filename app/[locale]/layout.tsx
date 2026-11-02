@@ -7,6 +7,7 @@ import { LocaleProvider } from "@/components/LocaleProvider";
 import { getI18n, isLocale, locales } from "@/lib/i18n";
 import { ld, siteGraph } from "@/lib/schema";
 import { modeScript } from "@/lib/mode";
+import { themeScript } from "@/lib/theme";
 import CommandLauncher from "@/components/CommandLauncher";
 import MagneticCursor from "@/components/MagneticCursor";
 import AmbientLayer from "@/components/AmbientLayer";
@@ -46,7 +47,7 @@ export default async function RootLayout({ children, params }: { children: React
   return (
     <html lang={locale} dir={dir} suppressHydrationWarning className={`${inter.variable} ${grotesk.variable} ${mono.variable} ${arabic.variable}`}>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: modeScript }} />
+        <script dangerouslySetInnerHTML={{ __html: modeScript + themeScript }} />
         {process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN && (
           <script defer data-domain={process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN} src="https://plausible.io/js/script.js" />
         )}

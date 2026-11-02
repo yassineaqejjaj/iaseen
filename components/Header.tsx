@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Logo from "./Logo";
 import LangMenu from "./LangMenu";
+import ThemeToggle from "./ThemeToggle";
 import ModeToggle from "./ModeToggle";
 import PaletteButton from "./PaletteButton";
 import { useI18n } from "./LocaleProvider";
@@ -65,6 +66,7 @@ export default function Header(_props: { locale?: string }) {
         <div className="nav-tools">
           <span className="hide-sm"><PaletteButton /></span>
           <span className="hide-sm"><ModeToggle compact /></span>
+          <span className="hide-sm"><ThemeToggle /></span>
           <span className="hide-sm"><LangMenu /></span>
           <Link href={href("/contact")} className="pill pill-accent nav-cta hide-sm" style={{ color: "#05060a" }}>{t.nav.contact}</Link>
           <button type="button" className="icon-btn nav-burger" aria-expanded={open} aria-controls="mobile-menu" aria-label={open ? t.nav.closeMenu : t.nav.menu} onClick={() => setOpen(!open)}>
@@ -84,6 +86,7 @@ export default function Header(_props: { locale?: string }) {
           </ul>
           <PaletteButton wide />
           <ModeToggle />
+          <ThemeToggle wide />
           <LangMenu inline />
         </div>
       )}

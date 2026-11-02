@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Faq from "@/components/Faq";
+import ContactForm from "@/components/ContactForm";
 import { profile } from "@/lib/content";
 import { getI18n, isLocale, locales, type Locale } from "@/lib/i18n";
 
@@ -38,6 +39,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
             <a href={profile.github} className="pill pill-line" style={{ minHeight: 52, padding: "0 24px" }}>{t.contact.github}</a>
           </div>
         </div>
+        <div className="wrap" style={{ paddingBottom: 56 }}><ContactForm /></div>
         <Faq locale={locale} />
       </main>
     </>

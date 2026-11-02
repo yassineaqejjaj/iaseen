@@ -1,6 +1,6 @@
 "use client";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 import { heroProgress } from "@/lib/heroProgress";
 
@@ -29,16 +29,29 @@ const FRAG = /* glsl */ `
     gl_FragColor = vec4(col * (0.55 + f * 1.1), (uBase + f * uGain) * uOpacity);
   }`;
 
-function useGlass(a: string, b: string, o: { power?: number; gain?: number; base?: number; wob?: number } = {}) {
+/** True while the light theme is on: the scene then uses deeper rim colours and normal blending, which stay visible on a pale page. */
+function useLight() {
+  const [light, set] = useState(false);
+  useEffect(() => {
+    const read = () => set(document.documentElement.dataset.theme === "light");
+    read();
+    const mo = new MutationObserver(read);
+    mo.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+    return () => mo.disconnect();
+  }, []);
+  return light;
+}
+
+function useGlass(a: string, b: string, o: { power?: number; gain?: number; base?: number; wob?: number } = {}, light = false) {
   return useMemo(() => {
     const u = {
       uTime: { value: 0 }, uWob: { value: o.wob ?? 0 }, uOpacity: { value: 1 },
-      uA: { value: new THREE.Color(a) }, uB: { value: new THREE.Color(b) },
+      uA: { value: new THREE.Color(light ? "#3552d6" : a) }, uB: { value: new THREE.Color(light ? "#6f8bff" : b) },
       uPower: { value: o.power ?? 2.6 }, uGain: { value: o.gain ?? 0.95 }, uBase: { value: o.base ?? 0.04 },
     };
-    const mat = new THREE.ShaderMaterial({ uniforms: u, vertexShader: VERT, fragmentShader: FRAG, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, toneMapped: false });
+    const mat = new THREE.ShaderMaterial({ uniforms: u, vertexShader: VERT, fragmentShader: FRAG, transparent: true, depthWrite: false, blending: light ? THREE.NormalBlending : THREE.AdditiveBlending, toneMapped: false });
     return { mat, u };
-  }, [a, b, o.power, o.gain, o.base, o.wob]);
+  }, [a, b, o.power, o.gain, o.base, o.wob, light]);
 }
 
 /** Points spread evenly over a sphere, used as a fine "neural" shell. */
@@ -55,6 +68,7 @@ function useShell(n: number) {
 }
 
 const dark = { color: "#05060a", transparent: true, opacity: 0.9, toneMapped: false } as const;
+const pale = { color: "#d9e1f8", transparent: true, opacity: 0.94, toneMapped: false } as const;
 const TARGETS: [number, number, number][] = [[-2.6, 0.45, 0], [0, 0.45, 0.4], [2.6, 0.45, 0]];
 
 function Universe() {
@@ -62,10 +76,12 @@ function Universe() {
   const core = useRef<THREE.Group>(null);
   const shell = useRef<THREE.Points>(null);
   const parts = [useRef<THREE.Group>(null), useRef<THREE.Group>(null), useRef<THREE.Group>(null)];
-  const coreG = useGlass("#4c6ff0", "#7b96ff", { power: 2.4, gain: 1.05, base: 0.05, wob: 0.012 });
-  const orbG = useGlass("#4c6ff0", "#7b96ff", { power: 2.4, gain: 1.0 });
-  const cubeG = useGlass("#4c6ff0", "#7b96ff", { power: 3.2, gain: 0.7, base: 0.03 });
-  const knotG = useGlass("#7b96ff", "#4c6ff0", { power: 1.8, gain: 0.85, base: 0.1 });
+  const light = useLight();
+  const body = light ? pale : dark;
+  const coreG = useGlass("#4c6ff0", "#7b96ff", { power: 2.4, gain: 1.05, base: 0.05, wob: 0.012 }, light);
+  const orbG = useGlass("#4c6ff0", "#7b96ff", { power: 2.4, gain: 1.0 }, light);
+  const cubeG = useGlass("#4c6ff0", "#7b96ff", { power: 3.2, gain: 0.7, base: 0.03 }, light);
+  const knotG = useGlass("#7b96ff", "#4c6ff0", { power: 1.8, gain: 0.85, base: 0.1 }, light);
   const dots = useShell(1100);
   const cubeEdges = useMemo(() => new THREE.EdgesGeometry(new THREE.BoxGeometry(1.06, 1.06, 1.06)), []);
 
@@ -107,25 +123,25 @@ function Universe() {
     <group ref={group}>
       {/* LEAD / the whole: a glass orb with a fine shell of points */}
       <group ref={core}>
-        <mesh><sphereGeometry args={[1.2, 64, 64]} /><meshBasicMaterial {...dark} /></mesh>
+        <mesh><sphereGeometry args={[1.2, 64, 64]} /><meshBasicMaterial {...body} /></mesh>
         <mesh material={coreG.mat}><sphereGeometry args={[1.25, 96, 96]} /></mesh>
         <points ref={shell} geometry={dots} scale={1.27}>
-          <pointsMaterial color="#7b96ff" size={0.016} sizeAttenuation transparent opacity={0.7} depthWrite={false} blending={THREE.AdditiveBlending} toneMapped={false} />
+          <pointsMaterial color={light ? "#3552d6" : "#7b96ff"} size={0.016} sizeAttenuation transparent opacity={light ? 0.85 : 0.7} depthWrite={false} blending={light ? THREE.NormalBlending : THREE.AdditiveBlending} toneMapped={false} />
         </points>
       </group>
 
       {/* LEAD: orb with a thin orbit */}
       <group ref={parts[0]}>
-        <mesh><sphereGeometry args={[0.76, 48, 48]} /><meshBasicMaterial {...dark} /></mesh>
+        <mesh><sphereGeometry args={[0.76, 48, 48]} /><meshBasicMaterial {...body} /></mesh>
         <mesh material={orbG.mat}><sphereGeometry args={[0.8, 64, 64]} /></mesh>
-        <mesh rotation={[1.25, 0, 0.35]}><torusGeometry args={[1.08, 0.005, 8, 200]} /><meshBasicMaterial color="#a9bbff" transparent opacity={0.65} toneMapped={false} /></mesh>
+        <mesh rotation={[1.25, 0, 0.35]}><torusGeometry args={[1.08, 0.005, 8, 200]} /><meshBasicMaterial color={light ? "#3552d6" : "#a9bbff"} transparent opacity={light ? 0.8 : 0.65} toneMapped={false} /></mesh>
       </group>
 
       {/* BUILD: glass cube with a luminous edge */}
       <group ref={parts[1]}>
-        <mesh><boxGeometry args={[1.0, 1.0, 1.0]} /><meshBasicMaterial {...dark} /></mesh>
+        <mesh><boxGeometry args={[1.0, 1.0, 1.0]} /><meshBasicMaterial {...body} /></mesh>
         <mesh material={cubeG.mat}><boxGeometry args={[1.06, 1.06, 1.06]} /></mesh>
-        <lineSegments geometry={cubeEdges}><lineBasicMaterial color="#c9ced8" transparent opacity={0.6} toneMapped={false} /></lineSegments>
+        <lineSegments geometry={cubeEdges}><lineBasicMaterial color={light ? "#3552d6" : "#c9ced8"} transparent opacity={light ? 0.9 : 0.6} toneMapped={false} /></lineSegments>
       </group>
 
       {/* THINK: a slim glass ribbon knot */}

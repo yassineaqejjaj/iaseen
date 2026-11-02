@@ -215,6 +215,14 @@ export const dictEn = {
     form: { title: "Send me a message", name: "Your name", email: "Your email", message: "How can I help?", consent: "I agree that my details are used to reply to this message.", send: "Send message", sending: "Sending…", sent: "Thank you, your message is on its way. I will get back to you.", error: "The message could not be sent. Please write to me directly at", invalid: "Please fill in every field with a valid email and a message of at least 10 characters.", again: "Send another message" },
     theme: { toLight: "Switch to the light theme", toDark: "Switch to the dark theme" },
   },
+  aboutStory: {
+    title: "My story, in my words", timeline: "MY CAREER AT A GLANCE", quote: "I’m not trying to find out how far AI can go. I’m trying to discover how far it can take us.", quoteBy: "Yassine Aqejjaj",
+    blocks: [
+      { k: "WHAT DREW ME TO AI", p: ["What has always driven me is the urge to understand how things work, and to see how far I can go by learning on my own.", "At first, AI was curiosity: understanding how a machine can learn, recognise images and make decisions. Little by little it became much more than a professional subject: a passion, sometimes almost an obsession. I could spend whole evenings testing an idea, hunting for why something did not work, just to feel the satisfaction of it finally working.", "What I love about AI is that it brings me back to something very simple: the joy of learning, creating and surprising myself."] },
+      { k: "A DEFINING MOMENT", p: ["It is not an award, a conference or a big client project. It is a much simpler moment.", "Only a few months ago, I was asking a colleague to explain how to deploy an application. I had worked in AI for years and led teams and complex projects, yet I could not put a product I had imagined online by myself. I have never had a problem admitting what I cannot do.", "So I learned. I made mistakes, started over, spent nights on technical problems that look obvious to me today. One day I realised I no longer needed to ask someone to build my idea. In about twenty days, I had built several working AI products.", "It was not the number of products that struck me, but the feeling of freedom: an idea in the morning, a test by the evening."] },
+      { k: "WHAT DRIVES ME TODAY", p: ["If I, who am not a developer by training, could learn this fast, how many people around us still do not know what they are capable of creating?", "That is what motivates me most: giving others the same urge to try."] },
+    ],
+  },
   act: { hint: "ACT ON THE PAGE", case: "Open case study", filter: "Filter the AI Lab", skill: "Show skill", node: "Show on the map", page: "Open the page" },
   interlude: [
     { big: "I don’t just lead AI.\nI build it.", small: "Strategy, delivery and shipped code, under one roof.", fig: false },
@@ -469,6 +477,14 @@ export const dictFr: Dict = {
     form: { title: "Envoyez-moi un message", name: "Votre nom", email: "Votre e-mail", message: "Comment puis-je vous aider ?", consent: "J’accepte que mes informations servent à répondre à ce message.", send: "Envoyer le message", sending: "Envoi…", sent: "Merci, votre message est parti. Je reviens vers vous.", error: "Le message n’a pas pu être envoyé. Écrivez-moi directement à", invalid: "Merci de remplir tous les champs avec un e-mail valide et un message d’au moins 10 caractères.", again: "Envoyer un autre message" },
     theme: { toLight: "Passer au thème clair", toDark: "Passer au thème sombre" },
   },
+  aboutStory: {
+    title: "Mon histoire, en mes mots", timeline: "MON PARCOURS EN UN COUP D’ŒIL", quote: "Je ne cherche pas à savoir jusqu’où l’IA peut aller. Je cherche à découvrir jusqu’où elle peut nous emmener.", quoteBy: "Yassine Aqejjaj",
+    blocks: [
+      { k: "CE QUI M’A POUSSÉ VERS L’IA", p: ["Ce qui m’a toujours animé, c’est l’envie de comprendre comment les choses fonctionnent, et de voir jusqu’où je peux aller en apprenant par moi-même.", "Au départ, l’IA, c’était de la curiosité : comprendre comment une machine peut apprendre, reconnaître des images, prendre des décisions. Petit à petit, c’est devenu bien plus qu’un sujet professionnel : une passion, presque une obsession parfois. Je pouvais passer des soirées entières à tester une idée, à chercher pourquoi quelque chose ne fonctionnait pas, juste pour ressentir la satisfaction de quand, enfin, ça marchait.", "Ce qui me plaît dans l’IA, c’est qu’elle me ramène à quelque chose de très simple : le plaisir d’apprendre, de créer et de me surprendre moi-même."] },
+      { k: "UN MOMENT MARQUANT", p: ["Ce n’est pas une récompense, une conférence ou un grand projet client. C’est un moment beaucoup plus simple.", "Il y a quelques mois encore, je demandais à un collègue de m’expliquer comment déployer une application. Je travaillais dans l’IA depuis des années, je pilotais des équipes et des projets complexes, mais j’étais incapable de mettre en ligne, tout seul, un produit que j’avais imaginé. Je n’ai jamais eu de problème à reconnaître ce que je ne sais pas faire.", "Alors j’ai appris. J’ai fait des erreurs, recommencé, passé des nuits sur des problèmes techniques qui me paraissent évidents aujourd’hui. Un jour, j’ai réalisé que je n’avais plus besoin de demander à quelqu’un de construire mon idée. En une vingtaine de jours, j’avais construit plusieurs produits IA fonctionnels.", "Ce n’est pas leur nombre qui m’a marqué, mais ce sentiment de liberté : une idée le matin, un test le soir."] },
+      { k: "CE QUI ME MOTIVE AUJOURD’HUI", p: ["Si moi, qui ne suis pas développeur de formation, j’ai pu apprendre aussi vite, combien de personnes autour de nous ignorent encore ce qu’elles seraient capables de créer ?", "C’est ce qui me motive le plus : donner aux autres cette même envie d’essayer."] },
+    ],
+  },
   act: { hint: "AGIR SUR LA PAGE", case: "Ouvrir l’étude de cas", filter: "Filtrer l’AI Lab", skill: "Voir la compétence", node: "Voir sur la carte", page: "Ouvrir la page" },
   interlude: [
     { big: "Je ne me contente pas de diriger l’IA.\nJe la construis.", small: "Stratégie, delivery et code livré, sous un même toit.", fig: false },
@@ -720,6 +736,14 @@ export const dictAr: Dict = {
     pathsAria: "ثلاثة مداخل إلى أعمالي", paths: [{ k: "أبحث عن كفاءة", d: "القيادة والأثر والسيرة الذاتية", h: "/experience" }, { k: "لدي مشروع", d: "المهام والنتائج والتواصل", h: "/work" }, { k: "أريد أن أتعلّم", d: "أدلة ومقالات ومداخلات", h: "/insights" }],
     form: { title: "أرسل لي رسالة", name: "اسمك", email: "بريدك الإلكتروني", message: "كيف يمكنني مساعدتك؟", consent: "أوافق على استخدام بياناتي للرد على هذه الرسالة.", send: "إرسال الرسالة", sending: "جارٍ الإرسال…", sent: "شكرًا، رسالتك في طريقها. سأعود إليك.", error: "تعذّر إرسال الرسالة. راسلني مباشرة على", invalid: "يرجى ملء كل الحقول ببريد إلكتروني صحيح ورسالة لا تقل عن 10 أحرف.", again: "إرسال رسالة أخرى" },
     theme: { toLight: "التبديل إلى المظهر الفاتح", toDark: "التبديل إلى المظهر الداكن" },
+  },
+  aboutStory: {
+    title: "قصتي بكلماتي", timeline: "مساري في لمحة", quote: "لا أبحث عن مدى ما يمكن أن يبلغه الذكاء الاصطناعي. أبحث عن المدى الذي يمكن أن يأخذنا إليه.", quoteBy: "Yassine Aqejjaj",
+    blocks: [
+      { k: "ما الذي دفعني إلى الذكاء الاصطناعي", p: ["ما حرّكني دائمًا هو الرغبة في فهم كيف تعمل الأشياء، ورؤية إلى أي مدى أستطيع الوصول بالتعلّم الذاتي.", "في البداية كان الذكاء الاصطناعي فضولًا: أن أفهم كيف يمكن لآلة أن تتعلّم وتتعرّف على الصور وتتخذ القرارات. ومع الوقت صار أكثر بكثير من موضوع مهني: شغفًا، وأحيانًا ما يشبه الهوس. كنت أقضي أمسيات كاملة في اختبار فكرة والبحث عن سبب عدم عمل شيء ما، فقط لأشعر بالرضا عندما ينجح أخيرًا.", "ما يعجبني في الذكاء الاصطناعي أنه يعيدني إلى شيء بسيط جدًا: متعة التعلّم والإبداع ومفاجأة نفسي."] },
+      { k: "لحظة فارقة", p: ["ليست جائزة ولا مؤتمرًا ولا مشروعًا كبيرًا لعميل. إنها لحظة أبسط بكثير.", "قبل بضعة أشهر فقط، كنت أطلب من زميل أن يشرح لي كيف أنشر تطبيقًا. كنت أعمل في الذكاء الاصطناعي منذ سنوات وأقود فرقًا ومشاريع معقدة، لكنني عجزت عن نشر منتج تخيّلته بمفردي. ولم أجد يومًا حرجًا في الاعتراف بما لا أعرف فعله.", "فبدأت أتعلّم. ارتكبت أخطاء وأعدت المحاولة وقضيت ليالي أمام مشكلات تقنية تبدو لي اليوم بديهية. وذات يوم أدركت أنني لم أعد بحاجة إلى أن أطلب من أحد بناء فكرتي. وفي نحو عشرين يومًا بنيت عدة منتجات ذكاء اصطناعي تعمل.", "لم يكن عددها ما أثّر فيّ، بل الشعور بالحرية: فكرة في الصباح، واختبار في المساء."] },
+      { k: "ما يحفّزني اليوم", p: ["إذا كنت أنا، غير المتخصص في التطوير، قد تعلّمت بهذه السرعة، فكم من الناس حولنا لا يعرفون بعد ما هم قادرون على إبداعه؟", "هذا ما يحفّزني أكثر: أن أمنح الآخرين الرغبة نفسها في المحاولة."] },
+    ],
   },
   act: { hint: "تصرّف في الصفحة", case: "افتح دراسة الحالة", filter: "صفِّ مختبر الذكاء الاصطناعي", skill: "أبرز المهارة", node: "أظهره على الخريطة", page: "افتح الصفحة" },
   interlude: [

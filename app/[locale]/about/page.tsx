@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Header from "@/components/Header";
 import About from "@/components/About";
+import AboutStory from "@/components/AboutStory";
 import { getI18n, isLocale, locales, type Locale } from "@/lib/i18n";
 
 export function generateStaticParams() { return locales.map((locale) => ({ locale })); }
@@ -28,6 +29,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
       <Header locale={locale} />
       <main>
         <About locale={locale} />
+        <AboutStory locale={locale} />
       </main>
     </>
   );

@@ -80,6 +80,20 @@ export const caseGraph = (l: Locale, slug: string) => {
   };
 };
 
+export const speakingGraph = (l: Locale) => {
+  const x = getI18n(l).t.speaking;
+  const url = pageUrl(l, "/speaking");
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      { "@type": "CollectionPage", "@id": `${url}#page`, url, name: x.metaTitle, description: x.metaDescription, inLanguage: l, about: { "@id": PERSON_ID },
+        hasPart: x.items.map((it) => ({ "@type": "ImageObject", contentUrl: `${SITE}${it.img}`, name: it.event, caption: it.alt, creditText: it.event })) },
+      { "@type": "Event", name: "Google Cloud Summit Paris", startDate: "2026-06-04", eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode", location: { "@type": "Place", name: "Paris", address: { "@type": "PostalAddress", addressLocality: "Paris", addressCountry: "FR" } },
+        image: `${SITE}${x.items[0].img}`, performer: { "@id": PERSON_ID } },
+    ],
+  };
+};
+
 export const novaGraph = (l: Locale) => {
   const { t, c } = getI18n(l);
   const n = t.novaPage;

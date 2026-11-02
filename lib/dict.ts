@@ -200,6 +200,13 @@ export const dictEn = {
     inside: ["What “agentic” really changes, from assistant to multi-agent system", "Choosing the processes to transform: selection grid and value/risk matrix", "Designing the human’s place: roles, decision points and four autonomy levels", "Architecture of an agentic system: orchestration, specialists, governed context", "Context, data and access rights", "Evaluating before scaling: scenarios, judges and release gates", "Governing actions, and managing change with real training figures", "Measuring the transformation, a wave-based roadmap, common mistakes and templates"],
     teaser: "NEW · WHITE PAPER", teaserText: "Agentic transformation: from assistants to agents, method and roadmap.",
   },
+  speaking: {
+    nav: "Speaking", metaTitle: "Speaking: Google Cloud Summit Paris and GenAI at Work | Yassine Aqejjaj", metaDescription: "Talks by Yassine Aqejjaj, Head of AI Factory at Devoteam: Google Cloud Summit Paris 2026 and Google Workspace GenAI at Work, on agentic AI and the NOVA platform.", eyebrow: "SPEAKING", title: "On stage", lead: "I share what we learn building and deploying agentic AI at scale. Two recent appearances.", all: "All talks",
+    items: [
+      { img: "/speaking/google-cloud-summit-paris-2026.webp", event: "Google Cloud Summit Paris", date: "4 June 2026", place: "Paris", text: "Speaker at Google Cloud Summit Paris, on agentic AI in the enterprise.", alt: "Yassine Aqejjaj, speaker at Google Cloud Summit Paris, 4 June 2026", tag: "Event visual" },
+      { img: "/speaking/google-workspace-genai-at-work-nova.webp", event: "Google Workspace: GenAI at Work", date: "Presented by Devoteam", place: "Paris", text: "Presenting NOVA, the AI Factory's agentic platform: “The right problem. The right execution.”", alt: "Yassine Aqejjaj presenting NOVA on stage at the Google Workspace GenAI at Work event, presented by Devoteam", tag: "On stage" },
+    ],
+  },
   act: { hint: "ACT ON THE PAGE", case: "Open case study", filter: "Filter the AI Lab", skill: "Show skill", node: "Show on the map", page: "Open the page" },
   interlude: [
     { big: "I don’t just lead AI.\nI build it.", small: "Strategy, delivery and shipped code, under one roof.", fig: false },
@@ -438,6 +445,13 @@ export const dictFr: Dict = {
     inside: ["Ce que « agentique » change vraiment, de l’assistant au système multi-agents", "Choisir les processus à transformer : grille de sélection et matrice valeur / risque", "Concevoir la place de l’humain : rôles, points de décision et quatre niveaux d’autonomie", "Architecture d’un système agentique : orchestration, spécialistes, contexte gouverné", "Contexte, données et droits d’accès", "Évaluer avant d’étendre : scénarios, juges et portes de mise en production", "Gouverner les actions, et conduire le changement avec des chiffres de formation réels", "Mesurer la transformation, feuille de route par vagues, erreurs à éviter et modèles"],
     teaser: "NOUVEAU · LIVRE BLANC", teaserText: "La transformation agentique : des assistants aux agents, méthode et feuille de route.",
   },
+  speaking: {
+    nav: "Interventions", metaTitle: "Interventions : Google Cloud Summit Paris et GenAI at Work | Yassine Aqejjaj", metaDescription: "Interventions de Yassine Aqejjaj, Head of AI Factory chez Devoteam : Google Cloud Summit Paris 2026 et Google Workspace GenAI at Work, sur l’IA agentique et la plateforme NOVA.", eyebrow: "INTERVENTIONS", title: "Sur scène", lead: "Je partage ce que nous apprenons en construisant et en déployant l’IA agentique à grande échelle. Deux interventions récentes.", all: "Toutes les interventions",
+    items: [
+      { img: "/speaking/google-cloud-summit-paris-2026.webp", event: "Google Cloud Summit Paris", date: "4 juin 2026", place: "Paris", text: "Intervenant au Google Cloud Summit Paris, sur l’IA agentique en entreprise.", alt: "Yassine Aqejjaj, intervenant au Google Cloud Summit Paris, 4 juin 2026", tag: "Visuel de l’événement" },
+      { img: "/speaking/google-workspace-genai-at-work-nova.webp", event: "Google Workspace : GenAI at Work", date: "Présenté par Devoteam", place: "Paris", text: "Présentation de NOVA, la plateforme agentique de l’AI Factory : « Le bon problème. La bonne exécution. »", alt: "Yassine Aqejjaj présente NOVA sur scène lors de l’événement Google Workspace GenAI at Work, présenté par Devoteam", tag: "Sur scène" },
+    ],
+  },
   act: { hint: "AGIR SUR LA PAGE", case: "Ouvrir l’étude de cas", filter: "Filtrer l’AI Lab", skill: "Voir la compétence", node: "Voir sur la carte", page: "Ouvrir la page" },
   interlude: [
     { big: "Je ne me contente pas de diriger l’IA.\nJe la construis.", small: "Stratégie, delivery et code livré, sous un même toit.", fig: false },
@@ -673,6 +687,13 @@ export const dictAr: Dict = {
     meta: "الوثيقة بالفرنسية · 23 صفحة · PDF",
     inside: ["ما الذي يغيّره «الوكيل» فعلًا، من المساعد إلى النظام متعدد الوكلاء", "اختيار العمليات المراد تحويلها: شبكة الاختيار ومصفوفة القيمة والمخاطر", "تصميم مكان الإنسان: الأدوار ونقاط القرار وأربعة مستويات للاستقلالية", "بنية النظام الوكيل: التنسيق والمتخصصون والسياق الخاضع للحوكمة", "السياق والبيانات وصلاحيات الوصول", "التقييم قبل التوسع: السيناريوهات والمحكّمون وبوابات الإنتاج", "حوكمة الإجراءات وإدارة التغيير بأرقام تدريب حقيقية", "قياس التحول وخارطة طريق على موجات وأخطاء شائعة ونماذج"],
     teaser: "جديد · ورقة بيضاء", teaserText: "التحول الوكيل: من المساعدين إلى الوكلاء، منهج وخارطة طريق.",
+  },
+  speaking: {
+    nav: "المداخلات", metaTitle: "المداخلات: Google Cloud Summit باريس وGenAI at Work | Yassine Aqejjaj", metaDescription: "مداخلات Yassine Aqejjaj، Head of AI Factory في Devoteam: Google Cloud Summit باريس 2026 وGoogle Workspace GenAI at Work، حول الذكاء الاصطناعي الوكيل ومنصة NOVA.", eyebrow: "المداخلات", title: "على المنصة", lead: "أشارك ما نتعلمه من بناء ونشر الذكاء الاصطناعي الوكيل على نطاق واسع. مداخلتان حديثتان.", all: "كل المداخلات",
+    items: [
+      { img: "/speaking/google-cloud-summit-paris-2026.webp", event: "Google Cloud Summit باريس", date: "4 يونيو 2026", place: "باريس", text: "متحدث في Google Cloud Summit باريس، حول الذكاء الاصطناعي الوكيل في المؤسسات.", alt: "Yassine Aqejjaj متحدثًا في Google Cloud Summit باريس، 4 يونيو 2026", tag: "صورة الحدث" },
+      { img: "/speaking/google-workspace-genai-at-work-nova.webp", event: "Google Workspace: GenAI at Work", date: "بتقديم Devoteam", place: "باريس", text: "عرض NOVA، المنصة الوكيلة في AI Factory: «المشكلة الصحيحة. التنفيذ الصحيح.»", alt: "Yassine Aqejjaj يقدّم NOVA على المنصة في فعالية Google Workspace GenAI at Work بتقديم Devoteam", tag: "على المنصة" },
+    ],
   },
   act: { hint: "تصرّف في الصفحة", case: "افتح دراسة الحالة", filter: "صفِّ مختبر الذكاء الاصطناعي", skill: "أبرز المهارة", node: "أظهره على الخريطة", page: "افتح الصفحة" },
   interlude: [

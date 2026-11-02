@@ -206,6 +206,12 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 16, marginTop: 8 }}>
             <div>
               <h3 style={sectionTitle}>{t.insights.onStage}</h3>
+              <Link href={href("/speaking")} aria-label={t.speaking.all} style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, marginBottom: 12, textDecoration: "none" }}>
+                {t.speaking.items.map((it) => (
+                  <img key={it.img} src={it.img} alt={it.alt} width={600} height={400} loading="lazy" decoding="async" style={{ display: "block", width: "100%", aspectRatio: "3 / 2", objectFit: "cover", objectPosition: "50% 60%", borderRadius: 14, border: "1px solid var(--line)" }} />
+                ))}
+              </Link>
+              <p style={{ margin: "0 0 14px", fontSize: 14 }}><Link href={href("/speaking")} style={{ fontWeight: 600, color: "var(--link)" }}>{t.speaking.all} {t.arrow}</Link></p>
               <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
                 {c.stage.map((v) => (
                   <a key={v.url} href={v.url} target="_blank" rel="noopener noreferrer" className="card" style={{ display: "flex", gap: 18, alignItems: "center", textDecoration: "none", color: "var(--text)", padding: 18 }}>
@@ -288,7 +294,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           </div>
           <div style={{ marginTop: 72, paddingTop: 24, borderTop: "1px solid var(--line)", display: "flex", flexWrap: "wrap", justifyContent: "space-between", gap: 12, fontSize: 14, color: "var(--muted)" }}>
             <span>© {new Date().getFullYear()} {t.rights}</span>
-            <span style={{ display: "inline-flex", gap: 20 }}><Link href={href("/privacy")} style={{ color: "inherit" }}>{t.wp.privacyLink}</Link><span dir="ltr">iaseen.com</span></span>
+            <span style={{ display: "inline-flex", gap: 20 }}><Link href={href("/speaking")} style={{ color: "inherit" }}>{t.speaking.nav}</Link><Link href={href("/privacy")} style={{ color: "inherit" }}>{t.wp.privacyLink}</Link><span dir="ltr">iaseen.com</span></span>
           </div>
         </div>
       </footer>

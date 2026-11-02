@@ -1,5 +1,5 @@
-const old = ["experience", "work", "lab", "expertise", "insights", "contact"];
-const anchor = { work: "client-work", lab: "ai-lab" };
+const old = ["experience", "expertise", "insights", "contact"];
+const anchor = {};
 export default {
   // The gated PDF is read at runtime by the white paper route, so it must be traced into the serverless bundle.
   outputFileTracingIncludes: { "/api/whitepaper": ["./whitepapers/ai-factory/guide-ai-factory-fr.pdf", "./whitepapers/agentic-transformation/guide-transformation-agentique-fr.pdf"] },

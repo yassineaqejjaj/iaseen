@@ -13,6 +13,8 @@ const SECTIONS = ["about", "experience", "client-work", "ai-lab", "expertise", "
  * One calm bar: logo, six section links with a scroll-spy underline, then a few tools and the contact button.
  * Transparent over the hero, glass once you scroll. Below 1080 px everything moves into a full-screen menu (the longest French and Arabic labels need that room).
  */
+const PAGES: Record<string, string> = { blog: "/blog", "client-work": "/work", "ai-lab": "/lab" };
+
 export default function Header(_props: { locale?: string }) {
   const { t, href } = useI18n();
   const [scrolled, setScrolled] = useState(false);
@@ -56,7 +58,7 @@ export default function Header(_props: { locale?: string }) {
 
         <ul className="nav-links">
           {links.map(([id, label]) => (
-            <li key={id}><Link href={href(id === "blog" ? "/blog" : `#${id}`)} className="nav-link" aria-current={active === id ? "location" : undefined}>{label}</Link></li>
+            <li key={id}><Link href={href(PAGES[id] ?? `#${id}`)} className="nav-link" aria-current={active === id ? "location" : undefined}>{label}</Link></li>
           ))}
         </ul>
 
@@ -76,7 +78,7 @@ export default function Header(_props: { locale?: string }) {
           <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "grid" }}>
             {[...links, ["contact", t.nav.contact] as [string, string]].map(([id, label]) => (
               <li key={id}>
-                <Link href={href(id === "blog" ? "/blog" : `#${id}`)} onClick={() => setOpen(false)} aria-current={active === id ? "location" : undefined} className="mm-link">{label}</Link>
+                <Link href={href(PAGES[id] ?? `#${id}`)} onClick={() => setOpen(false)} aria-current={active === id ? "location" : undefined} className="mm-link">{label}</Link>
               </li>
             ))}
           </ul>

@@ -4,7 +4,7 @@ const over = <T,>(base: T[], tr: Partial<T>[]): T[] => base.map((b, i) => ({ ...
 
 export const contentFr: Content = {
   bio: {
-    headline: "Diriger l’IA à grande échelle. La construire moi-même.",
+    headline: "Moi, c’est Yassine. Je dirige l’IA à grande échelle, et je la construis moi-même.",
     paragraphs: [
       "Je suis Yassine Aqejjaj, leader IA avec 13 ans d’expérience dans la construction de produits IA, la conception de modèles opérationnels IA d’entreprise et le pilotage de la livraison transverse, dans la défense, les services publics, le retail et les services financiers. J’ai rejoint Devoteam en 2023 comme Principal Product Manager, puis Lead of AI en 2024 ; je dirige l’AI Factory depuis 2026, où se rejoignent développement de plateformes internes, livraison client et montée en compétences.",
       "J’ai commencé dans la banque digitale à Casablanca, puis j’ai rejoint Paris pour travailler sur des produits IA chez Carrefour, Fujitsu et AXA. En chemin, je me suis formé au machine learning à Stanford et à la gestion de produits IA à Duke. Aujourd’hui, je pilote NOVA Suite, notre plateforme agentique déployée auprès de 800 collaborateurs, et j’ai formé plus de 1 500 professionnels à l’IA générative, à l’IA agentique et au RAG.",

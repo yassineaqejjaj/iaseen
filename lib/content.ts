@@ -17,7 +17,7 @@ export const profile = {
 };
 
 export const bio = {
-  headline: "Leading AI at scale. Building it myself.",
+  headline: "Hi, I’m Yassine. I lead AI at scale, and I build it myself.",
   paragraphs: [
     "I'm Yassine Aqejjaj, an AI leader with 13 years of experience building AI products, shaping enterprise AI operating models and leading cross-functional delivery across defence, public services, retail and financial services. I joined Devoteam in 2023 as Principal Product Manager, became Lead of AI in 2024 and have headed the AI Factory since 2026, where internal platform development, client delivery and workforce enablement come together.",
     "I started in digital banking in Casablanca, then moved to Paris to work on AI products at Carrefour, Fujitsu and AXA. Along the way I trained in machine learning at Stanford and in AI product management at Duke. Today I lead the NOVA Suite, our agentic platform deployed to 800 employees, and I've trained 1,500+ professionals in generative AI, agentic AI and RAG.",

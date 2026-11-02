@@ -2,7 +2,7 @@
 
 export const dictEn = {
   arrow: "→",
-  nav: { about: "About", experience: "Experience", work: "Client Work", lab: "AI Lab", expertise: "Expertise", insights: "Insights", contact: "Contact", ask: "Ask my AI", homeAria: "iaseen, back to top", lang: "Language", menu: "Menu", closeMenu: "Close menu", mainAria: "Main" },
+  nav: { about: "About me", experience: "Experience", work: "Client Work", lab: "AI Lab", expertise: "Expertise", insights: "Insights", contact: "Contact", ask: "Ask my AI", homeAria: "iaseen, back to top", lang: "Language", menu: "Menu", closeMenu: "Close menu", mainAria: "Main" },
   path: { aria: "Choose your path", label: "I'M HERE AS A", recruiter: "Recruiter", client: "Client / Partner", builder: "Builder / Founder", hintRecruiter: "Leadership, impact, CV", hintClient: "Expertise, missions, results", hintBuilder: "Products, demos, code" },
   hero: {
     roles: "HEAD OF AI · PRODUCT BUILDER · AI STRATEGIST", line1: "I don’t just lead AI.", line2: "I build it.",
@@ -12,7 +12,7 @@ export const dictEn = {
   stats: { years: "Years of experience", pipeline: "Commercial pipeline", users: "NOVA users", trained: "Professionals trained", books: "Books published", repos: "Public repos on GitHub" },
   trusted: "TRUSTED BY",
   partners: "PARTNERS I WORK WITH",
-  about: { eyebrow: "ABOUT", journey: "See the journey", linkedin: "LinkedIn", alt: "Portrait of Yassine Aqejjaj" },
+  about: { eyebrow: "ABOUT ME", journey: "See the journey", linkedin: "LinkedIn", alt: "Portrait of Yassine Aqejjaj" },
   proof: {
     eyebrow: "LEAD · DELIVER · BUILD", title: "Every claim, linked to a proof", panel: "EVERY CLAIM, LINKED TO A PROOF", aria: "Lead, Deliver, Build",
     tabs: { Lead: "Lead", Deliver: "Deliver", Build: "Build" },
@@ -26,19 +26,19 @@ export const dictEn = {
     kinds: { ROLE: "ROLE", MISSION: "MISSION", TEACHING: "TEACHING", PRODUCT: "PRODUCT", CODE: "CODE", BOOK: "BOOK" } as Record<string, string>,
   },
   journey: {
-    eyebrow: "EXPERIENCE · INTERACTIVE CV", title: "Professional journey", lead: "Pick a lens to read the same career the way a CEO, a product leader or a CTO would.",
+    eyebrow: "EXPERIENCE · INTERACTIVE CV", title: "Thirteen years, one thread: making AI useful", lead: "Pick a lens to read the same career the way a CEO, a product leader or a CTO would.",
     lensAria: "Read the CV through a lens", rolesAria: "Roles", alongside: "ALONGSIDE", alongsideText: "Mar 2025 – Present · Applied AI Research Lead, Multi-Agent Systems & Context Engineering",
     lenses: { all: "All", lead: "Leadership", product: "AI Product", tech: "Technical" } as Record<string, string>,
     tag: { lead: "LEADERSHIP", product: "AI PRODUCT", tech: "TECHNICAL" } as Record<string, string>,
     highlights: "HIGHLIGHTS", lensSuffix: "LENS", impact: "MEASURED IMPACT", download: "Download CV (PDF)", downloadNote: "The full CV as a PDF, in English.",
   },
   work: {
-    eyebrow: "CLIENT WORK", title: "AI in complex, real environments",
+    eyebrow: "CLIENT WORK", title: "Where AI meets the real world",
     lead: "Every case study follows the same path: challenge, my contribution, approach, impact, what I learned. Only public or client-approved information is shared.",
     impact: "Impact:", read: "Read the case study",
   },
   lab: {
-    eyebrow: "AI LAB · PRODUCTS I BUILT", title: "Products, not just repos",
+    eyebrow: "AI LAB · PRODUCTS I BUILT", title: "Built, shipped, used",
     lead: "Agentic platforms, health and learning tools I design, code and ship myself. Featured projects are curated; the full list lives on GitHub.",
     filtersAria: "Filter products", flagship: "FLAGSHIP",
     filters: { All: "All", AGENTIC: "Agentic AI", HEALTH: "HealthTech", EDUCATION: "Education", SPORT: "Sport & data" } as Record<string, string>,
@@ -57,7 +57,7 @@ export const dictEn = {
     },
   },
   expertise: {
-    eyebrow: "EXPERTISE", title: "No skill bars. Proof.", lead: "Select a skill to see the roles, missions and products that back it up.", proofFor: "PROOF FOR",
+    eyebrow: "EXPERTISE", title: "Don’t take my word for it. Check the proof.", lead: "Select a skill to see the roles, missions and products that back it up.", proofFor: "PROOF FOR",
     skills: {
       "AI Strategy": "AI Strategy", "Operating Model": "Operating Model", Governance: "Governance", Transformation: "Transformation",
       "AI Products": "AI Products", Teams: "Teams", MLOps: "MLOps", "Enterprise Delivery": "Enterprise Delivery",
@@ -65,13 +65,13 @@ export const dictEn = {
     } as Record<string, string>,
   },
   insights: {
-    eyebrow: "INSIGHTS", title: "Ideas, on stage, teaching", lead: "Four books, talks and training programmes on AI, leadership and the future of work.",
+    eyebrow: "INSIGHTS", title: "What I write, say and teach", lead: "Four books, talks and training programmes on AI, leadership and the future of work.",
     books: "IDEAS · BOOKS", author: "YASSINE AQEJJAJ", onAmazon: "On Amazon", onStage: "ON STAGE", inPrint: "IN PRINT", teaching: "TEACHING",
     trainedLine: "people trained in AI", trailText: "my professional AI learning platform, built to turn teams into builders.", trailCta: "Explore TRAIL Academy",
     kind: { TALK: "TALK", PODCAST: "PODCAST", ARTICLE: "ARTICLE" } as Record<string, string>,
   },
   ask: {
-    eyebrow: "ASK MY AI", title: "An interactive guide to my work", text: "It only answers from validated portfolio content and always links its sources.",
+    eyebrow: "ASK MY AI", title: "Ask anything about my work", text: "It only answers from validated portfolio content and always links its sources.",
     bullets: ["Answers recruiter and client questions", "Explains product architecture", "Recommends the most relevant projects for your need"],
     name: "Yassine’s AI", badge: "Grounded answers only", suggested: "SUGGESTED QUESTIONS", placeholder: "Ask anything about my experience…", send: "Send question", sources: "SOURCES",
     aud: { Recruiter: "Recruiter", Client: "Client", Builder: "Builder" } as Record<string, string>,
@@ -101,9 +101,9 @@ export const dictEn = {
     description: "Yassine Aqejjaj, Head of AI: 13 years leading enterprise AI strategy and building agentic AI and RAG platforms such as NOVA Suite. Portfolio, case studies and CV.",
     jobTitle: "Head of AI", caseSuffix: "Yassine Aqejjaj",
   },
-  faq: { eyebrow: "FAQ", title: "Quick answers" },
+  faq: { eyebrow: "FAQ", title: "Questions people ask me" },
   gallery: { title: "Inside NOVA", note: "Screens from the NOVA demo workspace. Client names are masked.", items: ["Today", "Architecture", "Skills", "Engineering", "Routines", "Voice"] },
-  more: { journey: "Detailed path and constellation", cases: "More missions", skills: "Proof by skill", nova: "How NOVA works", anchors: ["About","Work","Lab","Insights","Contact"], products: "More products", talks: "Talks, articles and teaching", faq: "Quick answers" },
+  more: { journey: "Detailed path and constellation", cases: "More missions", skills: "Proof by skill", nova: "How NOVA works", anchors: ["About me","Work","Lab","Insights","Contact"], products: "More products", talks: "Talks, articles and teaching", faq: "Quick answers" },
   novaPage: {
     metaTitle: "NOVA Suite: Agentic AI Platform | Yassine Aqejjaj",
     metaDescription: "NOVA Suite is the AI Factory's agentic platform: orchestrated specialist agents, governed context and continuous evaluation, deployed to 800 employees at Devoteam.",
@@ -208,6 +208,7 @@ export const dictEn = {
       { img: "/speaking/generative-ai-meetup-paris.webp", event: "Generative AI Meetup", date: "April 30", place: "Paris", text: "Speaker at the Generative AI Meetup in Paris, alongside speakers from Ipsos Synthesio and Scaleway.", alt: "Yassine Aqejjaj on the Generative AI Meetup poster, Paris, April 30", tag: "Event poster" },
     ],
   },
+  pages: { workTitle: "Work: AI missions and results | Yassine Aqejjaj", workDesc: "Client missions led by Yassine Aqejjaj: sovereign generative AI, enterprise AI transformation and AI product delivery, with measured results.", labTitle: "AI Lab: products and platforms | Yassine Aqejjaj", labDesc: "The NOVA Suite, TrustRail, MedGuard AI, Prompt Arena and the other AI products built by Yassine Aqejjaj.", allWork: "All missions", allLab: "All products and projects" },
   act: { hint: "ACT ON THE PAGE", case: "Open case study", filter: "Filter the AI Lab", skill: "Show skill", node: "Show on the map", page: "Open the page" },
   interlude: [
     { big: "I don’t just lead AI.\nI build it.", small: "Strategy, delivery and shipped code, under one roof.", fig: false },
@@ -241,7 +242,7 @@ export const dictEn = {
     related: "RELATED", answer: "ANSWER", noResults: "No match. Try a skill, a client or a product.", downloadCv: "Download CV (PDF)", toExecutive: "Switch to Executive mode", toExperience: "Switch to Experience mode", close: "Close",
   },
   constellation: {
-    eyebrow: "CAREER CONSTELLATION", title: "A connected journey", hint: "Select a node to see how roles, skills and products connect.",
+    eyebrow: "CAREER CONSTELLATION", title: "How it all connects", hint: "Select a node to see how roles, skills and products connect.",
     products: "PRODUCTS", skills: "SKILLS", roles: "ROLES", missions: "MISSIONS", openCase: "Open the case study", none: "Select a node to explore.", mobile: "Open this page on a larger screen to explore the constellation, or use the list below.",
   },
   rights: "Yassine Aqejjaj",
@@ -251,7 +252,7 @@ export type Dict = typeof dictEn;
 
 export const dictFr: Dict = {
   arrow: "→",
-  nav: { about: "À propos", experience: "Parcours", work: "Missions clients", lab: "AI Lab", expertise: "Expertise", insights: "Publications", contact: "Contact", ask: "Demander à mon IA", homeAria: "iaseen, retour en haut", lang: "Langue", menu: "Menu", closeMenu: "Fermer le menu", mainAria: "Navigation principale" },
+  nav: { about: "À propos de moi", experience: "Parcours", work: "Missions clients", lab: "AI Lab", expertise: "Expertise", insights: "Publications", contact: "Contact", ask: "Demander à mon IA", homeAria: "iaseen, retour en haut", lang: "Langue", menu: "Menu", closeMenu: "Fermer le menu", mainAria: "Navigation principale" },
   path: { aria: "Choisissez votre parcours", label: "JE VISITE EN TANT QUE", recruiter: "Recruteur", client: "Client / Partenaire", builder: "Builder / Fondateur", hintRecruiter: "Leadership, impact, CV", hintClient: "Expertise, missions, résultats", hintBuilder: "Produits, démos, code" },
   hero: {
     roles: "HEAD OF AI · PRODUCT BUILDER · STRATÈGE IA", line1: "Je ne fais pas que diriger l’IA.", line2: "Je la construis.",
@@ -261,7 +262,7 @@ export const dictFr: Dict = {
   stats: { years: "Années d’expérience", pipeline: "Pipeline commercial", users: "Utilisateurs NOVA", trained: "Professionnels formés", books: "Livres publiés", repos: "Dépôts publics sur GitHub" },
   trusted: "ILS M’ONT FAIT CONFIANCE",
   partners: "PARTENAIRES AVEC QUI JE TRAVAILLE",
-  about: { eyebrow: "À PROPOS", journey: "Voir le parcours", linkedin: "LinkedIn", alt: "Portrait de Yassine Aqejjaj" },
+  about: { eyebrow: "À PROPOS DE MOI", journey: "Voir le parcours", linkedin: "LinkedIn", alt: "Portrait de Yassine Aqejjaj" },
   proof: {
     eyebrow: "DIRIGER · LIVRER · CONSTRUIRE", title: "Chaque affirmation, reliée à une preuve", panel: "CHAQUE AFFIRMATION, RELIÉE À UNE PREUVE", aria: "Diriger, livrer, construire",
     tabs: { Lead: "Diriger", Deliver: "Livrer", Build: "Construire" },
@@ -275,19 +276,19 @@ export const dictFr: Dict = {
     kinds: { ROLE: "RÔLE", MISSION: "MISSION", TEACHING: "FORMATION", PRODUCT: "PRODUIT", CODE: "CODE", BOOK: "LIVRE" },
   },
   journey: {
-    eyebrow: "PARCOURS · CV INTERACTIF", title: "Parcours professionnel", lead: "Choisissez un angle pour lire la même carrière comme le ferait un dirigeant, un responsable produit ou un CTO.",
+    eyebrow: "PARCOURS · CV INTERACTIF", title: "Treize ans, un fil rouge : rendre l’IA utile", lead: "Choisissez un angle pour lire la même carrière comme le ferait un dirigeant, un responsable produit ou un CTO.",
     lensAria: "Lire le CV selon un angle", rolesAria: "Postes", alongside: "EN PARALLÈLE", alongsideText: "Mars 2025 – Aujourd’hui · Applied AI Research Lead, systèmes multi-agents et ingénierie du contexte",
     lenses: { all: "Tout", lead: "Leadership", product: "Produit IA", tech: "Technique" },
     tag: { lead: "LEADERSHIP", product: "PRODUIT IA", tech: "TECHNIQUE" },
     highlights: "POINTS FORTS", lensSuffix: "ANGLE", impact: "IMPACT MESURÉ", download: "Télécharger le CV (PDF)", downloadNote: "Le CV complet au format PDF, en anglais.",
   },
   work: {
-    eyebrow: "MISSIONS CLIENTS", title: "L’IA dans des environnements complexes et réels",
+    eyebrow: "MISSIONS CLIENTS", title: "Là où l’IA rencontre le réel",
     lead: "Chaque étude de cas suit le même fil : le défi, ma contribution, l’approche, l’impact, ce que j’ai appris. Seules des informations publiques ou validées par le client sont partagées.",
     impact: "Impact :", read: "Lire l’étude de cas",
   },
   lab: {
-    eyebrow: "AI LAB · PRODUITS QUE J’AI CONSTRUITS", title: "Des produits, pas seulement des dépôts",
+    eyebrow: "AI LAB · PRODUITS QUE J’AI CONSTRUITS", title: "Construits, livrés, utilisés",
     lead: "Plateformes agentiques, outils de santé et d’apprentissage que je conçois, code et livre moi-même. Les projets phares sont choisis à la main ; la liste complète est sur GitHub.",
     filtersAria: "Filtrer les produits", flagship: "PROJET PHARE",
     filters: { All: "Tous", AGENTIC: "IA agentique", HEALTH: "HealthTech", EDUCATION: "Éducation", SPORT: "Sport & data" },
@@ -305,19 +306,19 @@ export const dictFr: Dict = {
       ],
     },
   },
-  expertise: { eyebrow: "EXPERTISE", title: "Pas de barres de compétences. Des preuves.", lead: "Sélectionnez une compétence pour voir les postes, missions et produits qui l’attestent.", proofFor: "PREUVES POUR", skills: {
+  expertise: { eyebrow: "EXPERTISE", title: "Ne me croyez pas sur parole. Vérifiez les preuves.", lead: "Sélectionnez une compétence pour voir les postes, missions et produits qui l’attestent.", proofFor: "PREUVES POUR", skills: {
       "AI Strategy": "Stratégie IA", "Operating Model": "Modèle opérationnel", Governance: "Gouvernance", Transformation: "Transformation",
       "AI Products": "Produits IA", Teams: "Équipes", MLOps: "MLOps", "Enterprise Delivery": "Livraison en entreprise",
       "AI Agents": "Agents IA", RAG: "RAG", "Context Engineering": "Ingénierie de contexte", Evaluation: "Évaluation",
     } },
   insights: {
-    eyebrow: "PUBLICATIONS", title: "Idées, prises de parole, enseignement", lead: "Quatre livres, des interventions et des formations sur l’IA, le leadership et l’avenir du travail.",
+    eyebrow: "PUBLICATIONS", title: "Ce que j’écris, dis et enseigne", lead: "Quatre livres, des interventions et des formations sur l’IA, le leadership et l’avenir du travail.",
     books: "IDÉES · LIVRES", author: "YASSINE AQEJJAJ", onAmazon: "Sur Amazon", onStage: "PRISES DE PAROLE", inPrint: "PUBLICATIONS", teaching: "ENSEIGNEMENT",
     trainedLine: "personnes formées à l’IA", trailText: "ma plateforme professionnelle de formation à l’IA, conçue pour transformer les équipes en bâtisseurs.", trailCta: "Découvrir TRAIL Academy",
     kind: { TALK: "CONFÉRENCE", PODCAST: "PODCAST", ARTICLE: "ARTICLE" },
   },
   ask: {
-    eyebrow: "DEMANDER À MON IA", title: "Un guide interactif de mon travail", text: "Il ne répond qu’à partir du contenu validé du portfolio et cite toujours ses sources.",
+    eyebrow: "DEMANDER À MON IA", title: "Posez-moi toutes vos questions sur mon travail", text: "Il ne répond qu’à partir du contenu validé du portfolio et cite toujours ses sources.",
     bullets: ["Répond aux questions des recruteurs et des clients", "Explique l’architecture des produits", "Recommande les projets les plus pertinents pour votre besoin"],
     name: "L’IA de Yassine", badge: "Réponses sourcées uniquement", suggested: "QUESTIONS SUGGÉRÉES", placeholder: "Posez une question sur mon parcours…", send: "Envoyer la question", sources: "SOURCES",
     aud: { Recruiter: "Recruteur", Client: "Client", Builder: "Builder" },
@@ -347,9 +348,9 @@ export const dictFr: Dict = {
     description: "Yassine Aqejjaj, Head of AI : 13 ans de stratégie IA d’entreprise et de plateformes d’IA agentique et RAG comme NOVA Suite. Portfolio, études de cas, CV.",
     jobTitle: "Head of AI", caseSuffix: "Yassine Aqejjaj",
   },
-  faq: { eyebrow: "FAQ", title: "Réponses rapides" },
+  faq: { eyebrow: "FAQ", title: "Les questions qu’on me pose" },
   gallery: { title: "Dans NOVA", note: "Captures de l’espace de démonstration NOVA. Les noms de clients sont masqués.", items: ["Aujourd’hui", "Architecture", "Compétences", "Engineering", "Routines", "Voix"] },
-  more: { journey: "Parcours détaillé et constellation", cases: "Autres missions", skills: "Preuves par compétence", nova: "Comment fonctionne NOVA", anchors: ["À propos","Missions","Labo","Insights","Contact"], products: "Plus de produits", talks: "Conférences, articles et enseignement", faq: "Réponses rapides" },
+  more: { journey: "Parcours détaillé et constellation", cases: "Autres missions", skills: "Preuves par compétence", nova: "Comment fonctionne NOVA", anchors: ["À propos de moi","Missions","Labo","Insights","Contact"], products: "Plus de produits", talks: "Conférences, articles et enseignement", faq: "Réponses rapides" },
   novaPage: {
     metaTitle: "NOVA Suite : plateforme d’IA agentique | Yassine Aqejjaj",
     metaDescription: "NOVA Suite est la plateforme agentique de l’AI Factory : agents spécialisés orchestrés, contexte gouverné et évaluation continue, déployée auprès de 800 collaborateurs chez Devoteam.",
@@ -454,6 +455,7 @@ export const dictFr: Dict = {
       { img: "/speaking/generative-ai-meetup-paris.webp", event: "Generative AI Meetup", date: "30 avril", place: "Paris", text: "Intervenant au Generative AI Meetup à Paris, aux côtés d’intervenants d’Ipsos Synthesio et de Scaleway.", alt: "Yassine Aqejjaj sur l’affiche du Generative AI Meetup, Paris, 30 avril", tag: "Affiche de l’événement" },
     ],
   },
+  pages: { workTitle: "Missions : IA en entreprise et résultats | Yassine Aqejjaj", workDesc: "Missions menées par Yassine Aqejjaj : IA générative souveraine, transformation IA en entreprise et produits IA, avec des résultats mesurés.", labTitle: "AI Lab : produits et plateformes | Yassine Aqejjaj", labDesc: "La suite NOVA, TrustRail, MedGuard AI, Prompt Arena et les autres produits IA construits par Yassine Aqejjaj.", allWork: "Toutes les missions", allLab: "Tous les produits et projets" },
   act: { hint: "AGIR SUR LA PAGE", case: "Ouvrir l’étude de cas", filter: "Filtrer l’AI Lab", skill: "Voir la compétence", node: "Voir sur la carte", page: "Ouvrir la page" },
   interlude: [
     { big: "Je ne me contente pas de diriger l’IA.\nJe la construis.", small: "Stratégie, delivery et code livré, sous un même toit.", fig: false },
@@ -487,7 +489,7 @@ export const dictFr: Dict = {
     related: "LIÉS", answer: "RÉPONSE", noResults: "Aucun résultat. Essayez une compétence, un client ou un produit.", downloadCv: "Télécharger le CV (PDF)", toExecutive: "Passer en mode exécutif", toExperience: "Passer en mode expérience", close: "Fermer",
   },
   constellation: {
-    eyebrow: "CONSTELLATION DE CARRIÈRE", title: "Un parcours relié", hint: "Sélectionnez un nœud pour voir comment postes, compétences et produits se relient.",
+    eyebrow: "CONSTELLATION DE CARRIÈRE", title: "Comment tout se relie", hint: "Sélectionnez un nœud pour voir comment postes, compétences et produits se relient.",
     products: "PRODUITS", skills: "COMPÉTENCES", roles: "POSTES", missions: "MISSIONS", openCase: "Ouvrir l’étude de cas", none: "Sélectionnez un nœud pour explorer.", mobile: "Ouvrez cette page sur un écran plus grand pour explorer la constellation, ou utilisez la liste ci-dessous.",
   },
   rights: "Yassine Aqejjaj",
@@ -495,7 +497,7 @@ export const dictFr: Dict = {
 
 export const dictAr: Dict = {
   arrow: "←",
-  nav: { about: "نبذة", experience: "المسار", work: "أعمال العملاء", lab: "مختبر الذكاء الاصطناعي", expertise: "الخبرات", insights: "رؤى", contact: "تواصل", ask: "اسأل ذكائي الاصطناعي", homeAria: "iaseen، العودة إلى الأعلى", lang: "اللغة", menu: "القائمة", closeMenu: "إغلاق القائمة", mainAria: "التنقل الرئيسي" },
+  nav: { about: "عني", experience: "المسار", work: "أعمال العملاء", lab: "مختبر الذكاء الاصطناعي", expertise: "الخبرات", insights: "رؤى", contact: "تواصل", ask: "اسأل ذكائي الاصطناعي", homeAria: "iaseen، العودة إلى الأعلى", lang: "اللغة", menu: "القائمة", closeMenu: "إغلاق القائمة", mainAria: "التنقل الرئيسي" },
   path: { aria: "اختر مسارك", label: "أزور الموقع بصفتي", recruiter: "مسؤول توظيف", client: "عميل / شريك", builder: "مطوّر / مؤسس", hintRecruiter: "القيادة، الأثر، السيرة الذاتية", hintClient: "الخبرات، المهام، النتائج", hintBuilder: "المنتجات، العروض، الشيفرة" },
   hero: {
     roles: "HEAD OF AI · باني منتجات · استراتيجي ذكاء اصطناعي", line1: "لا أقود الذكاء الاصطناعي فقط.", line2: "بل أبنيه.",
@@ -505,7 +507,7 @@ export const dictAr: Dict = {
   stats: { years: "سنة من الخبرة", pipeline: "خط المبيعات التجاري", users: "مستخدمو NOVA", trained: "محترف تم تدريبهم", books: "كتب منشورة", repos: "مستودعات عامة على GitHub" },
   trusted: "حظيتُ بثقة",
   partners: "شركاء أعمل معهم",
-  about: { eyebrow: "نبذة", journey: "اطّلع على المسار", linkedin: "LinkedIn", alt: "صورة شخصية لـ Yassine Aqejjaj" },
+  about: { eyebrow: "عني", journey: "اطّلع على المسار", linkedin: "LinkedIn", alt: "صورة شخصية لـ Yassine Aqejjaj" },
   proof: {
     eyebrow: "قيادة · تسليم · بناء", title: "كل ادّعاء مرتبط بدليل", panel: "كل ادّعاء مرتبط بدليل", aria: "قيادة، تسليم، بناء",
     tabs: { Lead: "القيادة", Deliver: "التسليم", Build: "البناء" },
@@ -519,19 +521,19 @@ export const dictAr: Dict = {
     kinds: { ROLE: "منصب", MISSION: "مهمة", TEACHING: "تدريب", PRODUCT: "منتج", CODE: "شيفرة", BOOK: "كتاب" },
   },
   journey: {
-    eyebrow: "المسار · السيرة الذاتية التفاعلية", title: "المسار المهني", lead: "اختر زاوية لقراءة المسار نفسه كما يقرأه مدير تنفيذي أو مسؤول منتج أو مدير تقني.",
+    eyebrow: "المسار · السيرة الذاتية التفاعلية", title: "ثلاثة عشر عامًا وخيط واحد: جعل الذكاء الاصطناعي مفيدًا", lead: "اختر زاوية لقراءة المسار نفسه كما يقرأه مدير تنفيذي أو مسؤول منتج أو مدير تقني.",
     lensAria: "اقرأ السيرة الذاتية من زاوية معينة", rolesAria: "المناصب", alongside: "بالتوازي", alongsideText: "مارس 2025 – الآن · Applied AI Research Lead، الأنظمة متعددة الوكلاء وهندسة السياق",
     lenses: { all: "الكل", lead: "القيادة", product: "منتج الذكاء الاصطناعي", tech: "التقني" },
     tag: { lead: "القيادة", product: "منتج الذكاء الاصطناعي", tech: "التقني" },
     highlights: "أبرز النقاط", lensSuffix: "زاوية", impact: "الأثر المُقاس", download: "تنزيل السيرة الذاتية (PDF)", downloadNote: "السيرة الذاتية الكاملة بصيغة PDF، بالإنجليزية.",
   },
   work: {
-    eyebrow: "أعمال العملاء", title: "الذكاء الاصطناعي في بيئات حقيقية ومعقدة",
+    eyebrow: "أعمال العملاء", title: "حيث يلتقي الذكاء الاصطناعي بالواقع",
     lead: "تتبع كل دراسة حالة المسار نفسه: التحدي، مساهمتي، المنهج، الأثر، ما تعلمته. لا تُنشر إلا معلومات عامة أو معتمدة من العميل.",
     impact: "الأثر:", read: "اقرأ دراسة الحالة",
   },
   lab: {
-    eyebrow: "مختبر الذكاء الاصطناعي · منتجات بنيتُها", title: "منتجات، لا مجرد مستودعات",
+    eyebrow: "مختبر الذكاء الاصطناعي · منتجات بنيتُها", title: "بُني، وسُلِّم، واستُخدم",
     lead: "منصات وكيلة وأدوات للصحة والتعلم أصممها وأبرمجها وأطلقها بنفسي. المشاريع المميزة مختارة يدويًا، والقائمة الكاملة على GitHub.",
     filtersAria: "تصفية المنتجات", flagship: "المشروع الرئيسي",
     filters: { All: "الكل", AGENTIC: "الذكاء الاصطناعي الوكيل", HEALTH: "التقنية الصحية", EDUCATION: "التعليم", SPORT: "الرياضة والبيانات" },
@@ -549,19 +551,19 @@ export const dictAr: Dict = {
       ],
     },
   },
-  expertise: { eyebrow: "الخبرات", title: "لا أشرطة مهارات. أدلة.", lead: "اختر مهارة لترى المناصب والمهام والمنتجات التي تدعمها.", proofFor: "أدلة على", skills: {
+  expertise: { eyebrow: "الخبرات", title: "لا تصدّقني على كلامي. تحقّق من الأدلة.", lead: "اختر مهارة لترى المناصب والمهام والمنتجات التي تدعمها.", proofFor: "أدلة على", skills: {
       "AI Strategy": "استراتيجية الذكاء الاصطناعي", "Operating Model": "نموذج التشغيل", Governance: "الحوكمة", Transformation: "التحول",
       "AI Products": "منتجات الذكاء الاصطناعي", Teams: "الفرق", MLOps: "MLOps", "Enterprise Delivery": "التسليم للمؤسسات",
       "AI Agents": "وكلاء الذكاء الاصطناعي", RAG: "RAG", "Context Engineering": "هندسة السياق", Evaluation: "التقييم",
     } },
   insights: {
-    eyebrow: "رؤى", title: "أفكار، منصات، وتدريس", lead: "أربعة كتب ومداخلات وبرامج تدريبية حول الذكاء الاصطناعي والقيادة ومستقبل العمل.",
+    eyebrow: "رؤى", title: "ما أكتبه وأقوله وأدرّسه", lead: "أربعة كتب ومداخلات وبرامج تدريبية حول الذكاء الاصطناعي والقيادة ومستقبل العمل.",
     books: "أفكار · كتب", author: "YASSINE AQEJJAJ", onAmazon: "على Amazon", onStage: "مداخلات", inPrint: "منشورات", teaching: "التدريس",
     trainedLine: "شخص تم تدريبهم على الذكاء الاصطناعي", trailText: "منصتي المهنية للتعلم في الذكاء الاصطناعي، صُممت لتحويل الفرق إلى بُناة.", trailCta: "اكتشف TRAIL Academy",
     kind: { TALK: "مداخلة", PODCAST: "بودكاست", ARTICLE: "مقال" },
   },
   ask: {
-    eyebrow: "اسأل ذكائي الاصطناعي", title: "دليل تفاعلي لأعمالي", text: "لا يجيب إلا انطلاقًا من محتوى الموقع المعتمد، ويذكر مصادره دائمًا.",
+    eyebrow: "اسأل ذكائي الاصطناعي", title: "اسأل ما شئت عن أعمالي", text: "لا يجيب إلا انطلاقًا من محتوى الموقع المعتمد، ويذكر مصادره دائمًا.",
     bullets: ["يجيب عن أسئلة مسؤولي التوظيف والعملاء", "يشرح بنية المنتجات", "يقترح المشاريع الأنسب لاحتياجك"],
     name: "ذكاء Yassine", badge: "إجابات موثّقة فقط", suggested: "أسئلة مقترحة", placeholder: "اسأل أي شيء عن مساري…", send: "إرسال السؤال", sources: "المصادر",
     aud: { Recruiter: "مسؤول توظيف", Client: "عميل", Builder: "مطوّر" },
@@ -591,9 +593,9 @@ export const dictAr: Dict = {
     description: "Yassine Aqejjaj، Head of AI: 13 عامًا في استراتيجية الذكاء الاصطناعي المؤسسية وبناء منصات الذكاء الوكيل وRAG مثل NOVA Suite. أعمال ودراسات حالة وسيرة ذاتية.",
     jobTitle: "Head of AI", caseSuffix: "Yassine Aqejjaj",
   },
-  faq: { eyebrow: "أسئلة شائعة", title: "إجابات سريعة" },
+  faq: { eyebrow: "أسئلة شائعة", title: "أسئلة تُطرح عليّ" },
   gallery: { title: "داخل NOVA", note: "لقطات من مساحة العرض التجريبية لـ NOVA. أسماء العملاء محجوبة.", items: ["اليوم", "البنية", "المهارات", "الهندسة", "الروتينات", "الصوت"] },
-  more: { journey: "المسار التفصيلي والكوكبة", cases: "مهام أخرى", skills: "الدليل لكل مهارة", nova: "كيف تعمل NOVA", anchors: ["نبذة","الأعمال","المختبر","رؤى","تواصل"], products: "المزيد من المنتجات", talks: "محاضرات ومقالات وتدريس", faq: "إجابات سريعة" },
+  more: { journey: "المسار التفصيلي والكوكبة", cases: "مهام أخرى", skills: "الدليل لكل مهارة", nova: "كيف تعمل NOVA", anchors: ["عني","الأعمال","المختبر","رؤى","تواصل"], products: "المزيد من المنتجات", talks: "محاضرات ومقالات وتدريس", faq: "إجابات سريعة" },
   novaPage: {
     metaTitle: "NOVA Suite: منصة ذكاء اصطناعي وكيل | Yassine Aqejjaj",
     metaDescription: "NOVA Suite هي منصة AI Factory الوكيلة: وكلاء متخصصون منسَّقون وسياق خاضع للحوكمة وتقييم مستمر، منشورة لدى 800 موظف في Devoteam.",
@@ -698,6 +700,7 @@ export const dictAr: Dict = {
       { img: "/speaking/generative-ai-meetup-paris.webp", event: "Generative AI Meetup", date: "30 أبريل", place: "باريس", text: "متحدث في Generative AI Meetup بباريس، إلى جانب متحدثين من Ipsos Synthesio وScaleway.", alt: "Yassine Aqejjaj على ملصق Generative AI Meetup، باريس، 30 أبريل", tag: "ملصق الحدث" },
     ],
   },
+  pages: { workTitle: "الأعمال: مهام الذكاء الاصطناعي ونتائجها | Yassine Aqejjaj", workDesc: "مهام قادها Yassine Aqejjaj: ذكاء اصطناعي توليدي سيادي وتحول مؤسسي ومنتجات ذكاء اصطناعي، بنتائج مقاسة.", labTitle: "مختبر الذكاء الاصطناعي: منتجات ومنصات | Yassine Aqejjaj", labDesc: "منصة NOVA وTrustRail وMedGuard AI وPrompt Arena وباقي منتجات الذكاء الاصطناعي التي بناها Yassine Aqejjaj.", allWork: "كل المهام", allLab: "كل المنتجات والمشاريع" },
   act: { hint: "تصرّف في الصفحة", case: "افتح دراسة الحالة", filter: "صفِّ مختبر الذكاء الاصطناعي", skill: "أبرز المهارة", node: "أظهره على الخريطة", page: "افتح الصفحة" },
   interlude: [
     { big: "لا أكتفي بقيادة الذكاء الاصطناعي.\nأنا أبنيه.", small: "استراتيجية وتسليم وشيفرة منشورة، تحت سقف واحد.", fig: false },
@@ -731,7 +734,7 @@ export const dictAr: Dict = {
     related: "ذو صلة", answer: "الإجابة", noResults: "لا نتائج. جرّب مهارة أو عميلًا أو منتجًا.", downloadCv: "تنزيل السيرة الذاتية (PDF)", toExecutive: "التبديل إلى الوضع التنفيذي", toExperience: "التبديل إلى وضع التجربة", close: "إغلاق",
   },
   constellation: {
-    eyebrow: "كوكبة المسار المهني", title: "مسار مترابط", hint: "اختر عقدة لترى كيف ترتبط المناصب والمهارات والمنتجات.",
+    eyebrow: "كوكبة المسار المهني", title: "كيف يترابط كل شيء", hint: "اختر عقدة لترى كيف ترتبط المناصب والمهارات والمنتجات.",
     products: "المنتجات", skills: "المهارات", roles: "المناصب", missions: "المهام", openCase: "افتح دراسة الحالة", none: "اختر عقدة للاستكشاف.", mobile: "افتح هذه الصفحة على شاشة أكبر لاستكشاف الكوكبة، أو استخدم القائمة أدناه.",
   },
   rights: "Yassine Aqejjaj",

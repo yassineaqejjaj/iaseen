@@ -103,7 +103,7 @@ export const dictEn = {
   },
   faq: { eyebrow: "FAQ", title: "Quick answers" },
   gallery: { title: "Inside NOVA", note: "Screens from the NOVA demo workspace. Client names are masked.", items: ["Today", "Architecture", "Skills", "Engineering", "Routines", "Voice"] },
-  more: { products: "More products", talks: "Talks, articles and teaching", faq: "Quick answers" },
+  more: { journey: "Detailed path and constellation", cases: "More missions", skills: "Proof by skill", nova: "How NOVA works", anchors: ["About","Work","Lab","Insights","Contact"], products: "More products", talks: "Talks, articles and teaching", faq: "Quick answers" },
   novaPage: {
     metaTitle: "NOVA Suite: Agentic AI Platform | Yassine Aqejjaj",
     metaDescription: "NOVA Suite is the AI Factory's agentic platform: orchestrated specialist agents, governed context and continuous evaluation, deployed to 800 employees at Devoteam.",
@@ -349,7 +349,7 @@ export const dictFr: Dict = {
   },
   faq: { eyebrow: "FAQ", title: "Réponses rapides" },
   gallery: { title: "Dans NOVA", note: "Captures de l’espace de démonstration NOVA. Les noms de clients sont masqués.", items: ["Aujourd’hui", "Architecture", "Compétences", "Engineering", "Routines", "Voix"] },
-  more: { products: "Plus de produits", talks: "Conférences, articles et enseignement", faq: "Réponses rapides" },
+  more: { journey: "Parcours détaillé et constellation", cases: "Autres missions", skills: "Preuves par compétence", nova: "Comment fonctionne NOVA", anchors: ["À propos","Missions","Labo","Insights","Contact"], products: "Plus de produits", talks: "Conférences, articles et enseignement", faq: "Réponses rapides" },
   novaPage: {
     metaTitle: "NOVA Suite : plateforme d’IA agentique | Yassine Aqejjaj",
     metaDescription: "NOVA Suite est la plateforme agentique de l’AI Factory : agents spécialisés orchestrés, contexte gouverné et évaluation continue, déployée auprès de 800 collaborateurs chez Devoteam.",
@@ -593,7 +593,7 @@ export const dictAr: Dict = {
   },
   faq: { eyebrow: "أسئلة شائعة", title: "إجابات سريعة" },
   gallery: { title: "داخل NOVA", note: "لقطات من مساحة العرض التجريبية لـ NOVA. أسماء العملاء محجوبة.", items: ["اليوم", "البنية", "المهارات", "الهندسة", "الروتينات", "الصوت"] },
-  more: { products: "المزيد من المنتجات", talks: "محاضرات ومقالات وتدريس", faq: "إجابات سريعة" },
+  more: { journey: "المسار التفصيلي والكوكبة", cases: "مهام أخرى", skills: "الدليل لكل مهارة", nova: "كيف تعمل NOVA", anchors: ["نبذة","الأعمال","المختبر","رؤى","تواصل"], products: "المزيد من المنتجات", talks: "محاضرات ومقالات وتدريس", faq: "إجابات سريعة" },
   novaPage: {
     metaTitle: "NOVA Suite: منصة ذكاء اصطناعي وكيل | Yassine Aqejjaj",
     metaDescription: "NOVA Suite هي منصة AI Factory الوكيلة: وكلاء متخصصون منسَّقون وسياق خاضع للحوكمة وتقييم مستمر، منشورة لدى 800 موظف في Devoteam.",

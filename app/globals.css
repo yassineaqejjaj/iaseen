@@ -300,3 +300,21 @@ html[data-mode="executive"] [data-rv] { opacity: 1 !important; animation: none !
 .to-top:focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; }
 html[data-palette-open] .to-top, html[data-tour] .to-top { display: none; }
 @media (max-width: 760px) { .to-top { bottom: 20px; inset-inline-end: 16px; } }
+
+/* Phones: fewer screens to scroll. Folded content stays in the HTML; on wider screens the folds disappear. */
+@media (min-width: 721px) {
+  .mfold, .mfold > .more-body { display: contents; }
+  .mfold > summary { display: none; }
+  .m-anchors { display: none !important; }
+}
+@media (max-width: 720px) {
+  .mfold { margin-top: 20px; }
+  .mfold > .more-body { padding-top: 4px; }
+  .interlude { display: none; }
+  .ask-bullets { display: none; }
+  .m-anchors { position: sticky; top: 56px; z-index: 29; display: flex; gap: 8px; overflow-x: auto; padding: 8px 16px; background: rgba(8,11,18,.86); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); scrollbar-width: none; }
+  .m-anchors::-webkit-scrollbar { display: none; }
+  .m-anchors a { flex: none; min-height: 36px; display: inline-flex; align-items: center; padding: 0 14px; border-radius: 999px; border: 1px solid var(--line); color: var(--text2); font-size: 13px; font-weight: 600; text-decoration: none; }
+}
+html[data-mode="executive"] .m-anchors { display: none !important; }
+html[data-mode="executive"] .mfold > summary { display: none; }

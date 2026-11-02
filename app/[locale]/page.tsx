@@ -1,4 +1,5 @@
 import Link from "next/link";
+import MobileFold from "@/components/MobileFold";
 import Header from "@/components/Header";
 import Journey from "@/components/Journey";
 import LabGrid from "@/components/LabGrid";
@@ -47,10 +48,33 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     ...(repos ? [[String(repos), t.stats.repos]] : []),
   ];
   const sectionTitle = { margin: "0 0 16px", fontSize: 13, fontWeight: 600, letterSpacing: ".12em", color: "var(--muted)" } as const;
+  const clientCard = (cl: (typeof c.clients)[number]) => (
+              <article key={cl.slug} className="card" style={{ overflow: "hidden", display: "flex", flexDirection: "column" }}>
+                <div style={{ height: 168, background: "linear-gradient(135deg, #0b0e17, #11141f)", position: "relative", padding: 24, display: "flex", flexDirection: "column", justifyContent: "space-between", boxSizing: "border-box" }}>
+                  <span style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".14em", color: "var(--muted)" }}>{cl.sector}</span>
+                  <span dir="ltr"><ClientLogo name={cl.logo} scale={1.5} /></span>
+                  <span aria-hidden style={{ position: "absolute", insetInlineEnd: 24, top: 24, width: 56, height: 56, borderRadius: 16, border: "1px solid var(--line)" }} />
+                  <span aria-hidden style={{ position: "absolute", insetInlineEnd: 44, top: 44, width: 56, height: 56, borderRadius: 16, border: "1px solid var(--accent)" }} />
+                </div>
+                <div style={{ padding: 24, display: "flex", flexDirection: "column", gap: 14, flex: 1 }}>
+                  <h3 style={{ margin: 0, fontSize: 20, fontWeight: 600, lineHeight: 1.3 }}>{cl.client} | {cl.title}</h3>
+                  <p style={{ margin: 0, fontSize: 15, lineHeight: 1.6, color: "var(--muted)" }}>{cl.summary}</p>
+                  {real(cl.impact) && <p style={{ margin: 0, fontSize: 14, lineHeight: 1.5 }}><strong>{t.work.impact}</strong> {cl.impact}</p>}
+                  <KpiRow id={cl.slug} />
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: "auto", paddingTop: 6 }}>
+                    {cl.tags.map((tag) => <span key={tag} style={{ fontSize: 12, fontWeight: 500, padding: "5px 10px", borderRadius: 999, background: "rgba(255,255,255,.06)", color: "var(--text2)" }}>{tag}</span>)}
+                  </div>
+                  <Link href={href(`/work/${cl.slug}`)} style={{ display: "inline-flex", alignItems: "center", gap: 8, minHeight: 44, fontWeight: 600, fontSize: 15, textDecoration: "none" }}>{t.work.read} <Arrow s={16} /></Link>
+                </div>
+              </article>
+  );
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ld(homeGraph(locale)) }} />
       <Header locale={locale} />
+      <nav className="m-anchors" aria-label="Sections">
+        {(["#about", "#client-work", "#ai-lab", "#insights", "#contact"] as const).map((id, i) => <a key={id} href={id}>{t.more.anchors[i]}</a>)}
+      </nav>
       <main className="paths">
       <HeroStory />
 
@@ -80,8 +104,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <h2 className="h2">{t.journey.title}</h2>
           <p className="lead" style={{ marginBottom: 32 }}>{t.journey.lead}</p>
           <SectionAsk q={[0, 2]} />
-          <div className="fx"><Constellation /></div>
-          <Journey />
+          <MobileFold label={t.more.journey}>
+            <div className="fx"><Constellation /></div>
+            <Journey />
+          </MobileFold>
           <div style={{ marginTop: 28, display: "flex", flexWrap: "wrap", gap: 12, alignItems: "center" }}>
             <a href={profile.cv} download="Yassine-Aqejjaj-CV.pdf" className="pill pill-line">{t.journey.download}</a>
             <span style={{ fontSize: 14, color: "var(--muted)" }}>{t.journey.downloadNote}</span>
@@ -98,29 +124,14 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <p className="lead">{t.work.lead}</p>
           <SectionAsk q={[3, 0]} />
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 20 }}>
-            {c.clients.map((cl) => (
-              <article key={cl.slug} className="card" style={{ overflow: "hidden", display: "flex", flexDirection: "column" }}>
-                <div style={{ height: 168, background: "linear-gradient(135deg, #0b0e17, #11141f)", position: "relative", padding: 24, display: "flex", flexDirection: "column", justifyContent: "space-between", boxSizing: "border-box" }}>
-                  <span style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".14em", color: "var(--muted)" }}>{cl.sector}</span>
-                  <span dir="ltr"><ClientLogo name={cl.logo} scale={1.5} /></span>
-                  <span aria-hidden style={{ position: "absolute", insetInlineEnd: 24, top: 24, width: 56, height: 56, borderRadius: 16, border: "1px solid var(--line)" }} />
-                  <span aria-hidden style={{ position: "absolute", insetInlineEnd: 44, top: 44, width: 56, height: 56, borderRadius: 16, border: "1px solid var(--accent)" }} />
-                </div>
-                <div style={{ padding: 24, display: "flex", flexDirection: "column", gap: 14, flex: 1 }}>
-                  <h3 style={{ margin: 0, fontSize: 20, fontWeight: 600, lineHeight: 1.3 }}>{cl.client} | {cl.title}</h3>
-                  <p style={{ margin: 0, fontSize: 15, lineHeight: 1.6, color: "var(--muted)" }}>{cl.summary}</p>
-                  {real(cl.impact) && <p style={{ margin: 0, fontSize: 14, lineHeight: 1.5 }}><strong>{t.work.impact}</strong> {cl.impact}</p>}
-                  <KpiRow id={cl.slug} />
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: "auto", paddingTop: 6 }}>
-                    {cl.tags.map((tag) => <span key={tag} style={{ fontSize: 12, fontWeight: 500, padding: "5px 10px", borderRadius: 999, background: "rgba(255,255,255,.06)", color: "var(--text2)" }}>{tag}</span>)}
-                  </div>
-                  <Link href={href(`/work/${cl.slug}`)} style={{ display: "inline-flex", alignItems: "center", gap: 8, minHeight: 44, fontWeight: 600, fontSize: 15, textDecoration: "none" }}>{t.work.read} <Arrow s={16} /></Link>
-                </div>
-              </article>
-            ))}
+            {c.clients.map((cl, ci) => ci < 2 ? clientCard(cl) : null)}
+            <MobileFold label={t.more.cases} count={c.clients.length - 2}>
+              {c.clients.map((cl, ci) => ci >= 2 ? clientCard(cl) : null)}
+            </MobileFold>
           </div>
         </div>
       </section>
+
 
       <Interlude i={2} />
 
@@ -135,7 +146,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             <a href={profile.github} className="pill pill-dark-line" style={{ color: "#fff" }} dir="ltr">github.com/{profile.githubUser}</a>
           </div>
           <SectionAsk q={[1, 4]} />
-          <NovaSystem />
+          <MobileFold label={t.more.nova}><NovaSystem /></MobileFold>
           <FeaturedProducts locale={locale} />
           <Disclosure label={t.more.products} count={c.products.length - 5}>
             <LabGrid />
@@ -151,7 +162,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <h2 className="h2">{t.expertise.title}</h2>
           <p className="lead">{t.expertise.lead}</p>
           <SectionAsk q={[2, 4]} />
-          <SkillProof />
+          <MobileFold label={t.more.skills}><SkillProof /></MobileFold>
         </div>
       </section>
 
@@ -186,6 +197,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             ))}
           </div>
           <p style={{ margin: "-32px 0 48px" }}><Link href={href("/blog")} style={{ fontWeight: 600, fontSize: 15 }}>{t.blog.all} {t.arrow}</Link></p>
+          <MobileFold label={t.insights.books}>
           <h3 style={sectionTitle}>{t.insights.books}</h3>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 16 }}>
             {c.books.map((b) => (
@@ -202,6 +214,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               </a>
             ))}
           </div>
+          </MobileFold>
           <Disclosure label={t.more.talks}>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 16, marginTop: 8 }}>
             <div>
@@ -266,13 +279,13 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             <p className="eyebrow">{t.ask.eyebrow}</p>
             <h2 className="h2">{t.ask.title}</h2>
             <p style={{ margin: "16px 0 0", fontSize: 17, lineHeight: 1.6, color: "var(--text2)" }}>{t.ask.text}</p>
-            <ul style={{ margin: "24px 0 0", padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 10, fontSize: 15, color: "var(--text2)" }}>
+            <ul className="ask-bullets" style={{ margin: "24px 0 0", padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 10, fontSize: 15, color: "var(--text2)" }}>
               {t.ask.bullets.map((b) => (
                 <li key={b} style={{ display: "flex", gap: 10 }}><span style={{ color: "var(--signal)" }}>—</span>{b}</li>
               ))}
             </ul>
           </div>
-          <AskSection />
+          <MobileFold label={t.ask.title}><AskSection /></MobileFold>
         </div>
       </section>
 

@@ -319,3 +319,5 @@ html[data-palette-open] .to-top, html[data-tour] .to-top { display: none; }
 html[data-mode="executive"] .m-anchors { display: none !important; }
 html[data-mode="executive"] .mfold > summary { display: none; }
 @media (max-width: 720px) { #client-work article:nth-of-type(n+3) { display: none; } }
+/* Stacked hero (phones): the sphere sits in its own stage, centred, and never under the headline. */
+@media (max-width: 759px) { .orb-core { top: 50%; width: 220px; } .hero-sticky { padding-top: 96px; } .hero-parts { padding-inline: 16px; box-sizing: border-box; } }

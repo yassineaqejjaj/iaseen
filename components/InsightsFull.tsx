@@ -1,6 +1,16 @@
+import { existsSync } from "node:fs";
+import path from "node:path";
 import Link from "next/link";
 import { latestPosts } from "@/lib/blog";
 import { getI18n, type Locale } from "@/lib/i18n";
+
+/** A real cover image dropped in public/books/<ASIN>.jpg (or .webp / .png) replaces the generated cover. */
+const coverFile = (url: string) => {
+  const asin = url.split("/dp/")[1]?.split(/[/?]/)[0];
+  if (!asin) return null;
+  for (const ext of ["webp", "jpg", "png"]) if (existsSync(path.join(process.cwd(), "public", "books", `${asin}.${ext}`))) return `/books/${asin}.${ext}`;
+  return null;
+};
 
 const PlayIcon = () => (<svg aria-hidden width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="M10 8.5l5 3.5-5 3.5z" /></svg>);
 const DocIcon = () => (<svg aria-hidden width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M6 3h9l4 4v14H6z" /><path d="M14 3v5h5M9 13h7M9 17h7" /></svg>);
@@ -67,10 +77,17 @@ export default function InsightsFull({ locale }: { locale: Locale }) {
         <div className="ins-grid ins-grid-4">
           {c.books.map((b) => (
             <a key={b.url} href={b.url} target="_blank" rel="noopener noreferrer" className="card ins-book">
-              <span className="ins-book-cover" style={{ background: b.cover }}>
-                <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: ".14em", color: b.coverSub }}>{t.insights.author}</span>
-                <span className="display" style={{ fontSize: 24, lineHeight: 1.1, letterSpacing: "-0.02em", color: "#fff" }} dir="ltr">{b.short}</span>
-              </span>
+              {(() => {
+                const img = coverFile(b.url);
+                return img
+                  ? <img src={img} alt={b.title} width={400} height={600} loading="lazy" decoding="async" className="ins-book-img" />
+                  : (
+                    <span className="ins-book-cover" style={{ background: b.cover }}>
+                      <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: ".14em", color: b.coverSub }}>{t.insights.author}</span>
+                      <span className="display" style={{ fontSize: 24, lineHeight: 1.1, letterSpacing: "-0.02em", color: "#fff" }} dir="ltr">{b.short}</span>
+                    </span>
+                  );
+              })()}
               <span className="ins-book-body">
                 <span dir="ltr" className="ins-title" style={{ fontSize: 15 }}>{b.title}</span>
                 <span className="ins-src">{b.theme}</span>

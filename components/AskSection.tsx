@@ -23,13 +23,13 @@ export default function AskSection() {
           </span>
           {t.ask.name}
         </span>
-        <span style={{ fontSize: 12, fontWeight: 600, padding: "4px 10px", borderRadius: 999, background: "#1c2233", color: "#c9ced8" }}>{t.ask.badge}</span>
+        <span style={{ fontSize: 12, fontWeight: 600, padding: "4px 10px", borderRadius: 999, background: "var(--chip-bg)", color: "var(--chip-fg)" }}>{t.ask.badge}</span>
       </div>
       <p style={{ margin: 0, fontSize: 13, fontWeight: 600, letterSpacing: ".1em", color: "#9ba3b5" }}>{t.ask.suggested}</p>
       <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
         {c.qa.map((x, i) => (
           <button key={x.q} type="button" aria-pressed={active === i} onClick={() => pick(i)}
-            style={{ minHeight: 44, padding: "8px 16px", borderRadius: 14, cursor: "pointer", textAlign: "start", fontSize: 14, fontWeight: 500, lineHeight: 1.4, border: `1px solid ${active === i ? "var(--accent)" : "#2a3042"}`, background: active === i ? "#1c2233" : "transparent", color: "#fff" }}>
+            style={{ minHeight: 44, padding: "8px 16px", borderRadius: 14, cursor: "pointer", textAlign: "start", fontSize: 14, fontWeight: 500, lineHeight: 1.4, border: `1px solid ${active === i ? "var(--accent)" : "var(--chip-line)"}`, background: active === i ? "var(--chip-bg)" : "transparent", color: "var(--chip-on)" }}>
             <span style={{ display: "block", fontSize: 10, fontWeight: 600, letterSpacing: ".12em", color: "var(--signal)", marginBottom: 2 }}>{x.aud ? (t.ask.aud[x.aud] ?? x.aud).toUpperCase() : ""}</span>{x.q}
           </button>
         ))}
@@ -40,7 +40,7 @@ export default function AskSection() {
         <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 14, alignItems: "center" }}>
           <span style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".08em", color: "#9ba3b5" }}>{t.ask.sources}</span>
           {ans.sources.map((s) => (
-            <Link key={s.href + s.label} href={s.href} style={{ fontSize: 13, fontWeight: 600, padding: "6px 12px", borderRadius: 999, background: "#1c2233", color: "#c9ced8", textDecoration: "none" }}>{s.label}</Link>
+            <Link key={s.href + s.label} href={s.href} style={{ fontSize: 13, fontWeight: 600, padding: "6px 12px", borderRadius: 999, background: "var(--chip-bg)", color: "var(--chip-fg)", textDecoration: "none" }}>{s.label}</Link>
           ))}
         </div>
         {ans.tour && (

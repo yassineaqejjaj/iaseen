@@ -34,7 +34,7 @@ export function Symbol({ width = 46, tone = "dark", title }: { width?: number; t
   );
 }
 
-export function Wordmark({ size = 18, color = "#F2F4F8" }: { size?: number; color?: string }) {
+export function Wordmark({ size = 18, color = "var(--wordmark, #F2F4F8)" }: { size?: number; color?: string }) {
   return <span aria-hidden className="display" dir="ltr" style={{ fontSize: size, lineHeight: 1, fontWeight: 500, letterSpacing: "0.28em", color, marginInlineEnd: "-0.28em" }}>IASEEN</span>;
 }
 

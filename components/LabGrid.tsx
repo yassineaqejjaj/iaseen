@@ -32,7 +32,7 @@ export default function LabGrid() {
           <article key={p.name} className="card" style={{ padding: 22, display: "flex", flexDirection: "column", gap: 12 }}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 8 }}>
               <span style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".1em", color: "#9ba3b5" }}>{t.lab.cat[p.category] ?? p.category}</span>
-              {real(p.status) && <span style={{ fontSize: 12, fontWeight: 600, padding: "4px 10px", borderRadius: 999, background: "#1c2233", color: "#c9ced8" }}>{p.status}</span>}
+              {real(p.status) && <span style={{ fontSize: 12, fontWeight: 600, padding: "4px 10px", borderRadius: 999, background: "var(--chip-bg)", color: "var(--chip-fg)" }}>{p.status}</span>}
             </div>
             <h3 className="display" style={{ margin: 0, fontSize: 22, letterSpacing: "-0.01em" }} dir="ltr">{p.name}</h3>
             <p style={{ margin: 0, fontSize: 14, lineHeight: 1.6, color: "#c9ced8", flex: 1 }}>{p.desc}</p>

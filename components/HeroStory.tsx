@@ -83,15 +83,28 @@ export default function HeroStory() {
     requestAnimationFrame(step);
   };
 
-  // Phones: jump straight to the section, then re-align once layout has settled (folded blocks and lazy images can shift it).
+  // "Enter my universe": a soft cross-fade to the About section (the page dissolves, lands on the section, then the section arrives with its own gentle reveal).
   const enter = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (!matchMedia("(max-width: 759px)").matches || e.metaKey || e.ctrlKey || e.shiftKey) return;
+    if (e.metaKey || e.ctrlKey || e.shiftKey) return;
     const target = document.getElementById("about");
     if (!target) return;
     e.preventDefault();
     const go = () => target.scrollIntoView({ behavior: "instant" as ScrollBehavior, block: "start" });
-    go(); history.replaceState(null, "", "#about");
-    requestAnimationFrame(go); setTimeout(go, 350);
+    const arrive = () => { history.replaceState(null, "", "#about"); target.setAttribute("data-arrive", ""); setTimeout(() => target.removeAttribute("data-arrive"), 1400); };
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) { go(); arrive(); return; }
+    const veil = document.createElement("div");
+    veil.setAttribute("aria-hidden", "true");
+    veil.style.cssText = "position:fixed;inset:0;z-index:90;pointer-events:none;opacity:0;background:var(--bg);transition:opacity .55s cubic-bezier(.4,0,.2,1)";
+    document.body.appendChild(veil);
+    void veil.offsetHeight;
+    veil.style.opacity = "1";
+    setTimeout(() => {
+      go(); arrive();
+      requestAnimationFrame(go); setTimeout(go, 300);   // re-align once folded blocks and lazy images have settled
+      veil.style.transition = "opacity .8s cubic-bezier(.2,.7,.2,1)";
+      veil.style.opacity = "0";
+      setTimeout(() => veil.remove(), 900);
+    }, 560);
   };
 
   const goCv = () => { setMode("executive"); setTimeout(() => document.getElementById("experience")?.scrollIntoView(), 50); };
@@ -125,7 +138,7 @@ export default function HeroStory() {
         <ul className="hero-parts wrap" ref={partsEl} aria-label={s.partsAria}>
           {s.parts.map((x, i) => (
             <li key={x.k}>
-              <Link href={href(x.h)} onClick={(e) => dive(e, i, x.h)} className="card" style={{ display: "block", padding: "18px 20px", borderRadius: 18, textDecoration: "none", color: "var(--text)", background: "rgba(13,19,32,.7)", backdropFilter: "blur(10px)" }}>
+              <Link href={href(x.h)} onClick={(e) => dive(e, i, x.h)} className="card" style={{ display: "block", padding: "18px 20px", borderRadius: 18, textDecoration: "none", color: "var(--text)", background: "var(--panel-hero)", backdropFilter: "blur(10px)" }}>
                 <span className="display" style={{ display: "block", fontSize: 24, letterSpacing: "0.04em" }}>{x.k}</span>
                 <span style={{ display: "block", marginTop: 4, fontSize: 14, color: "var(--text2)" }}>{x.d}</span>
               </Link>

@@ -13,7 +13,7 @@ export default function ClientCard({ cl, locale }: { cl: ReturnType<typeof getI1
   const { t, href } = getI18n(locale);
   return (
               <article key={cl.slug} className="card" style={{ overflow: "hidden", display: "flex", flexDirection: "column" }}>
-                <div style={{ height: 168, background: "linear-gradient(135deg, #0b0e17, #11141f)", position: "relative", padding: 24, display: "flex", flexDirection: "column", justifyContent: "space-between", boxSizing: "border-box" }}>
+                <div className="client-head" style={{ height: 168, position: "relative", padding: 24, display: "flex", flexDirection: "column", justifyContent: "space-between", boxSizing: "border-box" }}>
                   <span style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".14em", color: "var(--muted)" }}>{cl.sector}</span>
                   <span dir="ltr"><ClientLogo name={cl.logo} scale={1.5} /></span>
                   <span aria-hidden style={{ position: "absolute", insetInlineEnd: 24, top: 24, width: 56, height: 56, borderRadius: 16, border: "1px solid var(--line)" }} />

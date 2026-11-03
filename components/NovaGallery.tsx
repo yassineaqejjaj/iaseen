@@ -13,7 +13,7 @@ export default function NovaGallery() {
     <div style={{ marginTop: 20 }} className="card">
       <div style={{ padding: "28px 32px 0", display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "baseline", gap: 8 }}>
         <h3 className="display" style={{ margin: 0, fontSize: 28 }}>{g.title}</h3>
-        <p style={{ margin: 0, fontSize: 13, color: "#9ba3b5" }}>{g.note}</p>
+        <p style={{ margin: 0, fontSize: 13, color: "var(--muted)" }}>{g.note}</p>
       </div>
       <div role="group" aria-label={g.title} style={{ display: "flex", flexWrap: "wrap", gap: 8, padding: "18px 32px 0" }}>
         {g.items.map((label, k) => (

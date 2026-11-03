@@ -57,7 +57,7 @@ export const dictEn = {
     },
   },
   expertise: {
-    eyebrow: "EXPERTISE", title: "Don’t take my word for it. Check the proof.", lead: "Select a skill to see the roles, missions and products that back it up.", proofFor: "PROOF FOR",
+    eyebrow: "EXPERTISE", title: "Don’t take my word for it. Check the proof.", lead: "Select a skill to see the roles, missions and products that back it up.", proofFor: "PROOF FOR", showAll: "Show all skills",
     skills: {
       "AI Strategy": "AI Strategy", "Operating Model": "Operating Model", Governance: "Governance", Transformation: "Transformation",
       "AI Products": "AI Products", Teams: "Teams", MLOps: "MLOps", "Enterprise Delivery": "Enterprise Delivery",
@@ -321,7 +321,7 @@ export const dictFr: Dict = {
       ],
     },
   },
-  expertise: { eyebrow: "EXPERTISE", title: "Ne me croyez pas sur parole. Vérifiez les preuves.", lead: "Sélectionnez une compétence pour voir les postes, missions et produits qui l’attestent.", proofFor: "PREUVES POUR", skills: {
+  expertise: { eyebrow: "EXPERTISE", title: "Ne me croyez pas sur parole. Vérifiez les preuves.", lead: "Sélectionnez une compétence pour voir les postes, missions et produits qui l’attestent.", proofFor: "PREUVES POUR", showAll: "Voir toutes les compétences", skills: {
       "AI Strategy": "Stratégie IA", "Operating Model": "Modèle opérationnel", Governance: "Gouvernance", Transformation: "Transformation",
       "AI Products": "Produits IA", Teams: "Équipes", MLOps: "MLOps", "Enterprise Delivery": "Livraison en entreprise",
       "AI Agents": "Agents IA", RAG: "RAG", "Context Engineering": "Ingénierie de contexte", Evaluation: "Évaluation",
@@ -581,7 +581,7 @@ export const dictAr: Dict = {
       ],
     },
   },
-  expertise: { eyebrow: "الخبرات", title: "لا تصدّقني على كلامي. تحقّق من الأدلة.", lead: "اختر مهارة لترى المناصب والمهام والمنتجات التي تدعمها.", proofFor: "أدلة على", skills: {
+  expertise: { eyebrow: "الخبرات", title: "لا تصدّقني على كلامي. تحقّق من الأدلة.", lead: "اختر مهارة لترى المناصب والمهام والمنتجات التي تدعمها.", proofFor: "أدلة على", showAll: "عرض كل المهارات", skills: {
       "AI Strategy": "استراتيجية الذكاء الاصطناعي", "Operating Model": "نموذج التشغيل", Governance: "الحوكمة", Transformation: "التحول",
       "AI Products": "منتجات الذكاء الاصطناعي", Teams: "الفرق", MLOps: "MLOps", "Enterprise Delivery": "التسليم للمؤسسات",
       "AI Agents": "وكلاء الذكاء الاصطناعي", RAG: "RAG", "Context Engineering": "هندسة السياق", Evaluation: "التقييم",

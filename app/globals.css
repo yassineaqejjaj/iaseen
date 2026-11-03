@@ -8,7 +8,7 @@
   --font-sans: var(--font-inter), system-ui, sans-serif;
   --font-display: var(--font-grotesk), var(--font-inter), sans-serif;
   --font-mono: var(--font-jbmono), ui-monospace, monospace;
-  --wordmark: #F2F4F8; --chip-bg: #1c2233; --chip-fg: #c9ced8; --chip-line: #2a3042; --chip-on: #ffffff;
+  --panel: rgba(8,11,18,.6); --panel-hero: rgba(13,19,32,.7); --head-a: #0b0e17; --head-b: #11141f; --wordmark: #F2F4F8; --chip-bg: #1c2233; --chip-fg: #c9ced8; --chip-line: #2a3042; --chip-on: #ffffff;
   color-scheme: dark;
 }
 /* Light island (CV page, print) */
@@ -483,3 +483,7 @@ html[data-theme="light"] { --wordmark: #05060a; }
 .cta-pulse:hover { animation-play-state: paused; transform: translateY(-2px); box-shadow: 0 12px 36px -8px rgba(76,111,240,.7); }
 html[data-mode="executive"] .cta-pulse { animation: none; }
 .hero-proof { text-wrap: balance; }
+
+/* Surfaces that used to rely on inline colours: now tokens, so no browser can miss the light-theme override. */
+.client-head { background: linear-gradient(135deg, var(--head-a), var(--head-b)); }
+html[data-theme="light"] { --panel: rgba(255,255,255,.92); --panel-hero: rgba(255,255,255,.92); --head-a: #eef1fb; --head-b: #ffffff; }

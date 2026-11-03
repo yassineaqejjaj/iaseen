@@ -13,6 +13,8 @@ import MagneticCursor from "@/components/MagneticCursor";
 import AmbientLayer from "@/components/AmbientLayer";
 import GuidedTour from "@/components/GuidedTour";
 import PendingAct from "@/components/PendingAct";
+import RouteTop from "@/components/RouteTop";
+import ScrollTop from "@/components/ScrollTop";
 import ScrollFx from "@/components/ScrollFx";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -45,7 +47,7 @@ export default async function RootLayout({ children, params }: { children: React
   if (!isLocale(locale)) notFound();
   const { dir } = getI18n(locale);
   return (
-    <html lang={locale} dir={dir} suppressHydrationWarning className={`${inter.variable} ${grotesk.variable} ${mono.variable} ${arabic.variable}`}>
+    <html lang={locale} dir={dir} data-scroll-behavior="smooth" suppressHydrationWarning className={`${inter.variable} ${grotesk.variable} ${mono.variable} ${arabic.variable}`}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: modeScript + themeScript }} />
         {process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN && (
@@ -53,7 +55,7 @@ export default async function RootLayout({ children, params }: { children: React
         )}
       </head>
       <body>
-        <LocaleProvider locale={locale}>{children}<CommandLauncher /><AmbientLayer /><GuidedTour /><PendingAct /><ScrollFx /></LocaleProvider>
+        <LocaleProvider locale={locale}>{children}<CommandLauncher /><AmbientLayer /><GuidedTour /><RouteTop /><PendingAct /><ScrollTop /><ScrollFx /></LocaleProvider>
         <PointerGlow />
         <MagneticCursor />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ld(siteGraph(locale)) }} />

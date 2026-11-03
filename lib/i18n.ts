@@ -17,6 +17,8 @@ export type I18n = {
   href: (p: string) => string;
 };
 
+const SECTION_PAGES: Record<string, string> = { "#experience": "/experience", "#client-work": "/work", "#ai-lab": "/lab", "#expertise": "/expertise", "#insights": "/insights", "#contact": "/contact", "#ask": "/ask" };
+
 const cache = new Map<Locale, I18n>();
 export function getI18n(locale: Locale): I18n {
   let v = cache.get(locale);
@@ -24,7 +26,8 @@ export function getI18n(locale: Locale): I18n {
     const base = locale === defaultLocale ? "" : `/${locale}`;
     v = {
       locale, dir: locale === "ar" ? "rtl" : "ltr", t: dicts[locale], c: contents[locale],
-      href: (p) => (/^https?:/.test(p) ? p : p.startsWith("#") ? (base || "/") + p : p === "/" ? base || "/" : base + p),
+      // Section anchors that are now pages ("#ai-lab" -> "/lab") open the page itself, at its top. "#about" and "#top" stay anchors on the home page.
+      href: (p) => { const q = SECTION_PAGES[p] ?? p; return /^https?:/.test(q) ? q : q.startsWith("#") ? (base || "/") + q : q === "/" ? base || "/" : base + q; },
     };
     cache.set(locale, v);
   }

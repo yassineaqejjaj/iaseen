@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { heroProgress } from "@/lib/heroProgress";
 import { setMode } from "@/lib/mode";
 import { useI18n } from "./LocaleProvider";
@@ -14,6 +15,7 @@ const hasWebGL = () => { try { const c = document.createElement("canvas"); retur
 
 export default function HeroStory() {
   const { t, href } = useI18n();
+  const router = useRouter();
   const s = t.story;
   const root = useRef<HTMLElement>(null);
   const copy = useRef<HTMLDivElement>(null);
@@ -65,9 +67,8 @@ export default function HeroStory() {
   // Choosing an object: it flies toward the camera, the page fades, then the destination section arrives with its own reveal.
   const dive = (e: React.MouseEvent<HTMLAnchorElement>, i: number, h: string) => {
     const el = root.current;
-    const target = document.getElementById(h.replace(/^.*#/, ""));
     const story = !!el && el.dataset.phase === "2" && getComputedStyle(el.querySelector(".hero-sticky")!).position === "sticky";
-    if (!story || !target || e.metaKey || e.ctrlKey || e.shiftKey || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!story || e.metaKey || e.ctrlKey || e.shiftKey || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     e.preventDefault();
     heroProgress.focus = i;
     const t0 = performance.now();
@@ -76,11 +77,8 @@ export default function HeroStory() {
       heroProgress.dive = d;
       el!.style.setProperty("--dive", d.toFixed(3));
       if (k < 1) return requestAnimationFrame(step);
-      target.scrollIntoView({ behavior: "instant" as ScrollBehavior, block: "start" });
-      history.replaceState(null, "", `#${target.id}`);
-      target.setAttribute("data-arrive", "");
-      setTimeout(() => target.removeAttribute("data-arrive"), 1400);
-      setTimeout(() => { heroProgress.dive = 0; heroProgress.focus = -1; el!.style.setProperty("--dive", "0"); }, 120);
+      router.push(href(h));
+      setTimeout(() => { heroProgress.dive = 0; heroProgress.focus = -1; el!.style.setProperty("--dive", "0"); }, 400);
     };
     requestAnimationFrame(step);
   };

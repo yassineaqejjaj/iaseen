@@ -76,14 +76,14 @@ html[data-mode="executive"] .sec { padding-block: 40px; }
 html[data-mode="executive"] #top > .wrap:first-child { padding-block: 40px 24px; }
 html[data-mode="executive"] #experience ol { display: none; }
 html[data-mode="executive"] #experience [aria-live] { flex: 1 1 100%; display: grid; gap: 16px; }
-html[data-mode="executive"] #experience article[data-inactive] { display: block; }
+html[data-mode="executive"] #experience article[data-inactive] { display: block !important; }
 html[data-mode="executive"] #expertise [aria-live] { display: none; }
 html[data-mode="executive"] .paths { display: flex; flex-direction: column; }
 html[data-mode="executive"] .paths > #experience { order: 1; } html[data-mode="executive"] .paths > #client-work { order: 2; }
 html[data-mode="executive"] .paths > #expertise { order: 3; } html[data-mode="executive"] .paths > #insights { order: 4; } html[data-mode="executive"] .paths > #about { order: 0; }
 
-/* Inactive tab panels stay in the HTML (crawlable) but are not displayed. Tailwind's [hidden] rule is !important and cannot be overridden. */
-[data-inactive] { display: none; }
+/* Inactive tab panels stay in the HTML (crawlable) but are not displayed. !important because several panels set their own inline display (flex, grid). */
+[data-inactive] { display: none !important; }
 
 /* ---------- Hero story: sticky scroll scene (desktop, motion allowed), static layout otherwise ---------- */
 .hero-story { position: relative; border-bottom: 1px solid var(--line); --p: 0;
@@ -476,3 +476,10 @@ html[data-theme="light"] [style*="background: var(--accent)"][style*="color: rgb
 html[data-theme="light"] { --chip-bg: #e4e9fa; --chip-fg: #18243a; --chip-line: rgba(11,16,32,.2); --chip-on: #0b1020; }
 .ins-book-img { display: block; width: 100%; aspect-ratio: 2 / 3; object-fit: cover; background: #0b1020; }
 html[data-theme="light"] { --wordmark: #05060a; }
+
+/* Hero call to action: a slow, gentle glow instead of the magnetic pull. Off with reduced motion and in executive mode. */
+@keyframes ctaGlow { 0%, 100% { box-shadow: 0 0 0 0 rgba(76,111,240,0); transform: translateY(0); } 50% { box-shadow: 0 10px 32px -10px rgba(76,111,240,.6); transform: translateY(-1px); } }
+.cta-pulse { animation: ctaGlow 3.4s ease-in-out infinite; }
+.cta-pulse:hover { animation-play-state: paused; transform: translateY(-2px); box-shadow: 0 12px 36px -8px rgba(76,111,240,.7); }
+html[data-mode="executive"] .cta-pulse { animation: none; }
+.hero-proof { text-wrap: balance; }

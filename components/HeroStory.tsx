@@ -127,7 +127,7 @@ export default function HeroStory() {
         <ul className="hero-parts wrap" ref={partsEl} aria-label={s.partsAria}>
           {s.parts.map((x, i) => (
             <li key={x.k}>
-              <Link href={href(x.h)} onClick={(e) => dive(e, i, x.h)} className="card magnetic" style={{ display: "block", padding: "18px 20px", borderRadius: 18, textDecoration: "none", color: "var(--text)", background: "rgba(13,19,32,.7)", backdropFilter: "blur(10px)" }}>
+              <Link href={href(x.h)} onClick={(e) => dive(e, i, x.h)} className="card" style={{ display: "block", padding: "18px 20px", borderRadius: 18, textDecoration: "none", color: "var(--text)", background: "rgba(13,19,32,.7)", backdropFilter: "blur(10px)" }}>
                 <span className="display" style={{ display: "block", fontSize: 24, letterSpacing: "0.04em" }}>{x.k}</span>
                 <span style={{ display: "block", marginTop: 4, fontSize: 14, color: "var(--text2)" }}>{x.d}</span>
               </Link>

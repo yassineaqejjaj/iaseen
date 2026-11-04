@@ -18,6 +18,8 @@ export type Loc = {
   diagram: { nodes: string[]; nodes2?: string[]; heads?: [string, string]; caption: string };
   results: { v: string; l: string }[];
   faq?: { q: string; a: string }[];
+  /** Caption and alt text for the article image (the image itself is set on the post). */
+  figure?: { alt: string; caption: string };
 };
 
 export type Content = { en: Loc; fr: Loc; ar: Loc };

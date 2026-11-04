@@ -76,6 +76,14 @@ export default async function PostPage({ params }: { params: Promise<{ locale: s
             <div className="prose">
               {x.answer && <p className="answer" dir="auto">{x.answer}</p>}
               {x.sections.slice(0, 1).map((s) => <Section key={s.h} s={s} />)}
+              {post.image && x.figure && (
+                <figure className="mindmap">
+                  <a href={post.image.src} target="_blank" rel="noopener" aria-label={x.figure.alt}>
+                    <img src={post.image.src} alt={x.figure.alt} width={post.image.width} height={post.image.height} loading="eager" decoding="async" />
+                  </a>
+                  <figcaption>{x.figure.caption}</figcaption>
+                </figure>
+              )}
               <BlogDiagram kind={post.kind} d={x.diagram} label={b.diagram} />
               {x.sections.slice(1).map((s) => <Section key={s.h} s={s} />)}
               <aside className="take">

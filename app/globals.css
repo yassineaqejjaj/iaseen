@@ -487,3 +487,9 @@ html[data-mode="executive"] .cta-pulse { animation: none; }
 /* Surfaces that used to rely on inline colours: now tokens, so no browser can miss the light-theme override. */
 .client-head { background: linear-gradient(135deg, var(--head-a), var(--head-b)); }
 html[data-theme="light"] { --panel: rgba(255,255,255,.92); --panel-hero: rgba(255,255,255,.92); --head-a: #eef1fb; --head-b: #ffffff; }
+
+/* Article figure (full-width mind map): click opens the full-size image for reading small labels. */
+.mindmap { margin: 36px 0; }
+.mindmap a { display: block; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; background: #060816; }
+.mindmap img { display: block; width: 100%; height: auto; }
+.mindmap figcaption { margin-top: 10px; font-size: 14px; line-height: 1.5; color: var(--muted); }

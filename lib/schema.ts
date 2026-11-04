@@ -153,6 +153,7 @@ export const postGraph = (l: Locale, slug: string) => {
         "@type": "BlogPosting", "@id": `${url}#post`, headline: x.title, description: x.dek, inLanguage: l, url, datePublished: post.date, dateModified: post.updated ?? post.date,
         author: { "@id": PERSON_ID }, publisher: { "@id": PERSON_ID }, mainEntityOfPage: url, keywords: post.tags.join(", "),
         citation: post.repos.map((r) => r.url),
+        ...(post.image ? { image: { "@type": "ImageObject", url: `${SITE}${post.image.src}`, width: post.image.width, height: post.image.height, caption: x.figure?.caption } } : {}),
       },
       ...(x.faq ? [{ "@type": "FAQPage", "@id": `${url}#faq`, mainEntity: x.faq.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) }] : []),
       {

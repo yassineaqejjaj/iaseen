@@ -230,6 +230,7 @@ export const products = [
   { name: "ClassMind", category: "EDUCATION", status: "MVP", desc: "Education MVP with human-in-the-loop agents and RAG.", stack: "", url: GH, cta: "GitHub" },
   { name: "Fencing Intelligence", category: "SPORT", status: "Beta", desc: "Usable beta built from architecture through deployment with AI-assisted coding: video analysis for épée, foil and sabre.", stack: "Python", url: GH + "/fencing-intelligence", cta: "GitHub" },
   { name: "Prompt Arena", category: "EDUCATION", status: "AI Factory", desc: "Gamified prompt-engineering training: progressive levels, an AI mentor that scores each prompt and gives feedback, a leaderboard and a facilitator playbook for events.", stack: "Devoteam", url: "https://devoteampromptarena.lovable.app", cta: "Live" },
+  { name: "Vita", category: "HEALTH", status: "Prototype", desc: "AI health and fitness coach app (iOS and Android): reads phone and watch health data, builds a realistic weekly plan and suggests workouts and strength programmes. Wellbeing and prevention, not a medical device.", stack: "TypeScript · React Native", url: "", cta: "" },
 ];
 export const FILTERS: { id: string; label: string }[] = [
   { id: "All", label: "All" }, { id: "AGENTIC", label: "Agentic AI" }, { id: "HEALTH", label: "HealthTech" },

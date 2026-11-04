@@ -165,6 +165,14 @@ export const KPIS: Record<string, KpiSet> = {
     ],
     top: [0, 1, 2],
   },
+  Vita: {
+    all: [
+      k("403", "Automated tests", "Tests automatisés", "اختبارات آلية"),
+      k("69", "Exercises with an animated demo", "Exercices avec démonstration animée", "تمارين بعروض متحركة"),
+      k("9", "Strength programmes", "Programmes de musculation", "برامج بناء العضلات"),
+    ],
+    top: [0, 1, 2],
+  },
   "Prompt Arena": {
     all: [
       k("13", "Learning paths", "Parcours d’apprentissage", "مسارات التعلم"),

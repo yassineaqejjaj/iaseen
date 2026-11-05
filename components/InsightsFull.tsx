@@ -12,6 +12,13 @@ const coverFile = (url: string) => {
   return null;
 };
 
+/** YouTube id from a watch or short link; the thumbnail is stored in public/videos/<id>.webp (self-hosted: no request to YouTube when the page loads). */
+const ytId = (url: string) => url.match(/(?:v=|youtu\.be\/)([\w-]{11})/)?.[1] ?? null;
+const thumbFile = (url: string) => {
+  const id = ytId(url);
+  return id && existsSync(path.join(process.cwd(), "public", "videos", `${id}.webp`)) ? `/videos/${id}.webp` : null;
+};
+
 const PlayIcon = () => (<svg aria-hidden width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="M10 8.5l5 3.5-5 3.5z" /></svg>);
 const DocIcon = () => (<svg aria-hidden width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M6 3h9l4 4v14H6z" /><path d="M14 3v5h5M9 13h7M9 17h7" /></svg>);
 
@@ -27,7 +34,12 @@ export default function InsightsFull({ locale }: { locale: Locale }) {
   );
   const media = (v: { url: string; kind: string; title: string; source: string }, icon: React.ReactNode) => (
     <a key={v.url} href={v.url} target="_blank" rel="noopener noreferrer" className="card ins-media">
-      <span className="ins-thumb">{icon}</span>
+      {(() => {
+        const img = thumbFile(v.url);
+        return img
+          ? <span className="ins-thumb ins-thumb-v"><img src={img} alt="" width={640} height={360} loading="lazy" decoding="async" /><span aria-hidden className="ins-play"><PlayIcon /></span></span>
+          : <span className="ins-thumb">{icon}</span>;
+      })()}
       <span className="ins-media-body">
         <span className="ins-kind">{t.insights.kind[v.kind] ?? v.kind}</span>
         <span dir="auto" className="ins-title">{v.title}</span>

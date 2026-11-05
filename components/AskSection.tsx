@@ -62,7 +62,7 @@ export default function AskSection() {
       <form onSubmit={(e) => { e.preventDefault(); if (!text.trim()) return; setActive(-1); setAns(ask(text, locale)); setText(""); }} style={{ display: "flex", gap: 8, alignItems: "center" }}>
         <label htmlFor="ask-input" style={{ position: "absolute", width: 1, height: 1, overflow: "hidden", clip: "rect(0 0 0 0)" }}>{t.ask.placeholder}</label>
         <input id="ask-input" value={text} onChange={(e) => setText(e.target.value)} placeholder={t.ask.placeholder}
-          style={{ flex: 1, minWidth: 0, minHeight: 52, padding: "0 18px", borderRadius: 999, border: "1px solid var(--line)", background: "var(--panel)", color: "#fff", fontSize: 15, fontFamily: "inherit" }} />
+          style={{ flex: 1, minWidth: 0, minHeight: 52, padding: "0 18px", borderRadius: 999, border: "1px solid var(--field-line)", background: "var(--field-bg)", color: "var(--text)", fontSize: 15, fontFamily: "inherit" }} />
         <button type="submit" aria-label={t.ask.send} style={{ flex: "none", width: 52, height: 52, borderRadius: "50%", border: "none", cursor: "pointer", background: "var(--accent)", color: "#05060a", display: "inline-flex", alignItems: "center", justifyContent: "center" }}>
           <svg className="flip" aria-hidden width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
         </button>

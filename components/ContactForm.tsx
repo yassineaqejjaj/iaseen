@@ -36,7 +36,7 @@ export default function ContactForm() {
       </div>
     );
 
-  const field = { width: "100%", boxSizing: "border-box", minHeight: 48, padding: "12px 16px", borderRadius: 14, border: "1px solid var(--line)", background: "rgba(127,127,127,.08)", color: "var(--text)", font: "inherit", fontSize: 16 } as const;
+  const field = { width: "100%", boxSizing: "border-box", minHeight: 48, padding: "12px 16px", borderRadius: 14, border: "1px solid var(--field-line)", background: "var(--field-bg)", color: "var(--text)", font: "inherit", fontSize: 16 } as const;
   return (
     <form onSubmit={submit} className="card" style={{ padding: 28, maxWidth: 640, display: "flex", flexDirection: "column", gap: 16 }} aria-label={f.title}>
       <h2 className="display" style={{ margin: 0, fontSize: 26 }}>{f.title}</h2>

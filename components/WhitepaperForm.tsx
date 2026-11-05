@@ -45,7 +45,7 @@ export default function WhitepaperForm({ id, fileName }: { id: string; fileName:
       </div>
     );
 
-  const field = { width: "100%", minHeight: 52, padding: "0 18px", borderRadius: 14, border: "1px solid var(--line)", background: "rgba(5,6,10,.6)", color: "#fff", fontSize: 16, fontFamily: "inherit" } as const;
+  const field = { width: "100%", minHeight: 52, padding: "0 18px", borderRadius: 14, border: "1px solid var(--field-line)", background: "var(--field-bg)", color: "var(--text)", fontSize: 16, fontFamily: "inherit" } as const;
   return (
     <form onSubmit={submit} className="card" style={{ padding: 24, display: "grid", gap: 14 }} noValidate>
       <h2 className="display" style={{ margin: 0, fontSize: 24 }}>{w.formTitle}</h2>

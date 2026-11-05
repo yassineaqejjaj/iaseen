@@ -29,7 +29,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
     <>
       <Header locale={locale} />
       <main>
-        <div className="wrap" style={{ paddingBlock: "56px 40px" }}>
+        <div className="wrap" data-ambient="contact" style={{ paddingBlock: "56px 40px" }}>
           <h1 className="display" style={{ margin: "8px 0 12px", fontSize: "clamp(34px, 5vw, 56px)" }}>{t.contact.title}</h1>
           <p style={{ margin: "16px 0 28px", maxWidth: 560, fontSize: 18, lineHeight: 1.6, color: "var(--text2)" }}>{t.contact.text}</p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>

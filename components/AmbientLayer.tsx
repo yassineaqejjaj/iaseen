@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ask } from "@/lib/ask";
 import { SECTION_QA } from "@/lib/ambient";
 import { useI18n } from "./LocaleProvider";
@@ -16,14 +17,19 @@ export default function AmbientLayer() {
   const [active, setActive] = useState<string | null>(null);
   const [open, setOpen] = useState<number | null>(null);
   const [sel, setSel] = useState<{ x: number; y: number; q: string } | null>(null);
+  const path = usePathname();
 
+  // The home page has one section per id; the other pages mark their content with data-ambient="<section key>".
+  // Re-run on every page change: the layout (and this component) stays mounted while the page underneath is replaced.
   useEffect(() => {
+    setActive(null); setOpen(null);
     const ids = ["top", "numbers", ...Object.keys(SECTION_QA)];
-    const els = ids.map((id) => document.getElementById(id)).filter(Boolean) as HTMLElement[];
-    const io = new IntersectionObserver((es) => { for (const e of es) if (e.isIntersecting) { setActive(e.target.id); setOpen(null); } }, { rootMargin: "-45% 0px -50% 0px" });
+    const els = new Set<HTMLElement>([...ids.map((id) => document.getElementById(id)).filter(Boolean) as HTMLElement[], ...Array.from(document.querySelectorAll<HTMLElement>("[data-ambient]"))]);
+    const key = (el: HTMLElement) => el.dataset.ambient ?? el.id;
+    const io = new IntersectionObserver((es) => { for (const e of es) if (e.isIntersecting) { setActive(key(e.target as HTMLElement)); setOpen(null); } }, { rootMargin: "-45% 0px -50% 0px" });
     els.forEach((el) => io.observe(el));
     return () => io.disconnect();
-  }, []);
+  }, [path]);
 
   useEffect(() => {
     const onSel = () => {

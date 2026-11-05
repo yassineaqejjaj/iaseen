@@ -27,7 +27,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
     <>
       <Header locale={locale} />
       <main>
-        <div className="wrap" style={{ paddingBlock: "56px 96px", display: "flex", flexWrap: "wrap", gap: 48, alignItems: "flex-start" }}>
+        <div className="wrap" data-ambient="ask" style={{ paddingBlock: "56px 96px", display: "flex", flexWrap: "wrap", gap: 48, alignItems: "flex-start" }}>
           <div style={{ flex: "1 1 340px", minWidth: 0 }}>
             <p className="eyebrow">{t.ask.eyebrow}</p>
             <h1 className="display" style={{ margin: "8px 0 12px", fontSize: "clamp(34px, 5vw, 56px)" }}>{t.ask.title}</h1>

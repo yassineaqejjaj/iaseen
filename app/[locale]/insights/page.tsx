@@ -27,7 +27,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
     <>
       <Header locale={locale} />
       <main>
-        <div className="wrap" style={{ paddingBlock: "56px 96px" }}>
+        <div className="wrap" data-ambient="insights" style={{ paddingBlock: "56px 96px" }}>
           <p className="eyebrow">{t.insights.eyebrow}</p>
           <h1 className="display" style={{ margin: "8px 0 12px", fontSize: "clamp(34px, 5vw, 56px)" }}>{t.insights.title}</h1>
           <p className="lead" style={{ maxWidth: 720, marginBottom: 36 }}>{t.insights.lead}</p>

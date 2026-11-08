@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import BlogDiagram from "@/components/BlogDiagram";
-import MermaidDiagram from "@/components/MermaidDiagram";
 import Header from "@/components/Header";
 import { postBySlug, posts } from "@/lib/blog";
 import { getI18n, isLocale, locales, type Locale } from "@/lib/i18n";
@@ -77,12 +76,6 @@ export default async function PostPage({ params }: { params: Promise<{ locale: s
             <div className="prose">
               {x.answer && <p className="answer" dir="auto">{x.answer}</p>}
               {x.sections.slice(0, 1).map((s) => <Section key={s.h} s={s} />)}
-              {post.architecture && x.figure && (
-                <figure className="mindmap">
-                  <MermaidDiagram chart={post.architecture} label={x.figure.alt} />
-                  <figcaption>{x.figure.caption}</figcaption>
-                </figure>
-              )}
               {post.image && x.figure && (
                 <figure className="mindmap">
                   <a href={post.image.src} target="_blank" rel="noopener" aria-label={x.figure.alt}>

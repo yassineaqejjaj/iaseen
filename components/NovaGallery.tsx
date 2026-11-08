@@ -1,8 +1,6 @@
 "use client";
 import { useState } from "react";
 import { useI18n } from "./LocaleProvider";
-import MermaidDiagram from "./MermaidDiagram";
-import { novaArchitecture } from "@/lib/diagrams/nova";
 
 const SHOTS = ["nova-today", "nova-architecture", "nova-skills", "nova-engineering", "nova-routines", "nova-voice"];
 
@@ -25,9 +23,8 @@ export default function NovaGallery() {
       </div>
       <div style={{ padding: 24 }}>
         <div style={{ borderRadius: 16, overflow: "hidden", border: "1px solid var(--line)", background: "#f7f5f4" }}>
-          {i === 1 ? <MermaidDiagram chart={novaArchitecture} label={`NOVA: ${g.items[i]}`} /> :
-            /* eslint-disable-next-line @next/next/no-img-element */
-            <img src={`/products/${SHOTS[i]}.webp`} alt={`NOVA: ${g.items[i]}`} width={1700} height={i === 2 ? 850 : 1067} loading="lazy" decoding="async" style={{ display: "block", width: "100%", height: "auto" }} />}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={`/products/${SHOTS[i]}.webp`} alt={`NOVA: ${g.items[i]}`} width={1700} height={i === 1 || i === 2 ? 850 : 1067} loading="lazy" decoding="async" style={{ display: "block", width: "100%", height: "auto" }} />
         </div>
       </div>
     </div>

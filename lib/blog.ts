@@ -11,7 +11,6 @@ import { content as governance } from "./blog-content/ai-agent-governance-polici
 import { content as mcp } from "./blog-content/mcp-enterprise-connecting-agents-safely";
 import { content as autonomy } from "./blog-content/earned-autonomy-governing-ai-coding-agents";
 import { content as agentMap } from "./blog-content/ai-agent-mind-map-from-idea-to-production";
-import { agentMindMap } from "./diagrams/agent-mind-map";
 
 /**
  * Blog articles: metadata here, long-form text per article in lib/blog-content/.
@@ -30,7 +29,6 @@ export type Post = Content & {
   repos: { label: string; url: string }[];
   cases?: string[]; // case-study slugs
   image?: { src: string; width: number; height: number }; // article figure, shown after the first section
-  architecture?: string; // Mermaid source for an article architecture figure
 };
 
 const GH = "https://github.com/yassineaqejjaj";
@@ -106,7 +104,7 @@ export const posts: Post[] = [
     slug: "ai-agent-mind-map-from-idea-to-production", date: "2026-11-04", updated: "2026-11-04", minutes: 11, kind: "loop",
     tags: ["AI agents", "Architecture", "Production"],
     repos: [{ label: "NOVA", url: `${GH}/NOVA` }, { label: "ORBIT", url: `${GH}/ORBIT` }, { label: "FORGE", url: `${GH}/FORGE` }, { label: "TrustRail", url: `${GH}/TrustRail` }, { label: "agentic-sdlc", url: `${GH}/agentic-sdlc` }],
-    architecture: agentMindMap,
+    image: { src: "/blog/ai-agent-mind-map.webp", width: 1536, height: 1024 },
     ...agentMap,
   },
 ];

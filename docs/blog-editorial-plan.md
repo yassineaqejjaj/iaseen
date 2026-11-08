@@ -6,7 +6,7 @@ Goal: be the cited answer for "agentic AI in the enterprise" questions, with Yas
 
 1. **Answer first.** The first paragraph is a 40 to 60 word definition or direct answer to the title question.
 2. **1,500 to 2,200 words**, with H2s written as questions people ask.
-3. **One table** (comparison, checklist or metrics) and **one Mermaid diagram**: tables are the most quoted format.
+3. **One table** (comparison, checklist or metrics) and **one diagram**: tables are the most quoted format.
 4. **One section "What I measured / what I saw"** with a real, validated figure and its source. No invented numbers.
 5. **FAQ block of 4 to 5 questions** with short answers (also in `FAQPage` JSON-LD).
 6. **Links:** the related case study, the related GitHub repo, two sibling articles.
@@ -48,4 +48,3 @@ Goal: be the cited answer for "agentic AI in the enterprise" questions, with Yas
 ## Suggested order and cadence
 
 One article every two weeks. Start with 1, 3 and 5: they combine a high-volume query with evidence you already hold.
-

@@ -26,7 +26,7 @@ export default function Constellation() {
     const roles = [...c.roles].reverse(); // oldest on the left
     const skills = Object.keys(c.proof);
     const nodes: Node[] = [
-      ...PRODUCTS.map((p, i) => ({ id: `p:${p.id}`, kind: "product" as Kind, label: p.name, x: 90 + i * 164, y: 60 })),
+      ...PRODUCTS.map((p, i) => ({ id: `p:${p.id}`, kind: "product" as Kind, label: p.name, x: 100 + (i % 4) * 265, y: 60 + Math.floor(i / 4) * 70 })),
       ...c.clients.map((cl, i) => ({ id: `m:${cl.slug}`, kind: "mission" as Kind, label: cl.client.split(" · ")[0], x: 170 + i * 220, y: 395 })),
       ...skills.map((s, i) => ({ id: `s:${s}`, kind: "skill" as Kind, label: t.expertise.skills[s] ?? s, x: 60 + i * 80, y: i % 2 ? 300 : 230 })),
       ...roles.map((r, i) => ({ id: `r:${r.org}`, kind: "role" as Kind, label: r.org, sub: r.period.replace(/^.* – /, ""), x: 100 + i * 200, y: 470 })),

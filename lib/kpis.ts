@@ -91,6 +91,22 @@ export const KPIS: Record<string, KpiSet> = {
   },
 
   // ---- AI Lab products
+  ARIS: {
+    all: [
+      k("7", "Specialised agents", "Agents spécialisés", "وكلاء متخصصون"),
+      k("4", "Document formats supported", "Formats de documents pris en charge", "صيغ مستندات مدعومة"),
+      k("RFP", "First mission workflow", "Premier parcours de mission", "مسار المهمة الأول"),
+    ],
+    top: [0, 1, 2],
+  },
+  "TRAIL Intelligence": {
+    all: [
+      k("11", "AI skill domains", "Domaines de compétences IA", "مجالات مهارات الذكاء الاصطناعي"),
+      k("12", "Professional roles", "Métiers couverts", "مهن مدعومة"),
+      k("3", "Languages: EN · FR · AR", "Langues : EN · FR · AR", "لغات: EN · FR · AR"),
+    ],
+    top: [0, 1, 2],
+  },
   TrustRail: {
     all: [
       k("100%", "Policy tests passed", "Tests de politiques réussis", "اختبارات السياسات الناجحة"),

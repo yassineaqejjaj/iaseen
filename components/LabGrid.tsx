@@ -4,8 +4,9 @@ import type { PageAct } from "@/lib/actions";
 import { real } from "@/lib/content";
 import { KpiRow } from "./Kpi";
 import { useI18n } from "./LocaleProvider";
+import { FEATURED_PRODUCTS } from "@/lib/featured-products";
 
-const SHOWN_ABOVE = ["NOVA Suite", "Nova Context", "Nova Evals · FORGE", "M3aya Santé", "TRAIL Academy"];
+const SHOWN_ABOVE: readonly string[] = ["NOVA Suite", "Nova Context", "Nova Evals · FORGE", ...FEATURED_PRODUCTS.map((p) => p.name)];
 
 export default function LabGrid() {
   const { t, c } = useI18n();

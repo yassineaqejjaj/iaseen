@@ -231,6 +231,8 @@ export const products = [
   { name: "Fencing Intelligence", category: "SPORT", status: "Beta", desc: "Usable beta built from architecture through deployment with AI-assisted coding: video analysis for épée, foil and sabre.", stack: "Python", url: GH + "/fencing-intelligence", cta: "GitHub" },
   { name: "Prompt Arena", category: "EDUCATION", status: "AI Factory", desc: "Gamified prompt-engineering training: progressive levels, an AI mentor that scores each prompt and gives feedback, a leaderboard and a facilitator playbook for events.", stack: "Devoteam", url: "https://devoteampromptarena.lovable.app", cta: "Live" },
   { name: "Vita", category: "HEALTH", status: "Prototype", desc: "AI health and fitness coach app (iOS and Android): reads phone and watch health data, builds a realistic weekly plan and suggests workouts and strength programmes. Wellbeing and prevention, not a medical device.", stack: "TypeScript · React Native", url: "", cta: "" },
+  { name: "ARIS", category: "AGENTIC", status: "Beta", desc: "Turn a goal into a supervised multi-agent mission: task planning, RFP response preparation, cited deliverables, budget tracking and human approval before release.", stack: "Next.js · FastAPI · PostgreSQL", url: "https://aris-jet-sigma.vercel.app", cta: "Live" },
+  { name: "TRAIL Intelligence", category: "EDUCATION", status: "Live pilot", desc: "Build and demonstrate practical AI skills through role-based exercises, evidence-linked feedback and a human-reviewed skills passport. Automated scores remain provisional until human review.", stack: "Next.js · FastAPI · PostgreSQL", url: "https://trail-intelligence.vercel.app", cta: "Visit" },
 ];
 export const FILTERS: { id: string; label: string }[] = [
   { id: "All", label: "All" }, { id: "AGENTIC", label: "Agentic AI" }, { id: "HEALTH", label: "HealthTech" },
@@ -240,16 +242,16 @@ export const FILTERS: { id: string; label: string }[] = [
 export const proof: Record<string, { kind: string; label: string }[]> = {
   "AI Strategy": [{ kind: "ROLE", label: "Head of AI Factory, Devoteam" }, { kind: "MISSION", label: "Thales: Data & AI operating model" }, { kind: "BOOK", label: "Leading with AI" }],
   "Operating Model": [{ kind: "MISSION", label: "Thales LAS" }, { kind: "ROLE", label: "AI Factory set-up" }, { kind: "ROLE", label: "Fujitsu AI CoE" }],
-  Governance: [{ kind: "PRODUCT", label: "Nova Evals / FORGE: governance & evaluation" }, { kind: "PRODUCT", label: "Nova Context: governed context" }, { kind: "MISSION", label: "Thales: Data & AI governance" }],
-  Transformation: [{ kind: "TEACHING", label: "1,500+ people trained" }, { kind: "PRODUCT", label: "TRAIL Academy" }, { kind: "BOOK", label: "Symbiose" }],
+  Governance: [{ kind: "PRODUCT", label: "Nova Evals / FORGE: governance & evaluation" }, { kind: "PRODUCT", label: "Nova Context: governed context" }, { kind: "MISSION", label: "Thales: Data & AI governance" }, { kind: "PRODUCT", label: "ARIS: human approval and audit trails" }],
+  Transformation: [{ kind: "TEACHING", label: "1,500+ people trained" }, { kind: "PRODUCT", label: "TRAIL Academy" }, { kind: "BOOK", label: "Symbiose" }, { kind: "PRODUCT", label: "TRAIL Intelligence: applied AI skills" }],
   "AI Products": [{ kind: "MISSION", label: "Decathlon: intelligent retail" }, { kind: "MISSION", label: "Carrefour: retail analytics" }, { kind: "ROLE", label: "AI Product Manager, Devoteam" }],
   Teams: [{ kind: "ROLE", label: "AI Factory teams" }, { kind: "ROLE", label: "Lead of AI, Devoteam" }, { kind: "TEACHING", label: "Teams into builders" }],
   MLOps: [{ kind: "MISSION", label: "Carrefour: forecasting in production" }, { kind: "PRODUCT", label: "Nova Evals / FORGE: regression testing" }],
   "Enterprise Delivery": [{ kind: "MISSION", label: "Thales" }, { kind: "MISSION", label: "DILA" }, { kind: "MISSION", label: "Decathlon" }, { kind: "MISSION", label: "Carrefour" }],
-  "AI Agents": [{ kind: "PRODUCT", label: "NOVA: multi-agent orchestration" }, { kind: "PRODUCT", label: "NOVA Suite: Nova Agents" }, { kind: "PRODUCT", label: "CarePilot" }],
+  "AI Agents": [{ kind: "PRODUCT", label: "NOVA: multi-agent orchestration" }, { kind: "PRODUCT", label: "NOVA Suite: Nova Agents" }, { kind: "PRODUCT", label: "CarePilot" }, { kind: "PRODUCT", label: "ARIS: supervised multi-agent missions" }],
   RAG: [{ kind: "MISSION", label: "Thales: engineering assistants" }, { kind: "MISSION", label: "DILA: sovereign RAG platform" }, { kind: "PRODUCT", label: "Nova Context: context engine" }, { kind: "PRODUCT", label: "Ask My AI (this site)" }],
   "Context Engineering": [{ kind: "PRODUCT", label: "Nova Context" }, { kind: "PRODUCT", label: "NOVA memory" }, { kind: "ROLE", label: "Applied AI Research Lead, Devoteam" }],
-  Evaluation: [{ kind: "PRODUCT", label: "Nova Evals / FORGE" }, { kind: "PRODUCT", label: "MedGuard AI" }, { kind: "ROLE", label: "Applied AI Research Lead, Devoteam" }],
+  Evaluation: [{ kind: "PRODUCT", label: "Nova Evals / FORGE" }, { kind: "PRODUCT", label: "MedGuard AI" }, { kind: "ROLE", label: "Applied AI Research Lead, Devoteam" }, { kind: "PRODUCT", label: "TRAIL Intelligence: evidence and human review" }],
 };
 export const pillars = [
   { name: "Lead", line: "Vision, organisation, value", skills: ["AI Strategy", "Operating Model", "Governance", "Transformation"] },

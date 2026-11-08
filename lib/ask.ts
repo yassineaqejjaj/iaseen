@@ -1,6 +1,7 @@
 import { real } from "./content";
 import { actKey, type PageAct } from "./actions";
 import { getI18n, type Locale } from "./i18n";
+import { FEATURED_PRODUCTS } from "./featured-products";
 
 export type Answer = { q: string; a: string; sources: { label: string; href: string }[]; acts?: { label: string; act: PageAct }[]; tour?: { id: string; title: string } };
 type Chunk = { text: string; keys: string; src: { label: string; href: string }; act?: { label: string; act: PageAct } };
@@ -16,7 +17,16 @@ function chunksFor(locale: Locale): Chunk[] {
     ...c.bio.paragraphs.map((p) => ({ text: p, keys: `${p} ${t.ask.kw.about}`, src: { label: lab("about"), href: href("/about") } })),
     ...c.roles.map((r) => ({ text: `${r.title}, ${r.org} (${r.period}). ${r.summary}`, keys: `${r.title} ${r.org} ${r.tags.join(" ")} ${r.summary} ${t.ask.kw.exp}`, src: { label: lab("experience"), href: href("/experience") }, act: { label: r.org, act: { k: "node", v: `r:${r.org}` } } })),
     ...c.clients.map((cl) => ({ text: `${cl.client} — ${cl.title}: ${cl.summary}`, keys: `${cl.client} ${cl.title} ${cl.tags.join(" ")} ${cl.summary} ${t.ask.kw.client}`, src: { label: cl.client, href: href(`/work/${cl.slug}`) }, act: { label: cl.client.split(" · ")[0], act: { k: "case", v: cl.slug } } })),
-    ...c.products.map((p) => ({ text: `${p.name}: ${p.desc}`, keys: `${p.name} ${p.category} ${p.desc} ${t.ask.kw.product}`, src: { label: lab("lab"), href: href("/lab") }, act: p.name === "NOVA Suite" ? { label: "NOVA Suite", act: { k: "page", v: "/nova" } } : { label: t.lab.filters[p.category] ?? p.category, act: { k: "filter", v: p.category } } })),
+    ...c.products.map((p): Chunk => {
+      const featured = FEATURED_PRODUCTS.find((x) => x.name === p.name);
+      return {
+        text: `${p.name}: ${p.desc}`, keys: `${p.name} ${p.category} ${p.desc} ${t.ask.kw.product}`,
+        src: { label: p.name, href: href(featured ? `/lab#${featured.id}` : "/lab") },
+        act: p.name === "NOVA Suite" ? { label: p.name, act: { k: "page", v: "/nova" } }
+          : featured ? { label: p.name, act: { k: "page", v: `/lab#${featured.id}` } }
+          : { label: t.lab.filters[p.category] ?? p.category, act: { k: "filter", v: p.category } },
+      };
+    }),
     ...c.books.map((b) => ({ text: `${b.title}. ${b.theme}`, keys: `${b.title} ${b.theme} ${t.ask.kw.book}`, src: { label: lab("insights"), href: href("/insights") } })),
     ...c.stage.map((v) => ({ text: `${v.title} (${v.source.split(" · ")[0]}).`, keys: `${v.title} ${v.source} ${t.ask.kw.talk}`, src: { label: lab("insights"), href: href("/insights") } })),
     ...Object.entries(c.proof).map(([k, v]) => ({ text: `${t.expertise.skills[k] ?? k}: ${v.map((x) => x.label).join("; ")}.`, keys: `${t.expertise.skills[k] ?? k} ${v.map((x) => x.label).join(" ")} ${t.ask.kw.skill}`, src: { label: lab("expertise"), href: href("/expertise") }, act: { label: t.expertise.skills[k] ?? k, act: { k: "skill", v: k } } })),

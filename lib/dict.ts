@@ -43,7 +43,7 @@ export const dictEn = {
     filtersAria: "Filter products", flagship: "FLAGSHIP",
     filters: { All: "All", AGENTIC: "Agentic AI", HEALTH: "HealthTech", EDUCATION: "Education", SPORT: "Sport & data" } as Record<string, string>,
     cat: { AGENTIC: "AGENTIC", HEALTH: "HEALTH", EDUCATION: "EDUCATION", SPORT: "SPORT" } as Record<string, string>,
-    featuredCat: { HEALTH: "HEALTHTECH", EDUCATION: "EDUCATION" } as Record<string, string>,
+    featuredCat: { AGENTIC: "AGENTIC AI", HEALTH: "HEALTHTECH", EDUCATION: "EDTECH" } as Record<string, string>,
     live: "Open the live demo", visit: "Visit the platform",
     cta: { GitHub: "GitHub", Live: "Live", Visit: "Visit", Proof: "Proof" } as Record<string, string>,
     nova: {
@@ -208,7 +208,7 @@ export const dictEn = {
       { img: "/speaking/generative-ai-meetup-paris.webp", event: "Generative AI Meetup", date: "April 30", place: "Paris", text: "Speaker at the Generative AI Meetup in Paris, alongside speakers from Ipsos Synthesio and Scaleway.", alt: "Yassine Aqejjaj on the Generative AI Meetup poster, Paris, April 30", tag: "Event poster" },
     ],
   },
-  pages: { workTitle: "Work: AI missions and results | Yassine Aqejjaj", workDesc: "Client missions led by Yassine Aqejjaj: sovereign generative AI, enterprise AI transformation and AI product delivery, with measured results.", labTitle: "AI Lab: products and platforms | Yassine Aqejjaj", labDesc: "The NOVA Suite, TrustRail, MedGuard AI, Prompt Arena and the other AI products built by Yassine Aqejjaj.", allWork: "All missions", allLab: "All products and projects" },
+  pages: { workTitle: "Work: AI missions and results | Yassine Aqejjaj", workDesc: "Client missions led by Yassine Aqejjaj: sovereign generative AI, enterprise AI transformation and AI product delivery, with measured results.", labTitle: "AI Lab: products and platforms | Yassine Aqejjaj", labDesc: "Explore NOVA Suite, ARIS, TRAIL Intelligence and the healthcare, learning and agentic AI products built by Yassine Aqejjaj.", allWork: "All missions", allLab: "All products and projects" },
   landing: {
     quote: "Successful AI products are measured by the business indicators they improve, not by the complexity of their algorithms.", quoteBy: "Yassine Aqejjaj, Head of AI Factory at Devoteam",
     pathsAria: "Three ways into my work", paths: [{ k: "I’m hiring", d: "Leadership, impact, CV", h: "/experience" }, { k: "I have a project", d: "Missions, results, contact", h: "/work" }, { k: "I want to learn", d: "Guides, articles, talks", h: "/insights" }],
@@ -308,7 +308,7 @@ export const dictFr: Dict = {
     filtersAria: "Filtrer les produits", flagship: "PROJET PHARE",
     filters: { All: "Tous", AGENTIC: "IA agentique", HEALTH: "HealthTech", EDUCATION: "Éducation", SPORT: "Sport & data" },
     cat: { AGENTIC: "AGENTIQUE", HEALTH: "SANTÉ", EDUCATION: "ÉDUCATION", SPORT: "SPORT" },
-    featuredCat: { HEALTH: "HEALTHTECH", EDUCATION: "ÉDUCATION" },
+    featuredCat: { AGENTIC: "IA AGENTIQUE", HEALTH: "HEALTHTECH", EDUCATION: "EDTECH" },
     live: "Ouvrir la démo", visit: "Visiter la plateforme",
     cta: { GitHub: "GitHub", Live: "Démo", Visit: "Visiter", Proof: "Preuve" },
     nova: {
@@ -470,7 +470,7 @@ export const dictFr: Dict = {
       { img: "/speaking/generative-ai-meetup-paris.webp", event: "Generative AI Meetup", date: "30 avril", place: "Paris", text: "Intervenant au Generative AI Meetup à Paris, aux côtés d’intervenants d’Ipsos Synthesio et de Scaleway.", alt: "Yassine Aqejjaj sur l’affiche du Generative AI Meetup, Paris, 30 avril", tag: "Affiche de l’événement" },
     ],
   },
-  pages: { workTitle: "Missions : IA en entreprise et résultats | Yassine Aqejjaj", workDesc: "Missions menées par Yassine Aqejjaj : IA générative souveraine, transformation IA en entreprise et produits IA, avec des résultats mesurés.", labTitle: "AI Lab : produits et plateformes | Yassine Aqejjaj", labDesc: "La suite NOVA, TrustRail, MedGuard AI, Prompt Arena et les autres produits IA construits par Yassine Aqejjaj.", allWork: "Toutes les missions", allLab: "Tous les produits et projets" },
+  pages: { workTitle: "Missions : IA en entreprise et résultats | Yassine Aqejjaj", workDesc: "Missions menées par Yassine Aqejjaj : IA générative souveraine, transformation IA en entreprise et produits IA, avec des résultats mesurés.", labTitle: "AI Lab : produits et plateformes | Yassine Aqejjaj", labDesc: "Découvrez NOVA Suite, ARIS, TRAIL Intelligence et les produits IA de Yassine Aqejjaj pour les agents, la santé et l’apprentissage.", allWork: "Toutes les missions", allLab: "Tous les produits et projets" },
   landing: {
     quote: "Un produit IA réussi se mesure aux indicateurs métier qu’il améliore, pas à la complexité de ses algorithmes.", quoteBy: "Yassine Aqejjaj, Head of AI Factory chez Devoteam",
     pathsAria: "Trois portes d’entrée vers mon travail", paths: [{ k: "Je recrute", d: "Leadership, impact, CV", h: "/experience" }, { k: "J’ai un projet", d: "Missions, résultats, contact", h: "/work" }, { k: "Je veux apprendre", d: "Guides, articles, interventions", h: "/insights" }],
@@ -568,7 +568,7 @@ export const dictAr: Dict = {
     filtersAria: "تصفية المنتجات", flagship: "المشروع الرئيسي",
     filters: { All: "الكل", AGENTIC: "الذكاء الاصطناعي الوكيل", HEALTH: "التقنية الصحية", EDUCATION: "التعليم", SPORT: "الرياضة والبيانات" },
     cat: { AGENTIC: "وكيل", HEALTH: "صحة", EDUCATION: "تعليم", SPORT: "رياضة" },
-    featuredCat: { HEALTH: "تقنية صحية", EDUCATION: "تعليم" },
+    featuredCat: { AGENTIC: "الذكاء الاصطناعي الوكيل", HEALTH: "تقنية صحية", EDUCATION: "تقنية التعليم" },
     live: "افتح العرض التجريبي", visit: "زيارة المنصة",
     cta: { GitHub: "GitHub", Live: "عرض مباشر", Visit: "زيارة", Proof: "الدليل" },
     nova: {
@@ -730,7 +730,7 @@ export const dictAr: Dict = {
       { img: "/speaking/generative-ai-meetup-paris.webp", event: "Generative AI Meetup", date: "30 أبريل", place: "باريس", text: "متحدث في Generative AI Meetup بباريس، إلى جانب متحدثين من Ipsos Synthesio وScaleway.", alt: "Yassine Aqejjaj على ملصق Generative AI Meetup، باريس، 30 أبريل", tag: "ملصق الحدث" },
     ],
   },
-  pages: { workTitle: "الأعمال: مهام الذكاء الاصطناعي ونتائجها | Yassine Aqejjaj", workDesc: "مهام قادها Yassine Aqejjaj: ذكاء اصطناعي توليدي سيادي وتحول مؤسسي ومنتجات ذكاء اصطناعي، بنتائج مقاسة.", labTitle: "مختبر الذكاء الاصطناعي: منتجات ومنصات | Yassine Aqejjaj", labDesc: "منصة NOVA وTrustRail وMedGuard AI وPrompt Arena وباقي منتجات الذكاء الاصطناعي التي بناها Yassine Aqejjaj.", allWork: "كل المهام", allLab: "كل المنتجات والمشاريع" },
+  pages: { workTitle: "الأعمال: مهام الذكاء الاصطناعي ونتائجها | Yassine Aqejjaj", workDesc: "مهام قادها Yassine Aqejjaj: ذكاء اصطناعي توليدي سيادي وتحول مؤسسي ومنتجات ذكاء اصطناعي، بنتائج مقاسة.", labTitle: "مختبر الذكاء الاصطناعي: منتجات ومنصات | Yassine Aqejjaj", labDesc: "اكتشف NOVA Suite وARIS وTRAIL Intelligence ومنتجات Yassine Aqejjaj للذكاء الاصطناعي الوكيل والصحة والتعلم.", allWork: "كل المهام", allLab: "كل المنتجات والمشاريع" },
   landing: {
     quote: "يُقاس نجاح منتجات الذكاء الاصطناعي بمؤشرات الأعمال التي تحسّنها، لا بتعقيد خوارزمياتها.", quoteBy: "Yassine Aqejjaj، Head of AI Factory في Devoteam",
     pathsAria: "ثلاثة مداخل إلى أعمالي", paths: [{ k: "أبحث عن كفاءة", d: "القيادة والأثر والسيرة الذاتية", h: "/experience" }, { k: "لدي مشروع", d: "المهام والنتائج والتواصل", h: "/work" }, { k: "أريد أن أتعلّم", d: "أدلة ومقالات ومداخلات", h: "/insights" }],

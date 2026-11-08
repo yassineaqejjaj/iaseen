@@ -1,5 +1,7 @@
 # iaseen: Personal AI Portfolio
 
+![IASEEN Constellation — iaseen](docs/assets/github-cover.svg)
+
 Portfolio of Yassine Aqejjaj, Head of AI. Live at [iaseen.com](https://iaseen.com).
 
 > I don't just lead AI. I build it.

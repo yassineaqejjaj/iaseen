@@ -168,3 +168,8 @@ Where the leads go (`lib/whitepaper.ts`):
 - **Production without the variable:** the download works, but the address only appears in the Vercel function logs, which are not a durable store.
 
 The privacy policy is at `/privacy`.
+
+
+## Architecture diagrams
+
+Architecture diagrams use Mermaid source. Article diagrams are generated from the translated content by `lib/diagrams/blog.ts`; the NOVA gallery uses `lib/diagrams/nova.ts`. `components/MermaidDiagram.tsx` renders them with strict security and follows the site theme. Run `npm run test:diagrams` and `npm run build` after changes.

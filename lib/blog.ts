@@ -11,6 +11,7 @@ import { content as governance } from "./blog-content/ai-agent-governance-polici
 import { content as mcp } from "./blog-content/mcp-enterprise-connecting-agents-safely";
 import { content as autonomy } from "./blog-content/earned-autonomy-governing-ai-coding-agents";
 import { content as agentMap } from "./blog-content/ai-agent-mind-map-from-idea-to-production";
+import { content as orchestration } from "./blog-content/agentic-orchestration-frameworks-compared";
 
 /**
  * Blog articles: metadata here, long-form text per article in lib/blog-content/.
@@ -106,6 +107,13 @@ export const posts: Post[] = [
     repos: [{ label: "NOVA", url: `${GH}/NOVA` }, { label: "ORBIT", url: `${GH}/ORBIT` }, { label: "FORGE", url: `${GH}/FORGE` }, { label: "TrustRail", url: `${GH}/TrustRail` }, { label: "agentic-sdlc", url: `${GH}/agentic-sdlc` }],
     image: { src: "/blog/ai-agent-mind-map.webp", width: 1536, height: 1024 },
     ...agentMap,
+  },
+  {
+    slug: "agentic-orchestration-frameworks-compared", date: "2026-11-10", updated: "2026-11-10", minutes: 9, kind: "compare",
+    tags: ["Agentic AI", "Orchestration", "Decision guide"],
+    repos: [],
+    image: { src: "/blog/agentic-orchestration-frameworks.webp", width: 2160, height: 3840 },
+    ...orchestration,
   },
 ];
 

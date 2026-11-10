@@ -90,6 +90,12 @@ export default async function PostPage({ params }: { params: Promise<{ locale: s
                 <p style={{ margin: 0, fontSize: 12, fontWeight: 700, letterSpacing: ".14em", color: "var(--signal)" }}>{b.take}</p>
                 <p>{x.take}</p>
               </aside>
+              {x.cta && (
+                <aside className="card" style={{ marginTop: 24, padding: "22px 24px", borderRadius: 18 }}>
+                  <p style={{ margin: 0 }} dir="auto">{x.cta.text}</p>
+                  <Link href={href("/contact")} className="pill pill-accent" style={{ marginTop: 16, minHeight: 46, padding: "0 20px", color: "#05060a" }}>{x.cta.label} <span aria-hidden className="flip">→</span></Link>
+                </aside>
+              )}
             </div>
 
             {x.faq && (

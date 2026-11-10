@@ -20,6 +20,8 @@ export type Loc = {
   faq?: { q: string; a: string }[];
   /** Caption and alt text for the article image (the image itself is set on the post). */
   figure?: { alt: string; caption: string };
+  /** Optional closing call to action, linked to the contact page of the current locale. */
+  cta?: { text: string; label: string };
 };
 
 export type Content = { en: Loc; fr: Loc; ar: Loc };
